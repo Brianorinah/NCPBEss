@@ -64,7 +64,7 @@
                         
                 %>
                 <a href="Dashboard.aspx" class="logo">
-                    <span class="logo-mini"><b>CUE</b></span>
+                    <span class="logo-mini"><b>NCPB</b></span>
                     <span class="logo-lg"><b>Employee Portal</b></span>
                 </a>
                 <nav class="navbar navbar-static-top">
@@ -85,7 +85,7 @@
                                         <img src="images/hr-img.png" class="img-circle" alt="User Image">
                                         <p>
                                             <%=Session["name"] %>
-                                            <small>CUE</small>
+                                            <small>NCPB</small>
                                         </p>
                                     </li>
                                     <li class="user-footer">
@@ -676,7 +676,7 @@
                 <div class="pull-right hidden-xs">
                     <b>Powered By: </b><a href="https://dynasoft.co.ke"> Dynasoft Business Solutions</a>
                 </div>
-                <strong>Copyright&copy; <%: DateTime.Now.Year %>   <a href="https://www.cue.or.ke/">Commission for University Education</a>.</strong> All rights Reserved.
+                <strong>Copyright&copy; <%: DateTime.Now.Year %>   <a href="https://ncpb.co.ke/">National Cereals and Produce Board</a>.</strong> All rights Reserved.
             </footer>
         </div>
 

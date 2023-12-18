@@ -41,6 +41,49 @@ namespace HRPortal
                 return ws;
             }
         }
+        public static essQueries.essQueries ObjNav1
+        {
+            get
+            {
+                var ws = new essQueries.essQueries();
+
+                try
+                {
+                    var credentials = new NetworkCredential(ConfigurationManager.AppSettings["W_USER"],
+                        ConfigurationManager.AppSettings["W_PWD"], ConfigurationManager.AppSettings["DOMAIN"]);
+                    ws.Credentials = credentials;
+                    ws.PreAuthenticate = true;
+
+                }
+                catch (Exception ex)
+                {
+                    ex.Data.Clear();
+                }
+                return ws;
+            }
+        }
+
+        public static NewHrPortal.NewHrPortal ObjNav2
+        {
+            get
+            {
+                var ws = new NewHrPortal.NewHrPortal();
+
+                try
+                {
+                    var credentials = new NetworkCredential(ConfigurationManager.AppSettings["W_USER"],
+                        ConfigurationManager.AppSettings["W_PWD"], ConfigurationManager.AppSettings["DOMAIN"]);
+                    ws.Credentials = credentials;
+                    ws.PreAuthenticate = true;
+
+                }
+                catch (Exception ex)
+                {
+                    ex.Data.Clear();
+                }
+                return ws;
+            }
+        }
 
         public static NavExtender.NavXtender navExtender
         {

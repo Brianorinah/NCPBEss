@@ -11,7 +11,11 @@ namespace HRPortal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //string dpt = Session["Department"].ToString();
+            //if (string.IsNullOrEmpty(dpt))
+            //{
+            //    currentPassword.ReadOnly = true;
+            //}
         }
 
         protected void changepassword_Click(object sender, EventArgs e)
@@ -23,11 +27,11 @@ namespace HRPortal
                 String tConfirmPassword = confirmPassword.Text.Trim();
                 String message = "";
                 Boolean error = false;
-                if (tCurrentPassword.Length < 4)
-                {
-                    error = true;
-                    message = "Please enter a valid current password. Atleast 4 charaters";
-                }
+                //if (tCurrentPassword.Length < 4)
+                //{
+                //    error = true;
+                //    message = "Please enter a valid current password. Atleast 4 charaters";
+                //}
                 if (tNewPassword.Length < 4)
                 {
                     error = true;
@@ -57,7 +61,7 @@ namespace HRPortal
                          employeeName = empno.Text;
                     }
                     
-                    String status = Config.ObjNav.ChangePassword(employeeName, tCurrentPassword, tNewPassword, tConfirmPassword);
+                    String status = Config.ObjNav2.changePassword(employeeName, tCurrentPassword, tNewPassword, tConfirmPassword);
                     String[] info = status.Split('*');
                     if(info[0] == "success")
                     {

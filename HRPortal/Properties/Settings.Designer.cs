@@ -42,5 +42,25 @@ namespace HRPortal.Properties {
                 return ((string)(this["HRPortal_HRPortal_HRPortal"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/essQueries")]
+        public string HRPortal_essQueries_essQueries {
+            get {
+                return ((string)(this["HRPortal_essQueries_essQueries"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal")]
+        public string HRPortal_NewHrPortal_NewHrPortal {
+            get {
+                return ((string)(this["HRPortal_NewHrPortal_NewHrPortal"]));
+            }
+        }
     }
 }

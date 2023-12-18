@@ -46,7 +46,9 @@
             
                  <div class="panel" style="margin-top: 20px;border: 1px solid #d0dada;border-radius: 4px;">
                     
-                       <img src="LoginAssets/images/cue-header.jpg" width="100%"/>
+                    <div class="text-center">
+                        <img src="LoginAssets/images/ncpb.png" width="200" height="200" />
+                    </div>  
                    
                      <h3 style="width: 100%; text-align: center; color:black">Change Account Password</h3>
                      <hr/>
@@ -58,7 +60,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Current Password:</strong>
-                            <asp:Textbox runat="server" CssClass="form-control" placeholder=" Enter Current Password" TextMode="Password" ID="currentPassword" required MinLength="4"/>
+                            <asp:Textbox runat="server" CssClass="form-control" placeholder=" Enter Current Password" TextMode="Password" ID="currentPassword" MinLength="4"/>
                         </div>
 				
 				        <div class="form-group">

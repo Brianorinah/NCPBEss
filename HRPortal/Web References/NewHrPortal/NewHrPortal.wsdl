@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="changePassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="currentPassword" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="newPassword" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="confirmPassword" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="changePassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="changePassword">
+    <part name="parameters" element="tns:changePassword" />
+  </message>
+  <message name="changePassword_Result">
+    <part name="parameters" element="tns:changePassword_Result" />
+  </message>
+  <portType name="NewHrPortal_Port">
+    <operation name="changePassword">
+      <input name="changePassword" message="tns:changePassword" />
+      <output name="changePassword_Result" message="tns:changePassword_Result" />
+    </operation>
+  </portType>
+  <binding name="NewHrPortal_Binding" type="tns:NewHrPortal_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="changePassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:changePassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="changePassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="changePassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="NewHrPortal">
+    <port name="NewHrPortal_Port" binding="tns:NewHrPortal_Binding">
+      <address location="http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>

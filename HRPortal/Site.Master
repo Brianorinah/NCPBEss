@@ -611,10 +611,10 @@
                                 <li><a href="AssignedHelpDeskList.aspx"><i class="fa fa-circle-o"></i>Assigned Helpdesk Requests</a></li>
                                 <li><a href="ResolvedHelpDeskIssues.aspx"><i class="fa fa-circle-o"></i>Resolved Helpdesk Requests</a></li>
                                 <li><a href="ClosedICTRequests.aspx"><i class="fa fa-circle-o"></i>Closed Helpdesk Requests</a></li>
-                        <%
+                        <%--<%
                             if (Convert.ToBoolean(Session["admin"].ToString()) == true)
                             {
-                                %>
+                                %>--%>
                                 <li class="treeview">
                                     <a href="#">
                                         <i class="fa fa-cart"></i>
@@ -632,9 +632,9 @@
 
                                     </ul>--%>
                                 </li>                  
-                                <%
+                               <%-- <%
                             }
-                        %> 
+                        %> --%>
 
                             </ul>
                         </li>  

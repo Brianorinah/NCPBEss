@@ -2,6 +2,36 @@
 <definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/essQueries" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="fnGetDepartments">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="dmValueType" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="blocked" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="gblDmNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetDepartments_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetHrLeaveApplications">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetHrLeaveApplications_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnGetHrPortalUser">
         <complexType>
           <sequence>
@@ -17,28 +47,164 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetItems">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetItems_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnStoreRequisitionsSingle">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="appNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnStoreRequisitionsSingle_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnStoreRequisitions">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnStoreRequisitions_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
+  <message name="fnGetDepartments">
+    <part name="parameters" element="tns:fnGetDepartments" />
+  </message>
+  <message name="fnGetDepartments_Result">
+    <part name="parameters" element="tns:fnGetDepartments_Result" />
+  </message>
+  <message name="fnGetHrLeaveApplications">
+    <part name="parameters" element="tns:fnGetHrLeaveApplications" />
+  </message>
+  <message name="fnGetHrLeaveApplications_Result">
+    <part name="parameters" element="tns:fnGetHrLeaveApplications_Result" />
+  </message>
   <message name="fnGetHrPortalUser">
     <part name="parameters" element="tns:fnGetHrPortalUser" />
   </message>
   <message name="fnGetHrPortalUser_Result">
     <part name="parameters" element="tns:fnGetHrPortalUser_Result" />
   </message>
+  <message name="fnGetItems">
+    <part name="parameters" element="tns:fnGetItems" />
+  </message>
+  <message name="fnGetItems_Result">
+    <part name="parameters" element="tns:fnGetItems_Result" />
+  </message>
+  <message name="fnStoreRequisitionsSingle">
+    <part name="parameters" element="tns:fnStoreRequisitionsSingle" />
+  </message>
+  <message name="fnStoreRequisitionsSingle_Result">
+    <part name="parameters" element="tns:fnStoreRequisitionsSingle_Result" />
+  </message>
+  <message name="fnStoreRequisitions">
+    <part name="parameters" element="tns:fnStoreRequisitions" />
+  </message>
+  <message name="fnStoreRequisitions_Result">
+    <part name="parameters" element="tns:fnStoreRequisitions_Result" />
+  </message>
   <portType name="essQueries_Port">
+    <operation name="fnGetDepartments">
+      <input name="fnGetDepartments" message="tns:fnGetDepartments" />
+      <output name="fnGetDepartments_Result" message="tns:fnGetDepartments_Result" />
+    </operation>
+    <operation name="fnGetHrLeaveApplications">
+      <input name="fnGetHrLeaveApplications" message="tns:fnGetHrLeaveApplications" />
+      <output name="fnGetHrLeaveApplications_Result" message="tns:fnGetHrLeaveApplications_Result" />
+    </operation>
     <operation name="fnGetHrPortalUser">
       <input name="fnGetHrPortalUser" message="tns:fnGetHrPortalUser" />
       <output name="fnGetHrPortalUser_Result" message="tns:fnGetHrPortalUser_Result" />
     </operation>
+    <operation name="fnGetItems">
+      <input name="fnGetItems" message="tns:fnGetItems" />
+      <output name="fnGetItems_Result" message="tns:fnGetItems_Result" />
+    </operation>
+    <operation name="fnStoreRequisitionsSingle">
+      <input name="fnStoreRequisitionsSingle" message="tns:fnStoreRequisitionsSingle" />
+      <output name="fnStoreRequisitionsSingle_Result" message="tns:fnStoreRequisitionsSingle_Result" />
+    </operation>
+    <operation name="fnStoreRequisitions">
+      <input name="fnStoreRequisitions" message="tns:fnStoreRequisitions" />
+      <output name="fnStoreRequisitions_Result" message="tns:fnStoreRequisitions_Result" />
+    </operation>
   </portType>
   <binding name="essQueries_Binding" type="tns:essQueries_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="fnGetDepartments">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetDepartments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetDepartments">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetDepartments_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetHrLeaveApplications">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetHrLeaveApplications" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetHrLeaveApplications">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetHrLeaveApplications_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="fnGetHrPortalUser">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetHrPortalUser" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="fnGetHrPortalUser">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetHrPortalUser_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetItems">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetItems" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetItems">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetItems_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnStoreRequisitionsSingle">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnStoreRequisitionsSingle" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnStoreRequisitionsSingle">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnStoreRequisitionsSingle_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnStoreRequisitions">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnStoreRequisitions" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnStoreRequisitions">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnStoreRequisitions_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

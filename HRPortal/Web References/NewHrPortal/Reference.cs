@@ -31,6 +31,12 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback changePasswordOperationCompleted;
         
+        private System.Threading.SendOrPostCallback createStoreRequisitionLineOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback createStoreRequisitionOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback fnGetEmployeeDetailOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -73,6 +79,15 @@ namespace HRPortal.NewHrPortal {
         public event changePasswordCompletedEventHandler changePasswordCompleted;
         
         /// <remarks/>
+        public event createStoreRequisitionLineCompletedEventHandler createStoreRequisitionLineCompleted;
+        
+        /// <remarks/>
+        public event createStoreRequisitionCompletedEventHandler createStoreRequisitionCompleted;
+        
+        /// <remarks/>
+        public event fnGetEmployeeDetailCompletedEventHandler fnGetEmployeeDetailCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:changePassword", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="changePassword_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string changePassword(string employeeNo, string currentPassword, string newPassword, string confirmPassword) {
@@ -109,6 +124,116 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createStoreRequisitionLine", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createStoreRequisitionLine_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string createStoreRequisitionLine(string requisitionNo, string item, string location, int quantity) {
+            object[] results = this.Invoke("createStoreRequisitionLine", new object[] {
+                        requisitionNo,
+                        item,
+                        location,
+                        quantity});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void createStoreRequisitionLineAsync(string requisitionNo, string item, string location, int quantity) {
+            this.createStoreRequisitionLineAsync(requisitionNo, item, location, quantity, null);
+        }
+        
+        /// <remarks/>
+        public void createStoreRequisitionLineAsync(string requisitionNo, string item, string location, int quantity, object userState) {
+            if ((this.createStoreRequisitionLineOperationCompleted == null)) {
+                this.createStoreRequisitionLineOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateStoreRequisitionLineOperationCompleted);
+            }
+            this.InvokeAsync("createStoreRequisitionLine", new object[] {
+                        requisitionNo,
+                        item,
+                        location,
+                        quantity}, this.createStoreRequisitionLineOperationCompleted, userState);
+        }
+        
+        private void OncreateStoreRequisitionLineOperationCompleted(object arg) {
+            if ((this.createStoreRequisitionLineCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.createStoreRequisitionLineCompleted(this, new createStoreRequisitionLineCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createStoreRequisition", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createStoreRequisition_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string createStoreRequisition(string employeeNo, string requisitionNo, string description, string department, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime requiredDate, string busnCode, string airplaneCode, string tprojectCode) {
+            object[] results = this.Invoke("createStoreRequisition", new object[] {
+                        employeeNo,
+                        requisitionNo,
+                        description,
+                        department,
+                        requiredDate,
+                        busnCode,
+                        airplaneCode,
+                        tprojectCode});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void createStoreRequisitionAsync(string employeeNo, string requisitionNo, string description, string department, System.DateTime requiredDate, string busnCode, string airplaneCode, string tprojectCode) {
+            this.createStoreRequisitionAsync(employeeNo, requisitionNo, description, department, requiredDate, busnCode, airplaneCode, tprojectCode, null);
+        }
+        
+        /// <remarks/>
+        public void createStoreRequisitionAsync(string employeeNo, string requisitionNo, string description, string department, System.DateTime requiredDate, string busnCode, string airplaneCode, string tprojectCode, object userState) {
+            if ((this.createStoreRequisitionOperationCompleted == null)) {
+                this.createStoreRequisitionOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateStoreRequisitionOperationCompleted);
+            }
+            this.InvokeAsync("createStoreRequisition", new object[] {
+                        employeeNo,
+                        requisitionNo,
+                        description,
+                        department,
+                        requiredDate,
+                        busnCode,
+                        airplaneCode,
+                        tprojectCode}, this.createStoreRequisitionOperationCompleted, userState);
+        }
+        
+        private void OncreateStoreRequisitionOperationCompleted(object arg) {
+            if ((this.createStoreRequisitionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.createStoreRequisitionCompleted(this, new createStoreRequisitionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:fnGetEmployeeDetail", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="fnGetEmployeeDetail_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string fnGetEmployeeDetail(string empNumber) {
+            object[] results = this.Invoke("fnGetEmployeeDetail", new object[] {
+                        empNumber});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void fnGetEmployeeDetailAsync(string empNumber) {
+            this.fnGetEmployeeDetailAsync(empNumber, null);
+        }
+        
+        /// <remarks/>
+        public void fnGetEmployeeDetailAsync(string empNumber, object userState) {
+            if ((this.fnGetEmployeeDetailOperationCompleted == null)) {
+                this.fnGetEmployeeDetailOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfnGetEmployeeDetailOperationCompleted);
+            }
+            this.InvokeAsync("fnGetEmployeeDetail", new object[] {
+                        empNumber}, this.fnGetEmployeeDetailOperationCompleted, userState);
+        }
+        
+        private void OnfnGetEmployeeDetailOperationCompleted(object arg) {
+            if ((this.fnGetEmployeeDetailCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.fnGetEmployeeDetailCompleted(this, new fnGetEmployeeDetailCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -140,6 +265,84 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal changePasswordCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void createStoreRequisitionLineCompletedEventHandler(object sender, createStoreRequisitionLineCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class createStoreRequisitionLineCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal createStoreRequisitionLineCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void createStoreRequisitionCompletedEventHandler(object sender, createStoreRequisitionCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class createStoreRequisitionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal createStoreRequisitionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void fnGetEmployeeDetailCompletedEventHandler(object sender, fnGetEmployeeDetailCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class fnGetEmployeeDetailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal fnGetEmployeeDetailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

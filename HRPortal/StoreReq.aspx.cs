@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HRPortal.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
@@ -14,24 +15,70 @@ namespace HRPortal
         protected void Page_Load(object sender, EventArgs e)
         {
             var nav = new Config().ReturnNav();
+
+            //var jobs = Config.ObjNav1.fnGetItems();
+            //List<ItemList> itms = new List<ItemList>();
+            //string[] infoz = jobs.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+            //if (infoz.Count() > 0)
+            //{
+            //    foreach (var allInfo in infoz)
+            //    {
+            //        String[] arr = allInfo.Split('*');
+
+            //        ItemList mdl = new ItemList();
+            //        mdl.code = arr[0];
+            //        mdl.description = arr[1] + "--" + arr[2] + "--" + arr[3] + "--" + arr[4] + "--" + arr[5] + "--" + arr[6] + "--" + arr[7];
+            //        itms.Add(mdl);
+
+            //    }
+            //}
+
             if (!IsPostBack)
             {
-                datereq.Text = Convert.ToDateTime(DateTime.Now).ToString("dd/MM/yyyy");
-                var users = nav.Employees.Where(x=> x.No == Convert.ToString(Session["employeeNo"]));
-                foreach(var user in users)
-                {
-                    //ydirectorate.Text = user.Directorate_Code;
-                    //ydepartment.Text = user.Department_Code;
-                }
+                //datereq.Text = Convert.ToDateTime(DateTime.Now).ToString("dd/MM/yyyy");
+                
                 try
                 {
-                    String requisitionNo = Request.QueryString["requisitionNo"];
-                    if (!String.IsNullOrEmpty(requisitionNo))
+                    var jobs = Config.ObjNav1.fnGetItems();
+                    List <ItemList> itms = new List<ItemList>();
+                    string[] infoz = jobs.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (infoz.Count() > 0)
                     {
-                        var requsition = nav.PurchaseHeader.Where(r => r.Document_Type == "Store Requisition" && r.No == requisitionNo && r.Request_By_No == Convert.ToString(Session["employeeNo"]));
-                        foreach (var myRequisition in requsition)
+                        foreach (var allInfo in infoz)
                         {
-                            description.Text = myRequisition.Description;
+                            String[] arr = allInfo.Split('*');
+
+                            ItemList mdl = new ItemList();
+                            mdl.code = arr[0];
+                            mdl.description = arr[1] + "--" + arr[2] + "--" + arr[3] + "--" + arr[4] + "--" + arr[5] + "--" + arr[6] + "--" + arr[7];
+                            itms.Add(mdl);
+
+                        }
+                    }
+
+                    item.DataSource = itms;
+                    item.DataTextField = "description";
+                    item.DataValueField = "code";
+                    item.DataBind();
+                    item.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+                    item.Items.Insert(1, new System.Web.UI.WebControls.ListItem("Decription--PartNo--Alt ItemNo --Alt PartNo1 --Alt PartNo2--Alt PartNo3--Alt PartNo4", ""));
+
+                    String requisitionNo = Request.QueryString["requisitionNo"];
+                    String employeeNo = Convert.ToString(Session["employeeNo"]);
+                    
+
+                    if (!string.IsNullOrEmpty(requisitionNo))
+                    {
+                        var request = Config.ObjNav1.fnStoreRequisitionsSingle(employeeNo, requisitionNo);
+                        String[] info = request.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                        if (info != null)
+                        {
+                            foreach (var allinfo in info)
+                            {
+                                String[] arr = allinfo.Split('*');                                
+                                description.Text = arr[4];
+
+                            }
                         }
                     }
                 }
@@ -54,11 +101,11 @@ namespace HRPortal
                 }
                 if (step == 2)
                 {
-                    var items = nav.Items;
-                    item.DataSource = items;
-                    item.DataValueField = "No";
-                    item.DataTextField = "Description";
-                    item.DataBind();
+                    //var items = nav.Items;
+                    //item.DataSource = items;
+                    //item.DataValueField = "No";
+                    //item.DataTextField = "Description";
+                    //item.DataBind();
 
                 }
 
@@ -92,23 +139,25 @@ namespace HRPortal
                 }
 
                 string ndesc = description.Text.Trim();
+                DateTime tdatereq = Convert.ToDateTime(datereq.Text.Trim());
+                String employeeNo = Convert.ToString(Session["employeeNo"]);
 
-                //String status = Config.ObjNav.CreateStoreRequisition(Convert.ToString(Session["employeeNo"]), requisitionNo, ndesc);
-                //String[] info = status.Split('*');
-                //if (info[0] == "success")
-                //{
-                //    if (newRequisition)
-                //    {
-                //        requisitionNo = info[2];
-                //    }
-                //    String redirectLocation = "StoreReq.aspx?step=2&&requisitionNo=" + requisitionNo;
-                //    Response.Redirect(redirectLocation, false);
+                String status = Config.ObjNav2.createStoreRequisition(employeeNo, requisitionNo, ndesc, "", tdatereq,"","","");
+                String[] info = status.Split('*');
+                if (info[0] == "success")
+                {
+                    if (newRequisition)
+                    {
+                        requisitionNo = info[2];
+                    }
+                    String redirectLocation = "StoreReq.aspx?step=2&&requisitionNo=" + requisitionNo;
+                    Response.Redirect(redirectLocation, false);
 
-                //}
-                //else
-                //{
-                //    generalFeedback.InnerHtml = "<div class='alert alert-danger'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                //}
+                }
+                else
+                {
+                    generalFeedback.InnerHtml = "<div class='alert alert-danger'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
             }
             catch (Exception m)
             {
@@ -180,11 +229,11 @@ namespace HRPortal
             {
                 String tItem = item.SelectedValue.Trim();
                 String tQuantity = quantityRequested.Text.Trim();
-                Decimal nQuantity = 0;
+                int nQuantity = 0;
                 Boolean error = false;
                 try
                 {
-                    nQuantity = Convert.ToDecimal(tQuantity);
+                    nQuantity = Convert.ToInt16(tQuantity);
                 }
                 catch (Exception)
                 {
@@ -196,11 +245,11 @@ namespace HRPortal
                 {
                     String requisitionNo = Request.QueryString["requisitionNo"];
                     string tuom = uom.SelectedValue;
-                    // Convert.ToString(Session["employeeNo"]),
-                    //String status = Config.ObjNav.CreateStoreRequisitionLine(Convert.ToString(Session["employeeNo"]), requisitionNo, "", tItem, nQuantity);
-                    //String[] info = status.Split('*');
-                    ////try adding the line
-                    //linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                   
+                    String status = Config.ObjNav2.createStoreRequisitionLine(requisitionNo, "", tItem, nQuantity);
+                    String[] info = status.Split('*');
+                    //try adding the line
+                    linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
 
                 }
             }

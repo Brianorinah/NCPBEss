@@ -5770,10 +5770,10 @@
     <Content Include="Site.Mobile.Master" />
     <None Include="Service References\Nav\service.edmx" />
     <None Include="Web References\essQueries\essQueries.wsdl" />
-    <Content Include="Web References\essQueries\Reference.map">
+    <None Include="Web References\essQueries\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web References\HRPortal\HRPortal.wsdl" />
     <None Include="Web References\HRPortal\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -5785,10 +5785,10 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
     <None Include="Web References\NewHrPortal\NewHrPortal.wsdl" />
-    <Content Include="Web References\NewHrPortal\Reference.map">
+    <None Include="Web References\NewHrPortal\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -6383,6 +6383,7 @@
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\ApprovalEntries.cs" />
+    <Compile Include="Models\ItemList.cs" />
     <Compile Include="myapplications.aspx.cs">
       <DependentUpon>myapplications.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

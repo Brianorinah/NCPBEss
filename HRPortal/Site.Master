@@ -142,7 +142,7 @@
                                         <li><a href="leavebalances.aspx"><i class="fa fa-circle-o"></i>Leave Balances</a></li>
                                     </ul>
                                 </li>
-                                <li class="treeview">
+                                <%--<li class="treeview">
                                     <a href="#">
                                         <i class="fa fa-bus"></i>
                                         <span>Fleet Management</span>
@@ -194,8 +194,8 @@
                                             </ul>
                                         </li>
                                     </ul>
-                                </li>
-                                <li class="treeview">
+                                </li>--%>
+                                <%--<li class="treeview">
                                     <a href="#">
                                         <i class="fa fa-bus"></i>
                                         <span>Training Management</span>
@@ -262,7 +262,7 @@
                                             </ul>
                                         </li>
                                     </ul>
-                                </li>
+                                </li>--%>
                             </ul>
                         </li>
                         <!--PAYROLL SERVICES-->   
@@ -333,7 +333,7 @@
                                         <li><a href="StaffClaimsApproved.aspx"><i class="fa fa-circle-o"></i>Approved Staff Claims</a></li>
                                     </ul>
                                 </li>
-                                <li class="treeview">
+                                <%--<li class="treeview">
                                     <a href="#">
                                         <i class="fa fa-money"></i>
                                         <span>Petty Cash Requisition</span>
@@ -346,7 +346,7 @@
                                         <li><a href="PettyCashHeader.aspx">Open Petty Cash Requisition</a></li>
                                         <li><a href="PettyCashApproved.aspx">Approved Petty Cash Requisition</a></li>
                                     </ul>
-                                </li>
+                                </li>--%>
                             </ul>
                         </li> 
                         <!--SCM SERVICES-->  
@@ -387,257 +387,16 @@
                             </ul>
                         </li>
                         <!--M&E-->
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-th"></i>
-                                <span>Strategy & Planning</span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-book"></i>
-                                        <span>Current Documents</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="OngoingStrategicPlan.aspx">CSP Implementation Matrix </a></li>
-                                        <li><a href="AnnualWorkPlan.aspx">Corporate AWP</a></li>
-                                        <li><a href="BoardPerformanceContract.aspx">Board Performance Contract</a></li>
-                                    </ul>
-                                </li>
-                              <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-calendar"></i>
-                                        <span>Staff Annual Workplan</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="NewIndividualScoreCard.aspx">New Annual Workplan</a></li>
-                                        <li><a href="OpenScoreCard.aspx">Open Annual Workplan</a></li>
-                                        <li><a href="ApprovedScoreCard.aspx">Approved Annual Workplan</a></li>
-                                    </ul>
-                                </li>
-                                  <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-bar-chart"></i>
-                                        <span>Performance Logs</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        
-                                        <li><a href="NewPerformanceLogEntry.aspx?type=AWP">New AWP Performance Log</a></li>
-                                        <li><a href="OpenPerformanceLogs.aspx?type=AWP">Open AWP Performance Logs</a></li>
-                                        <li><a href="ApprovedPerformanceLogs.aspx?type=AWP">Submitted AWP Performance Logs</a></li>
-                                        <li><a href="NewPerformanceLogEntry.aspx?type=PC">New PC Performance Log</a></li>
-                                        <li><a href="OpenPerformanceLogs.aspx?type=PC">Open PC Performance Logs</a></li>                                        
-                                        <li><a href="ApprovedPerformanceLogs.aspx?type=PC">Submitted PC Performance Logs</a></li>
-                                    </ul>
-                                </li>
-                                <li class="treeview">
-                                    <a href="#">
-                                         <i class="fa fa-check"></i>
-                                        <span>Standard Appraisal</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="NewStandardAppraisal.aspx">New Standard Appraisal</a></li>
-                                        <li><a href="OpenStandardAppraisal.aspx">Open Standard Appraisal</a></li>
-                                        <li><a href="SubmittedStandardAppraisal.aspx">Submitted Standard Appraisal</a></li>                                        
-                                    </ul>
-                                </li>
-                                <li class="treeview">
-                                    <a href="#">
-                                         <i class="fa fa-calendar"></i>
-                                        <span>Corporate Calender</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="FunctionalCalender.aspx">Corporate Event Viewer</a></li>                                    
-                                    </ul>
-                                </li>
-                                <li class="treeview">
-                                   <%-- <a href="#">
-                                        <i class="fa fa-comments"></i>
-                                        <span>Business Research</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>--%>
-                                    <ul class="treeview-menu">
-                                        <li><a href="EmployeeSurveyResponse.aspx">Open Surveys</a></li>
-                                        <%--<li><a href="EmployeeSurveyResponseOpen.aspx">Open Surveys</a></li>--%>
-                                        <li><a href="EmployeeSurveyResponseSubmitted.aspx">Submitted Surveys</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+                        
                         <!--LEGAL SERVICES-->  
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-th"></i>
-                                <span>Legal & Compliance</span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-tree"></i>
-                                        <span>Request for Legal Advice</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="LegalAdvice.aspx"><i class="fa fa-circle-o"></i>New Advice Request</a></li>
-                                      <%--  <li><a href="LegalAdviceOpen.aspx"><i class="fa fa-circle-o"></i>Open Legal Advice</a></li>--%>
-                                        <li><a href="LegalAdviceSaubmitted.aspx"><i class="fa fa-circle-o"></i>Submitted Advice Requests</a></li>
-                                      <%--  <li><a href="LegalAdvicePendingVerdict.aspx"><i class="fa fa-circle-o"></i> Legal Pending Verdict</a></li>--%>
-                                        <li><a href="LegalAdviceClosed.aspx"><i class="fa fa-circle-o"></i>Closed Advice Requests</a></li>
-                                    </ul>
-                                </li>
-                                <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-gift"></i>
-                                        <span>Gift Management</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li class="treeview">
-                                            <a href="#">
-                                                <i class="fa fa-gift"></i>
-                                                <span>Gift Given </span>
-                                                <span class="pull-right-container">
-                                                    <i class="fa fa-angle-left pull-right"></i>
-                                                </span>
-                                            </a>
-                                            <ul class="treeview-menu">
-<%--                                                <li><a href="GiftGiven.aspx?type=staff"><i class="fa fa-circle-o"></i> Gift Given To Staff</a></li>                                               
-                                                <li><a href="GiftOpen.aspx?type=staff"><i class="fa fa-circle-o"></i>Open Gifts Given</a></li>
-                                                <li><a href="GiftSubmitted.aspx?type=staff"><i class="fa fa-circle-o"></i>Submitted Gifts Given</a></li>--%>
-                                                <li><a href="GiftGiven.aspx?type=cue"><i class="fa fa-circle-o"></i> Gift Given By CUE</a></li>
-                                                <li><a href="GiftOpen.aspx?type=cue"><i class="fa fa-circle-o"></i>Open Gifts Given</a></li>
-                                                <li><a href="GiftSubmitted.aspx?type=cue"><i class="fa fa-circle-o"></i>Submitted Gifts Given</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="treeview">
-                                            <a href="#">
-                                                <i class="fa fa-gift"></i>
-                                                <span>Gift Received</span>
-                                                <span class="pull-right-container">
-                                                    <i class="fa fa-angle-left pull-right"></i>
-                                                </span>
-                                            </a>
-                                            <ul class="treeview-menu">
-                                                <li><a href="GiftsReceived.aspx?type=staff"><i class="fa fa-circle-o"></i>Staff Gift Received</a></li>
-                                                <li><a href="GiftsReceivedOpen.aspx?type=staff"><i class="fa fa-circle-o"></i>Open Gifts Received</a></li>
-                                                <li><a href="GiftsReceivedSubmitted.aspx?type=staff"><i class="fa fa-circle-o"></i>Submitted Gifts Received</a></li>
-                                                <li><a href="GiftsReceived.aspx?type=cue"><i class="fa fa-circle-o"></i>CUE Gift Received</a></li>
-                                                <li><a href="GiftsReceivedOpen.aspx?type=cue"><i class="fa fa-circle-o"></i>Open Gifts Received</a></li>
-                                                <li><a href="GiftsReceivedSubmitted.aspx?type=cue"><i class="fa fa-circle-o"></i>Submitted Gifts Received</a></li>
-                                            </ul>
-                                        </li>
-
-                                    </ul>
-                                </li>
-                                <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-times"></i>
-                                        <span>Conflict of Interest</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="ConflictofInterest.aspx"><i class="fa fa-circle-o"></i>New Conflict of Interest</a></li>
-                                        <li><a href="ConflictofInterestOpen.aspx"><i class="fa fa-circle-o"></i>Open Conflict of Interest</a></li>
-                                        <li><a href="ConflictofInterestSubmitted.aspx"><i class="fa fa-circle-o"></i>Submitted Conflict of Interest</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
+                        
                         <!--RESOURCE BOOKING-->
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-th"></i>
-                                <span>Resource Booking</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="NewResourceBooking.aspx"><i class="fa fa-circle-o"></i>New Resource Booking</a></li>
-                                <li><a href="OpenResourceBookings.aspx"><i class="fa fa-circle-o"></i>Unsubmitted Resource Bookings</a></li>
-                                <li><a href="ClosedResourceBookings.aspx"><i class="fa fa-circle-o"></i>Submitted Resource Bookings</a></li>
-                            </ul>
-                        </li>
-                        <li class="active">
-                            <a href="https://cue.auditrunner.com/">
-                                <i class="fa fa-history"></i><span>Internal Audit</span>
-                            </a>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-th"></i>
-                                <span>Security Incident Management</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="SecurityIncident.aspx"><i class="fa fa-circle-o"></i>New Security Incident</a></li>
-                                <li><a href="SecurityIncidentSubmitted.aspx"><i class="fa fa-circle-o"></i>Submitted Security Incident</a></li>
-                            </ul>
-                        </li>
+                        
+                        
+                        
+                        
                         <!--ICT SERVICES-->  
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-th"></i>
-                                <span>ICT Helpdesk Services</span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="ICTHelpDesk.aspx"><i class="fa fa-circle-o"></i>New Request</a></li>
-                                <li><a href="MyHelpDeskRequests.aspx"><i class="fa fa-circle-o"></i>Submitted Helpdesk Requests</a></li>
-                                <li><a href="AssignedHelpDeskList.aspx"><i class="fa fa-circle-o"></i>Assigned Helpdesk Requests</a></li>
-                                <li><a href="ResolvedHelpDeskIssues.aspx"><i class="fa fa-circle-o"></i>Resolved Helpdesk Requests</a></li>
-                                <li><a href="ClosedICTRequests.aspx"><i class="fa fa-circle-o"></i>Closed Helpdesk Requests</a></li>
-                        <%--<%
-                            if (Convert.ToBoolean(Session["admin"].ToString()) == true)
-                            {
-                                %>--%>
-                                <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-cart"></i>
-                                        <span>Admin HelpDesk Request</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-            <%--                        <ul class="treeview-menu">
-                                        <li><a href="OpenICTRequests.aspx">Open Requests</a></li>
-                                        <li><a href="AssignedHelpDeskList.aspx">Assigned Help desk Requests</a></li>
-                                        <li><a href="MyEscalatedHelpdeskRequest.aspx">Escalated Help desk Requests</a></li>
-                                        <li><a href="AllresolvedHelpDeskISSUES.aspx">Resolved Help desk Requests</a></li>
-                                        <li><a href="ClosedICTRequests.aspx">Closed Help desk Requests</a></li>
-
-                                    </ul>--%>
-                                </li>                  
-                               <%-- <%
-                            }
-                        %> --%>
-
-                            </ul>
-                        </li>  
+                          
                         <li class="active">
                             <a href="logout.aspx">
                                 <i class="fa fa-sign-out"></i><span>Logout</span>

@@ -38,7 +38,7 @@
                  <table class="table table-striped table-bordered">
                 
                 <tbody>
-                <%
+                <%--<%
 
                         var employees = nav.Employees.Where(r => r.No == (String) Session["employeeNo"]);
                         foreach (var employee in employees)
@@ -46,13 +46,12 @@
 
                 %>
                   <tr><td> Employee Number:</td><td> <%= employee.No %></td></tr>
-                  <tr><td> Name:</td><td> <%= Session["name"] %></td></tr>
-                  <!--<tr><td> ID Number:</td><td> <%--= employee.ID_Number --%> </td></tr> -->
+                  <tr><td> Name:</td><td> <%= Session["name"] %></td></tr>                 
                   <tr><td> Email:</td><td> <%= employee.Company_E_Mail %> </td></tr>
                   <tr><td> Phone Number:</td><td> <%= employee.Phone_No %> </td></tr>
                   <%
                           }
-                  %>
+                  %>--%>
                 
                 </tbody>
               </table>
@@ -68,21 +67,23 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>
-                   <% var employeesLeaves = nav.Employees.Where(r => r.No == (String) Session["employeeNo"]);
+                   <% 
                        Decimal leaveBalance = 0;
-                       try
-                       {
-                           foreach (var employee in employeesLeaves)
-                           {
-                               leaveBalance = Convert.ToDecimal(employee.Leave_Outstanding_Bal);
+                       //var employeesLeaves = nav.Employees.Where(r => r.No == (String) Session["employeeNo"]);
+                       //Decimal leaveBalance = 0;
+                       //try
+                       //{
+                       //    foreach (var employee in employeesLeaves)
+                       //    {
+                       //        leaveBalance = Convert.ToDecimal(employee.Leave_Outstanding_Bal);
 
-                               break;
-                           }
-                       }
-                       catch (Exception)
-                       {
-                           leaveBalance = 0;
-                       }
+                       //        break;
+                       //    }
+                       //}
+                       //catch (Exception)
+                       //{
+                       //    leaveBalance = 0;
+                       //}
                    %>
                   <% = leaveBalance %>
               </h3>
@@ -102,20 +103,21 @@
             <div class="inner">
               <h3>
                    <% 
-                       var  imprests = nav.HrLeaveApplication.Where(r => r.Status == "Released" && r.Employee_No == employeeNo && r.Posted == false );;
                        int approvedImprestMemos = 0;
-                       try
-                       {
-                           foreach (var imprest in imprests)
-                           {
-                               approvedImprestMemos ++;
+                       //var  imprests = nav.HrLeaveApplication.Where(r => r.Status == "Released" && r.Employee_No == employeeNo && r.Posted == false );;
+                       //int approvedImprestMemos = 0;
+                       //try
+                       //{
+                       //    foreach (var imprest in imprests)
+                       //    {
+                       //        approvedImprestMemos ++;
 
-                           }
-                       }
-                       catch (Exception)
-                       {
-                           approvedImprestMemos = 0;
-                       }
+                       //    }
+                       //}
+                       //catch (Exception)
+                       //{
+                       //    approvedImprestMemos = 0;
+                       //}
                    %>
                   <% = approvedImprestMemos %>
               </h3>
@@ -135,20 +137,21 @@
             <div class="inner">
               <h3>
                   <% 
-                       var payments = nav.Payments.Where(r => r.Status == "Released" && r.Account_No == employeeNo && r.Posted == false && r.Payment_Type =="Imprest");
-                       int approvedImprestRequisitions = 0;
-                       try
-                       {
-                           foreach (var imprest in payments)
-                           {
-                               approvedImprestRequisitions ++;
-                              
-                           }
-                       }
-                       catch (Exception)
-                       {
-                           approvedImprestRequisitions = 0;
-                       }
+                      int approvedImprestRequisitions = 0;
+                      //var payments = nav.Payments.Where(r => r.Status == "Released" && r.Account_No == employeeNo && r.Posted == false && r.Payment_Type =="Imprest");
+                      //int approvedImprestRequisitions = 0;
+                      //try
+                      //{
+                      //    foreach (var imprest in payments)
+                      //    {
+                      //        approvedImprestRequisitions ++;
+
+                      //    }
+                      //}
+                      //catch (Exception)
+                      //{
+                      //    approvedImprestRequisitions = 0;
+                      //}
                    %>
                   <% = approvedImprestRequisitions %>
               </h3>
@@ -168,20 +171,21 @@
             <div class="inner">
               <h3>
                     <% 
-                       payments = nav.Payments.Where(r => r.Status == "Released" && r.Account_No == employeeNo && r.Posted == false && r.Payment_Type == "Surrender");
-                       int approvedImprestSurrenders = 0;
-                       try
-                       {
-                           foreach (var imprest in payments)
-                           {
-                               approvedImprestSurrenders ++;
-                              
-                           }
-                       }
-                       catch (Exception)
-                       {
-                           approvedImprestSurrenders = 0;
-                       }
+                        int approvedImprestSurrenders = 0;
+                        //payments = nav.Payments.Where(r => r.Status == "Released" && r.Account_No == employeeNo && r.Posted == false && r.Payment_Type == "Surrender");
+                        //int approvedImprestSurrenders = 0;
+                        //try
+                        //{
+                        //    foreach (var imprest in payments)
+                        //    {
+                        //        approvedImprestSurrenders ++;
+
+                        //    }
+                        //}
+                        //catch (Exception)
+                        //{
+                        //    approvedImprestSurrenders = 0;
+                        //}
                    %>
                   <% = approvedImprestSurrenders %>
               </h3>
@@ -199,21 +203,21 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>
-                  <% 
-                     var headers = nav.PurchaseHeader.Where(r => r.Status == "Released"&& r.Document_Type == "Purchase Requisition" && r.Request_By_No == employeeNo);
-                       int approvedPurchaseReq = 0;
-                       try
-                       {
-                           foreach (var header in headers)
-                           {
-                               approvedPurchaseReq ++;
-                              
-                           }
-                       }
-                       catch (Exception)
-                       {
-                           approvedPurchaseReq = 0;
-                       }
+                  <% int approvedPurchaseReq = 0;
+                      //var headers = nav.PurchaseHeader.Where(r => r.Status == "Released"&& r.Document_Type == "Purchase Requisition" && r.Request_By_No == employeeNo);
+                      //  int approvedPurchaseReq = 0;
+                      //  try
+                      //  {
+                      //      foreach (var header in headers)
+                      //      {
+                      //          approvedPurchaseReq ++;
+
+                      //      }
+                      //  }
+                      //  catch (Exception)
+                      //  {
+                      //      approvedPurchaseReq = 0;
+                      //  }
                    %>
                   <% = approvedPurchaseReq %>
               </h3>
@@ -233,20 +237,8 @@
             <div class="inner">
               <h3>
                    <% 
-                     headers = nav.PurchaseHeader.Where(r => r.Status == "Released"&& r.Document_Type == "Store Requisition" &&r.Request_By_No == employeeNo);
                        int approvedStoreReq = 0;
-                       try
-                       {
-                           foreach (var header in headers)
-                           {
-                               approvedStoreReq ++;
-                              
-                           }
-                       }
-                       catch (Exception)
-                       {
-                           approvedStoreReq = 0;
-                       }
+
                    %>
                   <% = approvedStoreReq %>
               </h3>

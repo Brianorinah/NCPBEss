@@ -42,11 +42,7 @@
             <element minOccurs="1" maxOccurs="1" name="employeeNo" type="string" />
             <element minOccurs="1" maxOccurs="1" name="requisitionNo" type="string" />
             <element minOccurs="1" maxOccurs="1" name="description" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="department" type="string" />
             <element minOccurs="1" maxOccurs="1" name="requiredDate" type="date" />
-            <element minOccurs="1" maxOccurs="1" name="busnCode" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="airplaneCode" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="tprojectCode" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -65,6 +61,51 @@
         </complexType>
       </element>
       <element name="fnGetEmployeeDetail_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnStoreRequisitionLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="appNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnStoreRequisitionLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="generateP9">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="year" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="generateP9_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="generatePayslip">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="year" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="month" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="generatePayslip_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -97,6 +138,24 @@
   <message name="fnGetEmployeeDetail_Result">
     <part name="parameters" element="tns:fnGetEmployeeDetail_Result" />
   </message>
+  <message name="fnStoreRequisitionLines">
+    <part name="parameters" element="tns:fnStoreRequisitionLines" />
+  </message>
+  <message name="fnStoreRequisitionLines_Result">
+    <part name="parameters" element="tns:fnStoreRequisitionLines_Result" />
+  </message>
+  <message name="generateP9">
+    <part name="parameters" element="tns:generateP9" />
+  </message>
+  <message name="generateP9_Result">
+    <part name="parameters" element="tns:generateP9_Result" />
+  </message>
+  <message name="generatePayslip">
+    <part name="parameters" element="tns:generatePayslip" />
+  </message>
+  <message name="generatePayslip_Result">
+    <part name="parameters" element="tns:generatePayslip_Result" />
+  </message>
   <portType name="NewHrPortal_Port">
     <operation name="changePassword">
       <input name="changePassword" message="tns:changePassword" />
@@ -113,6 +172,18 @@
     <operation name="fnGetEmployeeDetail">
       <input name="fnGetEmployeeDetail" message="tns:fnGetEmployeeDetail" />
       <output name="fnGetEmployeeDetail_Result" message="tns:fnGetEmployeeDetail_Result" />
+    </operation>
+    <operation name="fnStoreRequisitionLines">
+      <input name="fnStoreRequisitionLines" message="tns:fnStoreRequisitionLines" />
+      <output name="fnStoreRequisitionLines_Result" message="tns:fnStoreRequisitionLines_Result" />
+    </operation>
+    <operation name="generateP9">
+      <input name="generateP9" message="tns:generateP9" />
+      <output name="generateP9_Result" message="tns:generateP9_Result" />
+    </operation>
+    <operation name="generatePayslip">
+      <input name="generatePayslip" message="tns:generatePayslip" />
+      <output name="generatePayslip_Result" message="tns:generatePayslip_Result" />
     </operation>
   </portType>
   <binding name="NewHrPortal_Binding" type="tns:NewHrPortal_Port">
@@ -150,6 +221,33 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetEmployeeDetail_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnStoreRequisitionLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:fnStoreRequisitionLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnStoreRequisitionLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnStoreRequisitionLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="generateP9">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:generateP9" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="generateP9">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="generateP9_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="generatePayslip">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:generatePayslip" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="generatePayslip">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="generatePayslip_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

@@ -49,9 +49,13 @@ namespace HRPortal
             {
                 try
                 {
-                    String tStartDate = Convert.ToDateTime(startDate.Text).ToString("M/d/yyyy");
-                    String tEndDate = Convert.ToDateTime(endDate.Text).ToString("M/d/yyyy");
-                    String status = Config.ObjNav.GenerateP9((String)Session["employeeNo"], Convert.ToDateTime(tStartDate), Convert.ToDateTime(tEndDate));
+                    //String tStartDate = Convert.ToDateTime(startDate.Text).ToString("M/d/yyyy");
+                    //String tEndDate = Convert.ToDateTime(endDate.Text).ToString("M/d/yyyy");
+                    int tyear = Convert.ToInt32(year.Text.Trim());
+                    string empNo = (String)Session["employeeNo"];
+
+                    string status = Config.ObjNav2.generateP9(empNo, tyear);
+                    //String status = Config.ObjNav.GenerateP9(, Convert.ToDateTime(tStartDate), Convert.ToDateTime(tEndDate));
                     String[] info = status.Split('*');
                     if (info[0] == "success")
                     {

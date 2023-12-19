@@ -13,7 +13,6 @@
     </div>
     <div class="row" style="width: 100%; margin: auto;">
         <div class="panel panel-primary">
-
             <div class="panel-heading">
                 <i class="icon-file"></i>
                 Generate P9
@@ -22,6 +21,11 @@
             <div class="panel-body">
                 <div id="feedback" runat="server"></div>
                 <div class="com-md-4 col-lg-4">
+                    <label>Year:<span style="color:red">*</span></label>
+                    <asp:TextBox CssClass="form-control" ID="year" TextMode="Number" runat="server" />
+                    <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="year" ErrorMessage="Please select Year, it cannot be empty!" ForeColor="Red" />
+                </div>
+                <%--<div class="com-md-4 col-lg-4">
                     <label>Start Date:<span style="color:red">*</span></label>
                     <asp:TextBox CssClass="form-control" ID="startDate" type="date" runat="server" />
                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="startDate" ErrorMessage="Please select Start Date, it cannot be empty!" ForeColor="Red" />
@@ -30,7 +34,7 @@
                     <label>End Date:<span style="color:red">*</span></label>
                     <asp:TextBox CssClass="form-control" ID="endDate" type="date" runat="server" />
                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="endDate" ErrorMessage="Please select End Date, it cannot be empty!" ForeColor="Red" />
-                </div>
+                </div>--%>
                 <div class="com-md-3 col-lg-3">
                     <br />
                     <asp:Button CssClass="btn btn-success" ID="generate" runat="server" Text="Generate" OnClick="generate_Click" />

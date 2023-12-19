@@ -577,7 +577,6 @@ D:\Code\KURRA Codes\v1_ess\HRPortal\bin\zh-Hant\System.Spatial.resources.dll
 D:\Code\KURRA Codes\v1_ess\HRPortal\obj\Debug\HRPortal.dll
 D:\Code\KURRA Codes\v1_ess\HRPortal\obj\Debug\HRPortal.pdb
 D:\Code\KURRA Codes\v1_ess\HRPortal\obj\Debug\HRPortal.csprojResolveAssemblyReference.cache
-D:\Client Projects\NCPB\essv1\HRPortal\obj\Debug\HRPortal.csprojResolveAssemblyReference.cache
 D:\Client Projects\NCPB\essv1\HRPortal\obj\Debug\HRPortal.dll
 D:\Client Projects\NCPB\essv1\HRPortal\obj\Debug\HRPortal.pdb
 D:\Client Projects\NCPB\essv1\HRPortal\bin\roslyn\csc.exe

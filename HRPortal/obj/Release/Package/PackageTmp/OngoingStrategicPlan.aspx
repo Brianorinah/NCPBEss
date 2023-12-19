@@ -174,7 +174,7 @@
                                     <thead>
                                         <tr>
                                             <th>Key Result Area ID</th>
-                                            <th>Key Result Area</th>
+                                            <%--<th>Key Result Area</th>--%>
                                             <th>Strategic Objective ID</th>
                                             <th>Strategic Objective</th>
                                         </tr>
@@ -188,7 +188,7 @@
                                         %>
                                        <tr>
                                            <td><% =objective.Theme_ID%></td>
-                                           <td><% =objective.Theme_Name%></td>
+                                           <%--<td><% =objective.Theme_Name%></td>--%>
                                            <td><% =objective.Objective_ID%></td>
                                            <td><% =objective.Description%></td>
                                        </tr>
@@ -211,9 +211,9 @@
                                     <thead>
                                         <tr>
                                             <th>Key Result Area ID</th>
-                                            <th>Key Result Area</th>
+                                            <%--<th>Key Result Area</th>--%>
                                             <th>Strategic Objective ID</th>
-                                            <th>Strategic Objective</th>
+                                            <%--<th>Strategic Objective</th>--%>
                                             <th>Strategy ID</th>
                                             <th>Strategy</th>
                                         </tr>
@@ -227,9 +227,9 @@
                                         %>
                                         <tr>
                                             <td><% =objective.Theme_ID%></td>
-                                            <td><% =objective.Theme_Name%></td>
+                                            <%--<td><% =objective.Theme_Name%></td>--%>
                                             <td><% =objective.Objective_ID%></td>
-                                            <td><% =objective.Objective_Name%></td>
+                                            <%--<td><% =objective.Objective_Name%></td>--%>
                                             <td><% =objective.Strategy_ID%></td>
                                             <td><% =objective.Description%></td>
                                         </tr>
@@ -282,9 +282,9 @@
                                     <table class="table table-bordered table-striped datatable" id="example11">
                                         <thead>
                                             <tr>
-                                                <th>Key Result Area</th>
+                                                <%--<th>Key Result Area</th>
                                                 <th>Strategic Objective</th>
-                                                <th>Strategy</th>
+                                                <th>Strategy</th>--%>
                                                 <th>Strategic Activity</th>
                                                 <th>Performance Indicator</th>
                                                 <th>Unit of Measure</th>
@@ -300,9 +300,9 @@
                                                 {
                                             %>
                                             <tr>
-                                                <td><% =objective.Theme_Name%></td>
+                                                <%--<td><% =objective.Theme_Name%></td>
                                                 <td><% =objective.Objective_Name%></td>
-                                                <td><% =objective.Strategy_Name%></td>
+                                                <td><% =objective.Strategy_Name%></td>--%>
                                                 <td><% =objective.Description%></td>
                                                 <td><% =objective.Perfomance_Indicator%></td>
                                                 <td><% =objective.Unit_of_Measure%></td>

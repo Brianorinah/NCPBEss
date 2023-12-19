@@ -22,13 +22,31 @@ namespace HRPortal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl feedback;
         
         /// <summary>
-        /// payperiod control.
+        /// year control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList payperiod;
+        protected global::System.Web.UI.WebControls.TextBox year;
+        
+        /// <summary>
+        /// month control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList month;
+        
+        /// <summary>
+        /// generate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button generate;
         
         /// <summary>
         /// payslipFrame control.

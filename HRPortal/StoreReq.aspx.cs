@@ -50,7 +50,7 @@ namespace HRPortal
 
                             ItemList mdl = new ItemList();
                             mdl.code = arr[0];
-                            mdl.description = arr[1] + "--" + arr[2] + "--" + arr[3] + "--" + arr[4] + "--" + arr[5] + "--" + arr[6] + "--" + arr[7];
+                            mdl.description = arr[1] ;
                             itms.Add(mdl);
 
                         }
@@ -82,9 +82,9 @@ namespace HRPortal
                         }
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    throw ex;
                 }
                 int step = 1;
                 try
@@ -142,7 +142,7 @@ namespace HRPortal
                 DateTime tdatereq = Convert.ToDateTime(datereq.Text.Trim());
                 String employeeNo = Convert.ToString(Session["employeeNo"]);
 
-                String status = Config.ObjNav2.createStoreRequisition(employeeNo, requisitionNo, ndesc, "", tdatereq,"","","");
+                String status = Config.ObjNav2.createStoreRequisition(employeeNo, requisitionNo, ndesc, tdatereq);
                 String[] info = status.Split('*');
                 if (info[0] == "success")
                 {

@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <%--<div class="row">
                 <div class="col-lg-6 col-sm-6">
                     <div class="form-group">
                         <strong>Division<span style="color: red">*</span></strong>
@@ -66,18 +66,18 @@
                         <asp:TextBox runat="server" ID="ydepartment" CssClass="form-control" ReadOnly="true" />
                     </div>
                 </div>
-            </div>
+            </div>--%>
             <div class="row">
                 <div class="col-lg-6 col-sm-6">
                     <div class="form-group">
                         <strong>Date Requested <span style="color: red">*</span></strong>
-                        <asp:TextBox runat="server" ID="datereq" CssClass="form-control" ReadOnly="true" />
+                        <asp:TextBox runat="server" ID="datereq" CssClass="form-control" TextMode="Date" />
                     </div>
                 </div>
                 <div class="col-lg-6 col-sm-6">
                     <div class="form-group">
                         <strong>Location<span style="color: red">*</span></strong>
-                        <asp:TextBox runat="server" ID="nlocation" value="CUEHQ" CssClass="form-control" ReadOnly="true" />
+                        <asp:TextBox runat="server" ID="nlocation" value="NCPB" CssClass="form-control" ReadOnly="true" />
                     </div>
                 </div>
             </div>
@@ -112,7 +112,7 @@
             <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
                     <strong>Item<span style="color: red">*</span></strong>
-                    <asp:DropDownList runat="server" ID="item" CssClass="form-control select2" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="item_SelectedIndexChanged" >
+                    <asp:DropDownList runat="server" ID="item" CssClass="form-control select2" AppendDataBoundItems="true" AutoPostBack="true" >
                         <asp:ListItem>--Select--</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="item" InitialValue="--Select--" ErrorMessage="Please select item, it cannot be empty!" ForeColor="Red" />
@@ -164,24 +164,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%
-                        String requisitionNo = Request.QueryString["requisitionNo"];
-                        var nav = new Config().ReturnNav();
-                        var purhaseLines = nav.PurchaseLines.Where(r => r.Document_No == requisitionNo);
-                        foreach (var line in purhaseLines)
+                   <%-- <%
+                        String requisitionNo = Request.QueryString["docNo"];
+                        var nav = Config.ObjNav1;
+                        var result = nav.fnStoreRequisitionLines(requisitionNo);
+                        String[] info = result.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                        if (info.Count() > 0)
                         {
+                            if (info != null)
+                            {
+                                foreach (var allinfo in info)
+                                {
+                                    String[] arr = allinfo.Split('*');
+
                     %>
-                    <tr>
-                        <td><% =line.Item_Category %></td>
-                        <td><% =line.Description %></td>
-                        <%--<td><% =line.Unit_of_Measure %></td>--%>
-                        <td><% =line.Qty_Requested %></td>
+                    <tr>                        
+                        <td><% =arr[3] %></td>
+                        <td><% =arr[4] %></td>
+                        <td><% = arr[2] %></td>                        
+                        <td><%=String.Format("{0:n}", Convert.ToDouble(arr[5])) %></td>
+
                         <td>
-                            <label class="btn btn-danger" onclick="removeLine('<% =line.Description %>','<%=line.Line_No %>');"><i class="fa fa-trash"></i>Delete</label></td>
+                            <label class="btn btn-danger" onclick="removeLine('<% =arr[3] %>','<%=arr[0] %>');"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
                     <% 
+                            }
                         }
-                    %>
+                    }
+                    %>--%>
                 </tbody>
             </table>
         </div>

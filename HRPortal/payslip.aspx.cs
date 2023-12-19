@@ -14,26 +14,26 @@ namespace HRPortal
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["active"] = 3;
-            var nav = new Config().ReturnNav();
+            //var nav = new Config().ReturnNav();
             if (!IsPostBack)
             {
-                List<PayPeriod> payPeriods = new List<PayPeriod>();
-                var query = nav.payperiods.Where(x => x.Closed == true);
-                foreach (var item in query)
-                {
-                    PayPeriod p = new PayPeriod();
-                    // p.Starting_Date = Convert.ToDateTime( item.Starting_Date).ToString("dd/MM/yyyy");
-                    p.Starting_Date = Convert.ToDateTime(item.Starting_Date).ToString("MM/dd/yyyy");
-                    p.Name = p.Starting_Date + " " + item.Name;
-                    payPeriods.Add(p);
+                //List<PayPeriod> payPeriods = new List<PayPeriod>();
+                //var query = nav.payperiods.Where(x => x.Closed == true);
+                //foreach (var item in query)
+                //{
+                //    PayPeriod p = new PayPeriod();
+                //    // p.Starting_Date = Convert.ToDateTime( item.Starting_Date).ToString("dd/MM/yyyy");
+                //    p.Starting_Date = Convert.ToDateTime(item.Starting_Date).ToString("MM/dd/yyyy");
+                //    p.Name = p.Starting_Date + " " + item.Name;
+                //    payPeriods.Add(p);
 
-                }
+                //}
 
-                payperiod.DataSource = payPeriods;
+                //payperiod.DataSource = payPeriods;
 
-                payperiod.DataValueField = "Starting_Date";
-                payperiod.DataTextField = "Name";
-                payperiod.DataBind();
+                //payperiod.DataValueField = "Starting_Date";
+                //payperiod.DataTextField = "Name";
+                //payperiod.DataBind();
                 //try
                 //{
                 //    CultureInfo culture = new CultureInfo("ru-RU");
@@ -63,11 +63,15 @@ namespace HRPortal
             try
             {
                 feedback.InnerHtml = "";
-                var selecetdPayPeriod = payperiod.SelectedValue;
-                DateTime startDate = Convert.ToDateTime(selecetdPayPeriod);
-                CultureInfo culture = new CultureInfo("ru-RU");
-                String status = Config.ObjNav.GeneratePayslip((String)Session["employeeNo"],
-                   startDate);
+                int tyear = Convert.ToInt32(year.Text.Trim());
+                int tmonth = Convert.ToInt32(month.Text.Trim());
+                string empNo = (String)Session["employeeNo"];
+                //var selecetdPayPeriod = payperiod.SelectedValue;
+                //DateTime startDate = Convert.ToDateTime(selecetdPayPeriod);
+                //CultureInfo culture = new CultureInfo("ru-RU");
+                string status = Config.ObjNav2.generatePayslip(empNo, tyear, tmonth);
+                //String status = Config.ObjNav.GeneratePayslip((String)Session["employeeNo"],
+                //   startDate);
                 String[] info = status.Split('*');
                 if (info[0] == "success")
                 {

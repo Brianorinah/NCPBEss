@@ -37,6 +37,12 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback fnGetEmployeeDetailOperationCompleted;
         
+        private System.Threading.SendOrPostCallback fnStoreRequisitionLinesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback generateP9OperationCompleted;
+        
+        private System.Threading.SendOrPostCallback generatePayslipOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -86,6 +92,15 @@ namespace HRPortal.NewHrPortal {
         
         /// <remarks/>
         public event fnGetEmployeeDetailCompletedEventHandler fnGetEmployeeDetailCompleted;
+        
+        /// <remarks/>
+        public event fnStoreRequisitionLinesCompletedEventHandler fnStoreRequisitionLinesCompleted;
+        
+        /// <remarks/>
+        public event generateP9CompletedEventHandler generateP9Completed;
+        
+        /// <remarks/>
+        public event generatePayslipCompletedEventHandler generatePayslipCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:changePassword", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="changePassword_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -162,26 +177,22 @@ namespace HRPortal.NewHrPortal {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createStoreRequisition", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createStoreRequisition_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string createStoreRequisition(string employeeNo, string requisitionNo, string description, string department, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime requiredDate, string busnCode, string airplaneCode, string tprojectCode) {
+        public string createStoreRequisition(string employeeNo, string requisitionNo, string description, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime requiredDate) {
             object[] results = this.Invoke("createStoreRequisition", new object[] {
                         employeeNo,
                         requisitionNo,
                         description,
-                        department,
-                        requiredDate,
-                        busnCode,
-                        airplaneCode,
-                        tprojectCode});
+                        requiredDate});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void createStoreRequisitionAsync(string employeeNo, string requisitionNo, string description, string department, System.DateTime requiredDate, string busnCode, string airplaneCode, string tprojectCode) {
-            this.createStoreRequisitionAsync(employeeNo, requisitionNo, description, department, requiredDate, busnCode, airplaneCode, tprojectCode, null);
+        public void createStoreRequisitionAsync(string employeeNo, string requisitionNo, string description, System.DateTime requiredDate) {
+            this.createStoreRequisitionAsync(employeeNo, requisitionNo, description, requiredDate, null);
         }
         
         /// <remarks/>
-        public void createStoreRequisitionAsync(string employeeNo, string requisitionNo, string description, string department, System.DateTime requiredDate, string busnCode, string airplaneCode, string tprojectCode, object userState) {
+        public void createStoreRequisitionAsync(string employeeNo, string requisitionNo, string description, System.DateTime requiredDate, object userState) {
             if ((this.createStoreRequisitionOperationCompleted == null)) {
                 this.createStoreRequisitionOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateStoreRequisitionOperationCompleted);
             }
@@ -189,11 +200,7 @@ namespace HRPortal.NewHrPortal {
                         employeeNo,
                         requisitionNo,
                         description,
-                        department,
-                        requiredDate,
-                        busnCode,
-                        airplaneCode,
-                        tprojectCode}, this.createStoreRequisitionOperationCompleted, userState);
+                        requiredDate}, this.createStoreRequisitionOperationCompleted, userState);
         }
         
         private void OncreateStoreRequisitionOperationCompleted(object arg) {
@@ -230,6 +237,102 @@ namespace HRPortal.NewHrPortal {
             if ((this.fnGetEmployeeDetailCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.fnGetEmployeeDetailCompleted(this, new fnGetEmployeeDetailCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:fnStoreRequisitionLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="fnStoreRequisitionLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string fnStoreRequisitionLines(string appNo) {
+            object[] results = this.Invoke("fnStoreRequisitionLines", new object[] {
+                        appNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void fnStoreRequisitionLinesAsync(string appNo) {
+            this.fnStoreRequisitionLinesAsync(appNo, null);
+        }
+        
+        /// <remarks/>
+        public void fnStoreRequisitionLinesAsync(string appNo, object userState) {
+            if ((this.fnStoreRequisitionLinesOperationCompleted == null)) {
+                this.fnStoreRequisitionLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfnStoreRequisitionLinesOperationCompleted);
+            }
+            this.InvokeAsync("fnStoreRequisitionLines", new object[] {
+                        appNo}, this.fnStoreRequisitionLinesOperationCompleted, userState);
+        }
+        
+        private void OnfnStoreRequisitionLinesOperationCompleted(object arg) {
+            if ((this.fnStoreRequisitionLinesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.fnStoreRequisitionLinesCompleted(this, new fnStoreRequisitionLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:generateP9", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="generateP9_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string generateP9(string employeeNumber, int year) {
+            object[] results = this.Invoke("generateP9", new object[] {
+                        employeeNumber,
+                        year});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void generateP9Async(string employeeNumber, int year) {
+            this.generateP9Async(employeeNumber, year, null);
+        }
+        
+        /// <remarks/>
+        public void generateP9Async(string employeeNumber, int year, object userState) {
+            if ((this.generateP9OperationCompleted == null)) {
+                this.generateP9OperationCompleted = new System.Threading.SendOrPostCallback(this.OngenerateP9OperationCompleted);
+            }
+            this.InvokeAsync("generateP9", new object[] {
+                        employeeNumber,
+                        year}, this.generateP9OperationCompleted, userState);
+        }
+        
+        private void OngenerateP9OperationCompleted(object arg) {
+            if ((this.generateP9Completed != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.generateP9Completed(this, new generateP9CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:generatePayslip", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="generatePayslip_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string generatePayslip(string employeeNumber, int year, int month) {
+            object[] results = this.Invoke("generatePayslip", new object[] {
+                        employeeNumber,
+                        year,
+                        month});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void generatePayslipAsync(string employeeNumber, int year, int month) {
+            this.generatePayslipAsync(employeeNumber, year, month, null);
+        }
+        
+        /// <remarks/>
+        public void generatePayslipAsync(string employeeNumber, int year, int month, object userState) {
+            if ((this.generatePayslipOperationCompleted == null)) {
+                this.generatePayslipOperationCompleted = new System.Threading.SendOrPostCallback(this.OngeneratePayslipOperationCompleted);
+            }
+            this.InvokeAsync("generatePayslip", new object[] {
+                        employeeNumber,
+                        year,
+                        month}, this.generatePayslipOperationCompleted, userState);
+        }
+        
+        private void OngeneratePayslipOperationCompleted(object arg) {
+            if ((this.generatePayslipCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.generatePayslipCompleted(this, new generatePayslipCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -343,6 +446,84 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal fnGetEmployeeDetailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void fnStoreRequisitionLinesCompletedEventHandler(object sender, fnStoreRequisitionLinesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class fnStoreRequisitionLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal fnStoreRequisitionLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void generateP9CompletedEventHandler(object sender, generateP9CompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class generateP9CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal generateP9CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void generatePayslipCompletedEventHandler(object sender, generatePayslipCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class generatePayslipCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal generatePayslipCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

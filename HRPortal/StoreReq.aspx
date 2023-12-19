@@ -112,7 +112,7 @@
             <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
                     <strong>Item<span style="color: red">*</span></strong>
-                    <asp:DropDownList runat="server" ID="item" CssClass="form-control select2" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="item_SelectedIndexChanged" >
+                    <asp:DropDownList runat="server" ID="item" CssClass="form-control select2" AppendDataBoundItems="true" AutoPostBack="true" >
                         <asp:ListItem>--Select--</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="item" InitialValue="--Select--" ErrorMessage="Please select item, it cannot be empty!" ForeColor="Red" />

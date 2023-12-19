@@ -19,6 +19,41 @@
           </sequence>
         </complexType>
       </element>
+      <element name="createLeaveApplicationLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dateStart" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dateEnd" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createLeaveApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createLeaveApplication">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="reliever" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="contactAddress" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="naration" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createLeaveApplication_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="createStoreRequisitionLine">
         <complexType>
           <sequence>
@@ -47,6 +82,24 @@
         </complexType>
       </element>
       <element name="createStoreRequisition_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="editLeaveApplicationLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dateStart" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dateEnd" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="editLeaveApplicationLines_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -112,6 +165,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="sendLeaveApplicationApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sendLeaveApplicationApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
   <message name="changePassword">
@@ -119,6 +186,18 @@
   </message>
   <message name="changePassword_Result">
     <part name="parameters" element="tns:changePassword_Result" />
+  </message>
+  <message name="createLeaveApplicationLines">
+    <part name="parameters" element="tns:createLeaveApplicationLines" />
+  </message>
+  <message name="createLeaveApplicationLines_Result">
+    <part name="parameters" element="tns:createLeaveApplicationLines_Result" />
+  </message>
+  <message name="createLeaveApplication">
+    <part name="parameters" element="tns:createLeaveApplication" />
+  </message>
+  <message name="createLeaveApplication_Result">
+    <part name="parameters" element="tns:createLeaveApplication_Result" />
   </message>
   <message name="createStoreRequisitionLine">
     <part name="parameters" element="tns:createStoreRequisitionLine" />
@@ -131,6 +210,12 @@
   </message>
   <message name="createStoreRequisition_Result">
     <part name="parameters" element="tns:createStoreRequisition_Result" />
+  </message>
+  <message name="editLeaveApplicationLines">
+    <part name="parameters" element="tns:editLeaveApplicationLines" />
+  </message>
+  <message name="editLeaveApplicationLines_Result">
+    <part name="parameters" element="tns:editLeaveApplicationLines_Result" />
   </message>
   <message name="fnGetEmployeeDetail">
     <part name="parameters" element="tns:fnGetEmployeeDetail" />
@@ -156,10 +241,24 @@
   <message name="generatePayslip_Result">
     <part name="parameters" element="tns:generatePayslip_Result" />
   </message>
+  <message name="sendLeaveApplicationApproval">
+    <part name="parameters" element="tns:sendLeaveApplicationApproval" />
+  </message>
+  <message name="sendLeaveApplicationApproval_Result">
+    <part name="parameters" element="tns:sendLeaveApplicationApproval_Result" />
+  </message>
   <portType name="NewHrPortal_Port">
     <operation name="changePassword">
       <input name="changePassword" message="tns:changePassword" />
       <output name="changePassword_Result" message="tns:changePassword_Result" />
+    </operation>
+    <operation name="createLeaveApplicationLines">
+      <input name="createLeaveApplicationLines" message="tns:createLeaveApplicationLines" />
+      <output name="createLeaveApplicationLines_Result" message="tns:createLeaveApplicationLines_Result" />
+    </operation>
+    <operation name="createLeaveApplication">
+      <input name="createLeaveApplication" message="tns:createLeaveApplication" />
+      <output name="createLeaveApplication_Result" message="tns:createLeaveApplication_Result" />
     </operation>
     <operation name="createStoreRequisitionLine">
       <input name="createStoreRequisitionLine" message="tns:createStoreRequisitionLine" />
@@ -168,6 +267,10 @@
     <operation name="createStoreRequisition">
       <input name="createStoreRequisition" message="tns:createStoreRequisition" />
       <output name="createStoreRequisition_Result" message="tns:createStoreRequisition_Result" />
+    </operation>
+    <operation name="editLeaveApplicationLines">
+      <input name="editLeaveApplicationLines" message="tns:editLeaveApplicationLines" />
+      <output name="editLeaveApplicationLines_Result" message="tns:editLeaveApplicationLines_Result" />
     </operation>
     <operation name="fnGetEmployeeDetail">
       <input name="fnGetEmployeeDetail" message="tns:fnGetEmployeeDetail" />
@@ -185,6 +288,10 @@
       <input name="generatePayslip" message="tns:generatePayslip" />
       <output name="generatePayslip_Result" message="tns:generatePayslip_Result" />
     </operation>
+    <operation name="sendLeaveApplicationApproval">
+      <input name="sendLeaveApplicationApproval" message="tns:sendLeaveApplicationApproval" />
+      <output name="sendLeaveApplicationApproval_Result" message="tns:sendLeaveApplicationApproval_Result" />
+    </operation>
   </portType>
   <binding name="NewHrPortal_Binding" type="tns:NewHrPortal_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
@@ -194,6 +301,24 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="changePassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createLeaveApplicationLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createLeaveApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createLeaveApplicationLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createLeaveApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createLeaveApplication">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createLeaveApplication" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createLeaveApplication">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createLeaveApplication_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -212,6 +337,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="createStoreRequisition_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="editLeaveApplicationLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:editLeaveApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="editLeaveApplicationLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="editLeaveApplicationLines_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -248,6 +382,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="generatePayslip_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="sendLeaveApplicationApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendLeaveApplicationApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="sendLeaveApplicationApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="sendLeaveApplicationApproval_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

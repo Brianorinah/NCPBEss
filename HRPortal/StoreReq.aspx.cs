@@ -61,7 +61,7 @@ namespace HRPortal
                     item.DataValueField = "code";
                     item.DataBind();
                     item.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
-                    item.Items.Insert(1, new System.Web.UI.WebControls.ListItem("Decription--PartNo--Alt ItemNo --Alt PartNo1 --Alt PartNo2--Alt PartNo3--Alt PartNo4", ""));
+                    
 
                     String requisitionNo = Request.QueryString["requisitionNo"];
                     String employeeNo = Convert.ToString(Session["employeeNo"]);

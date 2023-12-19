@@ -5255,6 +5255,7 @@
     <Content Include="js\jquery-1.7.2.min.js" />
     <Content Include="js\signin.js" />
     <Content Include="leaveapplication.aspx" />
+    <Content Include="LeaveApplication2.aspx" />
     <Content Include="leavebalances.aspx" />
     <Content Include="LegalAdvice.aspx" />
     <Content Include="LegalAdviceClosed.aspx" />
@@ -6325,6 +6326,13 @@
     </Compile>
     <Compile Include="leaveapplication.aspx.designer.cs">
       <DependentUpon>leaveapplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveApplication2.aspx.cs">
+      <DependentUpon>LeaveApplication2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LeaveApplication2.aspx.designer.cs">
+      <DependentUpon>LeaveApplication2.aspx</DependentUpon>
     </Compile>
     <Compile Include="leavebalances.aspx.cs">
       <DependentUpon>leavebalances.aspx</DependentUpon>

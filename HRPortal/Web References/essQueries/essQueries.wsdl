@@ -59,6 +59,73 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetLeaveApplicationLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="appNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetLeaveApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetLeaveBalances">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetLeaveBalances_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetLeaveCode">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetLeaveCode_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetRelieverDetails">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetRelieverDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetStafClaims">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetStafClaims_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnStoreRequisitionsSingle">
         <complexType>
           <sequence>
@@ -114,6 +181,36 @@
   <message name="fnGetItems_Result">
     <part name="parameters" element="tns:fnGetItems_Result" />
   </message>
+  <message name="fnGetLeaveApplicationLines">
+    <part name="parameters" element="tns:fnGetLeaveApplicationLines" />
+  </message>
+  <message name="fnGetLeaveApplicationLines_Result">
+    <part name="parameters" element="tns:fnGetLeaveApplicationLines_Result" />
+  </message>
+  <message name="fnGetLeaveBalances">
+    <part name="parameters" element="tns:fnGetLeaveBalances" />
+  </message>
+  <message name="fnGetLeaveBalances_Result">
+    <part name="parameters" element="tns:fnGetLeaveBalances_Result" />
+  </message>
+  <message name="fnGetLeaveCode">
+    <part name="parameters" element="tns:fnGetLeaveCode" />
+  </message>
+  <message name="fnGetLeaveCode_Result">
+    <part name="parameters" element="tns:fnGetLeaveCode_Result" />
+  </message>
+  <message name="fnGetRelieverDetails">
+    <part name="parameters" element="tns:fnGetRelieverDetails" />
+  </message>
+  <message name="fnGetRelieverDetails_Result">
+    <part name="parameters" element="tns:fnGetRelieverDetails_Result" />
+  </message>
+  <message name="fnGetStafClaims">
+    <part name="parameters" element="tns:fnGetStafClaims" />
+  </message>
+  <message name="fnGetStafClaims_Result">
+    <part name="parameters" element="tns:fnGetStafClaims_Result" />
+  </message>
   <message name="fnStoreRequisitionsSingle">
     <part name="parameters" element="tns:fnStoreRequisitionsSingle" />
   </message>
@@ -142,6 +239,26 @@
     <operation name="fnGetItems">
       <input name="fnGetItems" message="tns:fnGetItems" />
       <output name="fnGetItems_Result" message="tns:fnGetItems_Result" />
+    </operation>
+    <operation name="fnGetLeaveApplicationLines">
+      <input name="fnGetLeaveApplicationLines" message="tns:fnGetLeaveApplicationLines" />
+      <output name="fnGetLeaveApplicationLines_Result" message="tns:fnGetLeaveApplicationLines_Result" />
+    </operation>
+    <operation name="fnGetLeaveBalances">
+      <input name="fnGetLeaveBalances" message="tns:fnGetLeaveBalances" />
+      <output name="fnGetLeaveBalances_Result" message="tns:fnGetLeaveBalances_Result" />
+    </operation>
+    <operation name="fnGetLeaveCode">
+      <input name="fnGetLeaveCode" message="tns:fnGetLeaveCode" />
+      <output name="fnGetLeaveCode_Result" message="tns:fnGetLeaveCode_Result" />
+    </operation>
+    <operation name="fnGetRelieverDetails">
+      <input name="fnGetRelieverDetails" message="tns:fnGetRelieverDetails" />
+      <output name="fnGetRelieverDetails_Result" message="tns:fnGetRelieverDetails_Result" />
+    </operation>
+    <operation name="fnGetStafClaims">
+      <input name="fnGetStafClaims" message="tns:fnGetStafClaims" />
+      <output name="fnGetStafClaims_Result" message="tns:fnGetStafClaims_Result" />
     </operation>
     <operation name="fnStoreRequisitionsSingle">
       <input name="fnStoreRequisitionsSingle" message="tns:fnStoreRequisitionsSingle" />
@@ -187,6 +304,51 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetItems_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetLeaveApplicationLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetLeaveApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetLeaveApplicationLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetLeaveApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetLeaveBalances">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetLeaveBalances" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetLeaveBalances">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetLeaveBalances_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetLeaveCode">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetLeaveCode" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetLeaveCode">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetLeaveCode_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetRelieverDetails">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetRelieverDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetRelieverDetails">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetRelieverDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetStafClaims">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetStafClaims" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetStafClaims">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetStafClaims_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

@@ -6,12 +6,12 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ESS - KURA</title>
+    <title>ESS - NCPB</title>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <link rel="icon" href="LoginAssets/images/ncpb.png" type="image/x-icon">
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -136,7 +136,7 @@
                                         </span>
                                     </a>
                                     <ul class="treeview-menu">
-                                        <li><a href="leaveapplication.aspx"><i class="fa fa-circle-o"></i>New Application</a></li>
+                                        <li><a href="LeaveApplication2.aspx"><i class="fa fa-circle-o"></i>New Application</a></li>
                                         <li><a href="leave.aspx"><i class="fa fa-circle-o"></i>Open Applications</a></li>
                                         <li><a href="Approvedleave.aspx"><i class="fa fa-circle-o"></i>Approved Applications</a></li>
                                         <li><a href="leavebalances.aspx"><i class="fa fa-circle-o"></i>Leave Balances</a></li>

@@ -114,43 +114,43 @@ namespace HRPortal
             Boolean error = false;
             string message = "";
             String treliever = reliver.SelectedValue;
-            String tLeaveType = leaveType.SelectedValue;
-            String mAnnualLeaveType = annualLeaveType.SelectedValue;
-            int tannual = 0;
-            if (mAnnualLeaveType == "Annual Leave")
-            {
-                tannual = 1;
-            }
-            if (mAnnualLeaveType == "Emergency Leave")
-            {
-                tannual = 2;
-            }
+            //String tLeaveType = leaveType.SelectedValue;
+            //String mAnnualLeaveType = annualLeaveType.SelectedValue;
+            //int tannual = 0;
+            //if (mAnnualLeaveType == "Annual Leave")
+            //{
+            //    tannual = 1;
+            //}
+            //if (mAnnualLeaveType == "Emergency Leave")
+            //{
+            //    tannual = 2;
+            //}
             String tDaysApplied = daysApplied.Text.Trim();
             String tLeaveStartDate = leaveStartDate.Text.Trim();
-            String tPhoneNumber = phoneNumber.Text.Trim();
-            if (tPhoneNumber.Length < 10 || tPhoneNumber.Length > 10)
-            {
-                error = true;
-                message = "Please provide a valid phone number! It should be like 07xxxxxxxx";
-            }
-            String tEmailAddress = emailAddress.Text.Trim();           
-            bool isValid = IsValidEmail(tEmailAddress);
-            if (isValid == false)
-            {
-                error = true;
-                message = "Please enter a valid email address! It should be like test@gmail.com";
-            }
-            String tExamDetails = examDetails.Text.Trim();
-            String tDateOfExam = dateOfExam.Text.Trim();
+            //String tPhoneNumber = phoneNumber.Text.Trim();
+            //if (tPhoneNumber.Length < 10 || tPhoneNumber.Length > 10)
+            //{
+            //    error = true;
+            //    message = "Please provide a valid phone number! It should be like 07xxxxxxxx";
+            //}
+            //String tEmailAddress = emailAddress.Text.Trim();           
+            //bool isValid = IsValidEmail(tEmailAddress);
+            //if (isValid == false)
+            //{
+            //    error = true;
+            //    message = "Please enter a valid email address! It should be like test@gmail.com";
+            //}
+            //String tExamDetails = examDetails.Text.Trim();
+            //String tDateOfExam = dateOfExam.Text.Trim();
          
             int dApplied = 0;
-            DateTime lStartDate = new DateTime(),
-            dOfExam = new DateTime();
+            DateTime lStartDate = new DateTime();
+            //dOfExam = new DateTime();
 
-            if (tLeaveType != "ANNUAL")
-            {
-                annualLeaveType.Visible = false;
-            }
+            //if (tLeaveType != "ANNUAL")
+            //{
+            //    annualLeaveType.Visible = false;
+            //}
 
             try
             {
@@ -176,28 +176,28 @@ namespace HRPortal
                 error = true;
                 message = "Please provide a valid leave start date";
             }
-            try
-            {
-                if (!String.IsNullOrEmpty(tDateOfExam))
-                {
-                    CultureInfo culture = new CultureInfo("ru-RU");
-                    dOfExam = DateTime.ParseExact(tDateOfExam, "d/M/yyyy", CultureInfo.InvariantCulture);
-                }
+            //try
+            //{
+            //    if (!String.IsNullOrEmpty(tDateOfExam))
+            //    {
+            //        CultureInfo culture = new CultureInfo("ru-RU");
+            //        dOfExam = DateTime.ParseExact(tDateOfExam, "d/M/yyyy", CultureInfo.InvariantCulture);
+            //    }
 
-            }
-            catch (Exception)
-            {
-                error = true;
-                message = "Please provide a valid exam date";
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    error = true;
+            //    message = "Please provide a valid exam date";
+            //}
             var nav = new Config().ReturnNav();
             decimal days = Convert.ToDecimal(daysApplied.Text.Trim());
-            var data = nav.LeaveTypes.Where(x => x.Code == tLeaveType).ToList();
+            //var data = nav.LeaveTypes.Where(x => x.Code == tLeaveType).ToList();
             decimal maxdays = 0;
-            foreach (var item in data)
-            {
-                //maxdays = Convert.ToDecimal(item.Days);
-            }
+            //foreach (var item in data)
+            //{
+            //    //maxdays = Convert.ToDecimal(item.Days);
+            //}
             if (days > maxdays)
             {
                 error = true;
@@ -410,44 +410,44 @@ namespace HRPortal
             Response.Redirect("leaveapplication.aspx?step=1&&leaveno=" + imprestNo);
         }
 
-        protected void leaveType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(leaveType.SelectedValue =="ANNUAL")
-            {
-                divAnnualLeaveType.Visible = true;
-            }
-            else
-            {
-                divAnnualLeaveType.Visible = false;
-            }
-            if(leaveType.SelectedValue == "EXAM")
-            {
-                divExamDetails.Visible = true;
-                divDateExam.Visible = true;
-            }
-            else
-            {
-                divExamDetails.Visible = false;
-                divDateExam.Visible = false;
-            }
+        //protected void leaveType_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if(leaveType.SelectedValue =="ANNUAL")
+        //    {
+        //        divAnnualLeaveType.Visible = true;
+        //    }
+        //    else
+        //    {
+        //        divAnnualLeaveType.Visible = false;
+        //    }
+        //    if(leaveType.SelectedValue == "EXAM")
+        //    {
+        //        divExamDetails.Visible = true;
+        //        divDateExam.Visible = true;
+        //    }
+        //    else
+        //    {
+        //        divExamDetails.Visible = false;
+        //        divDateExam.Visible = false;
+        //    }
 
-        }
+        //}
 
         protected void leaveStartDate_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                String tLeaveType = leaveType.SelectedValue;
-                String mAnnualLeaveType = annualLeaveType.SelectedValue;
-                int tannual = 0;
-                if (mAnnualLeaveType == "Annual Leave")
-                {
-                    tannual = 1;
-                }
-                if (mAnnualLeaveType == "Emergency Leave")
-                {
-                    tannual = 2;
-                }
+                //String tLeaveType = leaveType.SelectedValue;
+                //String mAnnualLeaveType = annualLeaveType.SelectedValue;
+                //int tannual = 0;
+                //if (mAnnualLeaveType == "Annual Leave")
+                //{
+                //    tannual = 1;
+                //}
+                //if (mAnnualLeaveType == "Emergency Leave")
+                //{
+                //    tannual = 2;
+                //}
                 String tLeaveStartDate = leaveStartDate.Text.Trim();
                 Boolean error = false;
                 string message = "";
@@ -531,14 +531,14 @@ namespace HRPortal
         protected void daysApplied_TextChanged(object sender, EventArgs e)
         {
             var nav = new Config().ReturnNav();
-            String tLeaveType = leaveType.SelectedValue;
+            //String tLeaveType = leaveType.SelectedValue;
             decimal days = Convert.ToDecimal(daysApplied.Text.Trim());
-            var data = nav.LeaveTypes.Where(x => x.Code == tLeaveType).ToList();
+            //var data = nav.LeaveTypes.Where(x => x.Code == tLeaveType).ToList();
             decimal maxdays = 0;
-            foreach(var item in data)
-            {
-                //maxdays = Convert.ToDecimal(item.Days);
-            }
+            //foreach(var item in data)
+            //{
+            //    //maxdays = Convert.ToDecimal(item.Days);
+            //}
             if(days > maxdays)
             {
                 feedback.InnerHtml = "<div class='alert alert-danger'>You have applied "+days+" days which is more than the maximum days for this leave type("+maxdays+").<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";

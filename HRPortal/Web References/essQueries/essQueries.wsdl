@@ -2,18 +2,6 @@
 <definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/essQueries" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries" xmlns="http://www.w3.org/2001/XMLSchema">
-      <element name="fnGetItems">
-        <complexType>
-          <sequence />
-        </complexType>
-      </element>
-      <element name="fnGetItems_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
       <element name="fnGetDepartments">
         <complexType>
           <sequence>
@@ -59,6 +47,18 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetItems">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetItems_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnStoreRequisitionsSingle">
         <complexType>
           <sequence>
@@ -90,12 +90,6 @@
       </element>
     </schema>
   </types>
-  <message name="fnGetItems">
-    <part name="parameters" element="tns:fnGetItems" />
-  </message>
-  <message name="fnGetItems_Result">
-    <part name="parameters" element="tns:fnGetItems_Result" />
-  </message>
   <message name="fnGetDepartments">
     <part name="parameters" element="tns:fnGetDepartments" />
   </message>
@@ -114,6 +108,12 @@
   <message name="fnGetHrPortalUser_Result">
     <part name="parameters" element="tns:fnGetHrPortalUser_Result" />
   </message>
+  <message name="fnGetItems">
+    <part name="parameters" element="tns:fnGetItems" />
+  </message>
+  <message name="fnGetItems_Result">
+    <part name="parameters" element="tns:fnGetItems_Result" />
+  </message>
   <message name="fnStoreRequisitionsSingle">
     <part name="parameters" element="tns:fnStoreRequisitionsSingle" />
   </message>
@@ -127,10 +127,6 @@
     <part name="parameters" element="tns:fnStoreRequisitions_Result" />
   </message>
   <portType name="essQueries_Port">
-    <operation name="fnGetItems">
-      <input name="fnGetItems" message="tns:fnGetItems" />
-      <output name="fnGetItems_Result" message="tns:fnGetItems_Result" />
-    </operation>
     <operation name="fnGetDepartments">
       <input name="fnGetDepartments" message="tns:fnGetDepartments" />
       <output name="fnGetDepartments_Result" message="tns:fnGetDepartments_Result" />
@@ -143,6 +139,10 @@
       <input name="fnGetHrPortalUser" message="tns:fnGetHrPortalUser" />
       <output name="fnGetHrPortalUser_Result" message="tns:fnGetHrPortalUser_Result" />
     </operation>
+    <operation name="fnGetItems">
+      <input name="fnGetItems" message="tns:fnGetItems" />
+      <output name="fnGetItems_Result" message="tns:fnGetItems_Result" />
+    </operation>
     <operation name="fnStoreRequisitionsSingle">
       <input name="fnStoreRequisitionsSingle" message="tns:fnStoreRequisitionsSingle" />
       <output name="fnStoreRequisitionsSingle_Result" message="tns:fnStoreRequisitionsSingle_Result" />
@@ -154,15 +154,6 @@
   </portType>
   <binding name="essQueries_Binding" type="tns:essQueries_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-    <operation name="fnGetItems">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetItems" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="fnGetItems">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="fnGetItems_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
     <operation name="fnGetDepartments">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetDepartments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="fnGetDepartments">
@@ -187,6 +178,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetHrPortalUser_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetItems">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetItems" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetItems">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetItems_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

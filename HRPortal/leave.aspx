@@ -72,7 +72,7 @@
                                         <label class="btn btn-success"><i class="fa fa-check"></i>Send Approval Request</label>
                                         <%
                                             }
-                                            else if (oneItem[4] == "Pending Approval")
+                                            else if (oneItem[4] == "Approval Pending")
                                             {
 
                                         %>
@@ -89,7 +89,7 @@
                                         <a href="leaveapplication.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a>
                                         <%
                                             }
-                                            else if (oneItem[4] == "Pending Approval")
+                                            else if (oneItem[4] == "Approval Pending")
                                             {
 
                                         %>

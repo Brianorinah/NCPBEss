@@ -19,6 +19,58 @@
           </sequence>
         </complexType>
       </element>
+      <element name="createStoreRequisitionLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="requisitionNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="item" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="location" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="quantity" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createStoreRequisitionLine_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createStoreRequisition">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="requisitionNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="department" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="requiredDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="busnCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="airplaneCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="tprojectCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createStoreRequisition_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetEmployeeDetail">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetEmployeeDetail_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
   <message name="changePassword">
@@ -27,10 +79,40 @@
   <message name="changePassword_Result">
     <part name="parameters" element="tns:changePassword_Result" />
   </message>
+  <message name="createStoreRequisitionLine">
+    <part name="parameters" element="tns:createStoreRequisitionLine" />
+  </message>
+  <message name="createStoreRequisitionLine_Result">
+    <part name="parameters" element="tns:createStoreRequisitionLine_Result" />
+  </message>
+  <message name="createStoreRequisition">
+    <part name="parameters" element="tns:createStoreRequisition" />
+  </message>
+  <message name="createStoreRequisition_Result">
+    <part name="parameters" element="tns:createStoreRequisition_Result" />
+  </message>
+  <message name="fnGetEmployeeDetail">
+    <part name="parameters" element="tns:fnGetEmployeeDetail" />
+  </message>
+  <message name="fnGetEmployeeDetail_Result">
+    <part name="parameters" element="tns:fnGetEmployeeDetail_Result" />
+  </message>
   <portType name="NewHrPortal_Port">
     <operation name="changePassword">
       <input name="changePassword" message="tns:changePassword" />
       <output name="changePassword_Result" message="tns:changePassword_Result" />
+    </operation>
+    <operation name="createStoreRequisitionLine">
+      <input name="createStoreRequisitionLine" message="tns:createStoreRequisitionLine" />
+      <output name="createStoreRequisitionLine_Result" message="tns:createStoreRequisitionLine_Result" />
+    </operation>
+    <operation name="createStoreRequisition">
+      <input name="createStoreRequisition" message="tns:createStoreRequisition" />
+      <output name="createStoreRequisition_Result" message="tns:createStoreRequisition_Result" />
+    </operation>
+    <operation name="fnGetEmployeeDetail">
+      <input name="fnGetEmployeeDetail" message="tns:fnGetEmployeeDetail" />
+      <output name="fnGetEmployeeDetail_Result" message="tns:fnGetEmployeeDetail_Result" />
     </operation>
   </portType>
   <binding name="NewHrPortal_Binding" type="tns:NewHrPortal_Port">
@@ -41,6 +123,33 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="changePassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createStoreRequisitionLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createStoreRequisitionLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createStoreRequisitionLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createStoreRequisitionLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createStoreRequisition">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createStoreRequisition" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createStoreRequisition">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createStoreRequisition_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetEmployeeDetail">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:fnGetEmployeeDetail" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetEmployeeDetail">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetEmployeeDetail_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

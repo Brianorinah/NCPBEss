@@ -56,8 +56,8 @@
                                     <td><%=oneItem[0] %> </td>
                                     <%--<td><%=leave.Leave_Type %> </td>--%>
                                     <td><%=oneItem[1] %> </td>
-                                    <td><%=Convert.ToDateTime(oneItem[2]).ToString("dd/MM/yyyy") %> </td>
-                                    <td><%=Convert.ToDateTime(oneItem[3]).ToString("dd/MM/yyyy") %> </td>
+                                    <td><%=oneItem[2]  %> </td>
+                                    <td><%=oneItem[3] %> </td>
                                     <td><%=oneItem[4] %> </td>
                                     
                                 </tr>

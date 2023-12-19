@@ -24,8 +24,9 @@
                   <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    
                                     <th>Application No</th>
-                                    <th>Leave Type</th>
+                                   <%-- <th>Leave Type</th>--%>
                                     <th>Days Applied</th>
                                     <th>Start Date</th>
                                     <th>Return Date</th>
@@ -38,44 +39,57 @@
                             </thead>
                             <tbody>
                                 <%
-                                    var leaves = nav.HrLeaveApplication.Where(r => r.Employee_No == (String)Session["employeeNo"] && r.Status != "Rejected"  && r.Status != "Released");
-                                    foreach (var leave in leaves)
+                                    if (!string.IsNullOrEmpty((string)Session["employeeNo"]))
                                     {
-                                %>
-                                <tr>
-                                    <td><%=leave.Application_Code %> </td>
-                                    <td><%=leave.Leave_Type %> </td>
-                                    <td><%=leave.Days_Applied %> </td>
-                                    <td><%=Convert.ToDateTime(leave.Start_Date).ToString("dd/MM/yyyy") %> </td>
-                                    <td><%=Convert.ToDateTime(leave.Return_Date).ToString("dd/MM/yyyy") %> </td>
-                                    <td><%=leave.Status %> </td>
-                                    <td><a href="ApproverEntry.aspx?leaveno=<%=leave.Application_Code %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
+                                        string empNo = Convert.ToString(Session["employeeNo"]);
+                                        String leaves1 = Config.ObjNav1.fnGetHrLeaveApplications(empNo);
+                                        String[] allInfo = leaves1.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                                        if (allInfo != null)
+                                        {
+                                            foreach (var item in allInfo)
+                                            {
+                                                String[] oneItem = item.Split(new string[] { "*" }, StringSplitOptions.None);
+                                               
+                                                if(oneItem[4] != "Approved")
+                                                {
+                                                    %>
+                                
+                                                    <tr>
+                                    
+                                    
+                                    <td><%=oneItem[0] %> </td>
+                                    <%--<td><%=leave.Leave_Type %> </td>--%>
+                                    <td><%=oneItem[1] %> </td>
+                                    <td><%=Convert.ToDateTime(oneItem[2]).ToString("dd/MM/yyyy") %> </td>
+                                    <td><%=Convert.ToDateTime(oneItem[3]).ToString("dd/MM/yyyy") %> </td>
+                                    <td><%=oneItem[4] %> </td>
+                                    <td><a href="ApproverEntry.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
                                     <td>
                                         <%
-                                            if (leave.Status == "Open" || leave.Status == "Rejected")
+                                            if (oneItem[4] == "New")
                                             {
                                         %>
-                                        <label class="btn btn-success" onclick="sendLeaveForApproval('<%=leave.Application_Code %>', '<%=leave.Leave_Type %>', ' <%=Convert.ToDateTime(leave.Start_Date).ToString("dd/MM/yyyy") %>');"><i class="fa fa-check"></i>Send Approval Request</label>
+                                        <label class="btn btn-success"><i class="fa fa-check"></i>Send Approval Request</label>
                                         <%
                                             }
-                                            else if (leave.Status == "Pending Approval")
+                                            else if (oneItem[4] == "Pending Approval")
                                             {
 
                                         %>
-                                        <label class="btn btn-danger" onclick="cancelLeaveApproval('<%=leave.Application_Code %>', '<%=leave.Leave_Type %>', ' <%=Convert.ToDateTime(leave.Start_Date).ToString("dd/MM/yyyy") %>');"><i class="fa fa-times"></i>Cancel Approval Request</label>
+                                        <label class="btn btn-danger"><i class="fa fa-times"></i>Cancel Approval Request</label>
 
                                         <% 
                                             } %>                                              
                                     </td>
                                     <td>
                                         <%
-                                            if (leave.Status == "Open")
+                                            if (oneItem[4] == "New")
                                             {
                                         %>
-                                        <a href="leaveapplication.aspx?leaveno=<%=leave.Application_Code %>" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a>
+                                        <a href="leaveapplication.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a>
                                         <%
                                             }
-                                            else if (leave.Status == "Pending Approval")
+                                            else if (oneItem[4] == "Pending Approval")
                                             {
 
                                         %>
@@ -85,10 +99,15 @@
                                             } %>                                              
                                     </td>
                                 </tr>
-                                <%
+                                                        
+                                                      <%
+                                                }
+
+                                            }
+                                        }
 
                                     }
-                                %>
+                                                          %>
                             </tbody>
               </table>
             </div>

@@ -327,12 +327,6 @@
   <message name="fnGetHrLeaveApplications_Result">
     <part name="parameters" element="tns:fnGetHrLeaveApplications_Result" />
   </message>
-  <message name="fnGetHrPortalUser">
-    <part name="parameters" element="tns:fnGetHrPortalUser" />
-  </message>
-  <message name="fnGetHrPortalUser_Result">
-    <part name="parameters" element="tns:fnGetHrPortalUser_Result" />
-  </message>
   <message name="fnGetItems">
     <part name="parameters" element="tns:fnGetItems" />
   </message>
@@ -441,10 +435,6 @@
     <operation name="fnGetHrLeaveApplications">
       <input name="fnGetHrLeaveApplications" message="tns:fnGetHrLeaveApplications" />
       <output name="fnGetHrLeaveApplications_Result" message="tns:fnGetHrLeaveApplications_Result" />
-    </operation>
-    <operation name="fnGetHrPortalUser">
-      <input name="fnGetHrPortalUser" message="tns:fnGetHrPortalUser" />
-      <output name="fnGetHrPortalUser_Result" message="tns:fnGetHrPortalUser_Result" />
     </operation>
     <operation name="fnGetItems">
       <input name="fnGetItems" message="tns:fnGetItems" />
@@ -556,15 +546,6 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetHrLeaveApplications_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
-    <operation name="fnGetHrPortalUser">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetHrPortalUser" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="fnGetHrPortalUser">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="fnGetHrPortalUser_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

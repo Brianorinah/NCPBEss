@@ -38,26 +38,26 @@ namespace HRPortal
                         //division.Text = item.Directorate_Code;
                         //department.Text = item.Department_Code;
                     }
-                    var jobs = nav.jobs.ToList().OrderBy(r => r.Description);
-                    List<Employee> allJobs = new List<Employee>();
-                    foreach (var myJob in jobs)
-                    {
-                        Employee employee = new Employee();
-                        employee.EmployeeNo = myJob.No;
-                        employee.EmployeeName = myJob.No + " - " + myJob.Description;
-                        allJobs.Add(employee);
-                    }
-                    job.DataSource = allJobs;
-                    job.DataValueField = "EmployeeNo";
-                    job.DataTextField = "EmployeeName";
-                    job.DataBind();
+                    //var jobs = nav.jobs.ToList().OrderBy(r => r.Description);
+                    //List<Employee> allJobs = new List<Employee>();
+                    //foreach (var myJob in jobs)
+                    //{
+                    //    Employee employee = new Employee();
+                    //    employee.EmployeeNo = myJob.No;
+                    //    employee.EmployeeName = myJob.No + " - " + myJob.Description;
+                    //    allJobs.Add(employee);
+                    //}
+                    //job.DataSource = allJobs;
+                    //job.DataValueField = "EmployeeNo";
+                    //job.DataTextField = "EmployeeName";
+                    //job.DataBind();
 
 
-                    txtprojectnumber.DataSource = allJobs;
-                    txtprojectnumber.DataValueField = "EmployeeNo";
-                    txtprojectnumber.DataTextField = "EmployeeName";
-                    txtprojectnumber.DataBind();
-                    LoadJobTasks();
+                    //txtprojectnumber.DataSource = allJobs;
+                    //txtprojectnumber.DataValueField = "EmployeeNo";
+                    //txtprojectnumber.DataTextField = "EmployeeName";
+                    //txtprojectnumber.DataBind();
+                    //LoadJobTasks();
 
 
 

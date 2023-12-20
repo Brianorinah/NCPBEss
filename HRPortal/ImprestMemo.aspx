@@ -33,7 +33,7 @@
                     <th>Date</th>
                     <th>Subject</th>
                     <th>Total Subsistence Allowance</th>
-                    <th>Total Other Costs</th>
+                    <%--<th>Total Other Costs</th>--%>
                     <th>Status</th>
                     <th>View/Edit</th>
                     <th>View Approval Entries</th>
@@ -41,7 +41,76 @@
                 </tr>
                 </thead>
                 <tbody>
-                <%
+                    <%
+                        if (!string.IsNullOrEmpty((string)Session["employeeNo"]))
+                                    {
+                                        string empNo = Convert.ToString(Session["employeeNo"]);
+                                        String memo = Config.ObjNav1.fnGetSafariRequest(empNo);
+                                        String[] allInfo = memo.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                                        if (allInfo != null)
+                                        {
+                                            foreach (var item in allInfo)
+                                            {
+                                                String[] oneItem = item.Split(new string[] { "*" }, StringSplitOptions.None);
+                                               
+                                                if(oneItem[2] != "Approved")
+                                                {
+                                                    %>
+                                
+                                                    <tr>
+                                    
+                                    
+                                    <td><%=oneItem[0] %> </td>
+                                    <td><%=oneItem[1] %> </td>
+                                    <td><%=oneItem[2] %> </td>
+                                    <td><%=oneItem[3] %> </td>
+                                    <td><%=oneItem[4] %> </td>
+                                    <td><a href="ApproverEntry.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
+                                    <td>
+                                        <%
+                                            if (oneItem[4] == "New")
+                                            {
+                                        %>
+                                        <label class="btn btn-success"><i class="fa fa-check"></i>Send Approval Request</label>
+                                        <%
+                                            }
+                                            else if (oneItem[4] == "Approval Pending")
+                                            {
+
+                                        %>
+                                        <label class="btn btn-danger"><i class="fa fa-times"></i>Cancel Approval Request</label>
+
+                                        <% 
+                                            } %>                                              
+                                    </td>
+                                    <td>
+                                        <%
+                                            if (oneItem[4] == "New")
+                                            {
+                                        %>
+                                        <a href="StaffClaim.aspx?step=1&&claimNo=<%=oneItem[0] %>" class="btn btn-success">View/Edit</a>
+                                        <%
+                                            }
+                                            else if (oneItem[4] == "Approval Pending")
+                                            {
+
+                                        %>
+                                        <label class="btn btn-default"><i class="fa fa-times"></i>Edit</label>
+
+                                        <% 
+                                            } %>                                              
+                                    </td>
+                                </tr>
+                                                        
+                                                      <%
+                                                }
+
+                                            }
+                                        }
+
+                                    }
+                         %>
+                <%--<%
                     foreach (var memo in imprests)
                     {
                         %>
@@ -53,7 +122,7 @@
                         <td><% =String.Format("{0:n}", Convert.ToDouble(memo.Total_Other_Costs)) %></td>
                         <td><% =memo.Status %></td>
                         <%--<td><label class="btn btn-success" onclick="showApprovalEntries('<%=memo.No %>', '57008', 'Imprest Memo');"><i class="fa fa-eye"></i> View Entries</label></td>--%>
-                          <td><a href="ImprestMemoApproverEntries.aspx?imprestNo=<%=memo.No %>" class="btn btn-success"><i class="fa fa-eye"></i> View Entries</a> </td>
+                         <%-- <td><a href="ImprestMemoApproverEntries.aspx?imprestNo=<%=memo.No %>" class="btn btn-success"><i class="fa fa-eye"></i> View Entries</a> </td>
                     
                          
                         <td>
@@ -93,7 +162,7 @@
                         </td>
                     </tr>
                     <%
-                    } %>
+                    } %>--%>--%>
                 </tbody>
             </table>
             </div>

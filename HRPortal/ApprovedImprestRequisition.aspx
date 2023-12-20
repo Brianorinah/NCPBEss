@@ -32,7 +32,43 @@
                 </tr>
                 </thead>
                 <tbody>
-                <%
+                    <%
+                        if (!string.IsNullOrEmpty((string)Session["employeeNo"]))
+                                    {
+                                        string empNo = Convert.ToString(Session["employeeNo"]);
+                                        String memo = Config.ObjNav1.fnGetSafariRequest(empNo);
+                                        String[] allInfo = memo.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                                        if (allInfo != null)
+                                        {
+                                            foreach (var item in allInfo)
+                                            {
+                                                String[] oneItem = item.Split(new string[] { "*" }, StringSplitOptions.None);
+                                               
+                                                if(oneItem[4] == "Approved")
+                                                {
+                                                    %>
+                                
+                                                    <tr>
+                                    
+                                    
+                                    <td><%=oneItem[0] %> </td>
+                                    <td><%=oneItem[1] %> </td>
+                                    <td><%=oneItem[2]  %> </td>
+                                    <td><%=oneItem[3]  %> </td>
+                                    <td><%=oneItem[4]  %> </td>
+                                    
+                                </tr>
+                                                        
+                                                      <%
+                                                }
+
+                                            }
+                                        }
+
+                                    }
+                         %>
+                       <%--  %>--%>
+               <%-- <%
                     int counter = 0;
                     var nav = new Config().ReturnNav();
                     String eNo = Convert.ToString(Session["employeeNo"]);
@@ -50,7 +86,7 @@
                         <td class="auto-style1"><% ="Approved"%></td>
                     </tr>
                     <%
-                    } %>
+                    } %>--%>
                 </tbody>
             </table>
         </div>

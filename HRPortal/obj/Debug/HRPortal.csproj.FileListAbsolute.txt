@@ -648,7 +648,6 @@ D:\Client Projects\NCPB\essv1\HRPortal\bin\ko\System.Spatial.resources.dll
 D:\Client Projects\NCPB\essv1\HRPortal\bin\ru\System.Spatial.resources.dll
 D:\Client Projects\NCPB\essv1\HRPortal\bin\zh-Hans\System.Spatial.resources.dll
 D:\Client Projects\NCPB\essv1\HRPortal\bin\zh-Hant\System.Spatial.resources.dll
-F:\Projects\NCPB\NewESS\NCPBEss\HRPortal\obj\Debug\HRPortal.csprojResolveAssemblyReference.cache
 F:\Projects\NCPB\NewESS\NCPBEss\HRPortal\obj\Debug\HRPortal.dll
 F:\Projects\NCPB\NewESS\NCPBEss\HRPortal\obj\Debug\HRPortal.pdb
 F:\Projects\NCPB\NewESS\NCPBEss\HRPortal\bin\roslyn\csc.exe

@@ -36,46 +36,51 @@
             <div id="generalFeedback" runat="server"></div>
               <div class="row" >
         <div class="col-md-6 col-lg-6">
-            <div class="form-group">
+            <%--<div class="form-group">
                 <strong>Division:</strong>
                 <asp:TextBox runat="server" ID="division" CssClass="form-control" ReadOnly="true" />
             </div>
             <div class="form-group">
                 <strong>Department:</strong>
                 <asp:TextBox runat="server" ID="department" CssClass="form-control" ReadOnly="true" />
-            </div>
+            </div>--%>
             <div class="form-group">
-                <strong>Subject:<span style="color:red">*</span></strong>
+                <strong>Purpose:<span style="color:red">*</span></strong>
                 <asp:TextBox runat="server" ID="subject" CssClass="form-control" placeholder="Subject"/>
-                <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="subject" ErrorMessage="Please enter subject, it cannot be empty!" ForeColor="Red" />
+                <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="subject" ErrorMessage="Please enter purpose, it cannot be empty!" ForeColor="Red" />
             </div>
-            <div class="form-group">
+           <%-- <div class="form-group">
                 <strong>Objective:<span style="color:red">*</span></strong>
                 <asp:TextBox runat="server" ID="objective" CssClass="form-control" placeholder="Objective" TextMode="MultiLine"/>
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="objective" ErrorMessage="Please enter objective, it cannot be empty!" ForeColor="Red" />
-            </div>
-            <div class="form-group">
+            </div>--%>
+          <%--  <div class="form-group">
                 <strong>Destination:<span style="color:red">*</span></strong>
                 <asp:TextBox runat="server" ID="destinationNarration" CssClass="form-control" placeholder="Destination Narration" TextMode="MultiLine" MaxLength="100"/>
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="destinationNarration" ErrorMessage="Please enter destination Narration, it cannot be empty!" ForeColor="Red" />
-            </div>
+            </div>--%>
             <div class="form-group" style="display:none">
-                <strong>Project Code:</strong>
+                <strong>Fund Code:</strong>
                 <asp:DropDownList CssClass="form-control select2" runat="server" ID="fundcode"/>
             </div>
             </div>
             <div class="col-md-6 col-lg-6">
              <div class="form-group">
-                <strong>Travel Date:<span style="color:red">*</span></strong>
+                <strong>Expected Travel Date:<span style="color:red">*</span></strong>
                 <asp:TextBox runat="server" ID="travelDate" CssClass="form-control" placeholder="Travel Date" />
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="travelDate" ErrorMessage="Please enter Travel Date, it cannot be empty!" ForeColor="Red" />
             </div>
             <div class="form-group">
+                <strong>Expected Return Date:<span style="color:red">*</span></strong>
+                <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" placeholder="Return Date" />
+                <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="returnDate" ErrorMessage="Please enter Return Date, it cannot be empty!" ForeColor="Red" />
+            </div>
+           <%-- <div class="form-group">
                 <strong>Number of Days:<span style="color:red">*</span></strong>
                 <asp:TextBox runat="server" ID="numberOfDays" CssClass="form-control" placeholder="Number of Days"/>
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="numberOfDays" ErrorMessage="Please enter Number of Days, it cannot be empty!" ForeColor="Red" />
-            </div>
-                <div class="form-group">
+            </div>--%>
+                <%--<div class="form-group">
                     <strong>Select Budget:<span style="color:red">*</span></strong>
                    <asp:DropDownList runat="server" ID="job" CssClass="form-control select2" OnSelectedIndexChanged="job_SelectedIndexChanged" AutoPostBack="True" AppendDataBoundItems="true">
                        <asp:ListItem>--Select--</asp:ListItem>
@@ -86,7 +91,7 @@
                     <strong>Select the Budget Line:<span style="color: red">*</span></strong>
                     <asp:DropDownList runat="server" ID="jobTaskno" CssClass="form-control select2" />
                      <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="jobTaskno" InitialValue="--Select--" ErrorMessage="Please select the vote, it cannot be empty!" ForeColor="Red" />
-                </div>
+                </div>--%>
               
          
           
@@ -102,35 +107,51 @@
         }else if (step==2){
             %>
     <div class="panel panel-primary">
-        <div class="panel-heading">Team
+        <div class="panel-heading">Safari Lines
               <span class="pull-right"><i class="fa fa-chevron-left"></i> Step 2 of 6 <i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
         </div>
         <div class="panel-body">
             <div runat="server" id="teamFeedback"></div>
             <!--team(destination town, vote item, no, number of days) -->
             <div class="col-md-6 col-lg-6" style="display:none">
-                <div class="form-group">
+               <div class="form-group">
+                <strong>Expected Travel Date:<span style="color:red">*</span></strong>
+                <asp:TextBox runat="server" ID="linetraveldate" CssClass="form-control" placeholder="Travel Date" />
+                <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="linetravelDate" ErrorMessage="Please enter Travel Date, it cannot be empty!" ForeColor="Red" />
+            </div>
+                <%--  <div class="form-group">
                     <strong>Travel Type:</strong>
                     <asp:DropDownList runat="server" CssClass="form-control select2" ID="traveltype" OnSelectedIndexChanged="LoadAllTowns_SelectedIndexChanged" AutoPostBack="true" AppendDataBoundItems="true">
                         <asp:ListItem Text="--Select Travel Type--" Value="0" />
                         <asp:ListItem Value="1">Local</asp:ListItem>
                         <asp:ListItem Value="2">International</asp:ListItem>
                     </asp:DropDownList>
-                </div>
+                </div>--%>
             </div>
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
-                    <strong>Destination Town:</strong>
+                    <strong>Travel from:</strong>
                     <asp:DropDownList runat="server" CssClass="form-control select2" ID="traveltown" AutoPostBack="true" AppendDataBoundItems="true">
+                        <asp:ListItem Text="--Select Destination Town--" Value="0" />
+                    </asp:DropDownList>
+                </div>
+                <div class="form-group">
+                    <strong>Travel to:</strong>
+                    <asp:DropDownList runat="server" CssClass="form-control select2" ID="DropDownList1" AutoPostBack="true" AppendDataBoundItems="true">
                         <asp:ListItem Text="--Select Destination Town--" Value="0" />
                     </asp:DropDownList>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6">
-                <div class="form-group">
+                 <div class="form-group">
+                <strong>Expected Travel Date:<span style="color:red">*</span></strong>
+                <asp:TextBox runat="server" ID="linereturndate" CssClass="form-control" placeholder="Return Date" />
+                <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="linereturnDate" ErrorMessage="Please enter Return Date, it cannot be empty!" ForeColor="Red" />
+            </div>
+                <%--<div class="form-group">
                     <strong>Vote Item:</strong>
                     <asp:DropDownList runat="server" CssClass="form-control select2" ID="voteItem"/>
-                </div>
+                </div>--%>
             </div>
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
@@ -142,9 +163,17 @@
             </div>
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
+                    <strong>Nights Spend:</strong>
+                    <asp:Textbox runat="server" CssClass="form-control" ID="nightspend" placeholder="Nights Spend"/>
+                </div>
+                 <div class="form-group">
+                    <strong>Days Spend:</strong>
+                    <asp:Textbox runat="server" CssClass="form-control" ID="daysspend" placeholder="Days Spend"/>
+                </div>
+                <%-- <div class="form-group">
                     <strong>Number of Days:</strong>
                     <asp:Textbox runat="server" CssClass="form-control" ID="teamNumberOfDays" placeholder="Number of Days"/>
-                </div>
+                </div>--%>
             </div>
             <div class="form-group">
                 <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Add Team Member" ID="addTeamMember" OnClick="addTeamMember_Click"/>
@@ -154,12 +183,12 @@
             <table  id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Destination Town</th>
-                    <th>Vote Item</th>
-                    <th>Team Member</th>
-                    <th>Number of Days</th>
-                    <th>Total Daily Subsistence</th>
-                    <th>Total Entitlement</th>
+                    <th>Expected date</th>
+                    <th>Travel from</th>
+                    <th>Travel to</th>
+                    <th>Return Date</th>
+                    <th>Nights Spend</th>
+                    <th>Days Spend</th>
                     <th>Edit</th>
                     <th>Remove</th>
                 </tr>
@@ -262,8 +291,8 @@
                     %>
                     <tr>
                         <td><% =line.No %></td>
-                        <td><% =line.Name %></td>
-                        <td><% =line.Transport_Costs %></td>
+                        <td><% <%--<td><% =line.Transport_Costs %></td>--%>=line.Name %></td>
+                        
                          <%--<td><label class="btn btn-success" onclick="editFuel('<%=line.Work_Type %>','<%=line.No %>','<%=line.Time_Period %>');"><i class="fa fa-edit-o"></i> Edit</label></td>--%>
                          <td><label class="btn btn-danger" onclick="removeFuel('<%=line.Imprest_Memo_No %>','<%=line.No %>','<%=line.Name %>');"><i class="fa fa-trash-o"></i> Remove</label></td>
                      </tr>

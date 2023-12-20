@@ -22,24 +22,6 @@ namespace HRPortal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl generalFeedback;
         
         /// <summary>
-        /// division control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox division;
-        
-        /// <summary>
-        /// department control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox department;
-        
-        /// <summary>
         /// subject control.
         /// </summary>
         /// <remarks>
@@ -47,24 +29,6 @@ namespace HRPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox subject;
-        
-        /// <summary>
-        /// objective control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox objective;
-        
-        /// <summary>
-        /// destinationNarration control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox destinationNarration;
         
         /// <summary>
         /// fundcode control.
@@ -85,40 +49,13 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.TextBox travelDate;
         
         /// <summary>
-        /// numberOfDays control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox numberOfDays;
-        
-        /// <summary>
-        /// job control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList job;
-        
-        /// <summary>
-        /// validateapplicanttype control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validateapplicanttype;
-        
-        /// <summary>
-        /// jobTaskno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList jobTaskno;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
         /// addGeneralDetails control.
@@ -139,13 +76,13 @@ namespace HRPortal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl teamFeedback;
         
         /// <summary>
-        /// traveltype control.
+        /// linetraveldate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList traveltype;
+        protected global::System.Web.UI.WebControls.TextBox linetraveldate;
         
         /// <summary>
         /// traveltown control.
@@ -157,13 +94,22 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.DropDownList traveltown;
         
         /// <summary>
-        /// voteItem control.
+        /// DropDownList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList voteItem;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        
+        /// <summary>
+        /// linereturndate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox linereturndate;
         
         /// <summary>
         /// teamMember control.
@@ -175,13 +121,22 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.DropDownList teamMember;
         
         /// <summary>
-        /// teamNumberOfDays control.
+        /// nightspend control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox teamNumberOfDays;
+        protected global::System.Web.UI.WebControls.TextBox nightspend;
+        
+        /// <summary>
+        /// daysspend control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox daysspend;
         
         /// <summary>
         /// addTeamMember control.

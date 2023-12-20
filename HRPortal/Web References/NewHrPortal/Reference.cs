@@ -35,6 +35,16 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback createLeaveApplicationOperationCompleted;
         
+        private System.Threading.SendOrPostCallback createSafariRequestEntitlementsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback createSafariRequestHeaderOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback createSafariRequestLinesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback createStaffApplicationOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback createStaffClaimApplicationLinesOperationCompleted;
+        
         private System.Threading.SendOrPostCallback createStoreRequisitionLineOperationCompleted;
         
         private System.Threading.SendOrPostCallback createStoreRequisitionOperationCompleted;
@@ -50,6 +60,10 @@ namespace HRPortal.NewHrPortal {
         private System.Threading.SendOrPostCallback generatePayslipOperationCompleted;
         
         private System.Threading.SendOrPostCallback sendLeaveApplicationApprovalOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback sendSafariRequestApplicationApprovalOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback sendStaffClaimApplicationApprovalOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -99,6 +113,21 @@ namespace HRPortal.NewHrPortal {
         public event createLeaveApplicationCompletedEventHandler createLeaveApplicationCompleted;
         
         /// <remarks/>
+        public event createSafariRequestEntitlementsCompletedEventHandler createSafariRequestEntitlementsCompleted;
+        
+        /// <remarks/>
+        public event createSafariRequestHeaderCompletedEventHandler createSafariRequestHeaderCompleted;
+        
+        /// <remarks/>
+        public event createSafariRequestLinesCompletedEventHandler createSafariRequestLinesCompleted;
+        
+        /// <remarks/>
+        public event createStaffApplicationCompletedEventHandler createStaffApplicationCompleted;
+        
+        /// <remarks/>
+        public event createStaffClaimApplicationLinesCompletedEventHandler createStaffClaimApplicationLinesCompleted;
+        
+        /// <remarks/>
         public event createStoreRequisitionLineCompletedEventHandler createStoreRequisitionLineCompleted;
         
         /// <remarks/>
@@ -121,6 +150,12 @@ namespace HRPortal.NewHrPortal {
         
         /// <remarks/>
         public event sendLeaveApplicationApprovalCompletedEventHandler sendLeaveApplicationApprovalCompleted;
+        
+        /// <remarks/>
+        public event sendSafariRequestApplicationApprovalCompletedEventHandler sendSafariRequestApplicationApprovalCompleted;
+        
+        /// <remarks/>
+        public event sendStaffClaimApplicationApprovalCompletedEventHandler sendStaffClaimApplicationApprovalCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:changePassword", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="changePassword_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -229,6 +264,206 @@ namespace HRPortal.NewHrPortal {
             if ((this.createLeaveApplicationCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.createLeaveApplicationCompleted(this, new createLeaveApplicationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createSafariRequestEntitlemen" +
+            "ts", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createSafariRequestEntitlements_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string createSafariRequestEntitlements(string applicationNo, string entitlement, int quantity, decimal rate, string town) {
+            object[] results = this.Invoke("createSafariRequestEntitlements", new object[] {
+                        applicationNo,
+                        entitlement,
+                        quantity,
+                        rate,
+                        town});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void createSafariRequestEntitlementsAsync(string applicationNo, string entitlement, int quantity, decimal rate, string town) {
+            this.createSafariRequestEntitlementsAsync(applicationNo, entitlement, quantity, rate, town, null);
+        }
+        
+        /// <remarks/>
+        public void createSafariRequestEntitlementsAsync(string applicationNo, string entitlement, int quantity, decimal rate, string town, object userState) {
+            if ((this.createSafariRequestEntitlementsOperationCompleted == null)) {
+                this.createSafariRequestEntitlementsOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateSafariRequestEntitlementsOperationCompleted);
+            }
+            this.InvokeAsync("createSafariRequestEntitlements", new object[] {
+                        applicationNo,
+                        entitlement,
+                        quantity,
+                        rate,
+                        town}, this.createSafariRequestEntitlementsOperationCompleted, userState);
+        }
+        
+        private void OncreateSafariRequestEntitlementsOperationCompleted(object arg) {
+            if ((this.createSafariRequestEntitlementsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.createSafariRequestEntitlementsCompleted(this, new createSafariRequestEntitlementsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createSafariRequestHeader", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createSafariRequestHeader_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string createSafariRequestHeader(string applicationNo, string employeeNumber, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime exptTravelDate, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime exptReturnDate, int modeOfTransPort, string functionCode, string budgetCode, string purpose) {
+            object[] results = this.Invoke("createSafariRequestHeader", new object[] {
+                        applicationNo,
+                        employeeNumber,
+                        exptTravelDate,
+                        exptReturnDate,
+                        modeOfTransPort,
+                        functionCode,
+                        budgetCode,
+                        purpose});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void createSafariRequestHeaderAsync(string applicationNo, string employeeNumber, System.DateTime exptTravelDate, System.DateTime exptReturnDate, int modeOfTransPort, string functionCode, string budgetCode, string purpose) {
+            this.createSafariRequestHeaderAsync(applicationNo, employeeNumber, exptTravelDate, exptReturnDate, modeOfTransPort, functionCode, budgetCode, purpose, null);
+        }
+        
+        /// <remarks/>
+        public void createSafariRequestHeaderAsync(string applicationNo, string employeeNumber, System.DateTime exptTravelDate, System.DateTime exptReturnDate, int modeOfTransPort, string functionCode, string budgetCode, string purpose, object userState) {
+            if ((this.createSafariRequestHeaderOperationCompleted == null)) {
+                this.createSafariRequestHeaderOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateSafariRequestHeaderOperationCompleted);
+            }
+            this.InvokeAsync("createSafariRequestHeader", new object[] {
+                        applicationNo,
+                        employeeNumber,
+                        exptTravelDate,
+                        exptReturnDate,
+                        modeOfTransPort,
+                        functionCode,
+                        budgetCode,
+                        purpose}, this.createSafariRequestHeaderOperationCompleted, userState);
+        }
+        
+        private void OncreateSafariRequestHeaderOperationCompleted(object arg) {
+            if ((this.createSafariRequestHeaderCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.createSafariRequestHeaderCompleted(this, new createSafariRequestHeaderCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createSafariRequestLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createSafariRequestLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string createSafariRequestLines(string applicationNo, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime expseDate, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime returnDate, string travelFrom, string travelTo) {
+            object[] results = this.Invoke("createSafariRequestLines", new object[] {
+                        applicationNo,
+                        expseDate,
+                        returnDate,
+                        travelFrom,
+                        travelTo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void createSafariRequestLinesAsync(string applicationNo, System.DateTime expseDate, System.DateTime returnDate, string travelFrom, string travelTo) {
+            this.createSafariRequestLinesAsync(applicationNo, expseDate, returnDate, travelFrom, travelTo, null);
+        }
+        
+        /// <remarks/>
+        public void createSafariRequestLinesAsync(string applicationNo, System.DateTime expseDate, System.DateTime returnDate, string travelFrom, string travelTo, object userState) {
+            if ((this.createSafariRequestLinesOperationCompleted == null)) {
+                this.createSafariRequestLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateSafariRequestLinesOperationCompleted);
+            }
+            this.InvokeAsync("createSafariRequestLines", new object[] {
+                        applicationNo,
+                        expseDate,
+                        returnDate,
+                        travelFrom,
+                        travelTo}, this.createSafariRequestLinesOperationCompleted, userState);
+        }
+        
+        private void OncreateSafariRequestLinesOperationCompleted(object arg) {
+            if ((this.createSafariRequestLinesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.createSafariRequestLinesCompleted(this, new createSafariRequestLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createStaffApplication", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createStaffApplication_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string createStaffApplication(string applicationNo, string employeeNumber, string safariCode, string fundCode) {
+            object[] results = this.Invoke("createStaffApplication", new object[] {
+                        applicationNo,
+                        employeeNumber,
+                        safariCode,
+                        fundCode});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void createStaffApplicationAsync(string applicationNo, string employeeNumber, string safariCode, string fundCode) {
+            this.createStaffApplicationAsync(applicationNo, employeeNumber, safariCode, fundCode, null);
+        }
+        
+        /// <remarks/>
+        public void createStaffApplicationAsync(string applicationNo, string employeeNumber, string safariCode, string fundCode, object userState) {
+            if ((this.createStaffApplicationOperationCompleted == null)) {
+                this.createStaffApplicationOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateStaffApplicationOperationCompleted);
+            }
+            this.InvokeAsync("createStaffApplication", new object[] {
+                        applicationNo,
+                        employeeNumber,
+                        safariCode,
+                        fundCode}, this.createStaffApplicationOperationCompleted, userState);
+        }
+        
+        private void OncreateStaffApplicationOperationCompleted(object arg) {
+            if ((this.createStaffApplicationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.createStaffApplicationCompleted(this, new createStaffApplicationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createStaffClaimApplicationLi" +
+            "nes", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createStaffClaimApplicationLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string createStaffClaimApplicationLines(string applicationNo, string claimType, int noOfDays, int noOfNights, int quantity, decimal rate, string reasonForClaim) {
+            object[] results = this.Invoke("createStaffClaimApplicationLines", new object[] {
+                        applicationNo,
+                        claimType,
+                        noOfDays,
+                        noOfNights,
+                        quantity,
+                        rate,
+                        reasonForClaim});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void createStaffClaimApplicationLinesAsync(string applicationNo, string claimType, int noOfDays, int noOfNights, int quantity, decimal rate, string reasonForClaim) {
+            this.createStaffClaimApplicationLinesAsync(applicationNo, claimType, noOfDays, noOfNights, quantity, rate, reasonForClaim, null);
+        }
+        
+        /// <remarks/>
+        public void createStaffClaimApplicationLinesAsync(string applicationNo, string claimType, int noOfDays, int noOfNights, int quantity, decimal rate, string reasonForClaim, object userState) {
+            if ((this.createStaffClaimApplicationLinesOperationCompleted == null)) {
+                this.createStaffClaimApplicationLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateStaffClaimApplicationLinesOperationCompleted);
+            }
+            this.InvokeAsync("createStaffClaimApplicationLines", new object[] {
+                        applicationNo,
+                        claimType,
+                        noOfDays,
+                        noOfNights,
+                        quantity,
+                        rate,
+                        reasonForClaim}, this.createStaffClaimApplicationLinesOperationCompleted, userState);
+        }
+        
+        private void OncreateStaffClaimApplicationLinesOperationCompleted(object arg) {
+            if ((this.createStaffClaimApplicationLinesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.createStaffClaimApplicationLinesCompleted(this, new createStaffClaimApplicationLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -499,6 +734,68 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendSafariRequestApplicationA" +
+            "pproval", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendSafariRequestApplicationApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string sendSafariRequestApplicationApproval(string applicationNo) {
+            object[] results = this.Invoke("sendSafariRequestApplicationApproval", new object[] {
+                        applicationNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void sendSafariRequestApplicationApprovalAsync(string applicationNo) {
+            this.sendSafariRequestApplicationApprovalAsync(applicationNo, null);
+        }
+        
+        /// <remarks/>
+        public void sendSafariRequestApplicationApprovalAsync(string applicationNo, object userState) {
+            if ((this.sendSafariRequestApplicationApprovalOperationCompleted == null)) {
+                this.sendSafariRequestApplicationApprovalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendSafariRequestApplicationApprovalOperationCompleted);
+            }
+            this.InvokeAsync("sendSafariRequestApplicationApproval", new object[] {
+                        applicationNo}, this.sendSafariRequestApplicationApprovalOperationCompleted, userState);
+        }
+        
+        private void OnsendSafariRequestApplicationApprovalOperationCompleted(object arg) {
+            if ((this.sendSafariRequestApplicationApprovalCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.sendSafariRequestApplicationApprovalCompleted(this, new sendSafariRequestApplicationApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendStaffClaimApplicationAppr" +
+            "oval", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendStaffClaimApplicationApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string sendStaffClaimApplicationApproval(string applicationNo) {
+            object[] results = this.Invoke("sendStaffClaimApplicationApproval", new object[] {
+                        applicationNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void sendStaffClaimApplicationApprovalAsync(string applicationNo) {
+            this.sendStaffClaimApplicationApprovalAsync(applicationNo, null);
+        }
+        
+        /// <remarks/>
+        public void sendStaffClaimApplicationApprovalAsync(string applicationNo, object userState) {
+            if ((this.sendStaffClaimApplicationApprovalOperationCompleted == null)) {
+                this.sendStaffClaimApplicationApprovalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendStaffClaimApplicationApprovalOperationCompleted);
+            }
+            this.InvokeAsync("sendStaffClaimApplicationApproval", new object[] {
+                        applicationNo}, this.sendStaffClaimApplicationApprovalOperationCompleted, userState);
+        }
+        
+        private void OnsendStaffClaimApplicationApprovalOperationCompleted(object arg) {
+            if ((this.sendStaffClaimApplicationApprovalCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.sendStaffClaimApplicationApprovalCompleted(this, new sendStaffClaimApplicationApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -582,6 +879,136 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal createLeaveApplicationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void createSafariRequestEntitlementsCompletedEventHandler(object sender, createSafariRequestEntitlementsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class createSafariRequestEntitlementsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal createSafariRequestEntitlementsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void createSafariRequestHeaderCompletedEventHandler(object sender, createSafariRequestHeaderCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class createSafariRequestHeaderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal createSafariRequestHeaderCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void createSafariRequestLinesCompletedEventHandler(object sender, createSafariRequestLinesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class createSafariRequestLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal createSafariRequestLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void createStaffApplicationCompletedEventHandler(object sender, createStaffApplicationCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class createStaffApplicationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal createStaffApplicationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void createStaffClaimApplicationLinesCompletedEventHandler(object sender, createStaffClaimApplicationLinesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class createStaffClaimApplicationLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal createStaffClaimApplicationLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -790,6 +1217,58 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal sendLeaveApplicationApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void sendSafariRequestApplicationApprovalCompletedEventHandler(object sender, sendSafariRequestApplicationApprovalCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class sendSafariRequestApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal sendSafariRequestApplicationApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void sendStaffClaimApplicationApprovalCompletedEventHandler(object sender, sendStaffClaimApplicationApprovalCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class sendStaffClaimApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal sendStaffClaimApplicationApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

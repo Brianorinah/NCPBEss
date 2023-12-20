@@ -7,13 +7,15 @@
 <div class="row">
     <div class="col-sm-12">
         <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="Dashboard.aspx">Kenya Urban Roads Authority</a></li>
+            <li class="breadcrumb-item"><a href="Dashboard.aspx">National Cerials And Produce Board</a></li>
+            <li class="breadcrumb-item"><a href="Dashboard.aspx">Employee Self Service Portal</a></li>
             <li class="breadcrumb-item active">Dashboard</li>
         </ol>
     </div>
 </div>  
     <% var nav = new Config().ReturnNav(); 
          String employeeNo = Convert.ToString(Session["employeeNo"]);
+        Decimal leaveBalance = 0;
         %>
 <div class="main">
   <div class="main-inner">
@@ -29,29 +31,44 @@
               <div runat="server" id="photosize"></div>
             <!-- /widget-header -->
             <div class="widget-content">
-            <div style="width: 100%; display: block; margin: auto;">
+            <center>
+                <div style="width: 100%; display: block; margin: auto;">
                 <img id="passportimage" runat="server" />
             </div>
+            </center>
             <div runat="server" id="documentsfeedback"></div>
             <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal">Upload Image</button>
             <br />
                  <table class="table table-striped table-bordered">
                 
                 <tbody>
-                <%--<%
-
-                        var employees = nav.Employees.Where(r => r.No == (String) Session["employeeNo"]);
-                        foreach (var employee in employees)
+                    <%                        
+                        var nav1 = Config.ObjNav1;
+                        var result = nav1.fnGetEmployees(employeeNo);
+                        String[] info = result.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                        if (info.Count() > 0)
                         {
+                            if (info != null)
+                            {
+                                foreach (var allinfo in info)
+                                {
+                                    String[] arr = allinfo.Split('*');
+                                    leaveBalance = Convert.ToDecimal(arr[4]);
 
-                %>
-                  <tr><td> Employee Number:</td><td> <%= employee.No %></td></tr>
-                  <tr><td> Name:</td><td> <%= Session["name"] %></td></tr>                 
-                  <tr><td> Email:</td><td> <%= employee.Company_E_Mail %> </td></tr>
-                  <tr><td> Phone Number:</td><td> <%= employee.Phone_No %> </td></tr>
+
+                         %>
+                
+                  <tr><td> Employee Number:</td><td> <%= arr[0]%></td></tr>
+                  <tr><td> Name:</td><td> <%= arr[1] %></td></tr>                 
+                  <tr><td> Email:</td><td> <%= arr[2] %> </td></tr>
+                  <tr><td> Id Number:</td><td> <%= arr[3] %> </td></tr>
                   <%
+                              }
                           }
-                  %>--%>
+                      }
+                  %>
+
+
                 
                 </tbody>
               </table>
@@ -67,8 +84,7 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>
-                   <% 
-                       Decimal leaveBalance = 0;
+                   <%                        
                        //var employeesLeaves = nav.Employees.Where(r => r.No == (String) Session["employeeNo"]);
                        //Decimal leaveBalance = 0;
                        //try

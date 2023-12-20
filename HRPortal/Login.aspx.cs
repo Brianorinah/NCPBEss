@@ -26,6 +26,8 @@ namespace HRPortal
                 if (tPassword == "0000")
                 {
                     Session["employeeNo"] = tUsername;
+                    Session["EmailAddress"] = tUsername;
+                    Session["Password"] = "";
                     Response.Redirect("ChangePassword.aspx");
                 }
                 else

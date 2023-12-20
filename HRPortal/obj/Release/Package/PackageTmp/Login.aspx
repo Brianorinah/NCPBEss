@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Login - KURA</title>
+    <title>Login - NCPB</title>
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,7 +14,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="LoginAssets/images/logo.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="LoginAssets/images/ncpb.png" rel="shortcut icon" type="image/x-icon" />
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />

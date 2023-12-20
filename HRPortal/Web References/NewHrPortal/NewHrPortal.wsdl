@@ -54,6 +54,100 @@
           </sequence>
         </complexType>
       </element>
+      <element name="createSafariRequestEntitlements">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="entitlement" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="quantity" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="rate" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="town" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createSafariRequestEntitlements_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createSafariRequestHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="exptTravelDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="exptReturnDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="modeOfTransPort" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="functionCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createSafariRequestHeader_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createSafariRequestLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="expseDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="returnDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="travelFrom" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="travelTo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createSafariRequestLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createStaffApplication">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="safariCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="fundCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createStaffApplication_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createStaffClaimApplicationLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="claimType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="noOfDays" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="noOfNights" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="quantity" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="rate" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="reasonForClaim" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createStaffClaimApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="createStoreRequisitionLine">
         <complexType>
           <sequence>
@@ -179,6 +273,34 @@
           </sequence>
         </complexType>
       </element>
+      <element name="sendSafariRequestApplicationApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sendSafariRequestApplicationApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sendStaffClaimApplicationApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sendStaffClaimApplicationApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
   <message name="changePassword">
@@ -198,6 +320,36 @@
   </message>
   <message name="createLeaveApplication_Result">
     <part name="parameters" element="tns:createLeaveApplication_Result" />
+  </message>
+  <message name="createSafariRequestEntitlements">
+    <part name="parameters" element="tns:createSafariRequestEntitlements" />
+  </message>
+  <message name="createSafariRequestEntitlements_Result">
+    <part name="parameters" element="tns:createSafariRequestEntitlements_Result" />
+  </message>
+  <message name="createSafariRequestHeader">
+    <part name="parameters" element="tns:createSafariRequestHeader" />
+  </message>
+  <message name="createSafariRequestHeader_Result">
+    <part name="parameters" element="tns:createSafariRequestHeader_Result" />
+  </message>
+  <message name="createSafariRequestLines">
+    <part name="parameters" element="tns:createSafariRequestLines" />
+  </message>
+  <message name="createSafariRequestLines_Result">
+    <part name="parameters" element="tns:createSafariRequestLines_Result" />
+  </message>
+  <message name="createStaffApplication">
+    <part name="parameters" element="tns:createStaffApplication" />
+  </message>
+  <message name="createStaffApplication_Result">
+    <part name="parameters" element="tns:createStaffApplication_Result" />
+  </message>
+  <message name="createStaffClaimApplicationLines">
+    <part name="parameters" element="tns:createStaffClaimApplicationLines" />
+  </message>
+  <message name="createStaffClaimApplicationLines_Result">
+    <part name="parameters" element="tns:createStaffClaimApplicationLines_Result" />
   </message>
   <message name="createStoreRequisitionLine">
     <part name="parameters" element="tns:createStoreRequisitionLine" />
@@ -247,6 +399,18 @@
   <message name="sendLeaveApplicationApproval_Result">
     <part name="parameters" element="tns:sendLeaveApplicationApproval_Result" />
   </message>
+  <message name="sendSafariRequestApplicationApproval">
+    <part name="parameters" element="tns:sendSafariRequestApplicationApproval" />
+  </message>
+  <message name="sendSafariRequestApplicationApproval_Result">
+    <part name="parameters" element="tns:sendSafariRequestApplicationApproval_Result" />
+  </message>
+  <message name="sendStaffClaimApplicationApproval">
+    <part name="parameters" element="tns:sendStaffClaimApplicationApproval" />
+  </message>
+  <message name="sendStaffClaimApplicationApproval_Result">
+    <part name="parameters" element="tns:sendStaffClaimApplicationApproval_Result" />
+  </message>
   <portType name="NewHrPortal_Port">
     <operation name="changePassword">
       <input name="changePassword" message="tns:changePassword" />
@@ -259,6 +423,26 @@
     <operation name="createLeaveApplication">
       <input name="createLeaveApplication" message="tns:createLeaveApplication" />
       <output name="createLeaveApplication_Result" message="tns:createLeaveApplication_Result" />
+    </operation>
+    <operation name="createSafariRequestEntitlements">
+      <input name="createSafariRequestEntitlements" message="tns:createSafariRequestEntitlements" />
+      <output name="createSafariRequestEntitlements_Result" message="tns:createSafariRequestEntitlements_Result" />
+    </operation>
+    <operation name="createSafariRequestHeader">
+      <input name="createSafariRequestHeader" message="tns:createSafariRequestHeader" />
+      <output name="createSafariRequestHeader_Result" message="tns:createSafariRequestHeader_Result" />
+    </operation>
+    <operation name="createSafariRequestLines">
+      <input name="createSafariRequestLines" message="tns:createSafariRequestLines" />
+      <output name="createSafariRequestLines_Result" message="tns:createSafariRequestLines_Result" />
+    </operation>
+    <operation name="createStaffApplication">
+      <input name="createStaffApplication" message="tns:createStaffApplication" />
+      <output name="createStaffApplication_Result" message="tns:createStaffApplication_Result" />
+    </operation>
+    <operation name="createStaffClaimApplicationLines">
+      <input name="createStaffClaimApplicationLines" message="tns:createStaffClaimApplicationLines" />
+      <output name="createStaffClaimApplicationLines_Result" message="tns:createStaffClaimApplicationLines_Result" />
     </operation>
     <operation name="createStoreRequisitionLine">
       <input name="createStoreRequisitionLine" message="tns:createStoreRequisitionLine" />
@@ -292,6 +476,14 @@
       <input name="sendLeaveApplicationApproval" message="tns:sendLeaveApplicationApproval" />
       <output name="sendLeaveApplicationApproval_Result" message="tns:sendLeaveApplicationApproval_Result" />
     </operation>
+    <operation name="sendSafariRequestApplicationApproval">
+      <input name="sendSafariRequestApplicationApproval" message="tns:sendSafariRequestApplicationApproval" />
+      <output name="sendSafariRequestApplicationApproval_Result" message="tns:sendSafariRequestApplicationApproval_Result" />
+    </operation>
+    <operation name="sendStaffClaimApplicationApproval">
+      <input name="sendStaffClaimApplicationApproval" message="tns:sendStaffClaimApplicationApproval" />
+      <output name="sendStaffClaimApplicationApproval_Result" message="tns:sendStaffClaimApplicationApproval_Result" />
+    </operation>
   </portType>
   <binding name="NewHrPortal_Binding" type="tns:NewHrPortal_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
@@ -319,6 +511,51 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="createLeaveApplication_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createSafariRequestEntitlements">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createSafariRequestEntitlements" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createSafariRequestEntitlements">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createSafariRequestEntitlements_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createSafariRequestHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createSafariRequestHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createSafariRequestHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createSafariRequestHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createSafariRequestLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createSafariRequestLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createSafariRequestLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createSafariRequestLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createStaffApplication">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createStaffApplication" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createStaffApplication">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createStaffApplication_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createStaffClaimApplicationLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createStaffClaimApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createStaffClaimApplicationLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createStaffClaimApplicationLines_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -391,6 +628,24 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="sendLeaveApplicationApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="sendSafariRequestApplicationApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendSafariRequestApplicationApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="sendSafariRequestApplicationApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="sendSafariRequestApplicationApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="sendStaffClaimApplicationApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendStaffClaimApplicationApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="sendStaffClaimApplicationApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="sendStaffClaimApplicationApproval_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

@@ -15,7 +15,7 @@
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <i class="icon-file"></i>
-                Generate Payslip (<i style="color:yellow">Select pay period to generate your payslip</i>)
+                Generate Payslip (<i style="color:yellow">Select Year and Month to generate your payslip</i>)
             </div>
             <div class="panel-body">
                 <div id="feedback" runat="server"></div>
@@ -56,7 +56,7 @@
                 </div>
                 </center>
                 <div class="form-group">
-                    <iframe runat="server" class="col-sm-12 col-xs-12 col-md-10 col-lg-10" height="500px" id="payslipFrame" style="margin-top: 10px;"></iframe>
+                    <iframe runat="server" class="col-sm-12 col-xs-12 col-md-12 col-lg-12" height="500px" id="payslipFrame" style="margin-top: 10px;"></iframe>
                 </div>
             </div>
 

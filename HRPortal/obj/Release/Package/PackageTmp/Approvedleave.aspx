@@ -25,7 +25,7 @@
                         <thead>
                             <tr>
                                 <th>Application No</th>
-                                <th>Leave Type</th>
+                                <%--<th>Leave Type</th>--%>
                                 <th>Days Applied</th>
                                 <th>Start Date</th>
                                 <th>Return Date</th>
@@ -34,22 +34,60 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <%
+                             <%
+                                    if (!string.IsNullOrEmpty((string)Session["employeeNo"]))
+                                    {
+                                        string empNo = Convert.ToString(Session["employeeNo"]);
+                                        String leaves1 = Config.ObjNav1.fnGetHrLeaveApplications(empNo);
+                                        String[] allInfo = leaves1.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                                        if (allInfo != null)
+                                        {
+                                            foreach (var item in allInfo)
+                                            {
+                                                String[] oneItem = item.Split(new string[] { "*" }, StringSplitOptions.None);
+                                               
+                                                if(oneItem[4] == "Approved")
+                                                {
+                                                    %>
+                                
+                                                    <tr>
+                                    
+                                    
+                                    <td><%=oneItem[0] %> </td>
+                                    <%--<td><%=leave.Leave_Type %> </td>--%>
+                                    <td><%=oneItem[1] %> </td>
+                                    <td><%=oneItem[2]  %> </td>
+                                    <td><%=oneItem[3] %> </td>
+                                    <td><%=oneItem[4] %> </td>
+                                    
+                                </tr>
+                                                        
+                                                      <%
+                                                }
+
+                                            }
+                                        }
+
+                                    }
+                                                          %>
+                            
+                            
+                          <%--  <%
                                 var leaves = nav.HrLeaveApplication.Where(r => r.Employee_No == (String)Session["employeeNo"] && r.Status == "Released");
                                 foreach (var leave in leaves)
                                 {
                             %>
                             <tr>
                                 <td><%=leave.Application_Code %> </td>
-                                <td><%=leave.Leave_Type %> </td>
-                                <td><%=leave.Days_Applied %> </td>
+                                <%--<td><%=leave.Leave_Type %> </td>--%>
+                               <%-- <td><%=leave.Days_Applied %> </td>
                                 <td><%=Convert.ToDateTime(leave.Start_Date).ToString("dd/MM/yyyy") %> </td>
                                 <td><%=Convert.ToDateTime(leave.Return_Date).ToString("dd/MM/yyyy") %> </td>
                                 <td><%=leave.Status %> </td>
                             </tr>
                             <%
                                 }
-                            %>
+                            %><%----%>--%>--%>
                         </tbody>
                     </table>
                     </div>

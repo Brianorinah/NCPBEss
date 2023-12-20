@@ -5455,6 +5455,7 @@
     <Content Include="RecordRequisitionApprovalEntries.aspx" />
     <Content Include="ResolvedHelpDeskIssues.aspx" />
     <Content Include="ResourceBookingApproverEntries.aspx" />
+    <Content Include="SafariRequest.aspx" />
     <Content Include="SalaryAdvance.aspx" />
     <Content Include="SecurityIncident.aspx" />
     <Content Include="SecurityIncidentSubmitted.aspx" />
@@ -5463,6 +5464,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="StaffClaim.aspx" />
+    <Content Include="StaffClaim2.aspx" />
     <Content Include="StaffClaims.aspx" />
     <Content Include="StaffClaimsApproved.aspx" />
     <Content Include="StaffClaimsApproverEntry.aspx" />
@@ -6756,6 +6758,13 @@
     <Compile Include="ResourceBookingApproverEntries.aspx.designer.cs">
       <DependentUpon>ResourceBookingApproverEntries.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SafariRequest.aspx.cs">
+      <DependentUpon>SafariRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SafariRequest.aspx.designer.cs">
+      <DependentUpon>SafariRequest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SalaryAdvance.aspx.cs">
       <DependentUpon>SalaryAdvance.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -6796,6 +6805,13 @@
     </Compile>
     <Compile Include="StaffClaim.aspx.designer.cs">
       <DependentUpon>StaffClaim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffClaim2.aspx.cs">
+      <DependentUpon>StaffClaim2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffClaim2.aspx.designer.cs">
+      <DependentUpon>StaffClaim2.aspx</DependentUpon>
     </Compile>
     <Compile Include="StaffClaims.aspx.cs">
       <DependentUpon>StaffClaims.aspx</DependentUpon>

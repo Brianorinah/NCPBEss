@@ -40,7 +40,7 @@
         <div class="panel-body">
             <div runat="server" id="feedback"></div>
             <div class="col-md-6 col-lg-6">
-                <div class="form-group">
+              <%--  <div class="form-group">
                     <label class="span2">Leave Type<span style="color: red">*</span></label>
                     <asp:DropDownList runat="server" ID="leaveType" AppendDataBoundItems="true" CssClass="form-control select2" AutoPostBack="true" OnSelectedIndexChanged="leaveType_SelectedIndexChanged">
                         <asp:ListItem>--Select--</asp:ListItem>
@@ -56,7 +56,7 @@
                         <asp:ListItem Value="Emergency Leave">Emergency Leave</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="annualLeaveType" InitialValue="--Select--" ErrorMessage="Please select annual leave type, it cannot be empty!" ForeColor="Red" />
-                </div>
+                </div>--%>
                 <div class="form-group">
                     <label class="span2">Days Applied<span style="color: red">*</span></label>
                     <asp:TextBox runat="server" ID="daysApplied" CssClass="form-control span3" type="number" placeholder="Enter total number of days you are applying" AutoPostBack="true" OnTextChanged="daysApplied_TextChanged"/>
@@ -82,7 +82,7 @@
                 </div>
 
             </div>
-            <div class="col-md-12 col-lg-12">
+            <%--<div class="col-md-12 col-lg-12">
                 <h3><strong>Other Leave Details</strong> </h3>
                 <hr />
             </div>
@@ -110,7 +110,7 @@
                     <asp:TextBox runat="server" ID="examDetails" CssClass="form-control span3" placeholder="Enter exam details" />
                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="examDetails" ErrorMessage="Please exam details, it cannot be empty!" ForeColor="Red" />
                 </div>
-            </div>
+            </div>--%>
         </div>
         <div class="panel-footer">
             <asp:Button runat="server" ID="apply" CssClass="btn btn-success pull-right" Text="Next" OnClick="apply_Click" />
@@ -132,7 +132,8 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <div class="form-group">
-                        <%
+                        <strong>Attach Evidence</strong>
+                       <%-- <%
                             if (Request.QueryString["type"] == "ANNUAL")
                             {
                         %>
@@ -145,7 +146,7 @@
                         <strong>Attach Evidence<span style="color: red">*</span></strong>
                         <%
                             }
-                        %>
+                        %>--%>
 
                         <asp:FileUpload runat="server" ID="document" CssClass="form-control" Style="padding-top: 0px;" />
                     </div>

@@ -6,12 +6,12 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ESS - KURA</title>
+    <title>ESS - NCPB</title>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <link rel="icon" href="LoginAssets/images/ncpb.png" type="image/x-icon">
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -120,6 +120,25 @@
                                 <i class="fa fa-home"></i><span>Dashboard</span>
                             </a>
                         </li>
+                        <!--PAYROLL SERVICES-->   
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-th"></i>
+                                <span>Payroll Services</span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="active">
+                                    <a href="payslip.aspx">
+                                        <i class="fa fa-money"></i><span>Payslip</span>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="p9.aspx">
+                                        <i class="fa fa-file"></i><span>P9</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li> 
                         <!--HR SERVICES-->
                         <li class="treeview">
                             <a href="#">
@@ -136,7 +155,7 @@
                                         </span>
                                     </a>
                                     <ul class="treeview-menu">
-                                        <li><a href="leaveapplication.aspx"><i class="fa fa-circle-o"></i>New Application</a></li>
+                                        <li><a href="LeaveApplication2.aspx"><i class="fa fa-circle-o"></i>New Application</a></li>
                                         <li><a href="leave.aspx"><i class="fa fa-circle-o"></i>Open Applications</a></li>
                                         <li><a href="Approvedleave.aspx"><i class="fa fa-circle-o"></i>Approved Applications</a></li>
                                         <li><a href="leavebalances.aspx"><i class="fa fa-circle-o"></i>Leave Balances</a></li>
@@ -265,25 +284,7 @@
                                 </li>--%>
                             </ul>
                         </li>
-                        <!--PAYROLL SERVICES-->   
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-th"></i>
-                                <span>Payroll Services</span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li class="active">
-                                    <a href="payslip.aspx">
-                                        <i class="fa fa-money"></i><span>Payslip</span>
-                                    </a>
-                                </li>
-                                <li class="active">
-                                    <a href="p9.aspx">
-                                        <i class="fa fa-file"></i><span>P9</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li> 
+                        
                         <!--FINANCE SERVICES-->   
                         <li class="treeview">
                             <a href="#">
@@ -291,6 +292,34 @@
                                 <span>Finance Services</span>
                             </a>
                             <ul class="treeview-menu">
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-money"></i>
+                                        <span>Staff Claim</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="StaffClaim2.aspx"><i class="fa fa-circle-o"></i>New Staff Claim</a></li>
+                                        <li><a href="StaffClaims.aspx"><i class="fa fa-circle-o"></i>Open Staff Claims</a></li>
+                                        <li><a href="StaffClaimsApproved.aspx"><i class="fa fa-circle-o"></i>Approved Staff Claims</a></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-money"></i>
+                                        <span>Safari Request</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="SafariRequest.aspx"><i class="fa fa-circle-o"></i>New Safari Request</a></li>
+                                        <li><a href="ImprestMemo.aspx"><i class="fa fa-circle-o"></i>Open Safari Request</a></li>                                    
+                                        <li><a href="ApprovedImprestRequisition.aspx"><i class="fa fa-circle-o"></i>Safari Request</a></li>
+                                    </ul>
+                                </li>
                                 <li class="treeview">
                                     <a href="#">
                                         <i class="fa fa-money"></i>
@@ -319,20 +348,7 @@
                                         <li><a href="ImprestSurrendersApproved.aspx"><i class="fa fa-circle-o"></i>Approved Surrenders</a></li>
                                     </ul>
                                 </li>
-                                <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-money"></i>
-                                        <span>Staff Claim</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="StaffClaim.aspx"><i class="fa fa-circle-o"></i>New Staff Claim</a></li>
-                                        <li><a href="StaffClaims.aspx"><i class="fa fa-circle-o"></i>Open Staff Claims</a></li>
-                                        <li><a href="StaffClaimsApproved.aspx"><i class="fa fa-circle-o"></i>Approved Staff Claims</a></li>
-                                    </ul>
-                                </li>
+                                
                                 <%--<li class="treeview">
                                     <a href="#">
                                         <i class="fa fa-money"></i>
@@ -350,7 +366,7 @@
                             </ul>
                         </li> 
                         <!--SCM SERVICES-->  
-                        <li class="treeview">
+                        <%--<li class="treeview">
                             <a href="#">
                                 <i class="fa fa-th"></i>
                                 <span>Supply Chain Services</span>
@@ -385,7 +401,7 @@
                                     </ul>
                                 </li>
                             </ul>
-                        </li>
+                        </li>--%>
                         <!--M&E-->
                         
                         <!--LEGAL SERVICES-->  

@@ -16,6 +16,17 @@ namespace HRPortal
             //{
             //    currentPassword.ReadOnly = true;
             //}
+            if (Session["employeeNo"] == null)
+            {
+
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                txtemailaddress.Text = Session["EmailAddress"].ToString();
+                currentPassword.Text = Session["Password"].ToString();
+                empno.Text = Session["employeeNo"].ToString();
+            }
         }
 
         protected void changepassword_Click(object sender, EventArgs e)
@@ -65,7 +76,8 @@ namespace HRPortal
                     String[] info = status.Split('*');
                     if(info[0] == "success")
                     {
-                        Response.Redirect("Login.aspx");
+                        feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                        ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS", "setTimeout(function() { window.location.replace('Login.aspx') }, 5000);", true);
                     }
                     else
                     {

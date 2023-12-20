@@ -180,8 +180,7 @@ namespace HRPortal
             {
                 String requisitionNo = Request.QueryString["requisitionNo"];
                 // Convert.ToString(Session["employeeNo"]),
-                String status = Config.ObjNav.SendPurchaseRequisitionApproval(Convert.ToString(Session["employeeNo"]),
-                    requisitionNo);
+                String status = Config.ObjNav2.sendLeaveApplicationApproval(requisitionNo);
                 String[] info = status.Split('*');
                 documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
                 ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",

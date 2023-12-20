@@ -157,7 +157,6 @@
                     %>
                     <tr>
                         <td><% =counter %></td>
-                        <td><% =line.Claim_Type %></td>
                         <td><% =line.Description %></td>
                         <td><%=String.Format("{0:n}", Convert.ToDouble(line.Amount)) %></td>
 

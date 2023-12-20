@@ -2,6 +2,20 @@
 <definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/essQueries" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="fnStoreRequisitions">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnStoreRequisitions_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnGetDepartments">
         <complexType>
           <sequence>
@@ -12,6 +26,46 @@
         </complexType>
       </element>
       <element name="fnGetDepartments_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetDimension">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="dimension" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetDimension_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetEmployees">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetEmployees_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetFleetRequisition">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetFleetRequisition_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -112,6 +166,74 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetSafariCode">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetSafariCode_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetSafariEarnings">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="appNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetSafariEarnings_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetSafariEntitlements">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetSafariEntitlements_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetSafariRequestLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="appNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetSafariRequestLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetSafariRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetSafariRequest_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnGetStafClaims">
         <complexType>
           <sequence>
@@ -120,6 +242,32 @@
         </complexType>
       </element>
       <element name="fnGetStafClaims_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetStaffClaimLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="appNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetStaffClaimLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetTowns">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetTowns_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -141,27 +289,37 @@
           </sequence>
         </complexType>
       </element>
-      <element name="fnStoreRequisitions">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="empNumber" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="fnStoreRequisitions_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
     </schema>
   </types>
+  <message name="fnStoreRequisitions">
+    <part name="parameters" element="tns:fnStoreRequisitions" />
+  </message>
+  <message name="fnStoreRequisitions_Result">
+    <part name="parameters" element="tns:fnStoreRequisitions_Result" />
+  </message>
   <message name="fnGetDepartments">
     <part name="parameters" element="tns:fnGetDepartments" />
   </message>
   <message name="fnGetDepartments_Result">
     <part name="parameters" element="tns:fnGetDepartments_Result" />
+  </message>
+  <message name="fnGetDimension">
+    <part name="parameters" element="tns:fnGetDimension" />
+  </message>
+  <message name="fnGetDimension_Result">
+    <part name="parameters" element="tns:fnGetDimension_Result" />
+  </message>
+  <message name="fnGetEmployees">
+    <part name="parameters" element="tns:fnGetEmployees" />
+  </message>
+  <message name="fnGetEmployees_Result">
+    <part name="parameters" element="tns:fnGetEmployees_Result" />
+  </message>
+  <message name="fnGetFleetRequisition">
+    <part name="parameters" element="tns:fnGetFleetRequisition" />
+  </message>
+  <message name="fnGetFleetRequisition_Result">
+    <part name="parameters" element="tns:fnGetFleetRequisition_Result" />
   </message>
   <message name="fnGetHrLeaveApplications">
     <part name="parameters" element="tns:fnGetHrLeaveApplications" />
@@ -205,11 +363,53 @@
   <message name="fnGetRelieverDetails_Result">
     <part name="parameters" element="tns:fnGetRelieverDetails_Result" />
   </message>
+  <message name="fnGetSafariCode">
+    <part name="parameters" element="tns:fnGetSafariCode" />
+  </message>
+  <message name="fnGetSafariCode_Result">
+    <part name="parameters" element="tns:fnGetSafariCode_Result" />
+  </message>
+  <message name="fnGetSafariEarnings">
+    <part name="parameters" element="tns:fnGetSafariEarnings" />
+  </message>
+  <message name="fnGetSafariEarnings_Result">
+    <part name="parameters" element="tns:fnGetSafariEarnings_Result" />
+  </message>
+  <message name="fnGetSafariEntitlements">
+    <part name="parameters" element="tns:fnGetSafariEntitlements" />
+  </message>
+  <message name="fnGetSafariEntitlements_Result">
+    <part name="parameters" element="tns:fnGetSafariEntitlements_Result" />
+  </message>
+  <message name="fnGetSafariRequestLines">
+    <part name="parameters" element="tns:fnGetSafariRequestLines" />
+  </message>
+  <message name="fnGetSafariRequestLines_Result">
+    <part name="parameters" element="tns:fnGetSafariRequestLines_Result" />
+  </message>
+  <message name="fnGetSafariRequest">
+    <part name="parameters" element="tns:fnGetSafariRequest" />
+  </message>
+  <message name="fnGetSafariRequest_Result">
+    <part name="parameters" element="tns:fnGetSafariRequest_Result" />
+  </message>
   <message name="fnGetStafClaims">
     <part name="parameters" element="tns:fnGetStafClaims" />
   </message>
   <message name="fnGetStafClaims_Result">
     <part name="parameters" element="tns:fnGetStafClaims_Result" />
+  </message>
+  <message name="fnGetStaffClaimLines">
+    <part name="parameters" element="tns:fnGetStaffClaimLines" />
+  </message>
+  <message name="fnGetStaffClaimLines_Result">
+    <part name="parameters" element="tns:fnGetStaffClaimLines_Result" />
+  </message>
+  <message name="fnGetTowns">
+    <part name="parameters" element="tns:fnGetTowns" />
+  </message>
+  <message name="fnGetTowns_Result">
+    <part name="parameters" element="tns:fnGetTowns_Result" />
   </message>
   <message name="fnStoreRequisitionsSingle">
     <part name="parameters" element="tns:fnStoreRequisitionsSingle" />
@@ -217,16 +417,26 @@
   <message name="fnStoreRequisitionsSingle_Result">
     <part name="parameters" element="tns:fnStoreRequisitionsSingle_Result" />
   </message>
-  <message name="fnStoreRequisitions">
-    <part name="parameters" element="tns:fnStoreRequisitions" />
-  </message>
-  <message name="fnStoreRequisitions_Result">
-    <part name="parameters" element="tns:fnStoreRequisitions_Result" />
-  </message>
   <portType name="essQueries_Port">
+    <operation name="fnStoreRequisitions">
+      <input name="fnStoreRequisitions" message="tns:fnStoreRequisitions" />
+      <output name="fnStoreRequisitions_Result" message="tns:fnStoreRequisitions_Result" />
+    </operation>
     <operation name="fnGetDepartments">
       <input name="fnGetDepartments" message="tns:fnGetDepartments" />
       <output name="fnGetDepartments_Result" message="tns:fnGetDepartments_Result" />
+    </operation>
+    <operation name="fnGetDimension">
+      <input name="fnGetDimension" message="tns:fnGetDimension" />
+      <output name="fnGetDimension_Result" message="tns:fnGetDimension_Result" />
+    </operation>
+    <operation name="fnGetEmployees">
+      <input name="fnGetEmployees" message="tns:fnGetEmployees" />
+      <output name="fnGetEmployees_Result" message="tns:fnGetEmployees_Result" />
+    </operation>
+    <operation name="fnGetFleetRequisition">
+      <input name="fnGetFleetRequisition" message="tns:fnGetFleetRequisition" />
+      <output name="fnGetFleetRequisition_Result" message="tns:fnGetFleetRequisition_Result" />
     </operation>
     <operation name="fnGetHrLeaveApplications">
       <input name="fnGetHrLeaveApplications" message="tns:fnGetHrLeaveApplications" />
@@ -256,27 +466,87 @@
       <input name="fnGetRelieverDetails" message="tns:fnGetRelieverDetails" />
       <output name="fnGetRelieverDetails_Result" message="tns:fnGetRelieverDetails_Result" />
     </operation>
+    <operation name="fnGetSafariCode">
+      <input name="fnGetSafariCode" message="tns:fnGetSafariCode" />
+      <output name="fnGetSafariCode_Result" message="tns:fnGetSafariCode_Result" />
+    </operation>
+    <operation name="fnGetSafariEarnings">
+      <input name="fnGetSafariEarnings" message="tns:fnGetSafariEarnings" />
+      <output name="fnGetSafariEarnings_Result" message="tns:fnGetSafariEarnings_Result" />
+    </operation>
+    <operation name="fnGetSafariEntitlements">
+      <input name="fnGetSafariEntitlements" message="tns:fnGetSafariEntitlements" />
+      <output name="fnGetSafariEntitlements_Result" message="tns:fnGetSafariEntitlements_Result" />
+    </operation>
+    <operation name="fnGetSafariRequestLines">
+      <input name="fnGetSafariRequestLines" message="tns:fnGetSafariRequestLines" />
+      <output name="fnGetSafariRequestLines_Result" message="tns:fnGetSafariRequestLines_Result" />
+    </operation>
+    <operation name="fnGetSafariRequest">
+      <input name="fnGetSafariRequest" message="tns:fnGetSafariRequest" />
+      <output name="fnGetSafariRequest_Result" message="tns:fnGetSafariRequest_Result" />
+    </operation>
     <operation name="fnGetStafClaims">
       <input name="fnGetStafClaims" message="tns:fnGetStafClaims" />
       <output name="fnGetStafClaims_Result" message="tns:fnGetStafClaims_Result" />
+    </operation>
+    <operation name="fnGetStaffClaimLines">
+      <input name="fnGetStaffClaimLines" message="tns:fnGetStaffClaimLines" />
+      <output name="fnGetStaffClaimLines_Result" message="tns:fnGetStaffClaimLines_Result" />
+    </operation>
+    <operation name="fnGetTowns">
+      <input name="fnGetTowns" message="tns:fnGetTowns" />
+      <output name="fnGetTowns_Result" message="tns:fnGetTowns_Result" />
     </operation>
     <operation name="fnStoreRequisitionsSingle">
       <input name="fnStoreRequisitionsSingle" message="tns:fnStoreRequisitionsSingle" />
       <output name="fnStoreRequisitionsSingle_Result" message="tns:fnStoreRequisitionsSingle_Result" />
     </operation>
-    <operation name="fnStoreRequisitions">
-      <input name="fnStoreRequisitions" message="tns:fnStoreRequisitions" />
-      <output name="fnStoreRequisitions_Result" message="tns:fnStoreRequisitions_Result" />
-    </operation>
   </portType>
   <binding name="essQueries_Binding" type="tns:essQueries_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="fnStoreRequisitions">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnStoreRequisitions" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnStoreRequisitions">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnStoreRequisitions_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="fnGetDepartments">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetDepartments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="fnGetDepartments">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetDepartments_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetDimension">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetDimension" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetDimension">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetDimension_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetEmployees">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetEmployees" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetEmployees">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetEmployees_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetFleetRequisition">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetFleetRequisition" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetFleetRequisition">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetFleetRequisition_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -343,6 +613,51 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="fnGetSafariCode">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetSafariCode" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetSafariCode">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetSafariCode_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetSafariEarnings">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetSafariEarnings" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetSafariEarnings">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetSafariEarnings_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetSafariEntitlements">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetSafariEntitlements" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetSafariEntitlements">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetSafariEntitlements_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetSafariRequestLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetSafariRequestLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetSafariRequestLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetSafariRequestLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetSafariRequest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetSafariRequest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetSafariRequest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetSafariRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="fnGetStafClaims">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetStafClaims" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="fnGetStafClaims">
@@ -352,21 +667,30 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="fnGetStaffClaimLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetStaffClaimLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetStaffClaimLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetStaffClaimLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetTowns">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetTowns" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetTowns">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetTowns_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="fnStoreRequisitionsSingle">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnStoreRequisitionsSingle" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="fnStoreRequisitionsSingle">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnStoreRequisitionsSingle_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
-    <operation name="fnStoreRequisitions">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnStoreRequisitions" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="fnStoreRequisitions">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="fnStoreRequisitions_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

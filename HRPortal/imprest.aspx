@@ -36,29 +36,29 @@
             <div id="generalFeedback" runat="server"></div>
               <div class="row" >
         <div class="col-md-6 col-lg-6">
-            <%--<div class="form-group">
+            <div class="form-group">
                 <strong>Division:</strong>
                 <asp:TextBox runat="server" ID="division" CssClass="form-control" ReadOnly="true" />
             </div>
             <div class="form-group">
                 <strong>Department:</strong>
                 <asp:TextBox runat="server" ID="department" CssClass="form-control" ReadOnly="true" />
-            </div>--%>
+            </div>
             <div class="form-group">
                 <strong>Purpose:<span style="color:red">*</span></strong>
                 <asp:TextBox runat="server" ID="subject" CssClass="form-control" placeholder="Subject"/>
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="subject" ErrorMessage="Please enter purpose, it cannot be empty!" ForeColor="Red" />
             </div>
-           <%-- <div class="form-group">
+            <div class="form-group">
                 <strong>Objective:<span style="color:red">*</span></strong>
                 <asp:TextBox runat="server" ID="objective" CssClass="form-control" placeholder="Objective" TextMode="MultiLine"/>
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="objective" ErrorMessage="Please enter objective, it cannot be empty!" ForeColor="Red" />
-            </div>--%>
-          <%--  <div class="form-group">
+            </div>
+            <div class="form-group">
                 <strong>Destination:<span style="color:red">*</span></strong>
                 <asp:TextBox runat="server" ID="destinationNarration" CssClass="form-control" placeholder="Destination Narration" TextMode="MultiLine" MaxLength="100"/>
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="destinationNarration" ErrorMessage="Please enter destination Narration, it cannot be empty!" ForeColor="Red" />
-            </div>--%>
+            </div>
             <div class="form-group" style="display:none">
                 <strong>Fund Code:</strong>
                 <asp:DropDownList CssClass="form-control select2" runat="server" ID="fundcode"/>
@@ -75,12 +75,12 @@
                 <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" placeholder="Return Date" />
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="returnDate" ErrorMessage="Please enter Return Date, it cannot be empty!" ForeColor="Red" />
             </div>
-           <%-- <div class="form-group">
+            <div class="form-group">
                 <strong>Number of Days:<span style="color:red">*</span></strong>
                 <asp:TextBox runat="server" ID="numberOfDays" CssClass="form-control" placeholder="Number of Days"/>
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="numberOfDays" ErrorMessage="Please enter Number of Days, it cannot be empty!" ForeColor="Red" />
-            </div>--%>
-                <%--<div class="form-group">
+            </div>
+                <div class="form-group">
                     <strong>Select Budget:<span style="color:red">*</span></strong>
                    <asp:DropDownList runat="server" ID="job" CssClass="form-control select2" OnSelectedIndexChanged="job_SelectedIndexChanged" AutoPostBack="True" AppendDataBoundItems="true">
                        <asp:ListItem>--Select--</asp:ListItem>
@@ -91,7 +91,7 @@
                     <strong>Select the Budget Line:<span style="color: red">*</span></strong>
                     <asp:DropDownList runat="server" ID="jobTaskno" CssClass="form-control select2" />
                      <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="jobTaskno" InitialValue="--Select--" ErrorMessage="Please select the vote, it cannot be empty!" ForeColor="Red" />
-                </div>--%>
+                </div>
               
          
           
@@ -119,14 +119,14 @@
                 <asp:TextBox runat="server" ID="linetraveldate" CssClass="form-control" placeholder="Travel Date" />
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="linetravelDate" ErrorMessage="Please enter Travel Date, it cannot be empty!" ForeColor="Red" />
             </div>
-                <%--  <div class="form-group">
+                  <div class="form-group">
                     <strong>Travel Type:</strong>
                     <asp:DropDownList runat="server" CssClass="form-control select2" ID="traveltype" OnSelectedIndexChanged="LoadAllTowns_SelectedIndexChanged" AutoPostBack="true" AppendDataBoundItems="true">
                         <asp:ListItem Text="--Select Travel Type--" Value="0" />
                         <asp:ListItem Value="1">Local</asp:ListItem>
                         <asp:ListItem Value="2">International</asp:ListItem>
                     </asp:DropDownList>
-                </div>--%>
+                </div>
             </div>
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
@@ -148,10 +148,10 @@
                 <asp:TextBox runat="server" ID="linereturndate" CssClass="form-control" placeholder="Return Date" />
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="linereturnDate" ErrorMessage="Please enter Return Date, it cannot be empty!" ForeColor="Red" />
             </div>
-                <%--<div class="form-group">
+                <div class="form-group">
                     <strong>Vote Item:</strong>
                     <asp:DropDownList runat="server" CssClass="form-control select2" ID="voteItem"/>
-                </div>--%>
+                </div>
             </div>
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
@@ -170,10 +170,10 @@
                     <strong>Days Spend:</strong>
                     <asp:Textbox runat="server" CssClass="form-control" ID="daysspend" placeholder="Days Spend"/>
                 </div>
-                <%-- <div class="form-group">
+                 <div class="form-group">
                     <strong>Number of Days:</strong>
                     <asp:Textbox runat="server" CssClass="form-control" ID="teamNumberOfDays" placeholder="Number of Days"/>
-                </div>--%>
+                </div>
             </div>
             <div class="form-group">
                 <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Add Team Member" ID="addTeamMember" OnClick="addTeamMember_Click"/>

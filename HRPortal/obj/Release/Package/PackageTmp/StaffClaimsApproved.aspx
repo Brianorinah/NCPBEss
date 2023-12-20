@@ -28,13 +28,49 @@
                 <thead>
                 <tr>
                     <th>Claim No</th>
-                    <th>Status</th>
-                    <th>Payment Narration</th>
+                    <th>Total Claim</th>
+                    <%--<th>Payment Narration</th>--%>
                     <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
-                <%
+                    <%
+                        if (!string.IsNullOrEmpty((string)Session["employeeNo"]))
+                                    {
+                                        string empNo = Convert.ToString(Session["employeeNo"]);
+                                        String claims = Config.ObjNav1.fnGetStafClaims(empNo);
+                                        String[] allInfo = claims.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                                        if (allInfo != null)
+                                        {
+                                            foreach (var item in allInfo)
+                                            {
+                                                String[] oneItem = item.Split(new string[] { "*" }, StringSplitOptions.None);
+                                               
+                                                if(oneItem[2] == "Approved")
+                                                {
+                                                    %>
+                                
+                                                    <tr>
+                                    
+                                    
+                                    <td><%=oneItem[0] %> </td>
+                                    <%--<td><%=leave.Leave_Type %> </td>--%>
+                                    <td><%=oneItem[1] %> </td>
+                                    <td><%=oneItem[2]  %> </td>
+                                    <%--<td><%=oneItem[3] %> </td>
+                                    <td><%=oneItem[4] %> </td>--%>
+                                    
+                                </tr>
+                                                        
+                                                      <%
+                                                }
+
+                                            }
+                                        }
+
+                                    }
+                         %>
+                <%--<%
                     foreach (var header in payments)
                     {
                         %>
@@ -45,7 +81,7 @@
                         <td><% =header.Status%></td>
                     </tr>
                     <%
-                    } %>
+                    } %>--%>
                 </tbody>
             </table>
         </div>

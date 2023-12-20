@@ -41,6 +41,8 @@ namespace HRPortal.essQueries {
         
         private System.Threading.SendOrPostCallback fnGetHrLeaveApplicationsOperationCompleted;
         
+        private System.Threading.SendOrPostCallback fnGetHrPortalUserOperationCompleted;
+        
         private System.Threading.SendOrPostCallback fnGetItemsOperationCompleted;
         
         private System.Threading.SendOrPostCallback fnGetLeaveApplicationLinesOperationCompleted;
@@ -385,32 +387,30 @@ namespace HRPortal.essQueries {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetLeaveApplicationLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries", ResponseElementName="fnGetLeaveApplicationLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetItems", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries", ResponseElementName="fnGetItems_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string fnGetLeaveApplicationLines(string appNo) {
-            object[] results = this.Invoke("fnGetLeaveApplicationLines", new object[] {
-                        appNo});
+        public string fnGetItems() {
+            object[] results = this.Invoke("fnGetItems", new object[0]);
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void fnGetLeaveApplicationLinesAsync(string appNo) {
-            this.fnGetLeaveApplicationLinesAsync(appNo, null);
+        public void fnGetItemsAsync() {
+            this.fnGetItemsAsync(null);
         }
         
         /// <remarks/>
-        public void fnGetLeaveApplicationLinesAsync(string appNo, object userState) {
-            if ((this.fnGetLeaveApplicationLinesOperationCompleted == null)) {
-                this.fnGetLeaveApplicationLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfnGetLeaveApplicationLinesOperationCompleted);
+        public void fnGetItemsAsync(object userState) {
+            if ((this.fnGetItemsOperationCompleted == null)) {
+                this.fnGetItemsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfnGetItemsOperationCompleted);
             }
-            this.InvokeAsync("fnGetLeaveApplicationLines", new object[] {
-                        appNo}, this.fnGetLeaveApplicationLinesOperationCompleted, userState);
+            this.InvokeAsync("fnGetItems", new object[0], this.fnGetItemsOperationCompleted, userState);
         }
         
-        private void OnfnGetLeaveApplicationLinesOperationCompleted(object arg) {
-            if ((this.fnGetLeaveApplicationLinesCompleted != null)) {
+        private void OnfnGetItemsOperationCompleted(object arg) {
+            if ((this.fnGetItemsCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.fnGetLeaveApplicationLinesCompleted(this, new fnGetLeaveApplicationLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.fnGetItemsCompleted(this, new fnGetItemsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         

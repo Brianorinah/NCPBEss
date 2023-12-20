@@ -163,7 +163,7 @@
                         <td>
                             <label class="btn btn-success" onclick="editLine('<% =line.Line_No %>', '<% =line.Type_of_Expense %>', '<% =line.Description %>', '<% =line.Amount %>');"><i class="fa fa-edit"></i>Edit</label></td>
                         <td>
-                            <label class="btn btn-danger" onclick="removeLine('<% =line.Description %>','<%=line.Line_No %>');"><i class="fa fa-trash"></i>Delete</label></td>
+                            <label class="btn btn-danger" onclick="removeLine('<% =line.Description %>','<%=line.Line_No %>');"><i class="fa fa-trash"></i>Delete</label></td>--%>--%>
                     </tr>
                     <% 
                         }

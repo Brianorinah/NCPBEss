@@ -29,8 +29,8 @@
                 <thead>
                 <tr>
                     <th>Claim No</th>
-                    <th>Status</th>
-                    <th>Payment Narration</th>
+                    <th>Total Claim</th>
+                    <%--<th>Payment Narration</th>--%>
                     <th>Status</th>
                     <th>View Approval Entries</th>
                     <th>Send/Cancel Approval</th>
@@ -38,7 +38,75 @@
                 </tr>
                 </thead>
                 <tbody>
-                <%
+                    <%
+                            if (!string.IsNullOrEmpty((string)Session["employeeNo"]))
+                                    {
+                                        string empNo = Convert.ToString(Session["employeeNo"]);
+                                        String claims = Config.ObjNav1.fnGetStafClaims(empNo);
+                                        String[] allInfo = claims.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                                        if (allInfo != null)
+                                        {
+                                            foreach (var item in allInfo)
+                                            {
+                                                String[] oneItem = item.Split(new string[] { "*" }, StringSplitOptions.None);
+                                               
+                                                if(oneItem[2] != "Approved")
+                                                {
+                                                    %>
+                                
+                                                    <tr>
+                                    
+                                    
+                                    <td><%=oneItem[0] %> </td>
+                                    <%--<td><%=leave.Leave_Type %> </td>--%>
+                                    <td><%=oneItem[1] %> </td>
+                                    <td><%=oneItem[2] %> </td>
+                                    <td><a href="ApproverEntry.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
+                                    <td>
+                                        <%
+                                            if (oneItem[2] == "New")
+                                            {
+                                        %>
+                                        <label class="btn btn-success"><i class="fa fa-check"></i>Send Approval Request</label>
+                                        <%
+                                            }
+                                            else if (oneItem[2] == "Approval Pending")
+                                            {
+
+                                        %>
+                                        <label class="btn btn-danger"><i class="fa fa-times"></i>Cancel Approval Request</label>
+
+                                        <% 
+                                            } %>                                              
+                                    </td>
+                                    <td>
+                                        <%
+                                            if (oneItem[2] == "New")
+                                            {
+                                        %>
+                                        <a href="StaffClaim.aspx?step=1&&claimNo=<%=oneItem[0] %>" class="btn btn-success">View/Edit</a>
+                                        <%
+                                            }
+                                            else if (oneItem[2] == "Approval Pending")
+                                            {
+
+                                        %>
+                                        <label class="btn btn-default"><i class="fa fa-times"></i>Edit</label>
+
+                                        <% 
+                                            } %>                                              
+                                    </td>
+                                </tr>
+                                                        
+                                                      <%
+                                                }
+
+                                            }
+                                        }
+
+                                    }
+                         %>
+              <%--  <%
                     foreach (var header in payments)
                     {
                         %>
@@ -84,7 +152,7 @@
                         </td>
                     </tr>
                     <%
-                    } %>
+                    } %>--%>
                 </tbody>
             </table>
         </div>

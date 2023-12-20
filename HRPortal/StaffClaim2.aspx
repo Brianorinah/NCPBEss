@@ -145,8 +145,7 @@
         <div class="panel-body">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                    <tr>
-                        <th>#</th>
+                    <tr>                        
                         <th>Reason</th>
                         <th>Rate</th>
                         <th>Quantity</th>
@@ -173,7 +172,7 @@
                     <tr>                        
                         <td><% =arr[1] %></td>
                         <td><% =arr[5] %></td>
-                        <td><% =arr[6] %></td>
+                        <td><% =arr[5] %></td>
                         <td><% = arr[2] %></td>   
                         <td><% = arr[3] %></td>                      
                         <%--<td><%=String.Format("{0:n}", Convert.ToDouble(arr[5])) %></td>--%>

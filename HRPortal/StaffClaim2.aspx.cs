@@ -16,76 +16,111 @@ namespace HRPortal
         {
             if (!IsPostBack)
             {
-                String employeeNo = Convert.ToString(Session["employeeNo"]);
-                var jobs = Config.ObjNav1.fnGetSafariCode("73650");
-                List<ItemList> itms = new List<ItemList>();
-                string[] infoz = jobs.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
-                if (infoz.Count() > 0)
+                int step = 1;
+                try
                 {
-                    foreach (var allInfo in infoz)
+                    step = Convert.ToInt32(Request.QueryString["step"]);
+                    if (step > 3 || step < 1)
                     {
-                        String[] arr = allInfo.Split('*');
-
-                        ItemList mdl = new ItemList();
-                        mdl.code = arr[0];
-                        mdl.description = arr[0] + "-" + arr[1];
-                        itms.Add(mdl);
-
+                        step = 1;
                     }
                 }
-
-                safariNumber.DataSource = itms;
-                safariNumber.DataTextField = "description";
-                safariNumber.DataValueField = "code";
-                safariNumber.DataBind();
-                safariNumber.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
-
-
-                var jobs1 = Config.ObjNav1.fnGetDimension(1);
-                List<ItemList> itms1 = new List<ItemList>();
-                string[] infoz1 = jobs1.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
-                if (infoz1.Count() > 0)
+                catch (Exception)
                 {
-                    foreach (var allInfo in infoz1)
+                    step = 1;
+                }
+                if (step == 1)
+                {
+                    String employeeNo = Convert.ToString(Session["employeeNo"]);
+                    var jobs = Config.ObjNav1.fnGetSafariCode(employeeNo);
+                    List<ItemList> itms = new List<ItemList>();
+                    string[] infoz = jobs.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (infoz.Count() > 0)
                     {
-                        String[] arr = allInfo.Split('*');
+                        foreach (var allInfo in infoz)
+                        {
+                            String[] arr = allInfo.Split('*');
 
-                        ItemList mdl = new ItemList();
-                        mdl.code = arr[0];
-                        mdl.description = arr[1];
-                        itms1.Add(mdl);
+                            ItemList mdl = new ItemList();
+                            mdl.code = arr[0];
+                            mdl.description = arr[0] + "-" + arr[1];
+                            itms.Add(mdl);
+                            
+                  
 
+                        }
+                    }
+
+                    safariNumber.DataSource = itms;
+                    safariNumber.DataTextField = "description";
+                    safariNumber.DataValueField = "code";
+                    safariNumber.DataBind();
+                    safariNumber.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+                    
+
+
+                    var jobs1 = Config.ObjNav1.fnGetDimension(1);
+                    List<ItemList> itms1 = new List<ItemList>();
+                    string[] infoz1 = jobs1.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (infoz1.Count() > 0)
+                    {
+                        foreach (var allInfo in infoz1)
+                        {
+                            String[] arr = allInfo.Split('*');
+
+                            ItemList mdl = new ItemList();
+                            mdl.code = arr[0];
+                            mdl.description = arr[1];
+                            itms1.Add(mdl);
+
+                        }
+                    }
+
+                    functionCode.DataSource = itms1;
+                    functionCode.DataTextField = "description";
+                    functionCode.DataValueField = "code";
+                    functionCode.DataBind();
+                    functionCode.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                    String appNo = Request.QueryString["requisitionNo"];
+                    if (!string.IsNullOrEmpty(appNo))
+                    {
+                        String job12 = Config.ObjNav1.fnGetClaimApplicationDetails(appNo);
+
+                        String[] arr3 = job12.Split('*');
+
+                        safariNumber.Text = arr3[0];
+                        functionCode.Text = arr3[1];
                     }
                 }
-
-                functionCode.DataSource = itms1;
-                functionCode.DataTextField = "description";
-                functionCode.DataValueField = "code";
-                functionCode.DataBind();
-                functionCode.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
-
-                var jobs11 = Config.ObjNav1.fnGetSafariEntitlements();
-                List<ItemList> itms11 = new List<ItemList>();
-                string[] infoz11 = jobs11.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
-                if (infoz11.Count() > 0)
+                else if (step == 2)
                 {
-                    foreach (var allInfo in infoz11)
+                    var jobs11 = Config.ObjNav1.fnGetSafariEntitlements();
+                    List<ItemList> itms11 = new List<ItemList>();
+                    string[] infoz11 = jobs11.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (infoz11.Count() > 0)
                     {
-                        String[] arr = allInfo.Split('*');
+                        foreach (var allInfo in infoz11)
+                        {
+                            String[] arr = allInfo.Split('*');
 
-                        ItemList mdl = new ItemList();
-                        mdl.code = arr[0];
-                        mdl.description = arr[0] + "-" + arr[1];
-                        itms11.Add(mdl);
+                            ItemList mdl = new ItemList();
+                            mdl.code = arr[0];
+                            mdl.description = arr[0] + "-" + arr[1];
+                            itms11.Add(mdl);
 
+                        }
                     }
+
+                    claimtype.DataSource = itms11;
+                    claimtype.DataTextField = "description";
+                    claimtype.DataValueField = "code";
+                    claimtype.DataBind();
+                    claimtype.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
                 }
 
-                claimtype.DataSource = itms11;
-                claimtype.DataTextField = "description";
-                claimtype.DataValueField = "code";
-                claimtype.DataBind();
-                claimtype.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+           
 
             }
 
@@ -116,7 +151,7 @@ namespace HRPortal
                 }
 
                 String employeeNo = Convert.ToString(Session["employeeNo"]);
-                String status = Config.ObjNav2.createStaffApplication(requisitionNo, "73650", tsafariNumber, tfunctionCode);
+                String status = Config.ObjNav2.createStaffApplication(requisitionNo, employeeNo, tsafariNumber, tfunctionCode);
                 String[] info = status.Split('*');
                 if (info[0] == "success")
                 {
@@ -164,6 +199,25 @@ namespace HRPortal
             }
 
         }
+
+        protected void copySafariLines_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String requisitionNo = Request.QueryString["requisitionNo"];
+
+                String status = Config.ObjNav2.copySafariLines(requisitionNo);
+                String[] info = status.Split('*');
+
+                linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+            catch (Exception m)
+            {
+                generalFeedback.InnerHtml = "<div class='alert alert-danger'>" + m.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+            
+           
+        }
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
             String requisitionNo = Request.QueryString["requisitionNo"];
@@ -200,7 +254,7 @@ namespace HRPortal
         protected void uploadDocument_Click(object sender, EventArgs e)
         {
 
-            String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Store Requisition/";
+            String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Staff Claim/";
 
             if (document.HasFile)
             {

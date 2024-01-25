@@ -2,6 +2,34 @@
 <definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="CreateSalesOrder">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateSalesOrder_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="approveAppraisal">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="approveAppraisal_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="changePassword">
         <complexType>
           <sequence>
@@ -19,13 +47,83 @@
           </sequence>
         </complexType>
       </element>
+      <element name="copySafariLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="claimNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="copySafariLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createImprestApplicationLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="gLAccou" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="functionCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createImprestApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createImprest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="payingBudgetCenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="requestDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="travelDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createImprest_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createKPILines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="kraLineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="iniative" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="kpi" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="target" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="weight" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createKPILines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="createLeaveApplicationLines">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
             <element minOccurs="1" maxOccurs="1" name="leaveType" type="string" />
             <element minOccurs="1" maxOccurs="1" name="dateStart" type="date" />
-            <element minOccurs="1" maxOccurs="1" name="dateEnd" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="daysApplied" type="int" />
           </sequence>
         </complexType>
       </element>
@@ -48,6 +146,41 @@
         </complexType>
       </element>
       <element name="createLeaveApplication_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createLineManagerEyKPILines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="kraLineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="eySupervisorComment" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createLineManagerEyKPILines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createLineManagerMyKPILines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="kraLineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="mySupervisorAssessment" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="mySupervisorComment" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createLineManagerMyKPILines_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -182,6 +315,115 @@
           </sequence>
         </complexType>
       </element>
+      <element name="createSurrenderApplicationLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="expenseDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="expenseLocation" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="imprestLine" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createSurrenderApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createeyKPILines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="kraLineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="appraiseeSelfRating" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="employeeComent" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createeyKPILines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createmyBehaviourLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="categoryLine" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="myEmployeeRating" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="myEmployeeComment" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createmyBehaviourLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createmyKPILines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="kraLineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="myAssessment" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="myComment" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createmyKPILines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createmyLineManagerBehaviourLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="categoryLine" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="mySupervisorRating" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="mySupervisorComment" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createmyLineManagerBehaviourLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="editImprestApplicationLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="gLAccou" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="functionCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="editImprestApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="editLeaveApplicationLines">
         <complexType>
           <sequence>
@@ -194,6 +436,70 @@
         </complexType>
       </element>
       <element name="editLeaveApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="editStaffCreditSalesLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="productCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="quantity" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="editStaffCreditSalesLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnCreateSalesCreditHeader">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="payroll" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="recoveryPeriod" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="deportCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="locationCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnCreateSalesCreditHeader_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnCreateStaffCreditLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="productCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="quantity" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnCreateStaffCreditLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGenerateReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGenerateReport_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -259,6 +565,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="sendImprestApplicationApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sendImprestApplicationApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="sendLeaveApplicationApproval">
         <complexType>
           <sequence>
@@ -267,6 +587,34 @@
         </complexType>
       </element>
       <element name="sendLeaveApplicationApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sendObjectiveSettingsBackToAppraisee">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sendObjectiveSettingsBackToAppraisee_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sendObjectiveSettingsToLineManager">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sendObjectiveSettingsToLineManager_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -301,13 +649,77 @@
           </sequence>
         </complexType>
       </element>
+      <element name="sendStaffCreditSaleApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sendStaffCreditSaleApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sendSurrenderApplicationApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sendSurrenderApplicationApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
+  <message name="CreateSalesOrder">
+    <part name="parameters" element="tns:CreateSalesOrder" />
+  </message>
+  <message name="CreateSalesOrder_Result">
+    <part name="parameters" element="tns:CreateSalesOrder_Result" />
+  </message>
+  <message name="approveAppraisal">
+    <part name="parameters" element="tns:approveAppraisal" />
+  </message>
+  <message name="approveAppraisal_Result">
+    <part name="parameters" element="tns:approveAppraisal_Result" />
+  </message>
   <message name="changePassword">
     <part name="parameters" element="tns:changePassword" />
   </message>
   <message name="changePassword_Result">
     <part name="parameters" element="tns:changePassword_Result" />
+  </message>
+  <message name="copySafariLines">
+    <part name="parameters" element="tns:copySafariLines" />
+  </message>
+  <message name="copySafariLines_Result">
+    <part name="parameters" element="tns:copySafariLines_Result" />
+  </message>
+  <message name="createImprestApplicationLines">
+    <part name="parameters" element="tns:createImprestApplicationLines" />
+  </message>
+  <message name="createImprestApplicationLines_Result">
+    <part name="parameters" element="tns:createImprestApplicationLines_Result" />
+  </message>
+  <message name="createImprest">
+    <part name="parameters" element="tns:createImprest" />
+  </message>
+  <message name="createImprest_Result">
+    <part name="parameters" element="tns:createImprest_Result" />
+  </message>
+  <message name="createKPILines">
+    <part name="parameters" element="tns:createKPILines" />
+  </message>
+  <message name="createKPILines_Result">
+    <part name="parameters" element="tns:createKPILines_Result" />
   </message>
   <message name="createLeaveApplicationLines">
     <part name="parameters" element="tns:createLeaveApplicationLines" />
@@ -320,6 +732,18 @@
   </message>
   <message name="createLeaveApplication_Result">
     <part name="parameters" element="tns:createLeaveApplication_Result" />
+  </message>
+  <message name="createLineManagerEyKPILines">
+    <part name="parameters" element="tns:createLineManagerEyKPILines" />
+  </message>
+  <message name="createLineManagerEyKPILines_Result">
+    <part name="parameters" element="tns:createLineManagerEyKPILines_Result" />
+  </message>
+  <message name="createLineManagerMyKPILines">
+    <part name="parameters" element="tns:createLineManagerMyKPILines" />
+  </message>
+  <message name="createLineManagerMyKPILines_Result">
+    <part name="parameters" element="tns:createLineManagerMyKPILines_Result" />
   </message>
   <message name="createSafariRequestEntitlements">
     <part name="parameters" element="tns:createSafariRequestEntitlements" />
@@ -363,11 +787,71 @@
   <message name="createStoreRequisition_Result">
     <part name="parameters" element="tns:createStoreRequisition_Result" />
   </message>
+  <message name="createSurrenderApplicationLines">
+    <part name="parameters" element="tns:createSurrenderApplicationLines" />
+  </message>
+  <message name="createSurrenderApplicationLines_Result">
+    <part name="parameters" element="tns:createSurrenderApplicationLines_Result" />
+  </message>
+  <message name="createeyKPILines">
+    <part name="parameters" element="tns:createeyKPILines" />
+  </message>
+  <message name="createeyKPILines_Result">
+    <part name="parameters" element="tns:createeyKPILines_Result" />
+  </message>
+  <message name="createmyBehaviourLines">
+    <part name="parameters" element="tns:createmyBehaviourLines" />
+  </message>
+  <message name="createmyBehaviourLines_Result">
+    <part name="parameters" element="tns:createmyBehaviourLines_Result" />
+  </message>
+  <message name="createmyKPILines">
+    <part name="parameters" element="tns:createmyKPILines" />
+  </message>
+  <message name="createmyKPILines_Result">
+    <part name="parameters" element="tns:createmyKPILines_Result" />
+  </message>
+  <message name="createmyLineManagerBehaviourLines">
+    <part name="parameters" element="tns:createmyLineManagerBehaviourLines" />
+  </message>
+  <message name="createmyLineManagerBehaviourLines_Result">
+    <part name="parameters" element="tns:createmyLineManagerBehaviourLines_Result" />
+  </message>
+  <message name="editImprestApplicationLines">
+    <part name="parameters" element="tns:editImprestApplicationLines" />
+  </message>
+  <message name="editImprestApplicationLines_Result">
+    <part name="parameters" element="tns:editImprestApplicationLines_Result" />
+  </message>
   <message name="editLeaveApplicationLines">
     <part name="parameters" element="tns:editLeaveApplicationLines" />
   </message>
   <message name="editLeaveApplicationLines_Result">
     <part name="parameters" element="tns:editLeaveApplicationLines_Result" />
+  </message>
+  <message name="editStaffCreditSalesLines">
+    <part name="parameters" element="tns:editStaffCreditSalesLines" />
+  </message>
+  <message name="editStaffCreditSalesLines_Result">
+    <part name="parameters" element="tns:editStaffCreditSalesLines_Result" />
+  </message>
+  <message name="fnCreateSalesCreditHeader">
+    <part name="parameters" element="tns:fnCreateSalesCreditHeader" />
+  </message>
+  <message name="fnCreateSalesCreditHeader_Result">
+    <part name="parameters" element="tns:fnCreateSalesCreditHeader_Result" />
+  </message>
+  <message name="fnCreateStaffCreditLines">
+    <part name="parameters" element="tns:fnCreateStaffCreditLines" />
+  </message>
+  <message name="fnCreateStaffCreditLines_Result">
+    <part name="parameters" element="tns:fnCreateStaffCreditLines_Result" />
+  </message>
+  <message name="fnGenerateReport">
+    <part name="parameters" element="tns:fnGenerateReport" />
+  </message>
+  <message name="fnGenerateReport_Result">
+    <part name="parameters" element="tns:fnGenerateReport_Result" />
   </message>
   <message name="fnGetEmployeeDetail">
     <part name="parameters" element="tns:fnGetEmployeeDetail" />
@@ -393,11 +877,29 @@
   <message name="generatePayslip_Result">
     <part name="parameters" element="tns:generatePayslip_Result" />
   </message>
+  <message name="sendImprestApplicationApproval">
+    <part name="parameters" element="tns:sendImprestApplicationApproval" />
+  </message>
+  <message name="sendImprestApplicationApproval_Result">
+    <part name="parameters" element="tns:sendImprestApplicationApproval_Result" />
+  </message>
   <message name="sendLeaveApplicationApproval">
     <part name="parameters" element="tns:sendLeaveApplicationApproval" />
   </message>
   <message name="sendLeaveApplicationApproval_Result">
     <part name="parameters" element="tns:sendLeaveApplicationApproval_Result" />
+  </message>
+  <message name="sendObjectiveSettingsBackToAppraisee">
+    <part name="parameters" element="tns:sendObjectiveSettingsBackToAppraisee" />
+  </message>
+  <message name="sendObjectiveSettingsBackToAppraisee_Result">
+    <part name="parameters" element="tns:sendObjectiveSettingsBackToAppraisee_Result" />
+  </message>
+  <message name="sendObjectiveSettingsToLineManager">
+    <part name="parameters" element="tns:sendObjectiveSettingsToLineManager" />
+  </message>
+  <message name="sendObjectiveSettingsToLineManager_Result">
+    <part name="parameters" element="tns:sendObjectiveSettingsToLineManager_Result" />
   </message>
   <message name="sendSafariRequestApplicationApproval">
     <part name="parameters" element="tns:sendSafariRequestApplicationApproval" />
@@ -411,10 +913,46 @@
   <message name="sendStaffClaimApplicationApproval_Result">
     <part name="parameters" element="tns:sendStaffClaimApplicationApproval_Result" />
   </message>
+  <message name="sendStaffCreditSaleApproval">
+    <part name="parameters" element="tns:sendStaffCreditSaleApproval" />
+  </message>
+  <message name="sendStaffCreditSaleApproval_Result">
+    <part name="parameters" element="tns:sendStaffCreditSaleApproval_Result" />
+  </message>
+  <message name="sendSurrenderApplicationApproval">
+    <part name="parameters" element="tns:sendSurrenderApplicationApproval" />
+  </message>
+  <message name="sendSurrenderApplicationApproval_Result">
+    <part name="parameters" element="tns:sendSurrenderApplicationApproval_Result" />
+  </message>
   <portType name="NewHrPortal_Port">
+    <operation name="CreateSalesOrder">
+      <input name="CreateSalesOrder" message="tns:CreateSalesOrder" />
+      <output name="CreateSalesOrder_Result" message="tns:CreateSalesOrder_Result" />
+    </operation>
+    <operation name="approveAppraisal">
+      <input name="approveAppraisal" message="tns:approveAppraisal" />
+      <output name="approveAppraisal_Result" message="tns:approveAppraisal_Result" />
+    </operation>
     <operation name="changePassword">
       <input name="changePassword" message="tns:changePassword" />
       <output name="changePassword_Result" message="tns:changePassword_Result" />
+    </operation>
+    <operation name="copySafariLines">
+      <input name="copySafariLines" message="tns:copySafariLines" />
+      <output name="copySafariLines_Result" message="tns:copySafariLines_Result" />
+    </operation>
+    <operation name="createImprestApplicationLines">
+      <input name="createImprestApplicationLines" message="tns:createImprestApplicationLines" />
+      <output name="createImprestApplicationLines_Result" message="tns:createImprestApplicationLines_Result" />
+    </operation>
+    <operation name="createImprest">
+      <input name="createImprest" message="tns:createImprest" />
+      <output name="createImprest_Result" message="tns:createImprest_Result" />
+    </operation>
+    <operation name="createKPILines">
+      <input name="createKPILines" message="tns:createKPILines" />
+      <output name="createKPILines_Result" message="tns:createKPILines_Result" />
     </operation>
     <operation name="createLeaveApplicationLines">
       <input name="createLeaveApplicationLines" message="tns:createLeaveApplicationLines" />
@@ -423,6 +961,14 @@
     <operation name="createLeaveApplication">
       <input name="createLeaveApplication" message="tns:createLeaveApplication" />
       <output name="createLeaveApplication_Result" message="tns:createLeaveApplication_Result" />
+    </operation>
+    <operation name="createLineManagerEyKPILines">
+      <input name="createLineManagerEyKPILines" message="tns:createLineManagerEyKPILines" />
+      <output name="createLineManagerEyKPILines_Result" message="tns:createLineManagerEyKPILines_Result" />
+    </operation>
+    <operation name="createLineManagerMyKPILines">
+      <input name="createLineManagerMyKPILines" message="tns:createLineManagerMyKPILines" />
+      <output name="createLineManagerMyKPILines_Result" message="tns:createLineManagerMyKPILines_Result" />
     </operation>
     <operation name="createSafariRequestEntitlements">
       <input name="createSafariRequestEntitlements" message="tns:createSafariRequestEntitlements" />
@@ -452,9 +998,49 @@
       <input name="createStoreRequisition" message="tns:createStoreRequisition" />
       <output name="createStoreRequisition_Result" message="tns:createStoreRequisition_Result" />
     </operation>
+    <operation name="createSurrenderApplicationLines">
+      <input name="createSurrenderApplicationLines" message="tns:createSurrenderApplicationLines" />
+      <output name="createSurrenderApplicationLines_Result" message="tns:createSurrenderApplicationLines_Result" />
+    </operation>
+    <operation name="createeyKPILines">
+      <input name="createeyKPILines" message="tns:createeyKPILines" />
+      <output name="createeyKPILines_Result" message="tns:createeyKPILines_Result" />
+    </operation>
+    <operation name="createmyBehaviourLines">
+      <input name="createmyBehaviourLines" message="tns:createmyBehaviourLines" />
+      <output name="createmyBehaviourLines_Result" message="tns:createmyBehaviourLines_Result" />
+    </operation>
+    <operation name="createmyKPILines">
+      <input name="createmyKPILines" message="tns:createmyKPILines" />
+      <output name="createmyKPILines_Result" message="tns:createmyKPILines_Result" />
+    </operation>
+    <operation name="createmyLineManagerBehaviourLines">
+      <input name="createmyLineManagerBehaviourLines" message="tns:createmyLineManagerBehaviourLines" />
+      <output name="createmyLineManagerBehaviourLines_Result" message="tns:createmyLineManagerBehaviourLines_Result" />
+    </operation>
+    <operation name="editImprestApplicationLines">
+      <input name="editImprestApplicationLines" message="tns:editImprestApplicationLines" />
+      <output name="editImprestApplicationLines_Result" message="tns:editImprestApplicationLines_Result" />
+    </operation>
     <operation name="editLeaveApplicationLines">
       <input name="editLeaveApplicationLines" message="tns:editLeaveApplicationLines" />
       <output name="editLeaveApplicationLines_Result" message="tns:editLeaveApplicationLines_Result" />
+    </operation>
+    <operation name="editStaffCreditSalesLines">
+      <input name="editStaffCreditSalesLines" message="tns:editStaffCreditSalesLines" />
+      <output name="editStaffCreditSalesLines_Result" message="tns:editStaffCreditSalesLines_Result" />
+    </operation>
+    <operation name="fnCreateSalesCreditHeader">
+      <input name="fnCreateSalesCreditHeader" message="tns:fnCreateSalesCreditHeader" />
+      <output name="fnCreateSalesCreditHeader_Result" message="tns:fnCreateSalesCreditHeader_Result" />
+    </operation>
+    <operation name="fnCreateStaffCreditLines">
+      <input name="fnCreateStaffCreditLines" message="tns:fnCreateStaffCreditLines" />
+      <output name="fnCreateStaffCreditLines_Result" message="tns:fnCreateStaffCreditLines_Result" />
+    </operation>
+    <operation name="fnGenerateReport">
+      <input name="fnGenerateReport" message="tns:fnGenerateReport" />
+      <output name="fnGenerateReport_Result" message="tns:fnGenerateReport_Result" />
     </operation>
     <operation name="fnGetEmployeeDetail">
       <input name="fnGetEmployeeDetail" message="tns:fnGetEmployeeDetail" />
@@ -472,9 +1058,21 @@
       <input name="generatePayslip" message="tns:generatePayslip" />
       <output name="generatePayslip_Result" message="tns:generatePayslip_Result" />
     </operation>
+    <operation name="sendImprestApplicationApproval">
+      <input name="sendImprestApplicationApproval" message="tns:sendImprestApplicationApproval" />
+      <output name="sendImprestApplicationApproval_Result" message="tns:sendImprestApplicationApproval_Result" />
+    </operation>
     <operation name="sendLeaveApplicationApproval">
       <input name="sendLeaveApplicationApproval" message="tns:sendLeaveApplicationApproval" />
       <output name="sendLeaveApplicationApproval_Result" message="tns:sendLeaveApplicationApproval_Result" />
+    </operation>
+    <operation name="sendObjectiveSettingsBackToAppraisee">
+      <input name="sendObjectiveSettingsBackToAppraisee" message="tns:sendObjectiveSettingsBackToAppraisee" />
+      <output name="sendObjectiveSettingsBackToAppraisee_Result" message="tns:sendObjectiveSettingsBackToAppraisee_Result" />
+    </operation>
+    <operation name="sendObjectiveSettingsToLineManager">
+      <input name="sendObjectiveSettingsToLineManager" message="tns:sendObjectiveSettingsToLineManager" />
+      <output name="sendObjectiveSettingsToLineManager_Result" message="tns:sendObjectiveSettingsToLineManager_Result" />
     </operation>
     <operation name="sendSafariRequestApplicationApproval">
       <input name="sendSafariRequestApplicationApproval" message="tns:sendSafariRequestApplicationApproval" />
@@ -484,15 +1082,77 @@
       <input name="sendStaffClaimApplicationApproval" message="tns:sendStaffClaimApplicationApproval" />
       <output name="sendStaffClaimApplicationApproval_Result" message="tns:sendStaffClaimApplicationApproval_Result" />
     </operation>
+    <operation name="sendStaffCreditSaleApproval">
+      <input name="sendStaffCreditSaleApproval" message="tns:sendStaffCreditSaleApproval" />
+      <output name="sendStaffCreditSaleApproval_Result" message="tns:sendStaffCreditSaleApproval_Result" />
+    </operation>
+    <operation name="sendSurrenderApplicationApproval">
+      <input name="sendSurrenderApplicationApproval" message="tns:sendSurrenderApplicationApproval" />
+      <output name="sendSurrenderApplicationApproval_Result" message="tns:sendSurrenderApplicationApproval_Result" />
+    </operation>
   </portType>
   <binding name="NewHrPortal_Binding" type="tns:NewHrPortal_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="CreateSalesOrder">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:CreateSalesOrder" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateSalesOrder">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateSalesOrder_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="approveAppraisal">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:approveAppraisal" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="approveAppraisal">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="approveAppraisal_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="changePassword">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:changePassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="changePassword">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="changePassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="copySafariLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:copySafariLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="copySafariLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="copySafariLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createImprestApplicationLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createImprestApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createImprestApplicationLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createImprestApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createImprest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createImprest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createImprest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createImprest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createKPILines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createKPILines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createKPILines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createKPILines_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -511,6 +1171,24 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="createLeaveApplication_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createLineManagerEyKPILines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createLineManagerEyKPILines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createLineManagerEyKPILines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createLineManagerEyKPILines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createLineManagerMyKPILines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createLineManagerMyKPILines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createLineManagerMyKPILines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createLineManagerMyKPILines_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -577,12 +1255,102 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="createSurrenderApplicationLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createSurrenderApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createSurrenderApplicationLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createSurrenderApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createeyKPILines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createeyKPILines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createeyKPILines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createeyKPILines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createmyBehaviourLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createmyBehaviourLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createmyBehaviourLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createmyBehaviourLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createmyKPILines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createmyKPILines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createmyKPILines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createmyKPILines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createmyLineManagerBehaviourLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createmyLineManagerBehaviourLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createmyLineManagerBehaviourLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createmyLineManagerBehaviourLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="editImprestApplicationLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:editImprestApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="editImprestApplicationLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="editImprestApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="editLeaveApplicationLines">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:editLeaveApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="editLeaveApplicationLines">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="editLeaveApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="editStaffCreditSalesLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:editStaffCreditSalesLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="editStaffCreditSalesLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="editStaffCreditSalesLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnCreateSalesCreditHeader">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:fnCreateSalesCreditHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnCreateSalesCreditHeader">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnCreateSalesCreditHeader_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnCreateStaffCreditLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:fnCreateStaffCreditLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnCreateStaffCreditLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnCreateStaffCreditLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGenerateReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:fnGenerateReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGenerateReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGenerateReport_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -622,12 +1390,39 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="sendImprestApplicationApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendImprestApplicationApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="sendImprestApplicationApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="sendImprestApplicationApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="sendLeaveApplicationApproval">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendLeaveApplicationApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="sendLeaveApplicationApproval">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="sendLeaveApplicationApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="sendObjectiveSettingsBackToAppraisee">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendObjectiveSettingsBackToAppraisee" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="sendObjectiveSettingsBackToAppraisee">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="sendObjectiveSettingsBackToAppraisee_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="sendObjectiveSettingsToLineManager">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendObjectiveSettingsToLineManager" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="sendObjectiveSettingsToLineManager">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="sendObjectiveSettingsToLineManager_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -649,10 +1444,28 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="sendStaffCreditSaleApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendStaffCreditSaleApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="sendStaffCreditSaleApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="sendStaffCreditSaleApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="sendSurrenderApplicationApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendSurrenderApplicationApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="sendSurrenderApplicationApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="sendSurrenderApplicationApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
   </binding>
   <service name="NewHrPortal">
     <port name="NewHrPortal_Port" binding="tns:NewHrPortal_Binding">
-      <address location="http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <address location="http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
     </port>
   </service>
 </definitions>

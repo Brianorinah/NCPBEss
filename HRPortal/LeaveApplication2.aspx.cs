@@ -61,6 +61,16 @@ namespace HRPortal
                 leaveType.DataValueField = "code";
                 leaveType.DataBind();
                 leaveType.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                String leaveNo = Request.QueryString["leaveNo"];
+                if (!String.IsNullOrEmpty(leaveNo))
+                {
+                    String job = Config.ObjNav1.fnGetHrLeaveApplicationDetails(leaveNo);
+                    String[] arr = job.Split('*');
+                    reliever.SelectedValue = arr[0];
+                    contactAddress.Text = arr[2];
+                    description.Text = arr[1];
+                }
             }
 
         }
@@ -102,7 +112,7 @@ namespace HRPortal
                 Boolean newRequisition = false;
                 try
                 {
-                    requisitionNo = Request.QueryString["requisitionNo"];
+                    requisitionNo = Request.QueryString["leaveNo"];
                     if (String.IsNullOrEmpty(requisitionNo))
                     {
                         requisitionNo = "";
@@ -122,7 +132,7 @@ namespace HRPortal
                     {
                         requisitionNo = info[2];
                     }
-                    String redirectLocation = "LeaveApplication2.aspx?step=2&&requisitionNo=" + requisitionNo;
+                    String redirectLocation = "LeaveApplication2.aspx?step=2&&leaveNo=" + requisitionNo;
                     Response.Redirect(redirectLocation, false);
 
                 }
@@ -141,12 +151,15 @@ namespace HRPortal
         {
             try
             {
-                String requisitionNo = Request.QueryString["requisitionNo"];
+                String requisitionNo = Request.QueryString["leaveNo"];
                 string tleaveType = leaveType.Text.Trim();
                 DateTime tstartDate = Convert.ToDateTime(startDate.Text.Trim());
-                DateTime tendDate = Convert.ToDateTime(endDate.Text.Trim());
+                //DateTime tendDate = Convert.ToDateTime(endDate.Text.Trim());
+                Int32 tdaysApplied = Convert.ToInt32(daysapplied.Text);
 
-                String status = Config.ObjNav2.createLeaveApplicationLines(requisitionNo, tleaveType, tstartDate, tendDate);
+                var leavebal = leaveBalance.Text;
+
+                String status = Config.ObjNav2.createLeaveApplicationLines(requisitionNo, tleaveType, tstartDate, tdaysApplied);
                 String[] info = status.Split('*');
                 //try adding the line
                 linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
@@ -160,25 +173,25 @@ namespace HRPortal
         }
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
-            String requisitionNo = Request.QueryString["requisitionNo"];            
-            Response.Redirect("LeaveApplication2.aspx?step=3&&requisitionNo=" + requisitionNo );
+             String requisitionNo = Request.QueryString["leaveNo"];            
+            Response.Redirect("LeaveApplication2.aspx?step=3&&leaveNo=" + requisitionNo );
         }
 
         protected void Unnamed2_Click(object sender, EventArgs e)
         {
-            String requisitionNo = Request.QueryString["requisitionNo"];            
-            Response.Redirect("LeaveApplication2.aspx?step=2&&requisitionNo=" + requisitionNo );
+            String requisitionNo = Request.QueryString["leaveNo"];            
+            Response.Redirect("LeaveApplication2.aspx?step=2&&leaveNo=" + requisitionNo );
         }
         protected void previous_Click(object sender, EventArgs e)
         {
-            String requisitionNo = Request.QueryString["requisitionNo"];
-            Response.Redirect("LeaveApplication2.aspx?step=1&&requisitionNo=" + requisitionNo);
+            String requisitionNo = Request.QueryString["leaveNo"];
+            Response.Redirect("LeaveApplication2.aspx?step=1&&leaveNo=" + requisitionNo);
         }
         protected void sendApproval_Click(object sender, EventArgs e)
         {
             try
             {
-                String requisitionNo = Request.QueryString["requisitionNo"];
+                String requisitionNo = Request.QueryString["leaveNo"];
                 // Convert.ToString(Session["employeeNo"]),
                 String status = Config.ObjNav2.sendLeaveApplicationApproval(requisitionNo);
                 String[] info = status.Split('*');
@@ -194,7 +207,7 @@ namespace HRPortal
         protected void uploadDocument_Click(object sender, EventArgs e)
         {
 
-            String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Store Requisition/";
+            String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Leave Application card/";
 
             if (document.HasFile)
             {
@@ -205,7 +218,7 @@ namespace HRPortal
                         String extension = System.IO.Path.GetExtension(document.FileName);
                         if (new Config().IsAllowedExtension(extension))
                         {
-                            String imprestNo = Request.QueryString["requisitionNo"];
+                            String imprestNo = Request.QueryString["leaveNo"];
                             imprestNo = imprestNo.Replace('/', '_');
                             imprestNo = imprestNo.Replace(':', '_');
                             String documentDirectory = filesFolder + imprestNo + "/";
@@ -283,7 +296,7 @@ namespace HRPortal
             {
                 String tFileName = fileName.Text.Trim();
                 String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Non-Project Store Requisition/";
-                String imprestNo = Request.QueryString["requisitionNo"];
+                String imprestNo = Request.QueryString["leaveNo"];
                 imprestNo = imprestNo.Replace('/', '_');
                 imprestNo = imprestNo.Replace(':', '_');
                 String documentDirectory = filesFolder + imprestNo + "/";

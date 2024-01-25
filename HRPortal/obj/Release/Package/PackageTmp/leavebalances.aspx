@@ -25,9 +25,11 @@
                 
                 <tbody>
                 <tbody>
-                <% var employees = nav.Employees.Where(r => r.No == (String) Session["employeeNo"]);
-                   foreach (var employee in employees)
-                   {
+                <%  String empNo = Convert.ToString(Session["employeeNo"]);
+                    String employees1 = Config.ObjNav1.fnGetEmployees(empNo);
+                    var employees = nav.Employees.Where(r => r.No == (String) Session["employeeNo"]);
+                    foreach (var employee in employees)
+                    {
 
                 %>
                   <tr><td> Total Leave Taken:</td><td> <%=employee.Total_Leave_Taken %> </td></tr>

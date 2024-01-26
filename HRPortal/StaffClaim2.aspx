@@ -85,7 +85,16 @@
         </div>
         <div class="panel-body">
             <div runat="server" id="linesFeedback"></div>
-            <div class="col-lg-6 col-sm-6">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                <div class="form-group">
+                    <br />
+                    <asp:Button runat="server" CssClass="btn btn-info pull-left" Text="Copy Safari lines" ID="Button1" OnClick="copySafariLines_Click" />
+                </div>
+            </div>
+            </div>
+            <div class="row">
+                 <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
                     <strong>Reason for Claim:<span style="color:red">*</span></strong>
                     <asp:TextBox runat="server" ID="reasonForClaim" CssClass="form-control" placeholder="Reason For Claim" />
@@ -138,6 +147,8 @@
             </div>
         </div>
     </div>
+            </div>
+           
     <div class="panel panel-primary">
         <div class="panel-heading">
             Added Staff Claim Lines Details

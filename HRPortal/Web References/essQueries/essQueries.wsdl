@@ -1521,7 +1521,7 @@
   </binding>
   <service name="essQueries">
     <port name="essQueries_Port" binding="tns:essQueries_Binding">
-      <address location="http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/essQueries" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <address location="http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/essQueries" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
     </port>
   </service>
 </definitions>

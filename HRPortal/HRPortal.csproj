@@ -112,6 +112,7 @@
     <Content Include="AllresolvedHelpDeskISSUES.aspx" />
     <Content Include="AnnualCalender.aspx" />
     <Content Include="AnnualWorkPlan.aspx" />
+    <Content Include="Appraisal2.aspx" />
     <Content Include="ApprovedDailyWorkTicket.aspx" />
     <Content Include="ApprovedImprest.aspx" />
     <Content Include="ApprovedImprestRequisition.aspx" />
@@ -5122,6 +5123,8 @@
     <Content Include="DownLoadPurchaseReq.aspx" />
     <Content Include="downloads\Imprest Memo\19_20_IM0004\alliancerealtors.png" />
     <Content Include="downloads\Imprest Surrender\S0001_19_20\Capture.PNG" />
+    <Content Include="EmployeeAppraisalCompetence.aspx" />
+    <Content Include="EmployeeAppraisalKPIs.aspx" />
     <Content Include="EmployeeSurveyQuestion.aspx" />
     <Content Include="EmployeeSurveyQuestionOpenEnded.aspx" />
     <Content Include="EmployeeSurveyResponse.aspx" />
@@ -5268,11 +5271,15 @@
     <Content Include="LegalAdviceOpen.aspx" />
     <Content Include="LegalAdvicePendingVerdict.aspx" />
     <Content Include="LegalAdviceSaubmitted.aspx" />
+    <Content Include="lineManagerObjective.aspx" />
+    <Content Include="lineManagerObjectiveSettingList.aspx" />
     <Content Include="MeScripts\PCadditionalActivities.js" />
     <Content Include="MeScripts\StaffPerformanceContract.js" />
     <Content Include="MeScripts\StandardAppraisal.js" />
+    <Content Include="myAppraiseeList.aspx" />
     <Content Include="MyEscalatedHelpdeskRequest.aspx" />
     <Content Include="MyHelpDeskRequests.aspx" />
+    <Content Include="myLineManagerList.aspx" />
     <Content Include="NewIndividualScoreCard.aspx" />
     <Content Include="NewIndividualScoreCardReport.aspx" />
     <Content Include="NewIndividualScoreCardSubIndicatorReport.aspx" />
@@ -5281,6 +5288,7 @@
     <Content Include="NewResourceBooking.aspx" />
     <Content Include="NewStandardAppraisal.aspx" />
     <Content Include="NewWorkTicketRequest.aspx" />
+    <Content Include="ObjectiveSettingList.aspx" />
     <Content Include="OngoingStrategicPlan.aspx" />
     <Content Include="OpenDailyWorkTicketRequest.aspx" />
     <Content Include="OpenEmployeeAttestations.aspx" />
@@ -5299,6 +5307,7 @@
     <Content Include="OpenTrainingNeeds.aspx" />
     <Content Include="OpenTransportRequisitionTrips.aspx" />
     <Content Include="OpenVehicleServiceRequisition.aspx" />
+    <Content Include="overviewManagerObjectiveSettingList.aspx" />
     <Content Include="packages.config" />
     <Content Include="PendingPerfomanceScoreCard.aspx" />
     <Content Include="PendingPerformanceLogs.aspx" />
@@ -5860,6 +5869,13 @@
     <Compile Include="AnnualWorkPlan.aspx.designer.cs">
       <DependentUpon>AnnualWorkPlan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Appraisal2.aspx.cs">
+      <DependentUpon>Appraisal2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Appraisal2.aspx.designer.cs">
+      <DependentUpon>Appraisal2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ApprovedDailyWorkTicket.aspx.cs">
       <DependentUpon>ApprovedDailyWorkTicket.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -6091,6 +6107,20 @@
       <DependentUpon>DownLoadPurchaseReq.aspx</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeAppraisalCompetence.aspx.cs">
+      <DependentUpon>EmployeeAppraisalCompetence.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeAppraisalCompetence.aspx.designer.cs">
+      <DependentUpon>EmployeeAppraisalCompetence.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeAppraisalKPIs.aspx.cs">
+      <DependentUpon>EmployeeAppraisalKPIs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeAppraisalKPIs.aspx.designer.cs">
+      <DependentUpon>EmployeeAppraisalKPIs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeSurveyQuestion.aspx.cs">
       <DependentUpon>EmployeeSurveyQuestion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -6431,6 +6461,20 @@
     <Compile Include="LegalAdviceSaubmitted.aspx.designer.cs">
       <DependentUpon>LegalAdviceSaubmitted.aspx</DependentUpon>
     </Compile>
+    <Compile Include="lineManagerObjective.aspx.cs">
+      <DependentUpon>lineManagerObjective.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lineManagerObjective.aspx.designer.cs">
+      <DependentUpon>lineManagerObjective.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lineManagerObjectiveSettingList.aspx.cs">
+      <DependentUpon>lineManagerObjectiveSettingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lineManagerObjectiveSettingList.aspx.designer.cs">
+      <DependentUpon>lineManagerObjectiveSettingList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -6454,6 +6498,13 @@
     <Compile Include="myapplications.aspx.designer.cs">
       <DependentUpon>myapplications.aspx</DependentUpon>
     </Compile>
+    <Compile Include="myAppraiseeList.aspx.cs">
+      <DependentUpon>myAppraiseeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myAppraiseeList.aspx.designer.cs">
+      <DependentUpon>myAppraiseeList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MyEscalatedHelpdeskRequest.aspx.cs">
       <DependentUpon>MyEscalatedHelpdeskRequest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -6467,6 +6518,13 @@
     </Compile>
     <Compile Include="MyHelpDeskRequests.aspx.designer.cs">
       <DependentUpon>MyHelpDeskRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="myLineManagerList.aspx.cs">
+      <DependentUpon>myLineManagerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myLineManagerList.aspx.designer.cs">
+      <DependentUpon>myLineManagerList.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewIndividualScoreCard.aspx.cs">
       <DependentUpon>NewIndividualScoreCard.aspx</DependentUpon>
@@ -6523,6 +6581,13 @@
     </Compile>
     <Compile Include="NewWorkTicketRequest.aspx.designer.cs">
       <DependentUpon>NewWorkTicketRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectiveSettingList.aspx.cs">
+      <DependentUpon>ObjectiveSettingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ObjectiveSettingList.aspx.designer.cs">
+      <DependentUpon>ObjectiveSettingList.aspx</DependentUpon>
     </Compile>
     <Compile Include="OngoingStrategicPlan.aspx.cs">
       <DependentUpon>OngoingStrategicPlan.aspx</DependentUpon>
@@ -6656,6 +6721,13 @@
     </Compile>
     <Compile Include="OpenVehicleServiceRequisition.aspx.designer.cs">
       <DependentUpon>OpenVehicleServiceRequisition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="overviewManagerObjectiveSettingList.aspx.cs">
+      <DependentUpon>overviewManagerObjectiveSettingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="overviewManagerObjectiveSettingList.aspx.designer.cs">
+      <DependentUpon>overviewManagerObjectiveSettingList.aspx</DependentUpon>
     </Compile>
     <Compile Include="p9.aspx.cs">
       <DependentUpon>p9.aspx</DependentUpon>
@@ -7104,6 +7176,28 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/essQueries">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\essQueries\</RelPath>
+      <UpdateFromURL>http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/essQueries</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HRPortal_essQueries_essQueries</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/NewHrPortal">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NewHrPortal\</RelPath>
+      <UpdateFromURL>http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/NewHrPortal</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HRPortal_NewHrPortal_NewHrPortal</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://192.168.1.187:5012/KERRAREGION/WS/KURA/Codeunit/HRPortal">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\HRPortal\</RelPath>
@@ -7125,28 +7219,6 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>HRPortal_NavExtender_NavXtender</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/essQueries">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\essQueries\</RelPath>
-      <UpdateFromURL>http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/essQueries</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>HRPortal_essQueries_essQueries</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\NewHrPortal\</RelPath>
-      <UpdateFromURL>http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>HRPortal_NewHrPortal_NewHrPortal</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>

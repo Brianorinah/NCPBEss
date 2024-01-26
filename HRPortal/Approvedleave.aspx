@@ -27,8 +27,8 @@
                                 <th>Application No</th>
                                 <%--<th>Leave Type</th>--%>
                                 <th>Days Applied</th>
-                                <th>Start Date</th>
-                                <th>Return Date</th>
+                                <th>Narration</th>
+                                <%--<th>Return Date</th>--%>
                                 <th>Status</th>
 
                             </tr>
@@ -56,8 +56,8 @@
                                     <td><%=oneItem[0] %> </td>
                                     <%--<td><%=leave.Leave_Type %> </td>--%>
                                     <td><%=oneItem[1] %> </td>
-                                    <td><%=oneItem[2]  %> </td>
-                                    <td><%=oneItem[3] %> </td>
+                                    <td><%=oneItem[6]  %> </td>
+                                    <%--<td><%=oneItem[3] %> </td>--%>
                                     <td><%=oneItem[4] %> </td>
                                     
                                 </tr>
@@ -87,7 +87,7 @@
                             </tr>
                             <%
                                 }
-                            %><%----%>--%>--%>
+                            %><%----%>
                         </tbody>
                     </table>
                     </div>

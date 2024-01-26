@@ -84,14 +84,14 @@
                                             if (oneItem[2] == "New")
                                             {
                                         %>
-                                        <a href="StaffClaim.aspx?step=1&&claimNo=<%=oneItem[0] %>" class="btn btn-success">View/Edit</a>
+                                        <a href="StaffClaim2.aspx?step=1&&requisitionNo=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-times"></i>View/Edit</a>
                                         <%
                                             }
                                             else if (oneItem[2] == "Approval Pending")
                                             {
 
                                         %>
-                                        <label class="btn btn-default"><i class="fa fa-times"></i>Edit</label>
+                                        <a href="StaffClaim2.aspx?step=1&&requisitionNo=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-times"></i>View/Edit</a>
 
                                         <% 
                                             } %>                                              

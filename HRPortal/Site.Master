@@ -161,6 +161,21 @@
                                         <li><a href="leavebalances.aspx"><i class="fa fa-circle-o"></i>Leave Balances</a></li>
                                     </ul>
                                 </li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-arrow-circle-right"></i>
+                                        <span>Staff Credit Sales</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="StaffCreditSales.aspx"><i class="fa fa-circle-o"></i>New Application</a></li>
+                                        <li><a href="StaffCreditSalesPending.aspx"><i class="fa fa-circle-o"></i>Pending Staff Credit Sales</a></li>
+                                        <li><a href="StaffCreditSalesApproved.aspx"><i class="fa fa-circle-o"></i>Approved Applications</a></li>
+                                        
+                                    </ul>
+                                </li>
                                 <%--<li class="treeview">
                                     <a href="#">
                                         <i class="fa fa-bus"></i>
@@ -317,7 +332,7 @@
                                     <ul class="treeview-menu">
                                         <li><a href="SafariRequest.aspx"><i class="fa fa-circle-o"></i>New Safari Request</a></li>
                                         <li><a href="ImprestMemo.aspx"><i class="fa fa-circle-o"></i>Open Safari Request</a></li>                                    
-                                        <li><a href="ApprovedImprestRequisition.aspx"><i class="fa fa-circle-o"></i>Safari Request</a></li>
+                                        <li><a href="ApprovedImprestRequisition.aspx"><i class="fa fa-circle-o"></i>Approved Safari Request</a></li>
                                     </ul>
                                 </li>
                                 <li class="treeview">
@@ -329,9 +344,9 @@
                                         </span>
                                     </a>
                                     <ul class="treeview-menu">
-                                        <li><a href="Imprest.aspx"><i class="fa fa-circle-o"></i>New Imprest Memo</a></li>
-                                        <li><a href="ImprestMemo.aspx"><i class="fa fa-circle-o"></i>Open Imprest Memo</a></li>                                    
-                                        <li><a href="ApprovedImprestRequisition.aspx"><i class="fa fa-circle-o"></i>Approved Imprest Memo</a></li>
+                                        <li><a href="Imprest1.aspx"><i class="fa fa-circle-o"></i>New Imprest</a></li>
+                                        <li><a href="OpenImprest.aspx"><i class="fa fa-circle-o"></i>Open Imprest</a></li>                                    
+                                        <li><a href="ApprovedImprest.aspx"><i class="fa fa-circle-o"></i>Approved Imprest</a></li>
                                     </ul>
                                 </li>
                                 <li class="treeview">
@@ -344,8 +359,8 @@
                                     </a>
                                     <ul class="treeview-menu">
                                         <%--<li><a href="ImprestSurrender.aspx"><i class="fa fa-circle-o"></i>New Surrender</a></li>--%>
-                                        <li><a href="ImprestSurrenders.aspx"><i class="fa fa-circle-o"></i>Open Surrenders</a></li>
-                                        <li><a href="ImprestSurrendersApproved.aspx"><i class="fa fa-circle-o"></i>Approved Surrenders</a></li>
+                                        <li><a href="ImprestSurrenders1.aspx"><i class="fa fa-circle-o"></i>Open Surrenders</a></li>
+                                        <li><a href="ImprestSurrendersApproved1.aspx"><i class="fa fa-circle-o"></i>Approved Surrenders</a></li>
                                     </ul>
                                 </li>
                                 

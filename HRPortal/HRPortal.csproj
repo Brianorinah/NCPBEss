@@ -113,7 +113,9 @@
     <Content Include="AnnualCalender.aspx" />
     <Content Include="AnnualWorkPlan.aspx" />
     <Content Include="ApprovedDailyWorkTicket.aspx" />
+    <Content Include="ApprovedImprest.aspx" />
     <Content Include="ApprovedImprestRequisition.aspx" />
+    <Content Include="ApprovedImprestSurrenders1.aspx" />
     <Content Include="ApprovedIndividualScoreCardDetails.aspx" />
     <Content Include="Approvedleave.aspx" />
     <Content Include="ApprovedPerformanceLogs.aspx" />
@@ -5225,15 +5227,19 @@
     <Content Include="img\signin\password.png" />
     <Content Include="img\signin\twitter_btn.png" />
     <Content Include="img\signin\user.png" />
+    <Content Include="Imprest1.aspx" />
     <Content Include="ImprestMemo.aspx" />
     <Content Include="ImprestMemoApproverEntries.aspx" />
     <Content Include="ImprestRequisition.aspx" />
     <Content Include="ImprestRequisitionEdit.aspx" />
     <Content Include="Imprests.aspx" />
     <Content Include="ImprestSurrender.aspx" />
+    <Content Include="ImprestSurrender1.aspx" />
     <Content Include="ImprestSurrenderApproverEntries.aspx" />
     <Content Include="ImprestSurrenders.aspx" />
+    <Content Include="ImprestSurrenders1.aspx" />
     <Content Include="ImprestSurrendersApproved.aspx" />
+    <Content Include="ImprestSurrendersApproved1.aspx" />
     <Content Include="IndividualScoreCard.aspx" />
     <Content Include="JobDetails.aspx" />
     <Content Include="JobsReports.aspx" />
@@ -5280,6 +5286,7 @@
     <Content Include="OpenEmployeeAttestations.aspx" />
     <Content Include="OpenHelpDeskItems.aspx" />
     <Content Include="OpenICTRequests.aspx" />
+    <Content Include="OpenImprest.aspx" />
     <Content Include="OpenPerformanceLogs.aspx" />
     <Content Include="OpenRecordRequisitions.aspx" />
     <Content Include="OpenRecordRequsitions.aspx" />
@@ -5468,6 +5475,10 @@
     <Content Include="StaffClaims.aspx" />
     <Content Include="StaffClaimsApproved.aspx" />
     <Content Include="StaffClaimsApproverEntry.aspx" />
+    <Content Include="StaffCreditSales.aspx" />
+    <Content Include="StaffCreditSalesApproved.aspx" />
+    <Content Include="StaffCreditSales2.aspx" />
+    <Content Include="StaffCreditSalesPending.aspx" />
     <Content Include="StandingImprest.aspx" />
     <Content Include="StandingImprestApproverEntries.aspx" />
     <Content Include="StandingImprestSurrender.aspx" />
@@ -5856,12 +5867,26 @@
     <Compile Include="ApprovedDailyWorkTicket.aspx.designer.cs">
       <DependentUpon>ApprovedDailyWorkTicket.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ApprovedImprest.aspx.cs">
+      <DependentUpon>ApprovedImprest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApprovedImprest.aspx.designer.cs">
+      <DependentUpon>ApprovedImprest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ApprovedImprestRequisition.aspx.cs">
       <DependentUpon>ApprovedImprestRequisition.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ApprovedImprestRequisition.aspx.designer.cs">
       <DependentUpon>ApprovedImprestRequisition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ApprovedImprestSurrenders1.aspx.cs">
+      <DependentUpon>ApprovedImprestSurrenders1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApprovedImprestSurrenders1.aspx.designer.cs">
+      <DependentUpon>ApprovedImprestSurrenders1.aspx</DependentUpon>
     </Compile>
     <Compile Include="ApprovedIndividualScoreCardDetails.aspx.cs">
       <DependentUpon>ApprovedIndividualScoreCardDetails.aspx</DependentUpon>
@@ -6230,6 +6255,13 @@
     <Compile Include="imprest.aspx.designer.cs">
       <DependentUpon>imprest.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Imprest1.aspx.cs">
+      <DependentUpon>Imprest1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Imprest1.aspx.designer.cs">
+      <DependentUpon>Imprest1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ImprestMemo.aspx.cs">
       <DependentUpon>ImprestMemo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -6272,6 +6304,13 @@
     <Compile Include="ImprestSurrender.aspx.designer.cs">
       <DependentUpon>ImprestSurrender.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ImprestSurrender1.aspx.cs">
+      <DependentUpon>ImprestSurrender1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImprestSurrender1.aspx.designer.cs">
+      <DependentUpon>ImprestSurrender1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ImprestSurrenderApproverEntries.aspx.cs">
       <DependentUpon>ImprestSurrenderApproverEntries.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -6286,12 +6325,26 @@
     <Compile Include="ImprestSurrenders.aspx.designer.cs">
       <DependentUpon>ImprestSurrenders.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ImprestSurrenders1.aspx.cs">
+      <DependentUpon>ImprestSurrenders1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImprestSurrenders1.aspx.designer.cs">
+      <DependentUpon>ImprestSurrenders1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ImprestSurrendersApproved.aspx.cs">
       <DependentUpon>ImprestSurrendersApproved.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ImprestSurrendersApproved.aspx.designer.cs">
       <DependentUpon>ImprestSurrendersApproved.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImprestSurrendersApproved1.aspx.cs">
+      <DependentUpon>ImprestSurrendersApproved1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImprestSurrendersApproved1.aspx.designer.cs">
+      <DependentUpon>ImprestSurrendersApproved1.aspx</DependentUpon>
     </Compile>
     <Compile Include="IndividualScoreCard.aspx.cs">
       <DependentUpon>IndividualScoreCard.aspx</DependentUpon>
@@ -6505,6 +6558,13 @@
     </Compile>
     <Compile Include="OpenICTRequests.aspx.designer.cs">
       <DependentUpon>OpenICTRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OpenImprest.aspx.cs">
+      <DependentUpon>OpenImprest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OpenImprest.aspx.designer.cs">
+      <DependentUpon>OpenImprest.aspx</DependentUpon>
     </Compile>
     <Compile Include="OpenPerformanceLogs.aspx.cs">
       <DependentUpon>OpenPerformanceLogs.aspx</DependentUpon>
@@ -6833,6 +6893,34 @@
     </Compile>
     <Compile Include="StaffClaimsApproverEntry.aspx.designer.cs">
       <DependentUpon>StaffClaimsApproverEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffCreditSales.aspx.cs">
+      <DependentUpon>StaffCreditSales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffCreditSales.aspx.designer.cs">
+      <DependentUpon>StaffCreditSales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffCreditSalesApproved.aspx.cs">
+      <DependentUpon>StaffCreditSalesApproved.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffCreditSalesApproved.aspx.designer.cs">
+      <DependentUpon>StaffCreditSalesApproved.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffCreditSales2.aspx.cs">
+      <DependentUpon>StaffCreditSales2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffCreditSales2.aspx.designer.cs">
+      <DependentUpon>StaffCreditSales2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffCreditSalesPending.aspx.cs">
+      <DependentUpon>StaffCreditSalesPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffCreditSalesPending.aspx.designer.cs">
+      <DependentUpon>StaffCreditSalesPending.aspx</DependentUpon>
     </Compile>
     <Compile Include="StandingImprest.aspx.cs">
       <DependentUpon>StandingImprest.aspx</DependentUpon>

@@ -19,7 +19,7 @@
         try
         {
             step = Convert.ToInt32(Request.QueryString["step"].Trim());
-            if (step > 2 || step < 1)
+            if (step > 3 || step < 1)
             {
                 step = 1;
             }
@@ -117,13 +117,19 @@
                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="startDate" ErrorMessage="Please enter start date , it cannot be empty!" ForeColor="Red" />
                 </div>
             </div>
-            <div class="col-lg-6 col-sm-6">
+               <div class="col-lg-6 col-sm-6">
+                <div class="form-group">
+                    <strong>Days Applied</strong>
+                    <asp:TextBox runat="server" ID="daysapplied" CssClass="form-control" TextMode="Number" />
+                </div>
+            </div>
+        <%--    <div class="col-lg-6 col-sm-6">
                 <strong>End Date:<span style="color: red">*</span></strong>
                 <div class="form-group">
                     <asp:TextBox runat="server" ID="endDate" CssClass="form-control" TextMode="Date" />
                      <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="endDate" ErrorMessage="Please enter end date, it cannot be empty!" ForeColor="Red" />                    
                 </div>
-            </div>
+            </div>--%>
             <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
                     <br />
@@ -136,13 +142,14 @@
                         <th>Leave Type</th>
                         <th>Leave Balance</th>
                         <th>Start Date</th>
+                        <th>Days Applied</th>
                         <th>End Date</th>
                         <th>Remove </th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
-                        String requisitionNo = Request.QueryString["requisitionNo"];
+                        String requisitionNo = Request.QueryString["leaveNo"];
                         String employeeNo = Convert.ToString(Session["employeeNo"]);
                         var nav = Config.ObjNav1;
                         var result = nav.fnGetLeaveApplicationLines(requisitionNo);
@@ -157,9 +164,10 @@
 
                     %>
                     <tr>                        
+                        <td><% =arr[0] %></td>
                         <td><% =arr[1] %></td>
-                        <td><% =arr[2] %></td>
-                        <td><% = arr[3] %></td>   
+                        <td><% = arr[2] %></td>
+                         <td><% =arr[3] %></td>   
                         <td><% = arr[4] %></td>                      
                         <%--<td><%=String.Format("{0:n}", Convert.ToDouble(arr[5])) %></td>--%>
 
@@ -235,7 +243,7 @@
                         {
                             String fileFolderApplication = ConfigurationManager.AppSettings["FileFolderApplication"];
                             String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Leave Application card/";
-                            String imprestNo = Request.QueryString["requisitionNo"];
+                            String imprestNo = Request.QueryString["leaveNo"];
                             imprestNo = imprestNo.Replace('/', '_');
                             imprestNo = imprestNo.Replace(':', '_');
                             String documentDirectory = filesFolder + imprestNo + "/";

@@ -10,7 +10,7 @@
         <div class="col-sm-12">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a></li>
-                <li class="breadcrumb-item active">Open Imprest Memo</li>
+                <li class="breadcrumb-item active">Open Safari Request</li>
             </ol>
         </div>
     </div>
@@ -21,7 +21,7 @@
     %>
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Open Imprest Memo
+            Open Safari Request
         </div>
         <div class="panel-body">
             <div runat="server" id="feedback"></div>
@@ -88,7 +88,7 @@
                                             if (oneItem[4] == "New")
                                             {
                                         %>
-                                        <a href="StaffClaim.aspx?step=1&&claimNo=<%=oneItem[0] %>" class="btn btn-success">View/Edit</a>
+                                        <a href="SafariRequest.aspx?step=1&&requisitionNo=<%=oneItem[0] %>" class="btn btn-success">View/Edit</a>
                                         <%
                                             }
                                             else if (oneItem[4] == "Approval Pending")

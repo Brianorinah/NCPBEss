@@ -60,8 +60,9 @@
                                     <td><%=oneItem[0] %> </td>
                                     <%--<td><%=leave.Leave_Type %> </td>--%>
                                     <td><%=oneItem[1] %> </td>
-                                    <td><%=Convert.ToDateTime(oneItem[2]).ToString("dd/MM/yyyy") %> </td>
-                                    <td><%=Convert.ToDateTime(oneItem[3]).ToString("dd/MM/yyyy") %> </td>
+                                    <td><%=oneItem[2] %></td>
+                                   <%-- <td><%=Convert.ToDateTime(oneItem[2]).ToString("dd/MM/yyyy") %> </td>--%>
+                                    <td><%=oneItem[3] %></td>
                                     <td><%=oneItem[4] %> </td>
                                     <td><a href="ApproverEntry.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
                                     <td>
@@ -86,7 +87,7 @@
                                             if (oneItem[4] == "New")
                                             {
                                         %>
-                                        <a href="leaveapplication.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a>
+                                        <a href="LeaveApplication2.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a>
                                         <%
                                             }
                                             else if (oneItem[4] == "Approval Pending")

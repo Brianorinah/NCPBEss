@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -16,107 +17,163 @@ namespace HRPortal
         {
             if (!IsPostBack)
             {
-                var jobs1 = Config.ObjNav1.fnGetDimension(1);
-                List<ItemList> itms1 = new List<ItemList>();
-                string[] infoz1 = jobs1.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
-                if (infoz1.Count() > 0)
+                int step = 1;
+                try
                 {
-                    foreach (var allInfo in infoz1)
+                    step = Convert.ToInt32(Request.QueryString["step"]);
+                    if (step > 4 || step < 1)
                     {
-                        String[] arr = allInfo.Split('*');
-
-                        ItemList mdl = new ItemList();
-                        mdl.code = arr[0];
-                        mdl.description = arr[1];
-                        itms1.Add(mdl);
-
+                        step = 1;
                     }
                 }
-
-                functionCode.DataSource = itms1;
-                functionCode.DataTextField = "description";
-                functionCode.DataValueField = "code";
-                functionCode.DataBind();
-                functionCode.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
-
-                var jobs17 = Config.ObjNav1.fnGetDimension(2);
-                List<ItemList> itms17 = new List<ItemList>();
-                string[] infoz17 = jobs17.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
-                if (infoz17.Count() > 0)
+                catch (Exception)
                 {
-                    foreach (var allInfo in infoz17)
-                    {
-                        String[] arr = allInfo.Split('*');
-
-                        ItemList mdl = new ItemList();
-                        mdl.code = arr[0];
-                        mdl.description = arr[1];
-                        itms17.Add(mdl);
-
-                    }
+                    step = 1;
                 }
-
-                bgtCenterCode.DataSource = itms17;
-                bgtCenterCode.DataTextField = "description";
-                bgtCenterCode.DataValueField = "code";
-                bgtCenterCode.DataBind();
-                bgtCenterCode.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
-
-
-
-                var jobs11 = Config.ObjNav1.fnGetSafariEntitlements();
-                List<ItemList> itms11 = new List<ItemList>();
-                string[] infoz11 = jobs11.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
-                if (infoz11.Count() > 0)
+                if (step == 1)
                 {
-                    foreach (var allInfo in infoz11)
+                    var jobs1 = Config.ObjNav1.fnGetDimension(1);
+                    List<ItemList> itms1 = new List<ItemList>();
+                    string[] infoz1 = jobs1.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (infoz1.Count() > 0)
                     {
-                        String[] arr = allInfo.Split('*');
+                        foreach (var allInfo in infoz1)
+                        {
+                            String[] arr1 = allInfo.Split('*');
 
-                        ItemList mdl = new ItemList();
-                        mdl.code = arr[0];
-                        mdl.description = arr[1];
-                        itms11.Add(mdl);
+                            ItemList mdl = new ItemList();
+                            mdl.code = arr1[0];
+                            mdl.description = arr1[1];
+                            itms1.Add(mdl);
 
+                        }
                     }
+
+                    functionCode.DataSource = itms1;
+                    functionCode.DataTextField = "description";
+                    functionCode.DataValueField = "code";
+                    functionCode.DataBind();
+                    functionCode.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                    var jobs17 = Config.ObjNav1.fnGetDimension(2);
+                    List<ItemList> itms17 = new List<ItemList>();
+                    string[] infoz17 = jobs17.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (infoz17.Count() > 0)
+                    {
+                        foreach (var allInfo in infoz17)
+                        {
+                            String[] arr2 = allInfo.Split('*');
+
+                            ItemList mdl = new ItemList();
+                            mdl.code = arr2[0];
+                            mdl.description = arr2[1];
+                            itms17.Add(mdl);
+
+                        }
+                    }
+
+                    bgtCenterCode.DataSource = itms17;
+                    bgtCenterCode.DataTextField = "description";
+                    bgtCenterCode.DataValueField = "code";
+                    bgtCenterCode.DataBind();
+                    bgtCenterCode.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                    //Get safari request details
+                    string cultureVariant = "en-US";
+                    String appNo = Request.QueryString["requisitionNo"];
+                    if (!String.IsNullOrEmpty(appNo))
+                    {
+                        var job18 = Config.ObjNav1.fnGetSafariApplicationDetails(appNo);
+
+                        String[] arr = job18.Split('*');
+
+                        exptTravelDate.Text = arr[0];
+                        exptReturnDate.Text = arr[1];
+                        functionCode.Text = arr[3];
+                        bgtCenterCode.Text = arr[4];
+                        purpose.Text = arr[5];
+                        //DateTime dateVariable = DateTime.ParseExact(arr[0], "dd-MM-yyyy", CultureInfo.GetCultureInfo(cultureVariant));
+                        //exptTravelDate.Text = Convert.ToString(dateVariable);
+
+                        if (arr[2] == "Personal Vehicle")
+                        {
+                            transMode.SelectedValue = "0";
+                        }
+                        if (arr[2] == "Company Vehicle")
+                        {
+                            transMode.SelectedValue = "1";
+                        }
+                        if (arr[2] == "Public Transport 1st Class")
+                        {
+                            transMode.SelectedValue = "2";
+                        }
+                        if (arr[2] == "Public Transport Business")
+                        {
+                            transMode.SelectedValue = "3";
+                        }
+                        else if (arr[2] == "Public Transport Economy")
+                        {
+                            transMode.SelectedValue = "4";
+                        }
+                    }
+                    
                 }
-
-                entitlement.DataSource = itms11;
-                entitlement.DataTextField = "description";
-                entitlement.DataValueField = "code";
-                entitlement.DataBind();
-                entitlement.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
-
-                var jobs118 = Config.ObjNav1.fnGetTowns();
-                List<ItemList> itms118 = new List<ItemList>();
-                string[] infoz118 = jobs118.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
-                if (infoz118.Count() > 0)
+                if (step == 2)
                 {
-                    foreach (var allInfo in infoz118)
+                    var jobs118 = Config.ObjNav1.fnGetTowns();
+                    List<ItemList> itms118 = new List<ItemList>();
+                    string[] infoz118 = jobs118.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (infoz118.Count() > 0)
                     {
-                        String[] arr = allInfo.Split('*');
+                        foreach (var allInfo in infoz118)
+                        {
+                            String[] arr = allInfo.Split('*');
 
-                        ItemList mdl = new ItemList();
-                        mdl.code = arr[0];
-                        mdl.description = arr[1];
-                        itms118.Add(mdl);
+                            ItemList mdl = new ItemList();
+                            mdl.code = arr[0];
+                            mdl.description = arr[1];
+                            itms118.Add(mdl);
 
+                        }
                     }
+
+                    travelFrom.DataSource = itms118;
+                    travelFrom.DataTextField = "description";
+                    travelFrom.DataValueField = "code";
+                    travelFrom.DataBind();
+                    travelFrom.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                    travelTo.DataSource = itms118;
+                    travelTo.DataTextField = "description";
+                    travelTo.DataValueField = "code";
+                    travelTo.DataBind();
+                    travelTo.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
                 }
+                else if (step == 3)
+                {
+                    var jobs11 = Config.ObjNav1.fnGetSafariEntitlements();
+                    List<ItemList> itms11 = new List<ItemList>();
+                    string[] infoz11 = jobs11.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (infoz11.Count() > 0)
+                    {
+                        foreach (var allInfo in infoz11)
+                        {
+                            String[] arr = allInfo.Split('*');
 
-                travelFrom.DataSource = itms118;
-                travelFrom.DataTextField = "description";
-                travelFrom.DataValueField = "code";
-                travelFrom.DataBind();
-                travelFrom.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+                            ItemList mdl = new ItemList();
+                            mdl.code = arr[0];
+                            mdl.description = arr[1];
+                            itms11.Add(mdl);
 
-                travelTo.DataSource = itms118;
-                travelTo.DataTextField = "description";
-                travelTo.DataValueField = "code";
-                travelTo.DataBind();
-                travelTo.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+                        }
+                    }
 
-
+                    entitlement.DataSource = itms11;
+                    entitlement.DataTextField = "description";
+                    entitlement.DataValueField = "code";
+                    entitlement.DataBind();
+                    entitlement.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+                }
 
             }
 

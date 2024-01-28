@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Results>
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/essQueries" filename="essQueries.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries" filename="essQueries.wsdl" />
   </Results>
 </DiscoveryClientResultsFile>

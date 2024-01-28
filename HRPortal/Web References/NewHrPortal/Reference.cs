@@ -85,8 +85,6 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback fnCreateStaffCreditLinesOperationCompleted;
         
-        private System.Threading.SendOrPostCallback fnGenerateReportOperationCompleted;
-        
         private System.Threading.SendOrPostCallback fnGetEmployeeDetailOperationCompleted;
         
         private System.Threading.SendOrPostCallback fnStoreRequisitionLinesOperationCompleted;
@@ -110,6 +108,8 @@ namespace HRPortal.NewHrPortal {
         private System.Threading.SendOrPostCallback sendStaffCreditSaleApprovalOperationCompleted;
         
         private System.Threading.SendOrPostCallback sendSurrenderApplicationApprovalOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback sendToAppraiseeForAgreementOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -234,9 +234,6 @@ namespace HRPortal.NewHrPortal {
         public event fnCreateStaffCreditLinesCompletedEventHandler fnCreateStaffCreditLinesCompleted;
         
         /// <remarks/>
-        public event fnGenerateReportCompletedEventHandler fnGenerateReportCompleted;
-        
-        /// <remarks/>
         public event fnGetEmployeeDetailCompletedEventHandler fnGetEmployeeDetailCompleted;
         
         /// <remarks/>
@@ -271,6 +268,9 @@ namespace HRPortal.NewHrPortal {
         
         /// <remarks/>
         public event sendSurrenderApplicationApprovalCompletedEventHandler sendSurrenderApplicationApprovalCompleted;
+        
+        /// <remarks/>
+        public event sendToAppraiseeForAgreementCompletedEventHandler sendToAppraiseeForAgreementCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:CreateSalesOrder", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="CreateSalesOrder_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1314,36 +1314,6 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:fnGenerateReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="fnGenerateReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string fnGenerateReport(string documentNo) {
-            object[] results = this.Invoke("fnGenerateReport", new object[] {
-                        documentNo});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void fnGenerateReportAsync(string documentNo) {
-            this.fnGenerateReportAsync(documentNo, null);
-        }
-        
-        /// <remarks/>
-        public void fnGenerateReportAsync(string documentNo, object userState) {
-            if ((this.fnGenerateReportOperationCompleted == null)) {
-                this.fnGenerateReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfnGenerateReportOperationCompleted);
-            }
-            this.InvokeAsync("fnGenerateReport", new object[] {
-                        documentNo}, this.fnGenerateReportOperationCompleted, userState);
-        }
-        
-        private void OnfnGenerateReportOperationCompleted(object arg) {
-            if ((this.fnGenerateReportCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.fnGenerateReportCompleted(this, new fnGenerateReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:fnGetEmployeeDetail", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="fnGetEmployeeDetail_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string fnGetEmployeeDetail(string empNumber) {
@@ -1712,6 +1682,36 @@ namespace HRPortal.NewHrPortal {
             if ((this.sendSurrenderApplicationApprovalCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.sendSurrenderApplicationApprovalCompleted(this, new sendSurrenderApplicationApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendToAppraiseeForAgreement", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendToAppraiseeForAgreement_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string sendToAppraiseeForAgreement(string applicationNo) {
+            object[] results = this.Invoke("sendToAppraiseeForAgreement", new object[] {
+                        applicationNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void sendToAppraiseeForAgreementAsync(string applicationNo) {
+            this.sendToAppraiseeForAgreementAsync(applicationNo, null);
+        }
+        
+        /// <remarks/>
+        public void sendToAppraiseeForAgreementAsync(string applicationNo, object userState) {
+            if ((this.sendToAppraiseeForAgreementOperationCompleted == null)) {
+                this.sendToAppraiseeForAgreementOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendToAppraiseeForAgreementOperationCompleted);
+            }
+            this.InvokeAsync("sendToAppraiseeForAgreement", new object[] {
+                        applicationNo}, this.sendToAppraiseeForAgreementOperationCompleted, userState);
+        }
+        
+        private void OnsendToAppraiseeForAgreementOperationCompleted(object arg) {
+            if ((this.sendToAppraiseeForAgreementCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.sendToAppraiseeForAgreementCompleted(this, new sendToAppraiseeForAgreementCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2464,32 +2464,6 @@ namespace HRPortal.NewHrPortal {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void fnGenerateReportCompletedEventHandler(object sender, fnGenerateReportCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class fnGenerateReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal fnGenerateReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void fnGetEmployeeDetailCompletedEventHandler(object sender, fnGetEmployeeDetailCompletedEventArgs e);
     
     /// <remarks/>
@@ -2787,6 +2761,32 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal sendSurrenderApplicationApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void sendToAppraiseeForAgreementCompletedEventHandler(object sender, sendToAppraiseeForAgreementCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class sendToAppraiseeForAgreementCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal sendToAppraiseeForAgreementCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

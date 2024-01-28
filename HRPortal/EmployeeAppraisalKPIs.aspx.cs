@@ -118,5 +118,32 @@ namespace HRPortal
                 feedback1.InnerHtml = "<div class='alert alert-danger'>" + ex.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
             }
         }
+        protected void eyupdateKPIsLine_Click(object sender, EventArgs e)
+        {
+            String tappraiseeselfrating = appraiseeselfrating.Text.Trim();
+            String temployeecomment = employeecomment.Text.Trim();
+            Int32 lineNo = Convert.ToInt32(lineno3.Text.Trim());
+
+            try
+            {
+                String appraisalNo = Request.QueryString["applicationNo"];
+                Int32 kpaLineNo = Convert.ToInt32(Request.QueryString["kraLineNo"]);
+
+                String status = Config.ObjNav2.createeyKPILines(appraisalNo, kpaLineNo, lineNo, tappraiseeselfrating, temployeecomment);
+                string[] info = status.Split('*');
+                if (info[0] == "success")
+                {
+                    feedback1.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {
+                    feedback1.InnerHtml = "<div class='alert alert-danger'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+            }
+            catch (Exception ex)
+            {
+                feedback1.InnerHtml = "<div class='alert alert-danger'>" + ex.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+        }
     }
 }

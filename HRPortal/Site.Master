@@ -171,6 +171,7 @@
                                     </a>
                                     <ul class="treeview-menu">
                                         <li><a href="StaffCreditSales.aspx"><i class="fa fa-circle-o"></i>New Application</a></li>
+                                     <%--   <li><a href="StaffCreditSalesNew.aspx"><i class="fa fa-circle-o"></i>Open Applications</a></li>--%>
                                         <li><a href="StaffCreditSalesPending.aspx"><i class="fa fa-circle-o"></i>Pending Staff Credit Sales</a></li>
                                         <li><a href="StaffCreditSalesApproved.aspx"><i class="fa fa-circle-o"></i>Approved Applications</a></li>
                                         

@@ -161,6 +161,22 @@
                                         <li><a href="leavebalances.aspx"><i class="fa fa-circle-o"></i>Leave Balances</a></li>
                                     </ul>
                                 </li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-arrow-circle-right"></i>
+                                        <span>Staff Credit Sales</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="StaffCreditSales.aspx"><i class="fa fa-circle-o"></i>New Application</a></li>
+                                        <%--<li><a href="StaffCreditSalesNew.aspx"><i class="fa fa-circle-o"></i>Open Applications</a></li>--%>
+                                        <li><a href="StaffCreditSalesPending.aspx"><i class="fa fa-circle-o"></i>Pending Staff Credit Sales</a></li>
+                                        <li><a href="StaffCreditSalesApproved.aspx"><i class="fa fa-circle-o"></i>Approved Applications</a></li>
+                                        
+                                    </ul>
+                                </li>
                                 <%--<li class="treeview">
                                     <a href="#">
                                         <i class="fa fa-bus"></i>
@@ -364,7 +380,76 @@
                                     </ul>
                                 </li>--%>
                             </ul>
-                        </li> 
+                        </li>
+                        <%--PERFORMANCE MANAGEMENT--%>
+                          <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-th"></i>
+                                <span>Performance Management</span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-money"></i>
+                                        <span>Appraisee</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="ObjectiveSettingList.aspx"><i class="fa fa-circle-o"></i>Objective Setting List</a></li>
+                                        <li><a href="MYAppraiseeList.aspx"><i class="fa fa-circle-o"></i>MY Appraisee List</a></li>
+                                        <li><a href="MYAgreementList.aspx"><i class="fa fa-circle-o"></i>MY Agreement List</a></li>
+                                        <li><a href="EYAppraiseeList.aspx"><i class="fa fa-circle-o"></i>EY Appraisee List</a></li>
+                                        <li><a href="EYAgreementList.aspx"><i class="fa fa-circle-o"></i>EY Agreement List</a></li>
+                                        <li><a href="ClosedAppraisal.aspx"><i class="fa fa-circle-o"></i>Closed Appraisal</a></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-money"></i>
+                                        <span>Line Manager</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="lineManagerObjectiveSettingList.aspx"><i class="fa fa-circle-o"></i>Objective List</a></li>
+                                        <li><a href="myLineManagerList.aspx"><i class="fa fa-circle-o"></i>MY Supervisor List</a></li>                                    
+                                        <li><a href="eyLineManagerList.aspx"><i class="fa fa-circle-o"></i>EY Supervisor List</a></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-money"></i>
+                                        <span>Overview Manager</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="overviewManagerObjectiveSettingList.aspx"><i class="fa fa-circle-o"></i>Objective List</a></li>
+                                        <li><a href="MYOverviewList.aspx"><i class="fa fa-circle-o"></i>MY Overview List</a></li>                                    
+                                        <li><a href="EYOverviewList.aspx"><i class="fa fa-circle-o"></i>EY Overview List</a></li>
+                                    </ul>
+                                </li>
+                                
+                                <%--<li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-money"></i>
+                                        <span>Petty Cash Requisition</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="PettyCashRequisition.aspx">New Petty Cash Requisition</a></li>
+                                        <li><a href="PettyCashHeader.aspx">Open Petty Cash Requisition</a></li>
+                                        <li><a href="PettyCashApproved.aspx">Approved Petty Cash Requisition</a></li>
+                                    </ul>
+                                </li>--%>
+                            </ul>
+                        </li>  
                         <!--SCM SERVICES-->  
                         <%--<li class="treeview">
                             <a href="#">

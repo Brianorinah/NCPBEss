@@ -242,8 +242,20 @@ namespace HRPortal
 
                 String status = Config.ObjNav2.fnCreateStaffCreditLines(documentNo, productCode, quant);
                 String[] info = status.Split('*');
-                linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-
+                if (info[0] == "Sucsess")
+                {
+                    linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    ProductCode.Text="";
+                    quantity.Text = "";
+                    measure.Text = "";
+                    ProductDescription.Text = "";
+                    UnitPrice.Text = "";
+                    TotalPrice.Text = "";
+                }
+                else
+                {
+                    linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
             }
             catch (Exception n)
             {
@@ -291,8 +303,8 @@ namespace HRPortal
                 String status = Config.ObjNav2.CreateSalesOrder(documentNo);
                 String[] info = status.Split('*');
                 documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
-                "setTimeout(function() { window.location.replace('Dashboard.aspx') }, 5000);", true);
+                //ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
+                //"setTimeout(function() { window.location.replace('Dashboard.aspx') }, 5000);", true);
             }
             catch (Exception t)
             {
@@ -300,6 +312,24 @@ namespace HRPortal
             }
         }
 
+        protected void deleteLine(object sender,EventArgs e)
+        {
+            try
+            {
+                String docNo = documentNumber.Text.Trim();
+                String lineNoText = lineNo.Text.Trim();
+                int lnNo = Convert.ToInt32(lineNoText);
+                String status = Config.ObjNav2.deleteStaffCreditSalesLines(docNo, lnNo);
+                String[] info = status.Split('*');
+                documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                
 
+
+            }
+            catch(Exception ed)
+            {
+                documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+        }
     }
 }

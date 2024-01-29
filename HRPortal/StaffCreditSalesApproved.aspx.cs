@@ -19,9 +19,9 @@ namespace HRPortal
             {
                 string document = documentNo.Text;
                 String status = Config.ObjNav2.CreateSalesOrder(document);
-               // String[] info = status.Split('*');
-                feedback.InnerHtml = "<div class='alert alert-'>" +"Sales Order Created successfully"+"<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                 ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
+               String[] info = status.Split('*');
+                feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
                 "setTimeout(function() { window.location.replace('Dashboard.aspx') }, 5000);", true);
             }
             catch (Exception t)

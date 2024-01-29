@@ -5487,6 +5487,9 @@
     <Content Include="StaffCreditSales.aspx" />
     <Content Include="StaffCreditSalesApproved.aspx" />
     <Content Include="StaffCreditSales2.aspx" />
+    <Content Include="StaffCreditSalesNew.aspx" />
+    <Content Include="StaffCreditSalesNewEdit.aspx" />
+    <Content Include="StaffCreditSalesOpen.aspx" />
     <Content Include="StaffCreditSalesPending.aspx" />
     <Content Include="StandingImprest.aspx" />
     <Content Include="StandingImprestApproverEntries.aspx" />
@@ -6986,6 +6989,27 @@
     </Compile>
     <Compile Include="StaffCreditSales2.aspx.designer.cs">
       <DependentUpon>StaffCreditSales2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffCreditSalesNew.aspx.cs">
+      <DependentUpon>StaffCreditSalesNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffCreditSalesNew.aspx.designer.cs">
+      <DependentUpon>StaffCreditSalesNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffCreditSalesNewEdit.aspx.cs">
+      <DependentUpon>StaffCreditSalesNewEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffCreditSalesNewEdit.aspx.designer.cs">
+      <DependentUpon>StaffCreditSalesNewEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffCreditSalesOpen.aspx.cs">
+      <DependentUpon>StaffCreditSalesOpen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffCreditSalesOpen.aspx.designer.cs">
+      <DependentUpon>StaffCreditSalesOpen.aspx</DependentUpon>
     </Compile>
     <Compile Include="StaffCreditSalesPending.aspx.cs">
       <DependentUpon>StaffCreditSalesPending.aspx</DependentUpon>

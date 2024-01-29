@@ -166,7 +166,8 @@
                         <td>
                             <label class="btn btn-danger" onclick="removeLine('<% =arr[1] %>','<%=arr[0] %>');"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
-                    <% }
+                    <% 
+}
                             }
                         }
                     %>

@@ -792,76 +792,147 @@ F:\Projects\NCPB\TestESS\NCPBEss\HRPortal\bin\ko\System.Spatial.resources.dll
 F:\Projects\NCPB\TestESS\NCPBEss\HRPortal\bin\ru\System.Spatial.resources.dll
 F:\Projects\NCPB\TestESS\NCPBEss\HRPortal\bin\zh-Hans\System.Spatial.resources.dll
 F:\Projects\NCPB\TestESS\NCPBEss\HRPortal\bin\zh-Hant\System.Spatial.resources.dll
-F:\Projects\NCPB\TestESS\NCPBEss\HRPortal\obj\Debug\HRPortal.csprojResolveAssemblyReference.cache
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\roslyn\csc.exe
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\roslyn\Microsoft.CodeAnalysis.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\roslyn\Microsoft.CSharp.Core.targets
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\roslyn\Microsoft.VisualBasic.Core.targets
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\roslyn\System.Collections.Immutable.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\roslyn\System.Reflection.Metadata.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\roslyn\VBCSCompiler.exe.config
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\HRPortal.dll.config
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\HRPortal.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\HRPortal.pdb
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\Microsoft.AspNet.FriendlyUrls.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\Microsoft.Data.Edm.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\Microsoft.Data.OData.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\Microsoft.Data.Services.Client.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\Newtonsoft.Json.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\System.Net.Http.Formatting.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\System.Spatial.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\System.Web.Http.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\System.Web.Http.WebHost.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\Microsoft.AspNet.FriendlyUrls.xml
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\Microsoft.Data.Edm.xml
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\Microsoft.Data.OData.xml
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\Microsoft.Data.Services.Client.xml
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\Newtonsoft.Json.xml
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\System.Net.Http.Formatting.xml
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\System.Spatial.xml
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\System.Web.Http.xml
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\System.Web.Http.WebHost.xml
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\de\Microsoft.Data.Edm.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\es\Microsoft.Data.Edm.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\fr\Microsoft.Data.Edm.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\it\Microsoft.Data.Edm.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\ja\Microsoft.Data.Edm.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\ko\Microsoft.Data.Edm.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\ru\Microsoft.Data.Edm.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\de\Microsoft.Data.OData.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\es\Microsoft.Data.OData.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\fr\Microsoft.Data.OData.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\it\Microsoft.Data.OData.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\ja\Microsoft.Data.OData.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\ko\Microsoft.Data.OData.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\ru\Microsoft.Data.OData.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\zh-Hans\Microsoft.Data.OData.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\zh-Hant\Microsoft.Data.OData.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\de\Microsoft.Data.Services.Client.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\es\Microsoft.Data.Services.Client.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\fr\Microsoft.Data.Services.Client.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\it\Microsoft.Data.Services.Client.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\ja\Microsoft.Data.Services.Client.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\ko\Microsoft.Data.Services.Client.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\ru\Microsoft.Data.Services.Client.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\de\System.Spatial.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\es\System.Spatial.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\fr\System.Spatial.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\it\System.Spatial.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\ja\System.Spatial.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\ko\System.Spatial.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\ru\System.Spatial.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\zh-Hans\System.Spatial.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\bin\zh-Hant\System.Spatial.resources.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\obj\Debug\HRPortal.csprojResolveAssemblyReference.cache
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\obj\Debug\HRPortal.dll
-F:\Projects\NCPB\TestESS\New folder\NCPBEss\HRPortal\obj\Debug\HRPortal.pdb
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\roslyn\csc.exe
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\HRPortal.dll.config
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\HRPortal.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\HRPortal.pdb
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\Microsoft.Data.Edm.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\Microsoft.Data.OData.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\Microsoft.Data.Services.Client.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\Newtonsoft.Json.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\System.Net.Http.Formatting.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\System.Spatial.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\System.Web.Http.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\System.Web.Http.WebHost.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\Microsoft.Data.Edm.xml
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\Microsoft.Data.OData.xml
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\Microsoft.Data.Services.Client.xml
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\Newtonsoft.Json.xml
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\System.Net.Http.Formatting.xml
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\System.Spatial.xml
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\System.Web.Http.xml
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\System.Web.Http.WebHost.xml
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\de\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\es\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\it\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\de\Microsoft.Data.OData.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\es\Microsoft.Data.OData.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\fr\Microsoft.Data.OData.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\it\Microsoft.Data.OData.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\ja\Microsoft.Data.OData.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\ko\Microsoft.Data.OData.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\ru\Microsoft.Data.OData.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\de\System.Spatial.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\es\System.Spatial.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\fr\System.Spatial.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\it\System.Spatial.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\ja\System.Spatial.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\ko\System.Spatial.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\ru\System.Spatial.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\zh-Hans\System.Spatial.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\obj\Debug\HRPortal.dll
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\obj\Debug\HRPortal.pdb
+C:\Users\evans\Documents\Portal\NCPBV5\NCPBEss\NCPBEss\HRPortal\obj\Debug\HRPortal.csprojResolveAssemblyReference.cache
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\roslyn\csc.exe
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\HRPortal.dll.config
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\HRPortal.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\HRPortal.pdb
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\Microsoft.Data.Edm.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\Microsoft.Data.OData.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\Microsoft.Data.Services.Client.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\Newtonsoft.Json.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\System.Net.Http.Formatting.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\System.Spatial.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\System.Web.Http.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\System.Web.Http.WebHost.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\Microsoft.Data.Edm.xml
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\Microsoft.Data.OData.xml
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\Microsoft.Data.Services.Client.xml
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\Newtonsoft.Json.xml
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\System.Net.Http.Formatting.xml
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\System.Spatial.xml
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\System.Web.Http.xml
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\System.Web.Http.WebHost.xml
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\de\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\es\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\it\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\de\Microsoft.Data.OData.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\es\Microsoft.Data.OData.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\fr\Microsoft.Data.OData.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\it\Microsoft.Data.OData.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\ja\Microsoft.Data.OData.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\ko\Microsoft.Data.OData.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\ru\Microsoft.Data.OData.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\de\System.Spatial.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\es\System.Spatial.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\fr\System.Spatial.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\it\System.Spatial.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\ja\System.Spatial.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\ko\System.Spatial.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\ru\System.Spatial.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\zh-Hans\System.Spatial.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\obj\Debug\HRPortal.dll
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\obj\Debug\HRPortal.pdb
+C:\Users\evans\OneDrive - Dynasoft Business Solutions\DBSL\Portal\NCPBEss\HRPortal\obj\Debug\HRPortal.csprojResolveAssemblyReference.cache

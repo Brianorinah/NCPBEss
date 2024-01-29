@@ -593,20 +593,6 @@
           </sequence>
         </complexType>
       </element>
-      <element name="sendObjectiveSettingsToLineManager">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="sendObjectiveSettingsToLineManager_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
       <element name="sendSafariRequestApplicationApproval">
         <complexType>
           <sequence>
@@ -889,12 +875,6 @@
   <message name="sendObjectiveSettingsBackToAppraisee_Result">
     <part name="parameters" element="tns:sendObjectiveSettingsBackToAppraisee_Result" />
   </message>
-  <message name="sendObjectiveSettingsToLineManager">
-    <part name="parameters" element="tns:sendObjectiveSettingsToLineManager" />
-  </message>
-  <message name="sendObjectiveSettingsToLineManager_Result">
-    <part name="parameters" element="tns:sendObjectiveSettingsToLineManager_Result" />
-  </message>
   <message name="sendSafariRequestApplicationApproval">
     <part name="parameters" element="tns:sendSafariRequestApplicationApproval" />
   </message>
@@ -1065,10 +1045,6 @@
     <operation name="sendObjectiveSettingsBackToAppraisee">
       <input name="sendObjectiveSettingsBackToAppraisee" message="tns:sendObjectiveSettingsBackToAppraisee" />
       <output name="sendObjectiveSettingsBackToAppraisee_Result" message="tns:sendObjectiveSettingsBackToAppraisee_Result" />
-    </operation>
-    <operation name="sendObjectiveSettingsToLineManager">
-      <input name="sendObjectiveSettingsToLineManager" message="tns:sendObjectiveSettingsToLineManager" />
-      <output name="sendObjectiveSettingsToLineManager_Result" message="tns:sendObjectiveSettingsToLineManager_Result" />
     </operation>
     <operation name="sendSafariRequestApplicationApproval">
       <input name="sendSafariRequestApplicationApproval" message="tns:sendSafariRequestApplicationApproval" />
@@ -1408,15 +1384,6 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
-    <operation name="sendObjectiveSettingsToLineManager">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendObjectiveSettingsToLineManager" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="sendObjectiveSettingsToLineManager">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="sendObjectiveSettingsToLineManager_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
     <operation name="sendSafariRequestApplicationApproval">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendSafariRequestApplicationApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="sendSafariRequestApplicationApproval">
@@ -1465,7 +1432,11 @@
   </binding>
   <service name="NewHrPortal">
     <port name="NewHrPortal_Port" binding="tns:NewHrPortal_Binding">
-      <address location="http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+<<<<<<< HEAD
+      <address location="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+=======
+      <address location="http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+>>>>>>> 7f684835ad3fbf7ccd50ca207fc5a23df2a5dfcf
     </port>
   </service>
 </definitions>

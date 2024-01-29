@@ -161,6 +161,21 @@
                                         <li><a href="leavebalances.aspx"><i class="fa fa-circle-o"></i>Leave Balances</a></li>
                                     </ul>
                                 </li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-arrow-circle-right"></i>
+                                        <span>Staff Credit Sales</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="StaffCreditSales.aspx"><i class="fa fa-circle-o"></i>New Application</a></li>
+                                        <li><a href="StaffCreditSalesPending.aspx"><i class="fa fa-circle-o"></i>Pending Staff Credit Sales</a></li>
+                                        <li><a href="StaffCreditSalesApproved.aspx"><i class="fa fa-circle-o"></i>Approved Applications</a></li>
+                                        
+                                    </ul>
+                                </li>
                                 <%--<li class="treeview">
                                     <a href="#">
                                         <i class="fa fa-bus"></i>

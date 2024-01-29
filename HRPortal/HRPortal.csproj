@@ -5491,6 +5491,10 @@
     <Content Include="StaffClaims.aspx" />
     <Content Include="StaffClaimsApproved.aspx" />
     <Content Include="StaffClaimsApproverEntry.aspx" />
+    <Content Include="StaffCreditSales.aspx" />
+    <Content Include="StaffCreditSalesApproved.aspx" />
+    <Content Include="StaffCreditSales2.aspx" />
+    <Content Include="StaffCreditSalesPending.aspx" />
     <Content Include="StandingImprest.aspx" />
     <Content Include="StandingImprestApproverEntries.aspx" />
     <Content Include="StandingImprestSurrender.aspx" />
@@ -7017,6 +7021,34 @@
     </Compile>
     <Compile Include="StaffClaimsApproverEntry.aspx.designer.cs">
       <DependentUpon>StaffClaimsApproverEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffCreditSales.aspx.cs">
+      <DependentUpon>StaffCreditSales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffCreditSales.aspx.designer.cs">
+      <DependentUpon>StaffCreditSales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffCreditSalesApproved.aspx.cs">
+      <DependentUpon>StaffCreditSalesApproved.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffCreditSalesApproved.aspx.designer.cs">
+      <DependentUpon>StaffCreditSalesApproved.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffCreditSales2.aspx.cs">
+      <DependentUpon>StaffCreditSales2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffCreditSales2.aspx.designer.cs">
+      <DependentUpon>StaffCreditSales2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffCreditSalesPending.aspx.cs">
+      <DependentUpon>StaffCreditSalesPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffCreditSalesPending.aspx.designer.cs">
+      <DependentUpon>StaffCreditSalesPending.aspx</DependentUpon>
     </Compile>
     <Compile Include="StandingImprest.aspx.cs">
       <DependentUpon>StandingImprest.aspx</DependentUpon>

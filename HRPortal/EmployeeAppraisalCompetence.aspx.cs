@@ -71,7 +71,7 @@ namespace HRPortal
         }
         protected void mySupervisorUpdateBehaviourLine_Click(object sender, EventArgs e)
         {
-            String tmysupervisorrating = myemployeerating.Text.Trim();
+            String tmysupervisorrating = mysupervisorrating.Text.Trim();
             String tmysupervisorcomment = mysupervisorcomment.Text.Trim();
             Int32 lineNo = Convert.ToInt32(lineno2.Text.Trim());
 

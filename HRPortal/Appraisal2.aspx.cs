@@ -82,8 +82,31 @@ namespace HRPortal
             {
                 feedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
             }
-            
-          
+
+
+        }
+
+        protected void sentAgreement_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String appNo = Request.QueryString["applicationNo"];
+                if (!string.IsNullOrEmpty(appNo))
+                {
+                    String status = Config.ObjNav2.sendToAppraiseeForAgreement(appNo);
+                    String[] info = status.Split('*');
+
+                    feedback.InnerHtml = "<div class='info[0]'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
+                    "setTimeout(function() { window.location.replace('Dashboard.aspx') }, 5000);", true);
+
+                }
+            }
+            catch (Exception t)
+            {
+                feedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+
         }
         protected void sendBack_Click(object sender, EventArgs e)
         {

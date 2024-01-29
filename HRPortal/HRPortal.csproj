@@ -5094,6 +5094,7 @@
     <Content Include="bower_components\select2\vendor\jquery-2.1.0.js" />
     <Content Include="CalenderDetails.aspx" />
     <Content Include="ChangePassword.aspx" />
+    <Content Include="ClosedAppraisal.aspx" />
     <Content Include="ClosedICTRequests.aspx" />
     <Content Include="ClosedResourceBookings.aspx" />
     <Content Include="ClosedResourceBookingsDetails.aspx" />
@@ -5130,6 +5131,10 @@
     <Content Include="EmployeeSurveyResponse.aspx" />
     <Content Include="EmployeeSurveyResponseSubmitted.aspx" />
     <Content Include="EmployeeSurveySection.aspx" />
+    <Content Include="eyAgreementList.aspx" />
+    <Content Include="eyAppraiseeList.aspx" />
+    <Content Include="eyLineManagerList.aspx" />
+    <Content Include="eyOverviewManagerList.aspx" />
     <Content Include="FinancePowerBi.aspx" />
     <Content Include="FleetRequisition.aspx" />
     <Content Include="FleetRequisitions.aspx" />
@@ -5276,10 +5281,12 @@
     <Content Include="MeScripts\PCadditionalActivities.js" />
     <Content Include="MeScripts\StaffPerformanceContract.js" />
     <Content Include="MeScripts\StandardAppraisal.js" />
+    <Content Include="myAgreementList.aspx" />
     <Content Include="myAppraiseeList.aspx" />
     <Content Include="MyEscalatedHelpdeskRequest.aspx" />
     <Content Include="MyHelpDeskRequests.aspx" />
     <Content Include="myLineManagerList.aspx" />
+    <Content Include="myOverviewManagerList.aspx" />
     <Content Include="NewIndividualScoreCard.aspx" />
     <Content Include="NewIndividualScoreCardReport.aspx" />
     <Content Include="NewIndividualScoreCardSubIndicatorReport.aspx" />
@@ -6021,6 +6028,13 @@
     <Compile Include="ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ClosedAppraisal.aspx.cs">
+      <DependentUpon>ClosedAppraisal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClosedAppraisal.aspx.designer.cs">
+      <DependentUpon>ClosedAppraisal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClosedICTRequests.aspx.cs">
       <DependentUpon>ClosedICTRequests.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -6158,6 +6172,34 @@
     </Compile>
     <Compile Include="EmployeeSurveySection.aspx.designer.cs">
       <DependentUpon>EmployeeSurveySection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="eyAgreementList.aspx.cs">
+      <DependentUpon>eyAgreementList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eyAgreementList.aspx.designer.cs">
+      <DependentUpon>eyAgreementList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="eyAppraiseeList.aspx.cs">
+      <DependentUpon>eyAppraiseeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eyAppraiseeList.aspx.designer.cs">
+      <DependentUpon>eyAppraiseeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="eyLineManagerList.aspx.cs">
+      <DependentUpon>eyLineManagerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eyLineManagerList.aspx.designer.cs">
+      <DependentUpon>eyLineManagerList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="eyOverviewManagerList.aspx.cs">
+      <DependentUpon>eyOverviewManagerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eyOverviewManagerList.aspx.designer.cs">
+      <DependentUpon>eyOverviewManagerList.aspx</DependentUpon>
     </Compile>
     <Compile Include="FinancePowerBi.aspx.cs">
       <DependentUpon>FinancePowerBi.aspx</DependentUpon>
@@ -6494,6 +6536,13 @@
     </Compile>
     <Compile Include="Models\ApprovalEntries.cs" />
     <Compile Include="Models\ItemList.cs" />
+    <Compile Include="myAgreementList.aspx.cs">
+      <DependentUpon>myAgreementList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myAgreementList.aspx.designer.cs">
+      <DependentUpon>myAgreementList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="myapplications.aspx.cs">
       <DependentUpon>myapplications.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -6528,6 +6577,13 @@
     </Compile>
     <Compile Include="myLineManagerList.aspx.designer.cs">
       <DependentUpon>myLineManagerList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="myOverviewManagerList.aspx.cs">
+      <DependentUpon>myOverviewManagerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myOverviewManagerList.aspx.designer.cs">
+      <DependentUpon>myOverviewManagerList.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewIndividualScoreCard.aspx.cs">
       <DependentUpon>NewIndividualScoreCard.aspx</DependentUpon>
@@ -7200,28 +7256,6 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/essQueries">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\essQueries\</RelPath>
-      <UpdateFromURL>http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/essQueries</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>HRPortal_essQueries_essQueries</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/NewHrPortal">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\NewHrPortal\</RelPath>
-      <UpdateFromURL>http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/NewHrPortal</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>HRPortal_NewHrPortal_NewHrPortal</CachedSettingsPropName>
-    </WebReferenceUrl>
     <WebReferenceUrl Include="http://192.168.1.187:5012/KERRAREGION/WS/KURA/Codeunit/HRPortal">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\HRPortal\</RelPath>
@@ -7232,6 +7266,28 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>HRPortal_HRPortal_HRPortal</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\essQueries\</RelPath>
+      <UpdateFromURL>http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HRPortal_essQueries_essQueries</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NewHrPortal\</RelPath>
+      <UpdateFromURL>http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HRPortal_NewHrPortal_NewHrPortal</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://41.89.47.15:7047/CUELIVE/WS/Data%2520Collection/Codeunit/NavXtender">
       <UrlBehavior>Dynamic</UrlBehavior>

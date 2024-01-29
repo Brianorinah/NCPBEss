@@ -85,10 +85,15 @@
                             </td>
                             <%
                                     } //EY Appraisee
-                                    //else if(arr1[15] == "Supervisor Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
-                                    //{
+                                    else if(arr1[16] == "Appraisee Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
+                                    {
+                                        %>
+                             <%-- <td>
+                                 <label class="btn btn-success" onclick="eyupdateBehaviour('<%=arr[6] %>','<%=arr[2] %>','<%=arr[3] %>');">s<i class="fa fa-edit"></i></label>
+                            </td>--%>
+                            <%
 
-                                    //}
+                                    }
                                 }
 
 
@@ -218,7 +223,7 @@
                     </div>
                     <div class="form-group">
                         <strong>Mid Year Supervisor Comment</strong>
-                        <asp:TextBox runat="server" CssClass="form-control" id="mysupervisorcomment"></asp:TextBox>B
+                        <asp:TextBox runat="server" CssClass="form-control" id="mysupervisorcomment"></asp:TextBox>
                     </div>
                 </div>
                 <div class="modal-footer">

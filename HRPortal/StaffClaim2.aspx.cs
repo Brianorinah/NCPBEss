@@ -45,8 +45,6 @@ namespace HRPortal
                             mdl.code = arr[0];
                             mdl.description = arr[0] + "-" + arr[1];
                             itms.Add(mdl);
-                            
-                  
 
                         }
                     }
@@ -56,7 +54,6 @@ namespace HRPortal
                     safariNumber.DataValueField = "code";
                     safariNumber.DataBind();
                     safariNumber.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
-                    
 
 
                     var jobs1 = Config.ObjNav1.fnGetDimension(1);
@@ -198,25 +195,6 @@ namespace HRPortal
                 linesFeedback.InnerHtml = "<div class='alert alert-danger'>" + n.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
             }
 
-        }
-
-        protected void copySafariLines_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                String requisitionNo = Request.QueryString["requisitionNo"];
-
-                String status = Config.ObjNav2.copySafariLines(requisitionNo);
-                String[] info = status.Split('*');
-
-                linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            }
-            catch (Exception m)
-            {
-                generalFeedback.InnerHtml = "<div class='alert alert-danger'>" + m.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            }
-            
-           
         }
         protected void Unnamed1_Click(object sender, EventArgs e)
         {

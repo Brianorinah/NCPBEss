@@ -1465,7 +1465,7 @@
   </binding>
   <service name="NewHrPortal">
     <port name="NewHrPortal_Port" binding="tns:NewHrPortal_Binding">
-      <address location="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <address location="http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
     </port>
   </service>
 </definitions>

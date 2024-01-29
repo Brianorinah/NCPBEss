@@ -5796,10 +5796,10 @@
     <Content Include="Site.Mobile.Master" />
     <None Include="Service References\Nav\service.edmx" />
     <None Include="Web References\essQueries\essQueries.wsdl" />
-    <None Include="Web References\essQueries\Reference.map">
+    <Content Include="Web References\essQueries\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    </Content>
     <None Include="Web References\HRPortal\HRPortal.wsdl" />
     <None Include="Web References\HRPortal\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -5811,10 +5811,10 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
     <None Include="Web References\NewHrPortal\NewHrPortal.wsdl" />
-    <None Include="Web References\NewHrPortal\Reference.map">
+    <Content Include="Web References\NewHrPortal\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -7200,6 +7200,28 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/essQueries">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\essQueries\</RelPath>
+      <UpdateFromURL>http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/essQueries</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HRPortal_essQueries_essQueries</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/NewHrPortal">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NewHrPortal\</RelPath>
+      <UpdateFromURL>http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/NewHrPortal</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HRPortal_NewHrPortal_NewHrPortal</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://192.168.1.187:5012/KERRAREGION/WS/KURA/Codeunit/HRPortal">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\HRPortal\</RelPath>
@@ -7210,28 +7232,6 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>HRPortal_HRPortal_HRPortal</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\essQueries\</RelPath>
-      <UpdateFromURL>http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>HRPortal_essQueries_essQueries</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\NewHrPortal\</RelPath>
-      <UpdateFromURL>http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>HRPortal_NewHrPortal_NewHrPortal</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://41.89.47.15:7047/CUELIVE/WS/Data%2520Collection/Codeunit/NavXtender">
       <UrlBehavior>Dynamic</UrlBehavior>

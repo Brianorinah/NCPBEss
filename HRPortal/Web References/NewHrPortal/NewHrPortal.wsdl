@@ -443,6 +443,21 @@
           </sequence>
         </complexType>
       </element>
+      <element name="deleteLeaveApplicationLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteLeaveApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="deleteStaffCreditSalesLines">
         <complexType>
           <sequence>
@@ -729,6 +744,36 @@
           </sequence>
         </complexType>
       </element>
+      <element name="updateOverallComments">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="overallComments" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateOverallComments_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateSupervisorOverallComments">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="supervisorOverallComments" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateSupervisorOverallComments_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
   <message name="CreateSalesOrder">
@@ -881,6 +926,12 @@
   <message name="createmyLineManagerBehaviourLines_Result">
     <part name="parameters" element="tns:createmyLineManagerBehaviourLines_Result" />
   </message>
+  <message name="deleteLeaveApplicationLines">
+    <part name="parameters" element="tns:deleteLeaveApplicationLines" />
+  </message>
+  <message name="deleteLeaveApplicationLines_Result">
+    <part name="parameters" element="tns:deleteLeaveApplicationLines_Result" />
+  </message>
   <message name="deleteStaffCreditSalesLines">
     <part name="parameters" element="tns:deleteStaffCreditSalesLines" />
   </message>
@@ -995,6 +1046,18 @@
   <message name="sendToAppraiseeForAgreement_Result">
     <part name="parameters" element="tns:sendToAppraiseeForAgreement_Result" />
   </message>
+  <message name="updateOverallComments">
+    <part name="parameters" element="tns:updateOverallComments" />
+  </message>
+  <message name="updateOverallComments_Result">
+    <part name="parameters" element="tns:updateOverallComments_Result" />
+  </message>
+  <message name="updateSupervisorOverallComments">
+    <part name="parameters" element="tns:updateSupervisorOverallComments" />
+  </message>
+  <message name="updateSupervisorOverallComments_Result">
+    <part name="parameters" element="tns:updateSupervisorOverallComments_Result" />
+  </message>
   <portType name="NewHrPortal_Port">
     <operation name="CreateSalesOrder">
       <input name="CreateSalesOrder" message="tns:CreateSalesOrder" />
@@ -1096,6 +1159,10 @@
       <input name="createmyLineManagerBehaviourLines" message="tns:createmyLineManagerBehaviourLines" />
       <output name="createmyLineManagerBehaviourLines_Result" message="tns:createmyLineManagerBehaviourLines_Result" />
     </operation>
+    <operation name="deleteLeaveApplicationLines">
+      <input name="deleteLeaveApplicationLines" message="tns:deleteLeaveApplicationLines" />
+      <output name="deleteLeaveApplicationLines_Result" message="tns:deleteLeaveApplicationLines_Result" />
+    </operation>
     <operation name="deleteStaffCreditSalesLines">
       <input name="deleteStaffCreditSalesLines" message="tns:deleteStaffCreditSalesLines" />
       <output name="deleteStaffCreditSalesLines_Result" message="tns:deleteStaffCreditSalesLines_Result" />
@@ -1171,6 +1238,14 @@
     <operation name="sendToAppraiseeForAgreement">
       <input name="sendToAppraiseeForAgreement" message="tns:sendToAppraiseeForAgreement" />
       <output name="sendToAppraiseeForAgreement_Result" message="tns:sendToAppraiseeForAgreement_Result" />
+    </operation>
+    <operation name="updateOverallComments">
+      <input name="updateOverallComments" message="tns:updateOverallComments" />
+      <output name="updateOverallComments_Result" message="tns:updateOverallComments_Result" />
+    </operation>
+    <operation name="updateSupervisorOverallComments">
+      <input name="updateSupervisorOverallComments" message="tns:updateSupervisorOverallComments" />
+      <output name="updateSupervisorOverallComments_Result" message="tns:updateSupervisorOverallComments_Result" />
     </operation>
   </portType>
   <binding name="NewHrPortal_Binding" type="tns:NewHrPortal_Port">
@@ -1400,6 +1475,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="deleteLeaveApplicationLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteLeaveApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="deleteLeaveApplicationLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="deleteLeaveApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="deleteStaffCreditSalesLines">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteStaffCreditSalesLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="deleteStaffCreditSalesLines">
@@ -1568,6 +1652,24 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="sendToAppraiseeForAgreement_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="updateOverallComments">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:updateOverallComments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="updateOverallComments">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="updateOverallComments_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="updateSupervisorOverallComments">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:updateSupervisorOverallComments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="updateSupervisorOverallComments">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="updateSupervisorOverallComments_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

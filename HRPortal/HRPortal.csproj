@@ -5816,10 +5816,10 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
     <None Include="Web References\NewHrPortal\NewHrPortal.wsdl" />
-    <Content Include="Web References\NewHrPortal\Reference.map">
+    <None Include="Web References\NewHrPortal\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

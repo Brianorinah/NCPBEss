@@ -79,6 +79,8 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback createmyLineManagerBehaviourLinesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback deleteLeaveApplicationLinesOperationCompleted;
+        
         private System.Threading.SendOrPostCallback deleteStaffCreditSalesLinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback editImprestApplicationLinesOperationCompleted;
@@ -116,6 +118,10 @@ namespace HRPortal.NewHrPortal {
         private System.Threading.SendOrPostCallback sendSurrenderApplicationApprovalOperationCompleted;
         
         private System.Threading.SendOrPostCallback sendToAppraiseeForAgreementOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback updateOverallCommentsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback updateSupervisorOverallCommentsOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -231,6 +237,9 @@ namespace HRPortal.NewHrPortal {
         public event createmyLineManagerBehaviourLinesCompletedEventHandler createmyLineManagerBehaviourLinesCompleted;
         
         /// <remarks/>
+        public event deleteLeaveApplicationLinesCompletedEventHandler deleteLeaveApplicationLinesCompleted;
+        
+        /// <remarks/>
         public event deleteStaffCreditSalesLinesCompletedEventHandler deleteStaffCreditSalesLinesCompleted;
         
         /// <remarks/>
@@ -286,6 +295,12 @@ namespace HRPortal.NewHrPortal {
         
         /// <remarks/>
         public event sendToAppraiseeForAgreementCompletedEventHandler sendToAppraiseeForAgreementCompleted;
+        
+        /// <remarks/>
+        public event updateOverallCommentsCompletedEventHandler updateOverallCommentsCompleted;
+        
+        /// <remarks/>
+        public event updateSupervisorOverallCommentsCompletedEventHandler updateSupervisorOverallCommentsCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:CreateSalesOrder", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="CreateSalesOrder_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -1226,6 +1241,38 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteLeaveApplicationLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="deleteLeaveApplicationLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string deleteLeaveApplicationLines(string applicationNo, int lineNo) {
+            object[] results = this.Invoke("deleteLeaveApplicationLines", new object[] {
+                        applicationNo,
+                        lineNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void deleteLeaveApplicationLinesAsync(string applicationNo, int lineNo) {
+            this.deleteLeaveApplicationLinesAsync(applicationNo, lineNo, null);
+        }
+        
+        /// <remarks/>
+        public void deleteLeaveApplicationLinesAsync(string applicationNo, int lineNo, object userState) {
+            if ((this.deleteLeaveApplicationLinesOperationCompleted == null)) {
+                this.deleteLeaveApplicationLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OndeleteLeaveApplicationLinesOperationCompleted);
+            }
+            this.InvokeAsync("deleteLeaveApplicationLines", new object[] {
+                        applicationNo,
+                        lineNo}, this.deleteLeaveApplicationLinesOperationCompleted, userState);
+        }
+        
+        private void OndeleteLeaveApplicationLinesOperationCompleted(object arg) {
+            if ((this.deleteLeaveApplicationLinesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.deleteLeaveApplicationLinesCompleted(this, new deleteLeaveApplicationLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteStaffCreditSalesLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="deleteStaffCreditSalesLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string deleteStaffCreditSalesLines(string documentNo, int lineNo) {
@@ -1838,6 +1885,71 @@ namespace HRPortal.NewHrPortal {
             if ((this.sendToAppraiseeForAgreementCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.sendToAppraiseeForAgreementCompleted(this, new sendToAppraiseeForAgreementCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:updateOverallComments", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="updateOverallComments_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string updateOverallComments(string applicationNo, string overallComments) {
+            object[] results = this.Invoke("updateOverallComments", new object[] {
+                        applicationNo,
+                        overallComments});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void updateOverallCommentsAsync(string applicationNo, string overallComments) {
+            this.updateOverallCommentsAsync(applicationNo, overallComments, null);
+        }
+        
+        /// <remarks/>
+        public void updateOverallCommentsAsync(string applicationNo, string overallComments, object userState) {
+            if ((this.updateOverallCommentsOperationCompleted == null)) {
+                this.updateOverallCommentsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnupdateOverallCommentsOperationCompleted);
+            }
+            this.InvokeAsync("updateOverallComments", new object[] {
+                        applicationNo,
+                        overallComments}, this.updateOverallCommentsOperationCompleted, userState);
+        }
+        
+        private void OnupdateOverallCommentsOperationCompleted(object arg) {
+            if ((this.updateOverallCommentsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.updateOverallCommentsCompleted(this, new updateOverallCommentsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:updateSupervisorOverallCommen" +
+            "ts", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="updateSupervisorOverallComments_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string updateSupervisorOverallComments(string applicationNo, string supervisorOverallComments) {
+            object[] results = this.Invoke("updateSupervisorOverallComments", new object[] {
+                        applicationNo,
+                        supervisorOverallComments});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void updateSupervisorOverallCommentsAsync(string applicationNo, string supervisorOverallComments) {
+            this.updateSupervisorOverallCommentsAsync(applicationNo, supervisorOverallComments, null);
+        }
+        
+        /// <remarks/>
+        public void updateSupervisorOverallCommentsAsync(string applicationNo, string supervisorOverallComments, object userState) {
+            if ((this.updateSupervisorOverallCommentsOperationCompleted == null)) {
+                this.updateSupervisorOverallCommentsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnupdateSupervisorOverallCommentsOperationCompleted);
+            }
+            this.InvokeAsync("updateSupervisorOverallComments", new object[] {
+                        applicationNo,
+                        supervisorOverallComments}, this.updateSupervisorOverallCommentsOperationCompleted, userState);
+        }
+        
+        private void OnupdateSupervisorOverallCommentsOperationCompleted(object arg) {
+            if ((this.updateSupervisorOverallCommentsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.updateSupervisorOverallCommentsCompleted(this, new updateSupervisorOverallCommentsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2512,6 +2624,32 @@ namespace HRPortal.NewHrPortal {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void deleteLeaveApplicationLinesCompletedEventHandler(object sender, deleteLeaveApplicationLinesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class deleteLeaveApplicationLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal deleteLeaveApplicationLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void deleteStaffCreditSalesLinesCompletedEventHandler(object sender, deleteStaffCreditSalesLinesCompletedEventArgs e);
     
     /// <remarks/>
@@ -2991,6 +3129,58 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal sendToAppraiseeForAgreementCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void updateOverallCommentsCompletedEventHandler(object sender, updateOverallCommentsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class updateOverallCommentsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal updateOverallCommentsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void updateSupervisorOverallCommentsCompletedEventHandler(object sender, updateSupervisorOverallCommentsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class updateSupervisorOverallCommentsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal updateSupervisorOverallCommentsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

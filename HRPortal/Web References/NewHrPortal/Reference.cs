@@ -67,7 +67,11 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback createSurrenderApplicationLinesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback createeyBehaviourLinesOperationCompleted;
+        
         private System.Threading.SendOrPostCallback createeyKPILinesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback createeyLineManagerBehaviourLinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback createmyBehaviourLinesOperationCompleted;
         
@@ -209,7 +213,13 @@ namespace HRPortal.NewHrPortal {
         public event createSurrenderApplicationLinesCompletedEventHandler createSurrenderApplicationLinesCompleted;
         
         /// <remarks/>
+        public event createeyBehaviourLinesCompletedEventHandler createeyBehaviourLinesCompleted;
+        
+        /// <remarks/>
         public event createeyKPILinesCompletedEventHandler createeyKPILinesCompleted;
+        
+        /// <remarks/>
+        public event createeyLineManagerBehaviourLinesCompletedEventHandler createeyLineManagerBehaviourLinesCompleted;
         
         /// <remarks/>
         public event createmyBehaviourLinesCompletedEventHandler createmyBehaviourLinesCompleted;
@@ -599,22 +609,23 @@ namespace HRPortal.NewHrPortal {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createLineManagerEyKPILines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createLineManagerEyKPILines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string createLineManagerEyKPILines(string applicationNo, int kraLineNo, int lineNo, string eySupervisorComment) {
+        public string createLineManagerEyKPILines(string applicationNo, int kraLineNo, int lineNo, string appraiserRating, string eySupervisorComment) {
             object[] results = this.Invoke("createLineManagerEyKPILines", new object[] {
                         applicationNo,
                         kraLineNo,
                         lineNo,
+                        appraiserRating,
                         eySupervisorComment});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void createLineManagerEyKPILinesAsync(string applicationNo, int kraLineNo, int lineNo, string eySupervisorComment) {
-            this.createLineManagerEyKPILinesAsync(applicationNo, kraLineNo, lineNo, eySupervisorComment, null);
+        public void createLineManagerEyKPILinesAsync(string applicationNo, int kraLineNo, int lineNo, string appraiserRating, string eySupervisorComment) {
+            this.createLineManagerEyKPILinesAsync(applicationNo, kraLineNo, lineNo, appraiserRating, eySupervisorComment, null);
         }
         
         /// <remarks/>
-        public void createLineManagerEyKPILinesAsync(string applicationNo, int kraLineNo, int lineNo, string eySupervisorComment, object userState) {
+        public void createLineManagerEyKPILinesAsync(string applicationNo, int kraLineNo, int lineNo, string appraiserRating, string eySupervisorComment, object userState) {
             if ((this.createLineManagerEyKPILinesOperationCompleted == null)) {
                 this.createLineManagerEyKPILinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateLineManagerEyKPILinesOperationCompleted);
             }
@@ -622,6 +633,7 @@ namespace HRPortal.NewHrPortal {
                         applicationNo,
                         kraLineNo,
                         lineNo,
+                        appraiserRating,
                         eySupervisorComment}, this.createLineManagerEyKPILinesOperationCompleted, userState);
         }
         
@@ -984,6 +996,44 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createeyBehaviourLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createeyBehaviourLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string createeyBehaviourLines(string applicationNo, int categoryLine, int lineNo, string selfRating, string appraiseeRemarks) {
+            object[] results = this.Invoke("createeyBehaviourLines", new object[] {
+                        applicationNo,
+                        categoryLine,
+                        lineNo,
+                        selfRating,
+                        appraiseeRemarks});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void createeyBehaviourLinesAsync(string applicationNo, int categoryLine, int lineNo, string selfRating, string appraiseeRemarks) {
+            this.createeyBehaviourLinesAsync(applicationNo, categoryLine, lineNo, selfRating, appraiseeRemarks, null);
+        }
+        
+        /// <remarks/>
+        public void createeyBehaviourLinesAsync(string applicationNo, int categoryLine, int lineNo, string selfRating, string appraiseeRemarks, object userState) {
+            if ((this.createeyBehaviourLinesOperationCompleted == null)) {
+                this.createeyBehaviourLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateeyBehaviourLinesOperationCompleted);
+            }
+            this.InvokeAsync("createeyBehaviourLines", new object[] {
+                        applicationNo,
+                        categoryLine,
+                        lineNo,
+                        selfRating,
+                        appraiseeRemarks}, this.createeyBehaviourLinesOperationCompleted, userState);
+        }
+        
+        private void OncreateeyBehaviourLinesOperationCompleted(object arg) {
+            if ((this.createeyBehaviourLinesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.createeyBehaviourLinesCompleted(this, new createeyBehaviourLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createeyKPILines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createeyKPILines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string createeyKPILines(string applicationNo, int kraLineNo, int lineNo, string appraiseeSelfRating, string employeeComent) {
@@ -1018,6 +1068,45 @@ namespace HRPortal.NewHrPortal {
             if ((this.createeyKPILinesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.createeyKPILinesCompleted(this, new createeyKPILinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createeyLineManagerBehaviourL" +
+            "ines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createeyLineManagerBehaviourLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string createeyLineManagerBehaviourLines(string applicationNo, int categoryLine, int lineNo, string appraiserRating, string overallRemarks) {
+            object[] results = this.Invoke("createeyLineManagerBehaviourLines", new object[] {
+                        applicationNo,
+                        categoryLine,
+                        lineNo,
+                        appraiserRating,
+                        overallRemarks});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void createeyLineManagerBehaviourLinesAsync(string applicationNo, int categoryLine, int lineNo, string appraiserRating, string overallRemarks) {
+            this.createeyLineManagerBehaviourLinesAsync(applicationNo, categoryLine, lineNo, appraiserRating, overallRemarks, null);
+        }
+        
+        /// <remarks/>
+        public void createeyLineManagerBehaviourLinesAsync(string applicationNo, int categoryLine, int lineNo, string appraiserRating, string overallRemarks, object userState) {
+            if ((this.createeyLineManagerBehaviourLinesOperationCompleted == null)) {
+                this.createeyLineManagerBehaviourLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateeyLineManagerBehaviourLinesOperationCompleted);
+            }
+            this.InvokeAsync("createeyLineManagerBehaviourLines", new object[] {
+                        applicationNo,
+                        categoryLine,
+                        lineNo,
+                        appraiserRating,
+                        overallRemarks}, this.createeyLineManagerBehaviourLinesOperationCompleted, userState);
+        }
+        
+        private void OncreateeyLineManagerBehaviourLinesOperationCompleted(object arg) {
+            if ((this.createeyLineManagerBehaviourLinesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.createeyLineManagerBehaviourLinesCompleted(this, new createeyLineManagerBehaviourLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2267,6 +2356,32 @@ namespace HRPortal.NewHrPortal {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void createeyBehaviourLinesCompletedEventHandler(object sender, createeyBehaviourLinesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class createeyBehaviourLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal createeyBehaviourLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void createeyKPILinesCompletedEventHandler(object sender, createeyKPILinesCompletedEventArgs e);
     
     /// <remarks/>
@@ -2278,6 +2393,32 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal createeyKPILinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void createeyLineManagerBehaviourLinesCompletedEventHandler(object sender, createeyLineManagerBehaviourLinesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class createeyLineManagerBehaviourLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal createeyLineManagerBehaviourLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

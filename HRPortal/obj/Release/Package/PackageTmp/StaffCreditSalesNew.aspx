@@ -40,13 +40,15 @@
                                     if (!string.IsNullOrEmpty((string)Session["employeeNo"]))
                                     {
                                         string empNo = Convert.ToString(Session["employeeNo"]);
-                                        String credit = Config.ObjNav1.fnGetStaffCreditSalesHeader(empNo);
+                                        String credit = Config.ObjNav1.fnGetStaffCreditSalesHeaderDetails(empNo);
                                         String[] allInfo = credit.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
                                         if (allInfo != null)
                                         {
                                             foreach (var item in allInfo)
                                             {
                                                 String[] oneItem = item.Split(new string[] { "*" }, StringSplitOptions.None);
+                                               
+                                                    feedback.InnerHtml = "<div class='alert alert-danger'>" + oneItem[0] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
                                                
                                                 if(oneItem[4] != "Approved")
                                                 {
@@ -64,7 +66,7 @@
                                             if (oneItem[4] == "New")
                                             {
                                         %>
-                                        <label class="btn btn-success" <%--onclick="send_Approval('<%=oneItem[0] %>')" --%>><i class="fa fa-check"></i>Send Approval Request</label>
+                                        <label class="btn btn-success" onclick="send_Approval('<%=oneItem[0] %>')"><i class="fa fa-check"></i>Send Approval Request</label>
                                         <%
                                             }
                                             else if (oneItem[4] == "Approval Pending")
@@ -81,7 +83,7 @@
                                             if (oneItem[4] == "New")
                                             {
                                         %>
-                                        <a href="StaffCreditSales.aspx?documentNo=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a>
+                                        <a href="StaffCreditSalesNewEdit.aspx?documentNo=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a>
                                         <%
                                             }
                                             else if (oneItem[4] == "Approval Pending")
@@ -113,7 +115,7 @@
     </div>
   <script>
  
-            function fnCreateSales(documentNo) {
+            function send_Approval(documentNo) {
             document.getElementById("documentName").innerText = documentNo;
             document.getElementById("ContentPlaceHolder1_documentNo").value = documentNo;
             $("#SendApprovalModal").modal();
@@ -134,7 +136,7 @@
 </div>
 <div class="modal-footer">
 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-<asp:Button runat="server" CssClass="btn btn-danger" Text="Create Sales Order" OnClick="create_sale_Click" />
+<asp:Button runat="server" CssClass="btn btn-danger" Text="Send for approval" OnClick="create_approval_Click" />
 </div>
 </div>
  

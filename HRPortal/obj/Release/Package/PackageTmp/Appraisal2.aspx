@@ -221,21 +221,28 @@
             <asp:Button runat="server" CssClass="btn btn-warning pull-left" OnClick="sendBack_Click" Text="Send Back To Line Manager" />
             <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Approve"  OnClick="submit_Click" /><div class="clearfix"></div>
             <%
-                    }//MY Appraisee Level
-                    else if (arr1[15] == "Appraisee Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
+                    }//End Goal settings
+                    else if (arr1[11] == "Closed")
                     {
                                 %>
                          <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" />
                          <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Nex"  OnClick="competence_Click" /><div class="clearfix"></div>
             <%
                     }// MY Supervisor level
-                    else if(arr1[15] == "Appraisee Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
+                    else if(arr1[15] == "Supervisor Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
                     {
                         %>
-                         <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" />
-                         <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Nex"  OnClick="competence_Click" /><div class="clearfix"></div>
+                        <%-- <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" />
+                         <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Next"  OnClick="competence_Click" /><div class="clearfix"></div>--%>
             <%
-                    }
+                    }//MY Overview levl
+                    else if(arr1[11] == "Closed")
+                    {
+                        %>
+                        <%-- <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" />
+                         <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Next"  OnClick="competence_Click" /><div class="clearfix"></div>--%>
+                            <%
+                    } //
                 }
                  %>
             
@@ -326,6 +333,50 @@
                                 %>
                          <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" />
                          <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Send To Line Manager"  OnClick="submit_Click" /><div class="clearfix"></div>
+            <%
+                    } //MY Supervisor Level
+                    else if (arr1[15] == "Supervisor Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
+                    {
+                        %>
+                         <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" />
+                         <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Send To Overview Manager"  OnClick="submit_Click" /><div class="clearfix"></div>
+            <%
+                    }//MY Overview Level
+                    else if (arr1[15] == "Overview Manager" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
+                    {
+                        %>
+                          <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" />
+                         <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Approve"  OnClick="submit_Click" /><div class="clearfix"></div>
+            <%
+                    } //EY Appraisee level
+                    else if(arr1[16] == "Appraisee Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
+                    {
+                        %>
+                         <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" />
+                         <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Send To Line Manager"  OnClick="submit_Click" /><div class="clearfix"></div>
+            <%
+                    }//EY Supervisor level
+                    else if(arr1[16] == "Supervisor Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
+                    {
+                        %>
+                         <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" />
+                         <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Send Back To Appraisee"  OnClick="sendBack_Click" /><div class="clearfix"></div><br />
+                         <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Send To Overview Manager"  OnClick="submit_Click" /><div class="clearfix"></div><br />
+                         <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Send To Appraisee For Agreement"  OnClick="sentAgreement_Click" /><div class="clearfix"></div>
+            <%
+                    } //EY Agreement level
+                    else if(arr1[16] == "Agreement Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
+                    {
+                        %>
+            <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Send Back To Line Manager"  OnClick="submit_Click" /><div class="clearfix"></div>
+            <%
+                    }//EY Overview level
+                    else if(arr1[16] == "Overview Manager" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
+                    {
+                        %>
+                         <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" />
+                         <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Send Back To Line Manager"  OnClick="sendBack_Click" /><div class="clearfix"></div><br />
+                         <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Approve"  OnClick="submit_Click" /><div class="clearfix"></div><br />
             <%
                     }
                 }

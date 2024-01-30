@@ -158,6 +158,7 @@
             <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
             <element minOccurs="1" maxOccurs="1" name="kraLineNo" type="int" />
             <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="appraiserRating" type="string" />
             <element minOccurs="1" maxOccurs="1" name="eySupervisorComment" type="string" />
           </sequence>
         </complexType>
@@ -334,6 +335,24 @@
           </sequence>
         </complexType>
       </element>
+      <element name="createeyBehaviourLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="categoryLine" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="selfRating" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="appraiseeRemarks" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createeyBehaviourLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="createeyKPILines">
         <complexType>
           <sequence>
@@ -346,6 +365,24 @@
         </complexType>
       </element>
       <element name="createeyKPILines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createeyLineManagerBehaviourLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="categoryLine" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="appraiserRating" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="overallRemarks" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createeyLineManagerBehaviourLines_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -808,11 +845,23 @@
   <message name="createSurrenderApplicationLines_Result">
     <part name="parameters" element="tns:createSurrenderApplicationLines_Result" />
   </message>
+  <message name="createeyBehaviourLines">
+    <part name="parameters" element="tns:createeyBehaviourLines" />
+  </message>
+  <message name="createeyBehaviourLines_Result">
+    <part name="parameters" element="tns:createeyBehaviourLines_Result" />
+  </message>
   <message name="createeyKPILines">
     <part name="parameters" element="tns:createeyKPILines" />
   </message>
   <message name="createeyKPILines_Result">
     <part name="parameters" element="tns:createeyKPILines_Result" />
+  </message>
+  <message name="createeyLineManagerBehaviourLines">
+    <part name="parameters" element="tns:createeyLineManagerBehaviourLines" />
+  </message>
+  <message name="createeyLineManagerBehaviourLines_Result">
+    <part name="parameters" element="tns:createeyLineManagerBehaviourLines_Result" />
   </message>
   <message name="createmyBehaviourLines">
     <part name="parameters" element="tns:createmyBehaviourLines" />
@@ -1023,9 +1072,17 @@
       <input name="createSurrenderApplicationLines" message="tns:createSurrenderApplicationLines" />
       <output name="createSurrenderApplicationLines_Result" message="tns:createSurrenderApplicationLines_Result" />
     </operation>
+    <operation name="createeyBehaviourLines">
+      <input name="createeyBehaviourLines" message="tns:createeyBehaviourLines" />
+      <output name="createeyBehaviourLines_Result" message="tns:createeyBehaviourLines_Result" />
+    </operation>
     <operation name="createeyKPILines">
       <input name="createeyKPILines" message="tns:createeyKPILines" />
       <output name="createeyKPILines_Result" message="tns:createeyKPILines_Result" />
+    </operation>
+    <operation name="createeyLineManagerBehaviourLines">
+      <input name="createeyLineManagerBehaviourLines" message="tns:createeyLineManagerBehaviourLines" />
+      <output name="createeyLineManagerBehaviourLines_Result" message="tns:createeyLineManagerBehaviourLines_Result" />
     </operation>
     <operation name="createmyBehaviourLines">
       <input name="createmyBehaviourLines" message="tns:createmyBehaviourLines" />
@@ -1289,12 +1346,30 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="createeyBehaviourLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createeyBehaviourLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createeyBehaviourLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createeyBehaviourLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="createeyKPILines">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createeyKPILines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="createeyKPILines">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="createeyKPILines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createeyLineManagerBehaviourLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createeyLineManagerBehaviourLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createeyLineManagerBehaviourLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createeyLineManagerBehaviourLines_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1499,7 +1574,7 @@
   </binding>
   <service name="NewHrPortal">
     <port name="NewHrPortal_Port" binding="tns:NewHrPortal_Binding">
-      <address location="http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <address location="http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
     </port>
   </service>
 </definitions>

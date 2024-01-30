@@ -82,8 +82,7 @@ namespace HRPortal
                 RecoveryCode.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
                 
 
-                var product = Config.ObjNav1.fnGetProductCodes();
-            
+                var product = Config.ObjNav1.fnGetProductCodes();            
                 List<ItemList> itmprdd = new List<ItemList>();
                 string[] infoprd = product.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
                 if (info.Count() > 0)
@@ -94,7 +93,7 @@ namespace HRPortal
 
                         ItemList mdl = new ItemList();
                         mdl.code = arr[0];
-                        mdl.description = arr[0] + "-" + arr[1] + "-" +arr[2] + "-" +arr[3];
+                        mdl.description = arr[0] + "-" + arr[1];
                         itmprdd.Add(mdl);
 
                     }
@@ -179,9 +178,29 @@ namespace HRPortal
                         String[] arr = allinfo.Split('*');
                         ProductDescription.Text = arr[1];
                         measure.Text = arr[2];
-                        UnitPrice.Text = arr[3];
+                                                         
                     }
                 }
+            }
+            String ProductCode2 = ProductCode.Text.Trim();
+            String region2 = region.Text.Trim();
+            String budget2 = budget.Text.Trim();
+            String depot2 = DepotCode.Text.Trim();
+
+            var result2 = nav.fnGetSellingPrices(ProductCode2, region2, budget2);
+            String[] info2 = result2.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+            if (info2.Count() > 0)
+            {
+                if (info2 != null)
+                {
+                    foreach (var allinfo2 in info2)
+                    {
+                        String[] arr2 = allinfo2.Split('*');
+                        UnitPrice.Text = arr2[0];
+
+                    }
+                }
+
             }
         }
 
@@ -331,5 +350,16 @@ namespace HRPortal
                 documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
             }
         }
+
+        protected void Quantity_TextChanged(object sender, EventArgs e)
+        {
+            
+            decimal ttquant = Convert.ToDecimal(quantity.Text.Trim());
+            decimal ttselling = Convert.ToDecimal(UnitPrice.Text.Trim());
+            decimal ttprce = ttquant * ttselling;
+            TotalPrice.Text = Convert.ToString(ttprce);
+
+        }
+
     }
 }

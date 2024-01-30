@@ -101,6 +101,8 @@ namespace HRPortal.essQueries {
         
         private System.Threading.SendOrPostCallback fnGetSafariRequestOperationCompleted;
         
+        private System.Threading.SendOrPostCallback fnGetSellingPricesOperationCompleted;
+        
         private System.Threading.SendOrPostCallback fnGetStafClaimsOperationCompleted;
         
         private System.Threading.SendOrPostCallback fnGetStaffClaimLinesOperationCompleted;
@@ -266,6 +268,9 @@ namespace HRPortal.essQueries {
         
         /// <remarks/>
         public event fnGetSafariRequestCompletedEventHandler fnGetSafariRequestCompleted;
+        
+        /// <remarks/>
+        public event fnGetSellingPricesCompletedEventHandler fnGetSellingPricesCompleted;
         
         /// <remarks/>
         public event fnGetStafClaimsCompletedEventHandler fnGetStafClaimsCompleted;
@@ -1378,6 +1383,40 @@ namespace HRPortal.essQueries {
             if ((this.fnGetSafariRequestCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.fnGetSafariRequestCompleted(this, new fnGetSafariRequestCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetSellingPrices", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries", ResponseElementName="fnGetSellingPrices_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string fnGetSellingPrices(string productCode, string regionCode, string budgetCentre) {
+            object[] results = this.Invoke("fnGetSellingPrices", new object[] {
+                        productCode,
+                        regionCode,
+                        budgetCentre});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void fnGetSellingPricesAsync(string productCode, string regionCode, string budgetCentre) {
+            this.fnGetSellingPricesAsync(productCode, regionCode, budgetCentre, null);
+        }
+        
+        /// <remarks/>
+        public void fnGetSellingPricesAsync(string productCode, string regionCode, string budgetCentre, object userState) {
+            if ((this.fnGetSellingPricesOperationCompleted == null)) {
+                this.fnGetSellingPricesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfnGetSellingPricesOperationCompleted);
+            }
+            this.InvokeAsync("fnGetSellingPrices", new object[] {
+                        productCode,
+                        regionCode,
+                        budgetCentre}, this.fnGetSellingPricesOperationCompleted, userState);
+        }
+        
+        private void OnfnGetSellingPricesOperationCompleted(object arg) {
+            if ((this.fnGetSellingPricesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.fnGetSellingPricesCompleted(this, new fnGetSellingPricesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2628,6 +2667,32 @@ namespace HRPortal.essQueries {
         private object[] results;
         
         internal fnGetSafariRequestCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void fnGetSellingPricesCompletedEventHandler(object sender, fnGetSellingPricesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class fnGetSellingPricesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal fnGetSellingPricesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

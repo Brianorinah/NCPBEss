@@ -497,6 +497,22 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetSellingPrices">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="productCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="regionCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetCentre" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetSellingPrices_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnGetStafClaims">
         <complexType>
           <sequence>
@@ -856,6 +872,12 @@
   <message name="fnGetSafariRequest_Result">
     <part name="parameters" element="tns:fnGetSafariRequest_Result" />
   </message>
+  <message name="fnGetSellingPrices">
+    <part name="parameters" element="tns:fnGetSellingPrices" />
+  </message>
+  <message name="fnGetSellingPrices_Result">
+    <part name="parameters" element="tns:fnGetSellingPrices_Result" />
+  </message>
   <message name="fnGetStafClaims">
     <part name="parameters" element="tns:fnGetStafClaims" />
   </message>
@@ -1060,6 +1082,10 @@
     <operation name="fnGetSafariRequest">
       <input name="fnGetSafariRequest" message="tns:fnGetSafariRequest" />
       <output name="fnGetSafariRequest_Result" message="tns:fnGetSafariRequest_Result" />
+    </operation>
+    <operation name="fnGetSellingPrices">
+      <input name="fnGetSellingPrices" message="tns:fnGetSellingPrices" />
+      <output name="fnGetSellingPrices_Result" message="tns:fnGetSellingPrices_Result" />
     </operation>
     <operation name="fnGetStafClaims">
       <input name="fnGetStafClaims" message="tns:fnGetStafClaims" />
@@ -1428,6 +1454,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="fnGetSellingPrices">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetSellingPrices" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetSellingPrices">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetSellingPrices_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="fnGetStafClaims">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetStafClaims" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="fnGetStafClaims">
@@ -1521,7 +1556,7 @@
   </binding>
   <service name="essQueries">
     <port name="essQueries_Port" binding="tns:essQueries_Binding">
-      <address location="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <address location="http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/essQueries" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
     </port>
   </service>
 </definitions>

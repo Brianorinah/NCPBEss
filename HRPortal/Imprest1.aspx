@@ -164,7 +164,7 @@
                         <td><% = arr[3] %></td>
                         <td><label class="btn btn-success" onclick="editLine(''<% =arr[1] %>','<% =arr[3] %>');">Edit/View</label></td>   
                         <td>
-                            <label class="btn btn-danger" onclick="removeLine('<% =arr[1] %>','<%=arr[0] %>');"><i class="fa fa-trash"></i>Delete</label></td>
+                            <label class="btn btn-danger" onclick="removeLine('<% =imprestNo %>','<%=arr[4] %>');"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
                     <% 
 }
@@ -288,9 +288,10 @@
         </div>
     </div>
     <script>
-        function removeLine(itemName, lineNo) {
-            document.getElementById("itmName").innerText = itemName;
-            document.getElementById("ContentPlaceHolder1_lneNo").value = lineNo;
+        function removeLine(imprestNo, lneNo) {
+            document.getElementById("LineNumber").innerText = lneNo;
+            document.getElementById("ContentPlaceHolder1_lneNo").value = lneNo;
+            document.getElementById("ContentPlaceHolder1_imprestNo").value = imprestNo;
             $("#removeLineModal").modal();
         }
     </script>
@@ -302,8 +303,9 @@
                     <h4 class="modal-title">Confirm Remove Line</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to remove the line <strong id="itmName"></strong> from the Imprest?</p>
+                    <p>Are you sure you want to remove the line <strong id="LineNumber"></strong> from the Imprest?</p>
                     <asp:TextBox runat="server" ID="lneNo" type="hidden" />
+                    <asp:TextBox runat="server" ID="imprestNo" type="hidden" />
                 </div>
                 
                 <div class="modal-footer">

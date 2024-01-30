@@ -39,6 +39,8 @@ namespace HRPortal.essQueries {
         
         private System.Threading.SendOrPostCallback fnGetAppraisalApplicationListOperationCompleted;
         
+        private System.Threading.SendOrPostCallback fnGetAppraisalRatingsOperationCompleted;
+        
         private System.Threading.SendOrPostCallback fnGetClaimApplicationDetailsOperationCompleted;
         
         private System.Threading.SendOrPostCallback fnGetDepartmentsOperationCompleted;
@@ -175,6 +177,9 @@ namespace HRPortal.essQueries {
         
         /// <remarks/>
         public event fnGetAppraisalApplicationListCompletedEventHandler fnGetAppraisalApplicationListCompleted;
+        
+        /// <remarks/>
+        public event fnGetAppraisalRatingsCompletedEventHandler fnGetAppraisalRatingsCompleted;
         
         /// <remarks/>
         public event fnGetClaimApplicationDetailsCompletedEventHandler fnGetClaimApplicationDetailsCompleted;
@@ -450,6 +455,34 @@ namespace HRPortal.essQueries {
             if ((this.fnGetAppraisalApplicationListCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.fnGetAppraisalApplicationListCompleted(this, new fnGetAppraisalApplicationListCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetAppraisalRatings", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries", ResponseElementName="fnGetAppraisalRatings_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string fnGetAppraisalRatings() {
+            object[] results = this.Invoke("fnGetAppraisalRatings", new object[0]);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void fnGetAppraisalRatingsAsync() {
+            this.fnGetAppraisalRatingsAsync(null);
+        }
+        
+        /// <remarks/>
+        public void fnGetAppraisalRatingsAsync(object userState) {
+            if ((this.fnGetAppraisalRatingsOperationCompleted == null)) {
+                this.fnGetAppraisalRatingsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfnGetAppraisalRatingsOperationCompleted);
+            }
+            this.InvokeAsync("fnGetAppraisalRatings", new object[0], this.fnGetAppraisalRatingsOperationCompleted, userState);
+        }
+        
+        private void OnfnGetAppraisalRatingsOperationCompleted(object arg) {
+            if ((this.fnGetAppraisalRatingsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.fnGetAppraisalRatingsCompleted(this, new fnGetAppraisalRatingsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1861,6 +1894,32 @@ namespace HRPortal.essQueries {
         private object[] results;
         
         internal fnGetAppraisalApplicationListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void fnGetAppraisalRatingsCompletedEventHandler(object sender, fnGetAppraisalRatingsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class fnGetAppraisalRatingsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal fnGetAppraisalRatingsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

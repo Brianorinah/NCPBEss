@@ -449,6 +449,32 @@ namespace HRPortal
         }
         protected void deleteLine_Click(object sender, EventArgs e)
         {
+          
+        }
+        protected void deleteLines_Clicks(object sender, EventArgs e)
+        {
+            try
+            {
+                String docNo = documentNumber.Text.Trim();
+                String dt = expenseDate.Text.Trim();
+                DateTime expdate = Convert.ToDateTime(dt);
+                String status = Config.ObjNav2.deleteSafariRequestLines(docNo, expdate);
+                String[] info = status.Split('*');
+                if (info[0] == "success")
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+
+
+            }
+            catch (Exception ed)
+            {
+                documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
         }
         protected void editItem_Click(object sender, EventArgs e)
         {

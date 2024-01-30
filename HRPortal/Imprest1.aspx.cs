@@ -368,6 +368,29 @@ namespace HRPortal
         protected void deleteLine_Click(object sender, EventArgs e)
         {
 
+            try
+            {
+                String docNo = imprestNo.Text.Trim();
+                String lineN = lneNo.Text.Trim();
+                int lineNo = Convert.ToInt32(lineN);
+                String status = Config.ObjNav2.deleteImprestApplicationLines(docNo, lineNo);
+                String[] info = status.Split('*');
+                if (info[0] == "success")
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+
+
+            }
+            catch (Exception ed)
+            {
+                documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+
         }
     }
 }

@@ -443,6 +443,21 @@
           </sequence>
         </complexType>
       </element>
+      <element name="deleteImprestApplicationLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteImprestApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="deleteLeaveApplicationLines">
         <complexType>
           <sequence>
@@ -452,6 +467,21 @@
         </complexType>
       </element>
       <element name="deleteLeaveApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteSafariRequestLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="expenseDate" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteSafariRequestLines_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -926,11 +956,23 @@
   <message name="createmyLineManagerBehaviourLines_Result">
     <part name="parameters" element="tns:createmyLineManagerBehaviourLines_Result" />
   </message>
+  <message name="deleteImprestApplicationLines">
+    <part name="parameters" element="tns:deleteImprestApplicationLines" />
+  </message>
+  <message name="deleteImprestApplicationLines_Result">
+    <part name="parameters" element="tns:deleteImprestApplicationLines_Result" />
+  </message>
   <message name="deleteLeaveApplicationLines">
     <part name="parameters" element="tns:deleteLeaveApplicationLines" />
   </message>
   <message name="deleteLeaveApplicationLines_Result">
     <part name="parameters" element="tns:deleteLeaveApplicationLines_Result" />
+  </message>
+  <message name="deleteSafariRequestLines">
+    <part name="parameters" element="tns:deleteSafariRequestLines" />
+  </message>
+  <message name="deleteSafariRequestLines_Result">
+    <part name="parameters" element="tns:deleteSafariRequestLines_Result" />
   </message>
   <message name="deleteStaffCreditSalesLines">
     <part name="parameters" element="tns:deleteStaffCreditSalesLines" />
@@ -1159,9 +1201,17 @@
       <input name="createmyLineManagerBehaviourLines" message="tns:createmyLineManagerBehaviourLines" />
       <output name="createmyLineManagerBehaviourLines_Result" message="tns:createmyLineManagerBehaviourLines_Result" />
     </operation>
+    <operation name="deleteImprestApplicationLines">
+      <input name="deleteImprestApplicationLines" message="tns:deleteImprestApplicationLines" />
+      <output name="deleteImprestApplicationLines_Result" message="tns:deleteImprestApplicationLines_Result" />
+    </operation>
     <operation name="deleteLeaveApplicationLines">
       <input name="deleteLeaveApplicationLines" message="tns:deleteLeaveApplicationLines" />
       <output name="deleteLeaveApplicationLines_Result" message="tns:deleteLeaveApplicationLines_Result" />
+    </operation>
+    <operation name="deleteSafariRequestLines">
+      <input name="deleteSafariRequestLines" message="tns:deleteSafariRequestLines" />
+      <output name="deleteSafariRequestLines_Result" message="tns:deleteSafariRequestLines_Result" />
     </operation>
     <operation name="deleteStaffCreditSalesLines">
       <input name="deleteStaffCreditSalesLines" message="tns:deleteStaffCreditSalesLines" />
@@ -1475,12 +1525,30 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="deleteImprestApplicationLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteImprestApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="deleteImprestApplicationLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="deleteImprestApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="deleteLeaveApplicationLines">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteLeaveApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="deleteLeaveApplicationLines">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="deleteLeaveApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="deleteSafariRequestLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteSafariRequestLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="deleteSafariRequestLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="deleteSafariRequestLines_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

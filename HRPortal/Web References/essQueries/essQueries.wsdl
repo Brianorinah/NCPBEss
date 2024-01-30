@@ -70,6 +70,18 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetAppraisalRatings">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetAppraisalRatings_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnGetClaimApplicationDetails">
         <complexType>
           <sequence>
@@ -686,6 +698,12 @@
   <message name="fnGetAppraisalApplicationList_Result">
     <part name="parameters" element="tns:fnGetAppraisalApplicationList_Result" />
   </message>
+  <message name="fnGetAppraisalRatings">
+    <part name="parameters" element="tns:fnGetAppraisalRatings" />
+  </message>
+  <message name="fnGetAppraisalRatings_Result">
+    <part name="parameters" element="tns:fnGetAppraisalRatings_Result" />
+  </message>
   <message name="fnGetClaimApplicationDetails">
     <part name="parameters" element="tns:fnGetClaimApplicationDetails" />
   </message>
@@ -959,6 +977,10 @@
       <input name="fnGetAppraisalApplicationList" message="tns:fnGetAppraisalApplicationList" />
       <output name="fnGetAppraisalApplicationList_Result" message="tns:fnGetAppraisalApplicationList_Result" />
     </operation>
+    <operation name="fnGetAppraisalRatings">
+      <input name="fnGetAppraisalRatings" message="tns:fnGetAppraisalRatings" />
+      <output name="fnGetAppraisalRatings_Result" message="tns:fnGetAppraisalRatings_Result" />
+    </operation>
     <operation name="fnGetClaimApplicationDetails">
       <input name="fnGetClaimApplicationDetails" message="tns:fnGetClaimApplicationDetails" />
       <output name="fnGetClaimApplicationDetails_Result" message="tns:fnGetClaimApplicationDetails_Result" />
@@ -1172,6 +1194,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetAppraisalApplicationList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetAppraisalRatings">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetAppraisalRatings" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetAppraisalRatings">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetAppraisalRatings_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

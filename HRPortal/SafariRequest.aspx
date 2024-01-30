@@ -182,7 +182,7 @@
                         <th>Return Date</th>
                         <th>Travel From</th>
                         <th>Travel To</th>
-                        <th></th>
+                        <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -209,7 +209,7 @@
                         <%--<td><%=String.Format("{0:n}", Convert.ToDouble(arr[5])) %></td>--%>
 
                         <td>
-                            <label class="btn btn-danger" onclick="removeLine('<% =arr[3] %>','<%=arr[0] %>');"><i class="fa fa-trash"></i>Delete</label></td>
+                            <label class="btn btn-danger" onclick="removeLines('<% =requisitionNo %>','<%=arr[0] %>');"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
                     <% 
                                 }
@@ -517,4 +517,38 @@
 
         </div>
     </div>
+
+    
+      <script>
+ 
+          function removeLines(documentNumber, expenseDate) {
+          document.getElementById("DocumentNumbers").innerText = expenseDate;
+          document.getElementById("ContentPlaceHolder1_documentNumber").value = documentNumber;
+          document.getElementById("ContentPlaceHolder1_expenseDate").value = expenseDate;
+            $("#DeletetingModal").modal();
+        }
+</script>
+<div id="DeletetingModal" class="modal fade" role="dialog">
+<div class="modal-dialog">
+ 
+            <!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Confirm Deleting line</h4>
+</div>
+<div class="modal-body">
+<p>Are you sure you want to delete request <strong id="DocumentNumbers"></strong>?</p>
+<asp:TextBox runat="server" ID="documentNumber" type="hidden" />
+<asp:TextBox runat="server" ID="expenseDate" type="hidden" />
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+<asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLines_Clicks" />
+</div>
+</div>
+ 
+        </div>
+</div>
+    
 </asp:Content>

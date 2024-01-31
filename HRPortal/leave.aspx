@@ -70,7 +70,7 @@
                                             if (oneItem[4] == "New")
                                             {
                                         %>
-                                        <label class="btn btn-success"><i class="fa fa-check"></i>Send Approval Request</label>
+                                        <label class="btn btn-success" onclick="sendLeaveForApproval('<%=oneItem[0] %>','<%=oneItem[2] %>')"><i class="fa fa-check"></i>Send Approval Request</label>
                                         <%
                                             }
                                             else if (oneItem[4] == "Approval Pending")
@@ -148,7 +148,7 @@
       </div>
       <div class="modal-body">
           <asp:TextBox runat="server" ID="leavNoToApprove" type="hidden"/>
-          Are you sure you want to send Leave No <strong id="approveLeaveNo"></strong> of Type <strong id="approveLeaveType"></strong> starting on <strong id="approveStartDate"></strong> for approval ? 
+          Are you sure you want to send Leave No <strong id="approveLeaveNo"></strong> starting on <strong id="approveStartDate"></strong> for approval ? 
         </div>
       <div class="modal-footer">
           <asp:Button runat="server" CssClass="btn btn-success" Text="Send Approval" OnClick="sendApproval_Click"/>
@@ -231,9 +231,8 @@
             $("#leaveFormModal").modal();
         }
 
-        function sendLeaveForApproval(leaveno, leaveType, startDate) {
+        function sendLeaveForApproval(leaveno, startDate) {
             document.getElementById("approveLeaveNo").innerHTML = leaveno;
-            document.getElementById("approveLeaveType").innerHTML = leaveType;
             document.getElementById("approveStartDate").innerHTML = startDate;
             document.getElementById("ContentPlaceHolder1_leavNoToApprove").value = leaveno;
             $("#sendLeaveForApprval").modal();

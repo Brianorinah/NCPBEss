@@ -34,7 +34,7 @@
                         if (!string.IsNullOrEmpty((string)Session["employeeNo"]))
                         {
                             string empNo = Convert.ToString(Session["employeeNo"]);
-                            String application = Config.ObjNav1.fnGetAppraisalApplicationListLineManager(empNo);
+                            String application = Config.ObjNav1.fnGetAppraisalApplicationListOverviewManager(empNo);
                             String[] allInfo = application.Split(new String[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
 
                             if (allInfo != null)

@@ -23,7 +23,7 @@ namespace HRPortal.NewHrPortal {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="NewHrPortal_Binding", Namespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal")]
@@ -67,13 +67,21 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback createSurrenderApplicationLinesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback createeyBehaviourLinesOperationCompleted;
+        
         private System.Threading.SendOrPostCallback createeyKPILinesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback createeyLineManagerBehaviourLinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback createmyBehaviourLinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback createmyKPILinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback createmyLineManagerBehaviourLinesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback deleteLeaveApplicationLinesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback deleteStaffCreditSalesLinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback editImprestApplicationLinesOperationCompleted;
         
@@ -99,6 +107,8 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback sendObjectiveSettingsBackToAppraiseeOperationCompleted;
         
+        private System.Threading.SendOrPostCallback sendObjectiveSettingsToLineManagerOperationCompleted;
+        
         private System.Threading.SendOrPostCallback sendSafariRequestApplicationApprovalOperationCompleted;
         
         private System.Threading.SendOrPostCallback sendStaffClaimApplicationApprovalOperationCompleted;
@@ -108,6 +118,10 @@ namespace HRPortal.NewHrPortal {
         private System.Threading.SendOrPostCallback sendSurrenderApplicationApprovalOperationCompleted;
         
         private System.Threading.SendOrPostCallback sendToAppraiseeForAgreementOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback updateOverallCommentsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback updateSupervisorOverallCommentsOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -205,7 +219,13 @@ namespace HRPortal.NewHrPortal {
         public event createSurrenderApplicationLinesCompletedEventHandler createSurrenderApplicationLinesCompleted;
         
         /// <remarks/>
+        public event createeyBehaviourLinesCompletedEventHandler createeyBehaviourLinesCompleted;
+        
+        /// <remarks/>
         public event createeyKPILinesCompletedEventHandler createeyKPILinesCompleted;
+        
+        /// <remarks/>
+        public event createeyLineManagerBehaviourLinesCompletedEventHandler createeyLineManagerBehaviourLinesCompleted;
         
         /// <remarks/>
         public event createmyBehaviourLinesCompletedEventHandler createmyBehaviourLinesCompleted;
@@ -215,6 +235,12 @@ namespace HRPortal.NewHrPortal {
         
         /// <remarks/>
         public event createmyLineManagerBehaviourLinesCompletedEventHandler createmyLineManagerBehaviourLinesCompleted;
+        
+        /// <remarks/>
+        public event deleteLeaveApplicationLinesCompletedEventHandler deleteLeaveApplicationLinesCompleted;
+        
+        /// <remarks/>
+        public event deleteStaffCreditSalesLinesCompletedEventHandler deleteStaffCreditSalesLinesCompleted;
         
         /// <remarks/>
         public event editImprestApplicationLinesCompletedEventHandler editImprestApplicationLinesCompleted;
@@ -253,6 +279,9 @@ namespace HRPortal.NewHrPortal {
         public event sendObjectiveSettingsBackToAppraiseeCompletedEventHandler sendObjectiveSettingsBackToAppraiseeCompleted;
         
         /// <remarks/>
+        public event sendObjectiveSettingsToLineManagerCompletedEventHandler sendObjectiveSettingsToLineManagerCompleted;
+        
+        /// <remarks/>
         public event sendSafariRequestApplicationApprovalCompletedEventHandler sendSafariRequestApplicationApprovalCompleted;
         
         /// <remarks/>
@@ -266,6 +295,12 @@ namespace HRPortal.NewHrPortal {
         
         /// <remarks/>
         public event sendToAppraiseeForAgreementCompletedEventHandler sendToAppraiseeForAgreementCompleted;
+        
+        /// <remarks/>
+        public event updateOverallCommentsCompletedEventHandler updateOverallCommentsCompleted;
+        
+        /// <remarks/>
+        public event updateSupervisorOverallCommentsCompletedEventHandler updateSupervisorOverallCommentsCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:CreateSalesOrder", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="CreateSalesOrder_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -589,22 +624,23 @@ namespace HRPortal.NewHrPortal {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createLineManagerEyKPILines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createLineManagerEyKPILines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string createLineManagerEyKPILines(string applicationNo, int kraLineNo, int lineNo, string eySupervisorComment) {
+        public string createLineManagerEyKPILines(string applicationNo, int kraLineNo, int lineNo, string appraiserRating, string eySupervisorComment) {
             object[] results = this.Invoke("createLineManagerEyKPILines", new object[] {
                         applicationNo,
                         kraLineNo,
                         lineNo,
+                        appraiserRating,
                         eySupervisorComment});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void createLineManagerEyKPILinesAsync(string applicationNo, int kraLineNo, int lineNo, string eySupervisorComment) {
-            this.createLineManagerEyKPILinesAsync(applicationNo, kraLineNo, lineNo, eySupervisorComment, null);
+        public void createLineManagerEyKPILinesAsync(string applicationNo, int kraLineNo, int lineNo, string appraiserRating, string eySupervisorComment) {
+            this.createLineManagerEyKPILinesAsync(applicationNo, kraLineNo, lineNo, appraiserRating, eySupervisorComment, null);
         }
         
         /// <remarks/>
-        public void createLineManagerEyKPILinesAsync(string applicationNo, int kraLineNo, int lineNo, string eySupervisorComment, object userState) {
+        public void createLineManagerEyKPILinesAsync(string applicationNo, int kraLineNo, int lineNo, string appraiserRating, string eySupervisorComment, object userState) {
             if ((this.createLineManagerEyKPILinesOperationCompleted == null)) {
                 this.createLineManagerEyKPILinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateLineManagerEyKPILinesOperationCompleted);
             }
@@ -612,6 +648,7 @@ namespace HRPortal.NewHrPortal {
                         applicationNo,
                         kraLineNo,
                         lineNo,
+                        appraiserRating,
                         eySupervisorComment}, this.createLineManagerEyKPILinesOperationCompleted, userState);
         }
         
@@ -974,6 +1011,44 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createeyBehaviourLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createeyBehaviourLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string createeyBehaviourLines(string applicationNo, int categoryLine, int lineNo, string selfRating, string appraiseeRemarks) {
+            object[] results = this.Invoke("createeyBehaviourLines", new object[] {
+                        applicationNo,
+                        categoryLine,
+                        lineNo,
+                        selfRating,
+                        appraiseeRemarks});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void createeyBehaviourLinesAsync(string applicationNo, int categoryLine, int lineNo, string selfRating, string appraiseeRemarks) {
+            this.createeyBehaviourLinesAsync(applicationNo, categoryLine, lineNo, selfRating, appraiseeRemarks, null);
+        }
+        
+        /// <remarks/>
+        public void createeyBehaviourLinesAsync(string applicationNo, int categoryLine, int lineNo, string selfRating, string appraiseeRemarks, object userState) {
+            if ((this.createeyBehaviourLinesOperationCompleted == null)) {
+                this.createeyBehaviourLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateeyBehaviourLinesOperationCompleted);
+            }
+            this.InvokeAsync("createeyBehaviourLines", new object[] {
+                        applicationNo,
+                        categoryLine,
+                        lineNo,
+                        selfRating,
+                        appraiseeRemarks}, this.createeyBehaviourLinesOperationCompleted, userState);
+        }
+        
+        private void OncreateeyBehaviourLinesOperationCompleted(object arg) {
+            if ((this.createeyBehaviourLinesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.createeyBehaviourLinesCompleted(this, new createeyBehaviourLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createeyKPILines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createeyKPILines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string createeyKPILines(string applicationNo, int kraLineNo, int lineNo, string appraiseeSelfRating, string employeeComent) {
@@ -1008,6 +1083,45 @@ namespace HRPortal.NewHrPortal {
             if ((this.createeyKPILinesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.createeyKPILinesCompleted(this, new createeyKPILinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createeyLineManagerBehaviourL" +
+            "ines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createeyLineManagerBehaviourLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string createeyLineManagerBehaviourLines(string applicationNo, int categoryLine, int lineNo, string appraiserRating, string overallRemarks) {
+            object[] results = this.Invoke("createeyLineManagerBehaviourLines", new object[] {
+                        applicationNo,
+                        categoryLine,
+                        lineNo,
+                        appraiserRating,
+                        overallRemarks});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void createeyLineManagerBehaviourLinesAsync(string applicationNo, int categoryLine, int lineNo, string appraiserRating, string overallRemarks) {
+            this.createeyLineManagerBehaviourLinesAsync(applicationNo, categoryLine, lineNo, appraiserRating, overallRemarks, null);
+        }
+        
+        /// <remarks/>
+        public void createeyLineManagerBehaviourLinesAsync(string applicationNo, int categoryLine, int lineNo, string appraiserRating, string overallRemarks, object userState) {
+            if ((this.createeyLineManagerBehaviourLinesOperationCompleted == null)) {
+                this.createeyLineManagerBehaviourLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateeyLineManagerBehaviourLinesOperationCompleted);
+            }
+            this.InvokeAsync("createeyLineManagerBehaviourLines", new object[] {
+                        applicationNo,
+                        categoryLine,
+                        lineNo,
+                        appraiserRating,
+                        overallRemarks}, this.createeyLineManagerBehaviourLinesOperationCompleted, userState);
+        }
+        
+        private void OncreateeyLineManagerBehaviourLinesOperationCompleted(object arg) {
+            if ((this.createeyLineManagerBehaviourLinesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.createeyLineManagerBehaviourLinesCompleted(this, new createeyLineManagerBehaviourLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1123,6 +1237,70 @@ namespace HRPortal.NewHrPortal {
             if ((this.createmyLineManagerBehaviourLinesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.createmyLineManagerBehaviourLinesCompleted(this, new createmyLineManagerBehaviourLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteLeaveApplicationLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="deleteLeaveApplicationLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string deleteLeaveApplicationLines(string applicationNo, decimal daysApplied) {
+            object[] results = this.Invoke("deleteLeaveApplicationLines", new object[] {
+                        applicationNo,
+                        daysApplied});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void deleteLeaveApplicationLinesAsync(string applicationNo, decimal daysApplied) {
+            this.deleteLeaveApplicationLinesAsync(applicationNo, daysApplied, null);
+        }
+        
+        /// <remarks/>
+        public void deleteLeaveApplicationLinesAsync(string applicationNo, decimal daysApplied, object userState) {
+            if ((this.deleteLeaveApplicationLinesOperationCompleted == null)) {
+                this.deleteLeaveApplicationLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OndeleteLeaveApplicationLinesOperationCompleted);
+            }
+            this.InvokeAsync("deleteLeaveApplicationLines", new object[] {
+                        applicationNo,
+                        daysApplied}, this.deleteLeaveApplicationLinesOperationCompleted, userState);
+        }
+        
+        private void OndeleteLeaveApplicationLinesOperationCompleted(object arg) {
+            if ((this.deleteLeaveApplicationLinesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.deleteLeaveApplicationLinesCompleted(this, new deleteLeaveApplicationLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteStaffCreditSalesLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="deleteStaffCreditSalesLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string deleteStaffCreditSalesLines(string documentNo, int lineNo) {
+            object[] results = this.Invoke("deleteStaffCreditSalesLines", new object[] {
+                        documentNo,
+                        lineNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void deleteStaffCreditSalesLinesAsync(string documentNo, int lineNo) {
+            this.deleteStaffCreditSalesLinesAsync(documentNo, lineNo, null);
+        }
+        
+        /// <remarks/>
+        public void deleteStaffCreditSalesLinesAsync(string documentNo, int lineNo, object userState) {
+            if ((this.deleteStaffCreditSalesLinesOperationCompleted == null)) {
+                this.deleteStaffCreditSalesLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OndeleteStaffCreditSalesLinesOperationCompleted);
+            }
+            this.InvokeAsync("deleteStaffCreditSalesLines", new object[] {
+                        documentNo,
+                        lineNo}, this.deleteStaffCreditSalesLinesOperationCompleted, userState);
+        }
+        
+        private void OndeleteStaffCreditSalesLinesOperationCompleted(object arg) {
+            if ((this.deleteStaffCreditSalesLinesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.deleteStaffCreditSalesLinesCompleted(this, new deleteStaffCreditSalesLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1527,6 +1705,37 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendObjectiveSettingsToLineMa" +
+            "nager", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendObjectiveSettingsToLineManager_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string sendObjectiveSettingsToLineManager(string applicationNo) {
+            object[] results = this.Invoke("sendObjectiveSettingsToLineManager", new object[] {
+                        applicationNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void sendObjectiveSettingsToLineManagerAsync(string applicationNo) {
+            this.sendObjectiveSettingsToLineManagerAsync(applicationNo, null);
+        }
+        
+        /// <remarks/>
+        public void sendObjectiveSettingsToLineManagerAsync(string applicationNo, object userState) {
+            if ((this.sendObjectiveSettingsToLineManagerOperationCompleted == null)) {
+                this.sendObjectiveSettingsToLineManagerOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendObjectiveSettingsToLineManagerOperationCompleted);
+            }
+            this.InvokeAsync("sendObjectiveSettingsToLineManager", new object[] {
+                        applicationNo}, this.sendObjectiveSettingsToLineManagerOperationCompleted, userState);
+        }
+        
+        private void OnsendObjectiveSettingsToLineManagerOperationCompleted(object arg) {
+            if ((this.sendObjectiveSettingsToLineManagerCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.sendObjectiveSettingsToLineManagerCompleted(this, new sendObjectiveSettingsToLineManagerCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendSafariRequestApplicationA" +
             "pproval", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendSafariRequestApplicationApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
@@ -1680,6 +1889,71 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:updateOverallComments", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="updateOverallComments_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string updateOverallComments(string applicationNo, string overallComments) {
+            object[] results = this.Invoke("updateOverallComments", new object[] {
+                        applicationNo,
+                        overallComments});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void updateOverallCommentsAsync(string applicationNo, string overallComments) {
+            this.updateOverallCommentsAsync(applicationNo, overallComments, null);
+        }
+        
+        /// <remarks/>
+        public void updateOverallCommentsAsync(string applicationNo, string overallComments, object userState) {
+            if ((this.updateOverallCommentsOperationCompleted == null)) {
+                this.updateOverallCommentsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnupdateOverallCommentsOperationCompleted);
+            }
+            this.InvokeAsync("updateOverallComments", new object[] {
+                        applicationNo,
+                        overallComments}, this.updateOverallCommentsOperationCompleted, userState);
+        }
+        
+        private void OnupdateOverallCommentsOperationCompleted(object arg) {
+            if ((this.updateOverallCommentsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.updateOverallCommentsCompleted(this, new updateOverallCommentsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:updateSupervisorOverallCommen" +
+            "ts", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="updateSupervisorOverallComments_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string updateSupervisorOverallComments(string applicationNo, string supervisorOverallComments) {
+            object[] results = this.Invoke("updateSupervisorOverallComments", new object[] {
+                        applicationNo,
+                        supervisorOverallComments});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void updateSupervisorOverallCommentsAsync(string applicationNo, string supervisorOverallComments) {
+            this.updateSupervisorOverallCommentsAsync(applicationNo, supervisorOverallComments, null);
+        }
+        
+        /// <remarks/>
+        public void updateSupervisorOverallCommentsAsync(string applicationNo, string supervisorOverallComments, object userState) {
+            if ((this.updateSupervisorOverallCommentsOperationCompleted == null)) {
+                this.updateSupervisorOverallCommentsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnupdateSupervisorOverallCommentsOperationCompleted);
+            }
+            this.InvokeAsync("updateSupervisorOverallComments", new object[] {
+                        applicationNo,
+                        supervisorOverallComments}, this.updateSupervisorOverallCommentsOperationCompleted, userState);
+        }
+        
+        private void OnupdateSupervisorOverallCommentsOperationCompleted(object arg) {
+            if ((this.updateSupervisorOverallCommentsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.updateSupervisorOverallCommentsCompleted(this, new updateSupervisorOverallCommentsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -1699,11 +1973,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void CreateSalesOrderCompletedEventHandler(object sender, CreateSalesOrderCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class CreateSalesOrderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1725,11 +1999,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void approveAppraisalCompletedEventHandler(object sender, approveAppraisalCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class approveAppraisalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1751,11 +2025,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void changePasswordCompletedEventHandler(object sender, changePasswordCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class changePasswordCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1777,11 +2051,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void copySafariLinesCompletedEventHandler(object sender, copySafariLinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class copySafariLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1803,11 +2077,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createImprestApplicationLinesCompletedEventHandler(object sender, createImprestApplicationLinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createImprestApplicationLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1829,11 +2103,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createImprestCompletedEventHandler(object sender, createImprestCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createImprestCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1855,11 +2129,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createKPILinesCompletedEventHandler(object sender, createKPILinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createKPILinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1881,11 +2155,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createLeaveApplicationLinesCompletedEventHandler(object sender, createLeaveApplicationLinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createLeaveApplicationLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1907,11 +2181,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createLeaveApplicationCompletedEventHandler(object sender, createLeaveApplicationCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createLeaveApplicationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1933,11 +2207,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createLineManagerEyKPILinesCompletedEventHandler(object sender, createLineManagerEyKPILinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createLineManagerEyKPILinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1959,11 +2233,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createLineManagerMyKPILinesCompletedEventHandler(object sender, createLineManagerMyKPILinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createLineManagerMyKPILinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1985,11 +2259,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createSafariRequestEntitlementsCompletedEventHandler(object sender, createSafariRequestEntitlementsCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createSafariRequestEntitlementsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2011,11 +2285,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createSafariRequestHeaderCompletedEventHandler(object sender, createSafariRequestHeaderCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createSafariRequestHeaderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2037,11 +2311,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createSafariRequestLinesCompletedEventHandler(object sender, createSafariRequestLinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createSafariRequestLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2063,11 +2337,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createStaffApplicationCompletedEventHandler(object sender, createStaffApplicationCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createStaffApplicationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2089,11 +2363,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createStaffClaimApplicationLinesCompletedEventHandler(object sender, createStaffClaimApplicationLinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createStaffClaimApplicationLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2115,11 +2389,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createStoreRequisitionLineCompletedEventHandler(object sender, createStoreRequisitionLineCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createStoreRequisitionLineCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2141,11 +2415,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createStoreRequisitionCompletedEventHandler(object sender, createStoreRequisitionCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createStoreRequisitionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2167,11 +2441,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createSurrenderApplicationLinesCompletedEventHandler(object sender, createSurrenderApplicationLinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createSurrenderApplicationLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2193,11 +2467,37 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void createeyBehaviourLinesCompletedEventHandler(object sender, createeyBehaviourLinesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class createeyBehaviourLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal createeyBehaviourLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createeyKPILinesCompletedEventHandler(object sender, createeyKPILinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createeyKPILinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2219,11 +2519,37 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void createeyLineManagerBehaviourLinesCompletedEventHandler(object sender, createeyLineManagerBehaviourLinesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class createeyLineManagerBehaviourLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal createeyLineManagerBehaviourLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createmyBehaviourLinesCompletedEventHandler(object sender, createmyBehaviourLinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createmyBehaviourLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2245,11 +2571,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createmyKPILinesCompletedEventHandler(object sender, createmyKPILinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createmyKPILinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2271,11 +2597,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void createmyLineManagerBehaviourLinesCompletedEventHandler(object sender, createmyLineManagerBehaviourLinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class createmyLineManagerBehaviourLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2297,11 +2623,63 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void deleteLeaveApplicationLinesCompletedEventHandler(object sender, deleteLeaveApplicationLinesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class deleteLeaveApplicationLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal deleteLeaveApplicationLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void deleteStaffCreditSalesLinesCompletedEventHandler(object sender, deleteStaffCreditSalesLinesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class deleteStaffCreditSalesLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal deleteStaffCreditSalesLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void editImprestApplicationLinesCompletedEventHandler(object sender, editImprestApplicationLinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class editImprestApplicationLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2323,11 +2701,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void editLeaveApplicationLinesCompletedEventHandler(object sender, editLeaveApplicationLinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class editLeaveApplicationLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2349,11 +2727,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void editStaffCreditSalesLinesCompletedEventHandler(object sender, editStaffCreditSalesLinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class editStaffCreditSalesLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2375,11 +2753,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void fnCreateSalesCreditHeaderCompletedEventHandler(object sender, fnCreateSalesCreditHeaderCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class fnCreateSalesCreditHeaderCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2401,11 +2779,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void fnCreateStaffCreditLinesCompletedEventHandler(object sender, fnCreateStaffCreditLinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class fnCreateStaffCreditLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2427,15 +2805,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-<<<<<<< HEAD
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-=======
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
->>>>>>> 7f684835ad3fbf7ccd50ca207fc5a23df2a5dfcf
     public delegate void fnGetEmployeeDetailCompletedEventHandler(object sender, fnGetEmployeeDetailCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class fnGetEmployeeDetailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2457,11 +2831,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void fnStoreRequisitionLinesCompletedEventHandler(object sender, fnStoreRequisitionLinesCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class fnStoreRequisitionLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2483,11 +2857,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void generateP9CompletedEventHandler(object sender, generateP9CompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class generateP9CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2509,11 +2883,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void generatePayslipCompletedEventHandler(object sender, generatePayslipCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class generatePayslipCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2535,11 +2909,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void sendImprestApplicationApprovalCompletedEventHandler(object sender, sendImprestApplicationApprovalCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class sendImprestApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2561,11 +2935,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void sendLeaveApplicationApprovalCompletedEventHandler(object sender, sendLeaveApplicationApprovalCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class sendLeaveApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2587,11 +2961,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void sendObjectiveSettingsBackToAppraiseeCompletedEventHandler(object sender, sendObjectiveSettingsBackToAppraiseeCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class sendObjectiveSettingsBackToAppraiseeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2613,11 +2987,37 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void sendObjectiveSettingsToLineManagerCompletedEventHandler(object sender, sendObjectiveSettingsToLineManagerCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class sendObjectiveSettingsToLineManagerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal sendObjectiveSettingsToLineManagerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void sendSafariRequestApplicationApprovalCompletedEventHandler(object sender, sendSafariRequestApplicationApprovalCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class sendSafariRequestApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2639,11 +3039,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void sendStaffClaimApplicationApprovalCompletedEventHandler(object sender, sendStaffClaimApplicationApprovalCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class sendStaffClaimApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2665,11 +3065,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void sendStaffCreditSaleApprovalCompletedEventHandler(object sender, sendStaffCreditSaleApprovalCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class sendStaffCreditSaleApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2691,11 +3091,11 @@ namespace HRPortal.NewHrPortal {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void sendSurrenderApplicationApprovalCompletedEventHandler(object sender, sendSurrenderApplicationApprovalCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class sendSurrenderApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -2729,6 +3129,58 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal sendToAppraiseeForAgreementCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void updateOverallCommentsCompletedEventHandler(object sender, updateOverallCommentsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class updateOverallCommentsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal updateOverallCommentsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void updateSupervisorOverallCommentsCompletedEventHandler(object sender, updateSupervisorOverallCommentsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class updateSupervisorOverallCommentsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal updateSupervisorOverallCommentsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

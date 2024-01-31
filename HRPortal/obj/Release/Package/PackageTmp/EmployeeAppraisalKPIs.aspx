@@ -114,11 +114,24 @@
                                 <label class="btn btn-success" onclick="myLineManagerupdateKPIs('<%=arr[21] %>','<%=arr[8] %>','<%=arr[9] %>');"><i class="fa fa-edit"></i></label>
                             </td>
                             <%
-                                    } //EY Appraisee
-                                    //else if(arr1[15] == "Supervisor Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
-                                    //{
+                                    } //ey appraisee
+                                    else if (arr1[16] == "Appraisee Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No" && arr1[15]=="Closed")
+                                    {
+                                        %>
+                             <td>
+                                 <label class="btn btn-success" onclick="eyupdateKPIs('<%=arr[21] %>','<%=arr[10] %>','<%=arr[11] %>');"><i class="fa fa-edit"></i></label>
+                            </td>
+                            <%
 
-                                    //}
+                                    }//ey supervisor
+                                    else if (arr1[16] == "Supervisor Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No" && arr1[15] == "Closed")
+                                    {
+                                        %>
+                            <td>
+                                 <label class="btn btn-success" onclick="eyupdateKPIsLineManager('<%=arr[21] %>','<%=arr[12] %>','<%=arr[13] %>');"><i class="fa fa-edit"></i></label>
+                            </td>
+                            <%
+                                    }
                                 }
 
 
@@ -135,37 +148,6 @@
                 </table>
             </div>
             <hr />
-            <%--<div class="box-header">
-                <h3 class="box-title">Added KPIs</h3>
-            </div>
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped" id="example4">
-                    <thead>
-                        <tr>
-                            <th>KRA</th>
-                            <th>Objective</th>
-                            <th>KPI</th>
-                            <th>Target</th>
-                            <th>Weight</th>
-                            <th>Mid Year Appraisee Assesment</th>
-                            <th>Mid Year Appraisee Comments</th>
-                            <th>Mid Year Supervisor Assesment</th>
-                            <th>Mid Year Supervisor Comments</th>
-                            <th>Appraisee Self Rating</th>
-                            <th>Employee Comments</th>
-                            <th>Appraiser Rating</th>
-                            <th>KPI Score</th>
-                            <th>End Year Supervisor Comments</th>
-                            <th>Agree</th>
-                            <th>Disagreement Comments</th>
-                            <th>Non Achievement Reasons</th>
-                            <th>Target Status</th>
-                            <th>Mid Year Agreement</th>
-                            <th>Mid Year Disagreement Comment</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>--%>
         </div>
           <div class="modal-footer">
             <asp:Button runat="server" Text="Previous" class="btn btn-warning pull-left" />
@@ -255,7 +237,7 @@
             function myupdateKPIs(lineNo, myassessment, mycomment) {
            //document.getElementById("ContentPlaceHolder1_kpa").innerText = kpa;
            // document.getElementById("ContentPlaceHolder1_kpa").value = kpa;
-            document.getElementById("ContentPlaceHolder1_lineno").value = lineNo;
+                document.getElementById("ContentPlaceHolder1_lineno8").value = lineNo;
             document.getElementById("ContentPlaceHolder1_myassessment").value = myassessment;
             document.getElementById("ContentPlaceHolder1_mycomment").value = mycomment;
             //document.getElementById("ContentPlaceHolder1_target").value = target;
@@ -277,14 +259,12 @@
                      <h4 class="modal-title">Insert MY</h4>
                 </div>
                 <div class="modal-body">
-                    <asp:TextBox runat="server" ID="TextBox1" hidden></asp:TextBox>
-                   <%-- <div class="form-group">
-                        <strong>KPA</strong>
-                        <asp:TextBox runat="server" CssClass="form-control" id="kpa" ReadOnly></asp:TextBox>
-                    </div>--%>
+                    <asp:TextBox runat="server" ID="lineno8" hidden></asp:TextBox>
                     <div class="form-group">
                         <strong>Mid Yeay Appraisee Assessment</strong>
-                        <asp:TextBox runat="server" CssClass="form-control" id="myassessment"></asp:TextBox>
+                         <asp:DropDownList runat="server" ID="myassessment" CssClass="form-control select2">                        
+                        </asp:DropDownList>
+                       <%-- <asp:TextBox runat="server" CssClass="form-control" id="myassessment"></asp:TextBox>--%>
                     </div>
                     <div class="form-group">
                         <strong>Mid Year Appraisee Comment</strong>
@@ -302,7 +282,7 @@
             function myLineManagerupdateKPIs(lineNo, mysupervisorassessment, mysupervisorcomment) {
            //document.getElementById("ContentPlaceHolder1_kpa").innerText = kpa;
            // document.getElementById("ContentPlaceHolder1_kpa").value = kpa;
-            document.getElementById("ContentPlaceHolder1_lineno").value = lineNo;
+            document.getElementById("ContentPlaceHolder1_lineno6").value = lineNo;
             document.getElementById("ContentPlaceHolder1_mysupervisorassessment").value = mysupervisorassessment;
             document.getElementById("ContentPlaceHolder1_mysupervisorcomment").value = mysupervisorcomment;
             //document.getElementById("ContentPlaceHolder1_target").value = target;
@@ -324,14 +304,16 @@
                      <h4 class="modal-title">Insert MY</h4>
                 </div>
                 <div class="modal-body">
-                    <asp:TextBox runat="server" ID="TextBox2" hidden></asp:TextBox>
+                    <asp:TextBox runat="server" ID="lineno6" hidden></asp:TextBox>
                    <%-- <div class="form-group">
                         <strong>KPA</strong>
                         <asp:TextBox runat="server" CssClass="form-control" id="kpa" ReadOnly></asp:TextBox>
                     </div>--%>
                     <div class="form-group">
                         <strong>Mid Yeay Supervisor Assessment</strong>
-                        <asp:TextBox runat="server" CssClass="form-control" id="mysupervisorassessment"></asp:TextBox>
+                           <asp:DropDownList runat="server" ID="mysupervisorassessment" CssClass="form-control select2">                        
+                        </asp:DropDownList>
+                        <%--<asp:TextBox runat="server" CssClass="form-control" id="mysupervisorassessment"></asp:TextBox>--%>
                     </div>
                     <div class="form-group">
                         <strong>Mid Year Supervisor Comment</strong>
@@ -341,6 +323,86 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     <asp:Button runat="server" CssClass="btn btn-success" ID="Button2"  Text="Save" OnClientClick="this"  OnClick="mySupervisorUpdateKPIsLine_Click"/>
+                </div>
+            </div>
+        </div>
+    </div>
+         <script>
+             function eyupdateKPIs(lineNo, appraiseeselfrating, employeecomment) {
+            document.getElementById("ContentPlaceHolder1_lineno3").value = lineNo;
+            document.getElementById("ContentPlaceHolder1_appraiseeselfrating").value = appraiseeselfrating;
+            document.getElementById("ContentPlaceHolder1_employeecomment").value = employeecomment;
+            $("#eyupdateKPIsModal").modal();
+        }
+    </script>
+        <div id="eyupdateKPIsModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div runat="server" id="Div3"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <h4 class="modal-title">Insert EY</h4>
+                </div>
+                <div class="modal-body">
+                    <asp:TextBox runat="server" ID="lineno3" hidden></asp:TextBox>
+                   <%-- <div class="form-group">
+                        <strong>KPA</strong>
+                        <asp:TextBox runat="server" CssClass="form-control" id="kpa" ReadOnly></asp:TextBox>
+                    </div>--%>
+                    <div class="form-group">
+                        <strong>Appraisee Self Rating</strong>
+                        <asp:DropDownList runat="server" ID="appraiseeselfrating" CssClass="form-control select2">                        
+                        </asp:DropDownList>
+                       <%-- <asp:TextBox runat="server" CssClass="form-control" id="appraiseeselfrating"></asp:TextBox>--%>
+                    </div>
+                    <div class="form-group">
+                        <strong>Employee Comment</strong>
+                        <asp:TextBox runat="server" CssClass="form-control" id="employeecomment"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <asp:Button runat="server" CssClass="btn btn-success" ID="Button3"  Text="Save" OnClientClick="this"  OnClick="eyupdateKPIsLine_Click"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function eyupdateKPIsLineManager(lineNo, appraiserrating, eysupervisorcomments) {
+            document.getElementById("ContentPlaceHolder1_lineno5").value = lineNo;
+            document.getElementById("ContentPlaceHolder1_appraiserrating").value = appraiserrating;
+            document.getElementById("ContentPlaceHolder1_eysupervisorcomments").value = eysupervisorcomments;
+            $("#eyupdateKPIsModalLineManager").modal();
+        }
+    </script>
+        <div id="eyupdateKPIsModalLineManager" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div runat="server" id="Div4"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <h4 class="modal-title">Insert EY</h4>
+                </div>
+                <div class="modal-body">
+                    <asp:TextBox runat="server" ID="lineno5" hidden></asp:TextBox>
+                   <%-- <div class="form-group">
+                        <strong>KPA</strong>
+                        <asp:TextBox runat="server" CssClass="form-control" id="kpa" ReadOnly></asp:TextBox>
+                    </div>--%>
+                    <div class="form-group">
+                        <strong>Appraiser Rating</strong>
+                         <asp:DropDownList runat="server" ID="appraiserrating" CssClass="form-control select2">                        
+                        </asp:DropDownList>
+                        <%--<asp:TextBox runat="server" CssClass="form-control" id="appraiserrating"></asp:TextBox>--%>
+                    </div>
+                    <div class="form-group">
+                        <strong>End Year Supervisor Comments</strong>
+                        <asp:TextBox runat="server" CssClass="form-control" id="eysupervisorcomments"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <asp:Button runat="server" CssClass="btn btn-success" ID="Button4"  Text="Save" OnClientClick="this"  OnClick="eyupdateKPIsLineLineManager_Click"/>
                 </div>
             </div>
         </div>

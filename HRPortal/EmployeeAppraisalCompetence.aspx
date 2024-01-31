@@ -25,6 +25,10 @@
                             <th>Mid Year Employee Comment</th>
                             <th>Mid Year Supervisor Rating</th>
                             <th>Mid Year Supervisor Comment</th>
+                            <th>Self Rating</th>
+                            <th>Appraisee Remark </th>
+                            <th>Appraiser Rating</th>
+                            <th>Overall Remarks</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -50,6 +54,11 @@
                             <td><%=arr[3] %></td>
                             <td><%=arr[4] %></td>
                             <td><%=arr[5] %></td>
+                            <td><%=arr[7] %></td>
+                            <td><%=arr[8] %></td>
+                            <td><%=arr[9] %></td>
+                            <td><%=arr[10] %></td>
+
                             <%
                                 String appNo = Request.QueryString["applicationNo"];
                                 if (!string.IsNullOrEmpty(appNo))
@@ -88,12 +97,21 @@
                                     else if(arr1[16] == "Appraisee Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
                                     {
                                         %>
-                             <%-- <td>
-                                 <label class="btn btn-success" onclick="eyupdateBehaviour('<%=arr[6] %>','<%=arr[2] %>','<%=arr[3] %>');">s<i class="fa fa-edit"></i></label>
-                            </td>--%>
+                              <td>
+                                 <label class="btn btn-success" onclick="eyupdateBehaviour('<%=arr[6] %>','<%=arr[7] %>','<%=arr[8] %>');"><i class="fa fa-edit"></i></label>
+                            </td>
                             <%
 
+                                    }//EY Supervisor level
+                                    else if(arr1[16] == "Supervisor Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
+                                    {
+                                        %>
+                             <td>
+                                 <label class="btn btn-success" onclick="eyupdateBehaviourLineManager('<%=arr[6] %>','<%=arr[9] %>','<%=arr[10] %>');"><i class="fa fa-edit"></i></label>
+                            </td>
+                            <%
                                     }
+
                                 }
 
 
@@ -184,7 +202,9 @@
                     <asp:TextBox runat="server" ID="lineno1" hidden></asp:TextBox>
                     <div class="form-group">
                         <strong>Mid Year Employee Rating</strong>
-                        <asp:TextBox runat="server" CssClass="form-control" id="myemployeerating"></asp:TextBox>
+                         <asp:dropdownlist runat="server" id="myemployeerating" cssclass="form-control select2">                        
+                        </asp:dropdownlist>
+                        <%--<asp:textbox runat="server" cssclass="form-control" id="myemployeerating"></asp:textbox>--%>
                     </div>
                     <div class="form-group">
                         <strong>Mid Year Employee Comment</strong>
@@ -219,7 +239,9 @@
                     <asp:TextBox runat="server" ID="lineno2" hidden></asp:TextBox>
                     <div class="form-group">
                         <strong>Mid Yeay Supervisor Rating</strong>
-                        <asp:TextBox runat="server" CssClass="form-control" id="mysupervisorrating"></asp:TextBox>
+                         <asp:DropDownList runat="server" ID="mysupervisorrating" CssClass="form-control select2">                        
+                        </asp:DropDownList>
+                       <%-- <asp:TextBox runat="server" CssClass="form-control" id="mysupervisorrating"></asp:TextBox>--%>
                     </div>
                     <div class="form-group">
                         <strong>Mid Year Supervisor Comment</strong>
@@ -229,6 +251,78 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     <asp:Button runat="server" CssClass="btn btn-success" ID="Button2"  Text="Save" OnClientClick="this"  OnClick="mySupervisorUpdateBehaviourLine_Click"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+            function eyupdateBehaviour(lineNo1, selfrating, appraiseeremarks) {
+            document.getElementById("ContentPlaceHolder1_lineno3").value = lineNo1;
+            document.getElementById("ContentPlaceHolder1_selfrating").value = selfrating;
+            document.getElementById("ContentPlaceHolder1_appraiseeremarks").value = appraiseeremarks;
+            $("#eyupdateBehaviourModal").modal();
+        }
+    </script>
+        <div id="eyupdateBehaviourModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div runat="server" id="Div3"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <h4 class="modal-title">Insert EY Behaviour</h4>
+                </div>
+                <div class="modal-body">
+                    <asp:TextBox runat="server" ID="lineno3" hidden></asp:TextBox>
+                    <div class="form-group">
+                        <strong>Self Rating</strong>
+                         <asp:DropDownList runat="server" ID="selfrating" CssClass="form-control select2">                        
+                        </asp:DropDownList>
+                       <%-- <asp:TextBox runat="server" CssClass="form-control" id="selfrating"></asp:TextBox>--%>
+                    </div>
+                    <div class="form-group">
+                        <strong>Appraisee Remarks</strong>
+                        <asp:TextBox runat="server" CssClass="form-control" id="appraiseeremarks"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <asp:Button runat="server" CssClass="btn btn-success" ID="Button3"  Text="Save" OnClientClick="this"  OnClick="eyupdateBehaviourLine_Click"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function eyupdateBehaviourLineManager(lineNo1, appraiserrating, overallremarks) {
+            document.getElementById("ContentPlaceHolder1_lineno4").value = lineNo1;
+            document.getElementById("ContentPlaceHolder1_appraiserrating").value = appraiserrating;
+            document.getElementById("ContentPlaceHolder1_overallremarks").value = overallremarks;
+            $("#eyupdateBehaviourModalLineManager").modal();
+        }
+    </script>
+        <div id="eyupdateBehaviourModalLineManager" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div runat="server" id="Div4"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <h4 class="modal-title">Insert EY Behaviour</h4>
+                </div>
+                <div class="modal-body">
+                    <asp:TextBox runat="server" ID="lineno4" hidden></asp:TextBox>
+                    <div class="form-group">
+                        <strong>Appraiser Rating</strong>
+                          <asp:DropDownList runat="server" ID="appraiserrating" CssClass="form-control select2">                        
+                        </asp:DropDownList>
+                       <%-- <asp:TextBox runat="server" CssClass="form-control" id="appraiserrating"></asp:TextBox>--%>
+                    </div>
+                    <div class="form-group">
+                        <strong>Overall Remarks</strong>
+                        <asp:TextBox runat="server" CssClass="form-control" id="overallremarks"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <asp:Button runat="server" CssClass="btn btn-success" ID="Button4"  Text="Save" OnClientClick="this"  OnClick="eyLineManagerUpdateBehaviourLine_Click"/>
                 </div>
             </div>
         </div>

@@ -70,6 +70,18 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetAppraisalRatings">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetAppraisalRatings_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnGetClaimApplicationDetails">
         <complexType>
           <sequence>
@@ -497,6 +509,22 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetSellingPrices">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="productCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="regionCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetCentre" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetSellingPrices_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnGetStafClaims">
         <complexType>
           <sequence>
@@ -669,6 +697,12 @@
   </message>
   <message name="fnGetAppraisalApplicationList_Result">
     <part name="parameters" element="tns:fnGetAppraisalApplicationList_Result" />
+  </message>
+  <message name="fnGetAppraisalRatings">
+    <part name="parameters" element="tns:fnGetAppraisalRatings" />
+  </message>
+  <message name="fnGetAppraisalRatings_Result">
+    <part name="parameters" element="tns:fnGetAppraisalRatings_Result" />
   </message>
   <message name="fnGetClaimApplicationDetails">
     <part name="parameters" element="tns:fnGetClaimApplicationDetails" />
@@ -856,6 +890,12 @@
   <message name="fnGetSafariRequest_Result">
     <part name="parameters" element="tns:fnGetSafariRequest_Result" />
   </message>
+  <message name="fnGetSellingPrices">
+    <part name="parameters" element="tns:fnGetSellingPrices" />
+  </message>
+  <message name="fnGetSellingPrices_Result">
+    <part name="parameters" element="tns:fnGetSellingPrices_Result" />
+  </message>
   <message name="fnGetStafClaims">
     <part name="parameters" element="tns:fnGetStafClaims" />
   </message>
@@ -936,6 +976,10 @@
     <operation name="fnGetAppraisalApplicationList">
       <input name="fnGetAppraisalApplicationList" message="tns:fnGetAppraisalApplicationList" />
       <output name="fnGetAppraisalApplicationList_Result" message="tns:fnGetAppraisalApplicationList_Result" />
+    </operation>
+    <operation name="fnGetAppraisalRatings">
+      <input name="fnGetAppraisalRatings" message="tns:fnGetAppraisalRatings" />
+      <output name="fnGetAppraisalRatings_Result" message="tns:fnGetAppraisalRatings_Result" />
     </operation>
     <operation name="fnGetClaimApplicationDetails">
       <input name="fnGetClaimApplicationDetails" message="tns:fnGetClaimApplicationDetails" />
@@ -1061,6 +1105,10 @@
       <input name="fnGetSafariRequest" message="tns:fnGetSafariRequest" />
       <output name="fnGetSafariRequest_Result" message="tns:fnGetSafariRequest_Result" />
     </operation>
+    <operation name="fnGetSellingPrices">
+      <input name="fnGetSellingPrices" message="tns:fnGetSellingPrices" />
+      <output name="fnGetSellingPrices_Result" message="tns:fnGetSellingPrices_Result" />
+    </operation>
     <operation name="fnGetStafClaims">
       <input name="fnGetStafClaims" message="tns:fnGetStafClaims" />
       <output name="fnGetStafClaims_Result" message="tns:fnGetStafClaims_Result" />
@@ -1146,6 +1194,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetAppraisalApplicationList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetAppraisalRatings">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetAppraisalRatings" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetAppraisalRatings">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetAppraisalRatings_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1425,6 +1482,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetSafariRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetSellingPrices">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetSellingPrices" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetSellingPrices">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetSellingPrices_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

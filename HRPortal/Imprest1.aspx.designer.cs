@@ -184,13 +184,13 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.TextBox imprestNo;
         
         /// <summary>
-        /// description1 control.
+        /// imprestNos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox description1;
+        protected global::System.Web.UI.WebControls.TextBox imprestNos;
         
         /// <summary>
         /// amount1 control.
@@ -200,5 +200,50 @@ namespace HRPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox amount1;
+        
+        /// <summary>
+        /// ContentPlaceHolder1_documentNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ContentPlaceHolder1_documentNumber;
+        
+        /// <summary>
+        /// ContentPlaceHolder1_lineNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ContentPlaceHolder1_lineNo;
+        
+        /// <summary>
+        /// ContentPlaceHolder1_glAccountss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ContentPlaceHolder1_glAccountss;
+        
+        /// <summary>
+        /// ContentPlaceHolder1_functionCodes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ContentPlaceHolder1_functionCodes;
+        
+        /// <summary>
+        /// ContentPlaceHolder1_amounts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ContentPlaceHolder1_amounts;
     }
 }

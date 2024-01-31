@@ -162,7 +162,7 @@
                         <td><% =arr[1] %></td>
                         <td><% =arr[2] %></td>
                         <td><% = arr[3] %></td>
-                        <td><label class="btn btn-success" onclick="editLine(''<% =arr[1] %>','<% =arr[3] %>');">Edit/View</label></td>   
+                        <td><label class="btn btn-success" onclick="testLine('<% =imprestNo %>','<%=arr[4] %>','<%=arr[0] %>','<% =arr[2] %>','<%=arr[3] %>');"><i class="fa fa-edit"></i>Edit/View</label></td>   
                         <td>
                             <label class="btn btn-danger" onclick="removeLine('<% =imprestNo %>','<%=arr[4] %>');"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
@@ -317,12 +317,16 @@
 
     </div>
       <script>
-          function editLine(description, amount) {
-              //document.getElementById("glaccount1").value = glaccount;
-              document.getElementById("description1").innerText = description;
-            //document.getElementById("funcode1").innerText = funcode;
-            document.getElementById("amount1").innerText = amount;
-            //document.getElementById("ContentPlaceHolder1_lneNo1").value = lineNo;
+          function editingLine(imprestNos, lineNos, glAccountss, functionCodes, amounts) {
+              document.getElementById("glAccountss").value = glAccountss;
+              document.getElementById("lineNos").innerText = lineNos;
+              document.getElementById("functionCodes").innerText = functionCodes;
+            document.getElementById("amounts").innerText = amounts;
+            document.getElementById("ContentPlaceHolder1_imprestNos").value = imprestNos;
+            document.getElementById("ContentPlaceHolder1_lineNos").value = lineNos;
+            document.getElementById("ContentPlaceHolder1_functionCodes").value = functionCodes;
+            document.getElementById("ContentPlaceHolder1_amounts").value = amounts;
+            document.getElementById("ContentPlaceHolder1_glAccountss").value = glAccountss;
             $("#editLineModal").modal();
         }
     </script>
@@ -345,7 +349,7 @@
                         <div class="col-lg-6 col-sm-6">
                            <div class="form-group">
                               <strong>Description:</strong>
-                              <asp:TextBox runat="server" CssClass="form-control" TextMode="Number" ID="description1" ReadOnly />
+                              <asp:TextBox runat="server" CssClass="form-control" TextMode="Number" ID="imprestNos" ReadOnly />
                          </div>
                         </div>
                         <%--  <div class="col-lg-6 col-sm-6">
@@ -374,12 +378,11 @@
                 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLine_Click" CausesValidation="false" />
+                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Edit Line" OnClick="editLine_Click" CausesValidation="false" />
                 </div>
             </div>
         </div>
 
-    </div>
     <%--  <div id="editLineModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -423,4 +426,47 @@
         </div>
 
     </div>--%>
+  <script>
+    function testLine(documentNumber, lineNo, glAccountss, functionCodes, amounts) {
+        document.getElementById("LineNumbers").innerText = lineNo;
+        document.getElementById('<%= ContentPlaceHolder1_documentNumber.ClientID %>').value = documentNumber;
+        document.getElementById('<%= ContentPlaceHolder1_lineNo.ClientID %>').value = lineNo;
+        document.getElementById('<%= ContentPlaceHolder1_glAccountss.ClientID %>').value = glAccountss;
+        document.getElementById('<%= ContentPlaceHolder1_functionCodes.ClientID %>').value = functionCodes;
+        document.getElementById('<%= ContentPlaceHolder1_amounts.ClientID %>').value = amounts;
+        $("#DeleteModal").modal();
+    }
+</script>
+
+<div id="DeleteModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Confirm Deleting line</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete line <strong id="LineNumbers"></strong>?</p>
+                <strong>Imprest No:<span style="color: red">*</span></strong>
+                <asp:TextBox runat="server" ID="ContentPlaceHolder1_documentNumber" CssClass="form-control" ReadOnly="true" />
+                <strong>Line No:<span style="color: red">*</span></strong>
+                <asp:TextBox runat="server" ID="ContentPlaceHolder1_lineNo" CssClass="form-control" ReadOnly="true"/>
+                <strong>G/L Account  <span style="color: red">*</span></strong>
+                <asp:TextBox runat="server" ID="ContentPlaceHolder1_glAccountss" CssClass="form-control" />
+                <strong>Function Codes:<span style="color: red">*</span></strong>
+                <asp:TextBox runat="server" ID="ContentPlaceHolder1_functionCodes" CssClass="form-control" />
+                <strong>Amount:<span style="color: red">*</span></strong>
+                <asp:TextBox runat="server" ID="ContentPlaceHolder1_amounts" CssClass="form-control" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="editLine_Click" />
+            </div>
+        </div>
+
+    </div>
+</div>
+
 </asp:Content>

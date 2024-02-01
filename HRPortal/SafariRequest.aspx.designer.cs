@@ -184,6 +184,15 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.TextBox quantity;
         
         /// <summary>
+        /// app control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox app;
+        
+        /// <summary>
         /// town control.
         /// </summary>
         /// <remarks>
@@ -317,5 +326,50 @@ namespace HRPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox expenseDate;
+        
+        /// <summary>
+        /// ContentPlaceHolder1_documentNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ContentPlaceHolder1_documentNumber;
+        
+        /// <summary>
+        /// ContentPlaceHolder1_expenseDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ContentPlaceHolder1_expenseDate;
+        
+        /// <summary>
+        /// ContentPlaceHolder1_returnDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ContentPlaceHolder1_returnDate;
+        
+        /// <summary>
+        /// ContentPlaceHolder1_travelFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ContentPlaceHolder1_travelFrom;
+        
+        /// <summary>
+        /// ContentPlaceHolder1_travelTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ContentPlaceHolder1_travelTo;
     }
 }

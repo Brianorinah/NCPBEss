@@ -61,6 +61,12 @@ namespace HRPortal
                 glaccount.DataBind();
                 glaccount.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
 
+                ContentPlaceHolder1_glAccs.DataSource = itms1;
+                ContentPlaceHolder1_glAccs.DataTextField = "description";
+                ContentPlaceHolder1_glAccs.DataValueField = "code";
+                ContentPlaceHolder1_glAccs.DataBind();
+                ContentPlaceHolder1_glAccs.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
                 var jobs2 = Config.ObjNav1.fnGetDimension(1);
                 List<ItemList> itms2 = new List<ItemList>();
                 string[] infoz2 = jobs2.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
@@ -82,6 +88,12 @@ namespace HRPortal
                 functioncode.DataValueField = "code";
                 functioncode.DataBind();
                 functioncode.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                ContentPlaceHolder1_functionCds.DataSource = itms2;
+                ContentPlaceHolder1_functionCds.DataTextField = "description";
+                ContentPlaceHolder1_functionCds.DataValueField = "code";
+                ContentPlaceHolder1_functionCds.DataBind();
+                ContentPlaceHolder1_functionCds.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
 
                 //get ImprestApplication
 
@@ -401,8 +413,8 @@ namespace HRPortal
                 String lineN = ContentPlaceHolder1_lineNo.Text.Trim();
                 int lineNo = Convert.ToInt32(lineN);
                 String docNo = ContentPlaceHolder1_documentNumber.Text.Trim();
-                String gLAcc = ContentPlaceHolder1_glAccountss.Text.Trim();
-                String functionCode = ContentPlaceHolder1_functionCodes.Text.Trim();
+                String gLAcc = ContentPlaceHolder1_glAccs.SelectedValue.Trim();
+                String functionCode = ContentPlaceHolder1_functionCds.SelectedValue.Trim();
                 String amts = ContentPlaceHolder1_amounts.Text.Trim();
                 decimal amt = Convert.ToDecimal(amts);
                 String status = Config.ObjNav2.editImprestApplicationLines(docNo, lineNo, gLAcc, functionCode, amt);

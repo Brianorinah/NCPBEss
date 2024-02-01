@@ -148,6 +148,18 @@ namespace HRPortal
                     travelTo.DataValueField = "code";
                     travelTo.DataBind();
                     travelTo.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                    ContentPlaceHolder1_travelFrom.DataSource = itms118;
+                    ContentPlaceHolder1_travelFrom.DataTextField = "description";
+                    ContentPlaceHolder1_travelFrom.DataValueField = "code";
+                    ContentPlaceHolder1_travelFrom.DataBind();
+                    ContentPlaceHolder1_travelFrom.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                    ContentPlaceHolder1_travelTo.DataSource = itms118;
+                    ContentPlaceHolder1_travelTo.DataTextField = "description";
+                    ContentPlaceHolder1_travelTo.DataValueField = "code";
+                    ContentPlaceHolder1_travelTo.DataBind();
+                    ContentPlaceHolder1_travelTo.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
                 }
                 else if (step == 3)
                 {
@@ -478,6 +490,57 @@ namespace HRPortal
         }
         protected void editItem_Click(object sender, EventArgs e)
         {
+        }
+        protected void editLine_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DateTime expDate = Convert.ToDateTime(ContentPlaceHolder1_expenseDate.Text.Trim());
+                String docNo = ContentPlaceHolder1_documentNumber.Text.Trim();
+                DateTime returnDte = Convert.ToDateTime(ContentPlaceHolder1_returnDate.Text.Trim());
+                String travFrom = ContentPlaceHolder1_travelFrom.SelectedValue.Trim();
+                String travTo = ContentPlaceHolder1_travelTo.SelectedValue.Trim();
+                String status = Config.ObjNav2.editSafariRequestLines(docNo, expDate, returnDte, travFrom, travTo);
+                String[] info = status.Split('*');
+                if (info[0] == "success")
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+
+
+            }
+            catch (Exception ed)
+            {
+                documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+
+        }
+
+        protected void Entitlement_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            var nav = Config.ObjNav1;
+            var result = nav.fnGetEntitlementDetails(entitlement.Text.Trim());
+            String[] info = result.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+            if (info.Count() > 0)
+            {
+                if (info != null)
+                {
+                    foreach (var allinfo in info)
+                    {
+                        String[] arr = allinfo.Split('*');
+                        rate.Text = arr[1];
+                        app.Text = arr[2];
+
+                    }
+                }
+            }
         }
     }
 }

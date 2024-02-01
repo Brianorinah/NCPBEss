@@ -220,22 +220,22 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.TextBox ContentPlaceHolder1_lineNo;
         
         /// <summary>
-        /// ContentPlaceHolder1_glAccountss control.
+        /// ContentPlaceHolder1_glAccs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ContentPlaceHolder1_glAccountss;
+        protected global::System.Web.UI.WebControls.DropDownList ContentPlaceHolder1_glAccs;
         
         /// <summary>
-        /// ContentPlaceHolder1_functionCodes control.
+        /// ContentPlaceHolder1_functionCds control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ContentPlaceHolder1_functionCodes;
+        protected global::System.Web.UI.WebControls.DropDownList ContentPlaceHolder1_functionCds;
         
         /// <summary>
         /// ContentPlaceHolder1_amounts control.

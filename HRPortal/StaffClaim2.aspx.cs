@@ -358,5 +358,28 @@ namespace HRPortal
         protected void editItem_Click(object sender, EventArgs e)
         {
         }
+        protected void copySafariLines_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                String safNumber = safariNumber.Text.Trim();
+                String clmNumber = Request.QueryString["requisitionNo"];
+                var nav = Config.ObjNav2;
+                String result = nav.copySafariLines(safNumber, clmNumber);
+                String[] safari = result.Split('*');
+                if (safari[0] == "success") {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-success'>" + safari[0] + safari[1]+"<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                
+            }
+                else
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + safari[0] + safari[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+
+            }
+            catch (Exception ed) {
+                documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+        }
     }
 }

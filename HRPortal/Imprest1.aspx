@@ -431,42 +431,55 @@
         document.getElementById("LineNumbers").innerText = lineNo;
         document.getElementById('<%= ContentPlaceHolder1_documentNumber.ClientID %>').value = documentNumber;
         document.getElementById('<%= ContentPlaceHolder1_lineNo.ClientID %>').value = lineNo;
-        document.getElementById('<%= ContentPlaceHolder1_glAccountss.ClientID %>').value = glAccountss;
-        document.getElementById('<%= ContentPlaceHolder1_functionCodes.ClientID %>').value = functionCodes;
+        document.getElementById('<%= ContentPlaceHolder1_glAccs.ClientID %>').value = glAccountss;
+        document.getElementById('<%= ContentPlaceHolder1_functionCds.ClientID %>').value = functionCodes;
         document.getElementById('<%= ContentPlaceHolder1_amounts.ClientID %>').value = amounts;
-        $("#DeleteModal").modal();
+        $("#EditModals").modal();
     }
 </script>
 
-<div id="DeleteModal" class="modal fade" role="dialog">
+<div id="EditModals" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
-        <div class="modal-content">
+        < class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Confirm Deleting line</h4>
+                <h4 class="modal-title">Confirm Editing line</h4>
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to delete line <strong id="LineNumbers"></strong>?</p>
+                <p>Are you sure you want to Edit line <strong id="LineNumbers"></strong>?</p>
                 <strong>Imprest No:<span style="color: red">*</span></strong>
                 <asp:TextBox runat="server" ID="ContentPlaceHolder1_documentNumber" CssClass="form-control" ReadOnly="true" />
                 <strong>Line No:<span style="color: red">*</span></strong>
                 <asp:TextBox runat="server" ID="ContentPlaceHolder1_lineNo" CssClass="form-control" ReadOnly="true"/>
-                <strong>G/L Account  <span style="color: red">*</span></strong>
-                <asp:TextBox runat="server" ID="ContentPlaceHolder1_glAccountss" CssClass="form-control" />
-                <strong>Function Codes:<span style="color: red">*</span></strong>
-                <asp:TextBox runat="server" ID="ContentPlaceHolder1_functionCodes" CssClass="form-control" />
+                <%--<strong>G/L Account  <span style="color: red">*</span></strong>
+                <asp:TextBox runat="server" ID="ContentPlaceHolder1_glAccountss" CssClass="form-control" />--%>
+                   <div class="form-group">
+                    <strong>G/L Account  <span style="color: red">*</span></strong>
+                    <asp:DropDownList runat="server" ID="ContentPlaceHolder1_glAccs" CssClass="form-control select2">                        
+                    </asp:DropDownList>
+                    </div>
+            
+               <%-- <strong>Function Codes:<span style="color: red">*</span></strong>
+                <asp:TextBox runat="server" ID="ContentPlaceHolder1_functionCodes" CssClass="form-control" />--%>
+                  <div class="form-group">
+                    <strong>Function Code:  <span style="color: red">*</span></strong>
+                    <asp:DropDownList runat="server" ID="ContentPlaceHolder1_functionCds" CssClass="form-control select2">                        
+                    </asp:DropDownList>
+                    </div>
+            
                 <strong>Amount:<span style="color: red">*</span></strong>
                 <asp:TextBox runat="server" ID="ContentPlaceHolder1_amounts" CssClass="form-control" />
-            </div>
+                </div>
+            
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="editLine_Click" />
+                <asp:Button runat="server" CssClass="btn btn-danger" Text="Edit Line" OnClick="editLine_Click" />
             </div>
         </div>
-
     </div>
-</div>
+
+    
 
 </asp:Content>

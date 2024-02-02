@@ -195,10 +195,10 @@ namespace HRPortal
                 string documentNo =Request.QueryString["documentNo"];
                 String status = Config.ObjNav2.fnCreateSalesCreditHeader(documentNo, employeeNo, trecovery, tdepot, tlocation);
                 String[] info = status.Split('*');
-                if (info[0] == "success")
-                {                    
-                    String redirectLocation = "StaffCreditSalesNewEdit.aspx?step=2&&documentNo=" + documentNo;
-                    Response.Redirect(redirectLocation, true);
+                if (info[0] == "Success")
+                {
+                    String redirectLocation = "StaffCreditSales.aspx?step=2&&documentNo=" + documentNo;
+                    Response.Redirect(redirectLocation, false);
 
                 }
                 else

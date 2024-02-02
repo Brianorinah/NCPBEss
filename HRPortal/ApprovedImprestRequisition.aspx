@@ -29,6 +29,7 @@
                     <th>Subject</th>
                      <th>Amount</th>
                     <th>Status</th>
+                    <th>Create Imprest</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -56,6 +57,11 @@
                                     <td><%=oneItem[2]  %> </td>
                                     <td><%=oneItem[3]  %> </td>
                                     <td><%=oneItem[4]  %> </td>
+                                    
+                                                        <td>
+                                        <label class="btn btn-success" onclick="createImprest('<% =oneItem[0] %>');"><i class="fa fa-plus"></i>Edit/View</label>
+                                    </td>
+
                                     
                                 </tr>
                                                         
@@ -91,4 +97,33 @@
             </table>
         </div>
     </div>
+     <script>
+ 
+          function createImprest(documentNumber) {
+          document.getElementById("documentNumbers").innerText = documentNumber;
+          document.getElementById("ContentPlaceHolder1_documentNumber").value = documentNumber;
+            $("#ImprestModal").modal();
+        }
+</script>
+<div id="ImprestModal" class="modal fade" role="dialog">
+<div class="modal-dialog">
+ 
+            <!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Confirm Creating Imprest Request</h4>
+</div>
+<div class="modal-body">
+<p>Are you sure you want to create imprest of safari number <strong id="documentNumbers"></strong>?</p>
+<asp:TextBox runat="server" ID="documentNumber" type="hidden" />
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+<asp:Button runat="server" CssClass="btn btn-danger" Text="Create Imprest" OnClick="createImprest_Click" />
+</div>
+</div>
+ 
+        </div>
+</div>
 </asp:Content>

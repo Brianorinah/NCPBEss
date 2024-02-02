@@ -61,6 +61,12 @@ namespace HRPortal
                 glaccount.DataBind();
                 glaccount.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
 
+                ContentPlaceHolder1_glAccs.DataSource = itms1;
+                ContentPlaceHolder1_glAccs.DataTextField = "description";
+                ContentPlaceHolder1_glAccs.DataValueField = "code";
+                ContentPlaceHolder1_glAccs.DataBind();
+                ContentPlaceHolder1_glAccs.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
                 var jobs2 = Config.ObjNav1.fnGetDimension(1);
                 List<ItemList> itms2 = new List<ItemList>();
                 string[] infoz2 = jobs2.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
@@ -82,6 +88,12 @@ namespace HRPortal
                 functioncode.DataValueField = "code";
                 functioncode.DataBind();
                 functioncode.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                ContentPlaceHolder1_functionCds.DataSource = itms2;
+                ContentPlaceHolder1_functionCds.DataTextField = "description";
+                ContentPlaceHolder1_functionCds.DataValueField = "code";
+                ContentPlaceHolder1_functionCds.DataBind();
+                ContentPlaceHolder1_functionCds.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
 
                 //get ImprestApplication
 
@@ -110,6 +122,7 @@ namespace HRPortal
                     }
 
                 }
+
             }
 
         }
@@ -367,6 +380,60 @@ namespace HRPortal
 
         protected void deleteLine_Click(object sender, EventArgs e)
         {
+
+            try
+            {
+                String docNo = imprestNo.Text.Trim();
+                String lineN = lneNo.Text.Trim();
+                int lineNo = Convert.ToInt32(lineN);
+                String status = Config.ObjNav2.deleteImprestApplicationLines(docNo, lineNo);
+                String[] info = status.Split('*');
+                if (info[0] == "success")
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+
+
+            }
+            catch (Exception ed)
+            {
+                documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+
+        }
+        protected void editLine_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                String lineN = ContentPlaceHolder1_lineNo.Text.Trim();
+                int lineNo = Convert.ToInt32(lineN);
+                String docNo = ContentPlaceHolder1_documentNumber.Text.Trim();
+                String gLAcc = ContentPlaceHolder1_glAccs.SelectedValue.Trim();
+                String functionCode = ContentPlaceHolder1_functionCds.SelectedValue.Trim();
+                String amts = ContentPlaceHolder1_amounts.Text.Trim();
+                decimal amt = Convert.ToDecimal(amts);
+                String status = Config.ObjNav2.editImprestApplicationLines(docNo, lineNo, gLAcc, functionCode, amt);
+                String[] info = status.Split('*');
+                if (info[0] == "success")
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+
+
+            }
+            catch (Exception ed)
+            {
+                documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
 
         }
     }

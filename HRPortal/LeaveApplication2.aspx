@@ -172,7 +172,7 @@
                         <%--<td><%=String.Format("{0:n}", Convert.ToDouble(arr[5])) %></td>--%>
 
                         <td>
-                            <label class="btn btn-danger" onclick="removeLine('<% =arr[3] %>','<%=arr[0] %>');"><i class="fa fa-trash"></i>Delete</label></td>
+                            <label class="btn btn-danger" onclick="removeLine('<%=requisitionNo %>','<%=arr[5] %>');"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
                     <% 
                             }
@@ -310,5 +310,36 @@
 
         </div>
     </div>
+      <script>
+ 
+          function removeLine(leaveNo, lineNo) {
+              document.getElementById("LineNumber").innerText = lineNo;
+              document.getElementById("ContentPlaceHolder1_lineNo").value = lineNo;
+              document.getElementById("ContentPlaceHolder1_leaveNo").value = leaveNo;
+            $("#DeleteModal").modal();
+        }
+</script>
+<div id="DeleteModal" class="modal fade" role="dialog">
+<div class="modal-dialog">
+ 
+            <!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Confirm Deleting line</h4>
+</div>
+<div class="modal-body">
+<p>Are you sure you want to delete line <strong id="LineNumber"></strong>?</p>
+<asp:TextBox runat="server" ID="lineNo" type="hidden" />
+<asp:TextBox runat="server" ID="leaveNo" type="hidden" />
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+<asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLine" />
+</div>
+</div>
+ 
+        </div>
+</div>
 
 </asp:Content>

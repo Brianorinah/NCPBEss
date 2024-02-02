@@ -120,6 +120,15 @@
                                         %>
                              <td>
                                  <label class="btn btn-success" onclick="eyupdateKPIs('<%=arr[21] %>','<%=arr[10] %>','<%=arr[11] %>');"><i class="fa fa-edit"></i></label>
+                                <label class="btn btn-success" onclick="myLineManagerupdateKPIs('<%=arr[21] %>','<%=arr[8] %>','<%=arr[9] %>');"><i class="fa fa-edit"></i></label>
+                            </td>
+                            <%
+                                    } //ey appraisee
+                                    else if (arr1[16] == "Appraisee Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No" && arr1[15]=="Closed")
+                                    {
+                                        %>
+                             <td>
+                                 <label class="btn btn-success" onclick="eyupdateKPIs('<%=arr[21] %>','<%=arr[10] %>','<%=arr[11] %>');"><i class="fa fa-edit"></i></label>
                             </td>
                             <%
 

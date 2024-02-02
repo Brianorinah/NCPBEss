@@ -106,7 +106,7 @@
 </div>
 <div class="modal-footer">
 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-<asp:Button runat="server" CssClass="btn btn-danger" Text="Create Sales Order" OnClick="create_sale_Click" />
+<asp:Button runat="server" CssClass="btn btn-success" Text="Create Sales Order" OnClick="create_sale_Click" />
 </div>
 </div>
  

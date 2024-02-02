@@ -188,6 +188,7 @@
             <element minOccurs="1" maxOccurs="1" name="kraLineNo" type="int" />
             <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
             <element minOccurs="1" maxOccurs="1" name="appraiserRating" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="appraiserRating" type="string" />
             <element minOccurs="1" maxOccurs="1" name="eySupervisorComment" type="string" />
           </sequence>
         </complexType>
@@ -401,6 +402,24 @@
           </sequence>
         </complexType>
       </element>
+      <element name="createeyBehaviourLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="categoryLine" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="selfRating" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="appraiseeRemarks" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createeyBehaviourLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="createeyKPILines">
         <complexType>
           <sequence>
@@ -413,6 +432,24 @@
         </complexType>
       </element>
       <element name="createeyKPILines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createeyLineManagerBehaviourLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="categoryLine" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="appraiserRating" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="overallRemarks" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createeyLineManagerBehaviourLines_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -485,6 +522,51 @@
         </complexType>
       </element>
       <element name="createmyLineManagerBehaviourLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteImprestApplicationLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteImprestApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteLeaveApplicationLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteLeaveApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteSafariRequestLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="expenseDate" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteSafariRequestLines_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -870,6 +952,36 @@
           </sequence>
         </complexType>
       </element>
+      <element name="updateOverallComments">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="overallComments" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateOverallComments_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateSupervisorOverallComments">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="supervisorOverallComments" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateSupervisorOverallComments_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
     </schema>
   </types>
   <message name="CreateSalesOrder">
@@ -1010,11 +1122,23 @@
   <message name="createeyBehaviourLines_Result">
     <part name="parameters" element="tns:createeyBehaviourLines_Result" />
   </message>
+  <message name="createeyBehaviourLines">
+    <part name="parameters" element="tns:createeyBehaviourLines" />
+  </message>
+  <message name="createeyBehaviourLines_Result">
+    <part name="parameters" element="tns:createeyBehaviourLines_Result" />
+  </message>
   <message name="createeyKPILines">
     <part name="parameters" element="tns:createeyKPILines" />
   </message>
   <message name="createeyKPILines_Result">
     <part name="parameters" element="tns:createeyKPILines_Result" />
+  </message>
+  <message name="createeyLineManagerBehaviourLines">
+    <part name="parameters" element="tns:createeyLineManagerBehaviourLines" />
+  </message>
+  <message name="createeyLineManagerBehaviourLines_Result">
+    <part name="parameters" element="tns:createeyLineManagerBehaviourLines_Result" />
   </message>
   <message name="createeyLineManagerBehaviourLines">
     <part name="parameters" element="tns:createeyLineManagerBehaviourLines" />
@@ -1039,6 +1163,24 @@
   </message>
   <message name="createmyLineManagerBehaviourLines_Result">
     <part name="parameters" element="tns:createmyLineManagerBehaviourLines_Result" />
+  </message>
+  <message name="deleteImprestApplicationLines">
+    <part name="parameters" element="tns:deleteImprestApplicationLines" />
+  </message>
+  <message name="deleteImprestApplicationLines_Result">
+    <part name="parameters" element="tns:deleteImprestApplicationLines_Result" />
+  </message>
+  <message name="deleteLeaveApplicationLines">
+    <part name="parameters" element="tns:deleteLeaveApplicationLines" />
+  </message>
+  <message name="deleteLeaveApplicationLines_Result">
+    <part name="parameters" element="tns:deleteLeaveApplicationLines_Result" />
+  </message>
+  <message name="deleteSafariRequestLines">
+    <part name="parameters" element="tns:deleteSafariRequestLines" />
+  </message>
+  <message name="deleteSafariRequestLines_Result">
+    <part name="parameters" element="tns:deleteSafariRequestLines_Result" />
   </message>
   <message name="deleteImprestApplicationLines">
     <part name="parameters" element="tns:deleteImprestApplicationLines" />
@@ -1190,6 +1332,18 @@
   <message name="updateSupervisorOverallComments_Result">
     <part name="parameters" element="tns:updateSupervisorOverallComments_Result" />
   </message>
+  <message name="updateOverallComments">
+    <part name="parameters" element="tns:updateOverallComments" />
+  </message>
+  <message name="updateOverallComments_Result">
+    <part name="parameters" element="tns:updateOverallComments_Result" />
+  </message>
+  <message name="updateSupervisorOverallComments">
+    <part name="parameters" element="tns:updateSupervisorOverallComments" />
+  </message>
+  <message name="updateSupervisorOverallComments_Result">
+    <part name="parameters" element="tns:updateSupervisorOverallComments_Result" />
+  </message>
   <portType name="NewHrPortal_Port">
     <operation name="CreateSalesOrder">
       <input name="CreateSalesOrder" message="tns:CreateSalesOrder" />
@@ -1283,9 +1437,17 @@
       <input name="createeyBehaviourLines" message="tns:createeyBehaviourLines" />
       <output name="createeyBehaviourLines_Result" message="tns:createeyBehaviourLines_Result" />
     </operation>
+    <operation name="createeyBehaviourLines">
+      <input name="createeyBehaviourLines" message="tns:createeyBehaviourLines" />
+      <output name="createeyBehaviourLines_Result" message="tns:createeyBehaviourLines_Result" />
+    </operation>
     <operation name="createeyKPILines">
       <input name="createeyKPILines" message="tns:createeyKPILines" />
       <output name="createeyKPILines_Result" message="tns:createeyKPILines_Result" />
+    </operation>
+    <operation name="createeyLineManagerBehaviourLines">
+      <input name="createeyLineManagerBehaviourLines" message="tns:createeyLineManagerBehaviourLines" />
+      <output name="createeyLineManagerBehaviourLines_Result" message="tns:createeyLineManagerBehaviourLines_Result" />
     </operation>
     <operation name="createeyLineManagerBehaviourLines">
       <input name="createeyLineManagerBehaviourLines" message="tns:createeyLineManagerBehaviourLines" />
@@ -1302,6 +1464,18 @@
     <operation name="createmyLineManagerBehaviourLines">
       <input name="createmyLineManagerBehaviourLines" message="tns:createmyLineManagerBehaviourLines" />
       <output name="createmyLineManagerBehaviourLines_Result" message="tns:createmyLineManagerBehaviourLines_Result" />
+    </operation>
+    <operation name="deleteImprestApplicationLines">
+      <input name="deleteImprestApplicationLines" message="tns:deleteImprestApplicationLines" />
+      <output name="deleteImprestApplicationLines_Result" message="tns:deleteImprestApplicationLines_Result" />
+    </operation>
+    <operation name="deleteLeaveApplicationLines">
+      <input name="deleteLeaveApplicationLines" message="tns:deleteLeaveApplicationLines" />
+      <output name="deleteLeaveApplicationLines_Result" message="tns:deleteLeaveApplicationLines_Result" />
+    </operation>
+    <operation name="deleteSafariRequestLines">
+      <input name="deleteSafariRequestLines" message="tns:deleteSafariRequestLines" />
+      <output name="deleteSafariRequestLines_Result" message="tns:deleteSafariRequestLines_Result" />
     </operation>
     <operation name="deleteImprestApplicationLines">
       <input name="deleteImprestApplicationLines" message="tns:deleteImprestApplicationLines" />
@@ -1394,6 +1568,14 @@
     <operation name="sendToAppraiseeForAgreement">
       <input name="sendToAppraiseeForAgreement" message="tns:sendToAppraiseeForAgreement" />
       <output name="sendToAppraiseeForAgreement_Result" message="tns:sendToAppraiseeForAgreement_Result" />
+    </operation>
+    <operation name="updateOverallComments">
+      <input name="updateOverallComments" message="tns:updateOverallComments" />
+      <output name="updateOverallComments_Result" message="tns:updateOverallComments_Result" />
+    </operation>
+    <operation name="updateSupervisorOverallComments">
+      <input name="updateSupervisorOverallComments" message="tns:updateSupervisorOverallComments" />
+      <output name="updateSupervisorOverallComments_Result" message="tns:updateSupervisorOverallComments_Result" />
     </operation>
     <operation name="updateOverallComments">
       <input name="updateOverallComments" message="tns:updateOverallComments" />
@@ -1613,12 +1795,30 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="createeyBehaviourLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createeyBehaviourLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createeyBehaviourLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createeyBehaviourLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="createeyKPILines">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createeyKPILines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="createeyKPILines">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="createeyKPILines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createeyLineManagerBehaviourLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createeyLineManagerBehaviourLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createeyLineManagerBehaviourLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createeyLineManagerBehaviourLines_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1655,6 +1855,33 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="createmyLineManagerBehaviourLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="deleteImprestApplicationLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteImprestApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="deleteImprestApplicationLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="deleteImprestApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="deleteLeaveApplicationLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteLeaveApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="deleteLeaveApplicationLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="deleteLeaveApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="deleteSafariRequestLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteSafariRequestLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="deleteSafariRequestLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="deleteSafariRequestLines_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1862,6 +2089,24 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="sendToAppraiseeForAgreement_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="updateOverallComments">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:updateOverallComments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="updateOverallComments">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="updateOverallComments_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="updateSupervisorOverallComments">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:updateSupervisorOverallComments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="updateSupervisorOverallComments">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="updateSupervisorOverallComments_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

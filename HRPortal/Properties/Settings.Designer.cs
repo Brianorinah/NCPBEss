@@ -8,57 +8,69 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HRPortal.Properties {
-    
-    
+namespace HRPortal.Properties
+{
+
+
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
+    {
+
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-        
-        public static Settings Default {
-            get {
+
+        public static Settings Default
+        {
+            get
+            {
                 return defaultInstance;
             }
         }
-        
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://41.89.47.15:7047/CUELIVE/WS/SREQ/Codeunit/NavXtender")]
-        public string HRPortal_NavExtender_NavXtender {
-            get {
+        public string HRPortal_NavExtender_NavXtender
+        {
+            get
+            {
                 return ((string)(this["HRPortal_NavExtender_NavXtender"]));
             }
         }
-        
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.1.187:5012/KERRAREGION/WS/KURA/Codeunit/HRPortal")]
-        public string HRPortal_HRPortal_HRPortal {
-            get {
+        public string HRPortal_HRPortal_HRPortal
+        {
+            get
+            {
                 return ((string)(this["HRPortal_HRPortal_HRPortal"]));
             }
         }
-        
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal")]
-        public string HRPortal_NewHrPortal_NewHrPortal {
-            get {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/essQueries")]
+        public string HRPortal_essQueries_essQueries
+        {
+            get
+            {
                 return ((string)(this["HRPortal_NewHrPortal_NewHrPortal"]));
             }
         }
-        
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries")]
-        public string HRPortal_essQueries_essQueries {
-            get {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal")]
+        public string HRPortal_NewHrPortal_NewHrPortal
+        {
+            get
+            {
                 return ((string)(this["HRPortal_essQueries_essQueries"]));
             }
         }

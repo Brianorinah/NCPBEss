@@ -327,5 +327,24 @@ namespace HRPortal
 
             }
         }
+        protected void deleteLine(object sender, EventArgs e)
+        {
+            try
+            {
+                String linNo = lineNo.Text.Trim(); 
+                String leavNo = leaveNo.Text.Trim();
+                int linNos = Convert.ToInt32(linNo);
+                String status = Config.ObjNav2.deleteLeaveApplicationLines(leavNo, linNos);
+                String[] info = status.Split('*');
+                documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+
+
+
+            }
+            catch (Exception ed)
+            {
+                documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+        }
     }
 }

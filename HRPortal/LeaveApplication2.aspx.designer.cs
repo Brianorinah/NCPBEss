@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HRPortal
-{
-
-
-    public partial class LeaveApplication2
-    {
-
+namespace HRPortal {
+    
+    
+    public partial class LeaveApplication2 {
+        
         /// <summary>
         /// generalFeedback control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl generalFeedback;
-
+        
         /// <summary>
         /// reliever control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList reliever;
-
+        
         /// <summary>
         /// contactAddress control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox contactAddress;
-
+        
         /// <summary>
         /// description control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox description;
-
+        
         /// <summary>
         /// apply control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button apply;
-
+        
         /// <summary>
         /// linesFeedback control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl linesFeedback;
-
+        
         /// <summary>
         /// leaveType control.
         /// </summary>
@@ -76,7 +74,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList leaveType;
-
+        
         /// <summary>
         /// leaveBalance control.
         /// </summary>
@@ -85,7 +83,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox leaveBalance;
-
+        
         /// <summary>
         /// startDate control.
         /// </summary>
@@ -94,7 +92,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox startDate;
-
+        
         /// <summary>
         /// daysapplied control.
         /// </summary>
@@ -103,7 +101,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox daysapplied;
-
+        
         /// <summary>
         /// addItem control.
         /// </summary>
@@ -112,7 +110,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button addItem;
-
+        
         /// <summary>
         /// previous control.
         /// </summary>
@@ -121,7 +119,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button previous;
-
+        
         /// <summary>
         /// documentsfeedback control.
         /// </summary>
@@ -130,7 +128,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl documentsfeedback;
-
+        
         /// <summary>
         /// document control.
         /// </summary>
@@ -139,7 +137,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload document;
-
+        
         /// <summary>
         /// uploadDocument control.
         /// </summary>
@@ -148,7 +146,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button uploadDocument;
-
+        
         /// <summary>
         /// sendApproval control.
         /// </summary>
@@ -157,7 +155,7 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button sendApproval;
-
+        
         /// <summary>
         /// fileName control.
         /// </summary>
@@ -166,5 +164,23 @@ namespace HRPortal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox fileName;
+        
+        /// <summary>
+        /// lineNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lineNo;
+        
+        /// <summary>
+        /// leaveNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox leaveNo;
     }
 }

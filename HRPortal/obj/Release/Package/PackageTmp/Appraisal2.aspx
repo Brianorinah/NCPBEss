@@ -259,6 +259,8 @@
             <%
                     }//End Goal settings
                     else if (arr1[11] == "Closed")
+                    }//End Goal settings
+                    else if (arr1[11] == "Closed")
                     {
                                 %>
                          <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" onClick="previous_Click"/>
@@ -266,11 +268,22 @@
             <%
                     }// MY Supervisor level
                     else if(arr1[15] == "Supervisor Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
+                    else if(arr1[15] == "Supervisor Level" && arr1[12] == "No" && arr1[13] == "No" && arr1[14] == "No")
                     {
                         %>
                         <%-- <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" />
                          <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Next"  OnClick="competence_Click" /><div class="clearfix"></div>--%>
+                        <%-- <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" />
+                         <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Next"  OnClick="competence_Click" /><div class="clearfix"></div>--%>
             <%
+                    }//MY Overview levl
+                    else if(arr1[11] == "Closed")
+                    {
+                        %>
+                        <%-- <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" />
+                         <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Next"  OnClick="competence_Click" /><div class="clearfix"></div>--%>
+                            <%
+                    } //
                     }//MY Overview levl
                     else if(arr1[11] == "Closed")
                     {

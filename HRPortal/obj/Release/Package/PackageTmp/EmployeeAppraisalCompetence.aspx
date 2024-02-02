@@ -246,6 +246,7 @@
                     <div class="form-group">
                         <strong>Mid Year Supervisor Comment</strong>
                         <asp:TextBox runat="server" CssClass="form-control" id="mysupervisorcomment"></asp:TextBox>
+                        <asp:TextBox runat="server" CssClass="form-control" id="mysupervisorcomment"></asp:TextBox>
                     </div>
                 </div>
                 <div class="modal-footer">

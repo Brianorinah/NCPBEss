@@ -5493,7 +5493,8 @@
     <Content Include="StaffClaimsApproverEntry.aspx" />
     <Content Include="StaffCreditSales.aspx" />
     <Content Include="StaffCreditSalesApproved.aspx" />
-    <Content Include="StaffCreditSales2.aspx" />
+    <Content Include="StaffCreditSalesNew.aspx" />
+    <Content Include="StaffCreditSalesNewEdit.aspx" />
     <Content Include="StaffCreditSalesPending.aspx" />
     <Content Include="StandingImprest.aspx" />
     <Content Include="StandingImprestApproverEntries.aspx" />
@@ -7036,12 +7037,19 @@
     <Compile Include="StaffCreditSalesApproved.aspx.designer.cs">
       <DependentUpon>StaffCreditSalesApproved.aspx</DependentUpon>
     </Compile>
-    <Compile Include="StaffCreditSales2.aspx.cs">
-      <DependentUpon>StaffCreditSales2.aspx</DependentUpon>
+    <Compile Include="StaffCreditSalesNew.aspx.cs">
+      <DependentUpon>StaffCreditSalesNew.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="StaffCreditSales2.aspx.designer.cs">
-      <DependentUpon>StaffCreditSales2.aspx</DependentUpon>
+    <Compile Include="StaffCreditSalesNew.aspx.designer.cs">
+      <DependentUpon>StaffCreditSalesNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffCreditSalesNewEdit.aspx.cs">
+      <DependentUpon>StaffCreditSalesNewEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffCreditSalesNewEdit.aspx.designer.cs">
+      <DependentUpon>StaffCreditSalesNewEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="StaffCreditSalesPending.aspx.cs">
       <DependentUpon>StaffCreditSalesPending.aspx</DependentUpon>
@@ -7243,28 +7251,6 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>HRPortal_HRPortal_HRPortal</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\essQueries\</RelPath>
-      <UpdateFromURL>http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>HRPortal_essQueries_essQueries</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\NewHrPortal\</RelPath>
-      <UpdateFromURL>http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>HRPortal_NewHrPortal_NewHrPortal</CachedSettingsPropName>
-    </WebReferenceUrl>
     <WebReferenceUrl Include="http://41.89.47.15:7047/CUELIVE/WS/Data%2520Collection/Codeunit/NavXtender">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\NavExtender\</RelPath>
@@ -7275,6 +7261,28 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>HRPortal_NavExtender_NavXtender</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/essQueries">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\essQueries\</RelPath>
+      <UpdateFromURL>http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/essQueries</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HRPortal_essQueries_essQueries</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NewHrPortal\</RelPath>
+      <UpdateFromURL>http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HRPortal_NewHrPortal_NewHrPortal</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>

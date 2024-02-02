@@ -29,6 +29,7 @@
                     <th>Subject</th>
                      <th>Amount</th>
                     <th>Status</th>
+                    
                 </tr>
                 </thead>
                 <tbody>
@@ -56,6 +57,7 @@
                                     <td><%=oneItem[2]  %> </td>
                                     <td><%=oneItem[3]  %> </td>
                                     <td><%=oneItem[4]  %> </td>
+                                    
                                     
                                 </tr>
                                                         
@@ -91,4 +93,5 @@
             </table>
         </div>
     </div>
+     
 </asp:Content>

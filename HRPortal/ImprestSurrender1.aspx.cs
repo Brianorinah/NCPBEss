@@ -46,8 +46,7 @@ namespace HRPortal
                                 foreach (var allinfo in info)
                                 {
                                     String[] arr = allinfo.Split('*');
-
-                                    payingbudgetcenter.SelectedValue = arr[7];
+                                    payingbudgetcenters.Text = arr[7];
                                     requestdate.Text = arr[8];
                                     traveldate.Text = arr[9];
                                     purpose.Text = arr[1];
@@ -59,27 +58,27 @@ namespace HRPortal
                         }
 
                     }
-                    var jobs = Config.ObjNav1.fnGetDimension(2);
-                    List<ItemList> itms = new List<ItemList>();
-                    string[] infoz = jobs.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
-                    if (infoz.Count() > 0)
-                    {
-                        foreach (var allInfo in infoz)
-                        {
-                            String[] arr = allInfo.Split('*');
+                    //var jobs = Config.ObjNav1.fnGetDimension(2);
+                    //List<ItemList> itms = new List<ItemList>();
+                    //string[] infoz = jobs.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                    //if (infoz.Count() > 0)
+                    //{
+                    //    foreach (var allInfo in infoz)
+                    //    {
+                    //        String[] arr = allInfo.Split('*');
 
-                            ItemList mdl = new ItemList();
-                            mdl.code = arr[0];
-                            mdl.description = arr[0] + "-" + arr[1];
-                            itms.Add(mdl);
-                        }
-                    }
+                    //        ItemList mdl = new ItemList();
+                    //        mdl.code = arr[0];
+                    //        mdl.description = arr[0] + "-" + arr[1];
+                    //        itms.Add(mdl);
+                    //    }
+                    //}
 
-                    payingbudgetcenter.DataSource = itms;
-                    payingbudgetcenter.DataTextField = "description";
-                    payingbudgetcenter.DataValueField = "code";
-                    payingbudgetcenter.DataBind();
-                    payingbudgetcenter.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+                    //payingbudgetcenter.DataSource = itms;
+                    //payingbudgetcenter.DataTextField = "description";
+                    //payingbudgetcenter.DataValueField = "code";
+                    //payingbudgetcenter.DataBind();
+                    //payingbudgetcenter.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
                 }
                 if (step == 2)
                 {
@@ -191,7 +190,7 @@ namespace HRPortal
             try
             {
                 String employeeNo = Convert.ToString(Session["employeeNo"]);
-                String tpayingbudgetcenter = payingbudgetcenter.SelectedValue.Trim();
+                String tpayingbudgetcenter = payingbudgetcenters.Text.Trim();
                 DateTime trequestdate = Convert.ToDateTime(requestdate.Text.Trim());
                 DateTime ttraveldate = Convert.ToDateTime(traveldate.Text.Trim());
                 String tpurpose = purpose.Text.Trim();

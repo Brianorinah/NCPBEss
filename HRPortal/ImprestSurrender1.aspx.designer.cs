@@ -22,13 +22,13 @@ namespace HRPortal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl generalFeedback;
         
         /// <summary>
-        /// payingbudgetcenter control.
+        /// payingbudgetcenters control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList payingbudgetcenter;
+        protected global::System.Web.UI.WebControls.TextBox payingbudgetcenters;
         
         /// <summary>
         /// traveldate control.

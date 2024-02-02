@@ -35,9 +35,13 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback changePasswordOperationCompleted;
         
+        private System.Threading.SendOrPostCallback copySafariLines_1044271612OperationCompleted;
+        
         private System.Threading.SendOrPostCallback copySafariLinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback createImprestApplicationLinesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback createImprestRequestOperationCompleted;
         
         private System.Threading.SendOrPostCallback createImprestOperationCompleted;
         
@@ -50,6 +54,8 @@ namespace HRPortal.NewHrPortal {
         private System.Threading.SendOrPostCallback createLineManagerEyKPILinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback createLineManagerMyKPILinesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback createNewKPILinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback createSafariRequestEntitlementsOperationCompleted;
         
@@ -79,13 +85,19 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback createmyLineManagerBehaviourLinesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback deleteImprestApplicationLinesOperationCompleted;
+        
         private System.Threading.SendOrPostCallback deleteLeaveApplicationLinesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback deleteSafariRequestLinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback deleteStaffCreditSalesLinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback editImprestApplicationLinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback editLeaveApplicationLinesOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback editSafariRequestLinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback editStaffCreditSalesLinesOperationCompleted;
         
@@ -171,10 +183,16 @@ namespace HRPortal.NewHrPortal {
         public event changePasswordCompletedEventHandler changePasswordCompleted;
         
         /// <remarks/>
+        public event copySafariLines_1044271612CompletedEventHandler copySafariLines_1044271612Completed;
+        
+        /// <remarks/>
         public event copySafariLinesCompletedEventHandler copySafariLinesCompleted;
         
         /// <remarks/>
         public event createImprestApplicationLinesCompletedEventHandler createImprestApplicationLinesCompleted;
+        
+        /// <remarks/>
+        public event createImprestRequestCompletedEventHandler createImprestRequestCompleted;
         
         /// <remarks/>
         public event createImprestCompletedEventHandler createImprestCompleted;
@@ -193,6 +211,9 @@ namespace HRPortal.NewHrPortal {
         
         /// <remarks/>
         public event createLineManagerMyKPILinesCompletedEventHandler createLineManagerMyKPILinesCompleted;
+        
+        /// <remarks/>
+        public event createNewKPILinesCompletedEventHandler createNewKPILinesCompleted;
         
         /// <remarks/>
         public event createSafariRequestEntitlementsCompletedEventHandler createSafariRequestEntitlementsCompleted;
@@ -237,7 +258,13 @@ namespace HRPortal.NewHrPortal {
         public event createmyLineManagerBehaviourLinesCompletedEventHandler createmyLineManagerBehaviourLinesCompleted;
         
         /// <remarks/>
+        public event deleteImprestApplicationLinesCompletedEventHandler deleteImprestApplicationLinesCompleted;
+        
+        /// <remarks/>
         public event deleteLeaveApplicationLinesCompletedEventHandler deleteLeaveApplicationLinesCompleted;
+        
+        /// <remarks/>
+        public event deleteSafariRequestLinesCompletedEventHandler deleteSafariRequestLinesCompleted;
         
         /// <remarks/>
         public event deleteStaffCreditSalesLinesCompletedEventHandler deleteStaffCreditSalesLinesCompleted;
@@ -247,6 +274,9 @@ namespace HRPortal.NewHrPortal {
         
         /// <remarks/>
         public event editLeaveApplicationLinesCompletedEventHandler editLeaveApplicationLinesCompleted;
+        
+        /// <remarks/>
+        public event editSafariRequestLinesCompletedEventHandler editSafariRequestLinesCompleted;
         
         /// <remarks/>
         public event editStaffCreditSalesLinesCompletedEventHandler editStaffCreditSalesLinesCompleted;
@@ -399,6 +429,38 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:copySafariLines_1044271612", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="copySafariLines_1044271612_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string copySafariLines_1044271612(string safariNo, string claimNo) {
+            object[] results = this.Invoke("copySafariLines_1044271612", new object[] {
+                        safariNo,
+                        claimNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void copySafariLines_1044271612Async(string safariNo, string claimNo) {
+            this.copySafariLines_1044271612Async(safariNo, claimNo, null);
+        }
+        
+        /// <remarks/>
+        public void copySafariLines_1044271612Async(string safariNo, string claimNo, object userState) {
+            if ((this.copySafariLines_1044271612OperationCompleted == null)) {
+                this.copySafariLines_1044271612OperationCompleted = new System.Threading.SendOrPostCallback(this.OncopySafariLines_1044271612OperationCompleted);
+            }
+            this.InvokeAsync("copySafariLines_1044271612", new object[] {
+                        safariNo,
+                        claimNo}, this.copySafariLines_1044271612OperationCompleted, userState);
+        }
+        
+        private void OncopySafariLines_1044271612OperationCompleted(object arg) {
+            if ((this.copySafariLines_1044271612Completed != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.copySafariLines_1044271612Completed(this, new copySafariLines_1044271612CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:copySafariLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="copySafariLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string copySafariLines(string claimNo) {
@@ -462,6 +524,36 @@ namespace HRPortal.NewHrPortal {
             if ((this.createImprestApplicationLinesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.createImprestApplicationLinesCompleted(this, new createImprestApplicationLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createImprestRequest", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createImprestRequest_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string createImprestRequest(string safariNo) {
+            object[] results = this.Invoke("createImprestRequest", new object[] {
+                        safariNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void createImprestRequestAsync(string safariNo) {
+            this.createImprestRequestAsync(safariNo, null);
+        }
+        
+        /// <remarks/>
+        public void createImprestRequestAsync(string safariNo, object userState) {
+            if ((this.createImprestRequestOperationCompleted == null)) {
+                this.createImprestRequestOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateImprestRequestOperationCompleted);
+            }
+            this.InvokeAsync("createImprestRequest", new object[] {
+                        safariNo}, this.createImprestRequestOperationCompleted, userState);
+        }
+        
+        private void OncreateImprestRequestOperationCompleted(object arg) {
+            if ((this.createImprestRequestCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.createImprestRequestCompleted(this, new createImprestRequestCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -694,6 +786,46 @@ namespace HRPortal.NewHrPortal {
             if ((this.createLineManagerMyKPILinesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.createLineManagerMyKPILinesCompleted(this, new createLineManagerMyKPILinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createNewKPILines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createNewKPILines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string createNewKPILines(string applicationNo, int kraLineNo, string iniative, string kpi, string target, decimal weight) {
+            object[] results = this.Invoke("createNewKPILines", new object[] {
+                        applicationNo,
+                        kraLineNo,
+                        iniative,
+                        kpi,
+                        target,
+                        weight});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void createNewKPILinesAsync(string applicationNo, int kraLineNo, string iniative, string kpi, string target, decimal weight) {
+            this.createNewKPILinesAsync(applicationNo, kraLineNo, iniative, kpi, target, weight, null);
+        }
+        
+        /// <remarks/>
+        public void createNewKPILinesAsync(string applicationNo, int kraLineNo, string iniative, string kpi, string target, decimal weight, object userState) {
+            if ((this.createNewKPILinesOperationCompleted == null)) {
+                this.createNewKPILinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateNewKPILinesOperationCompleted);
+            }
+            this.InvokeAsync("createNewKPILines", new object[] {
+                        applicationNo,
+                        kraLineNo,
+                        iniative,
+                        kpi,
+                        target,
+                        weight}, this.createNewKPILinesOperationCompleted, userState);
+        }
+        
+        private void OncreateNewKPILinesOperationCompleted(object arg) {
+            if ((this.createNewKPILinesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.createNewKPILinesCompleted(this, new createNewKPILinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1241,34 +1373,99 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteLeaveApplicationLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="deleteLeaveApplicationLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteImprestApplicationLines" +
+            "", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="deleteImprestApplicationLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string deleteLeaveApplicationLines(string applicationNo, decimal daysApplied) {
-            object[] results = this.Invoke("deleteLeaveApplicationLines", new object[] {
-                        applicationNo,
-                        daysApplied});
+        public string deleteImprestApplicationLines(string documentNo, int lineNo) {
+            object[] results = this.Invoke("deleteImprestApplicationLines", new object[] {
+                        documentNo,
+                        lineNo});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void deleteLeaveApplicationLinesAsync(string applicationNo, decimal daysApplied) {
-            this.deleteLeaveApplicationLinesAsync(applicationNo, daysApplied, null);
+        public void deleteImprestApplicationLinesAsync(string documentNo, int lineNo) {
+            this.deleteImprestApplicationLinesAsync(documentNo, lineNo, null);
         }
         
         /// <remarks/>
-        public void deleteLeaveApplicationLinesAsync(string applicationNo, decimal daysApplied, object userState) {
+        public void deleteImprestApplicationLinesAsync(string documentNo, int lineNo, object userState) {
+            if ((this.deleteImprestApplicationLinesOperationCompleted == null)) {
+                this.deleteImprestApplicationLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OndeleteImprestApplicationLinesOperationCompleted);
+            }
+            this.InvokeAsync("deleteImprestApplicationLines", new object[] {
+                        documentNo,
+                        lineNo}, this.deleteImprestApplicationLinesOperationCompleted, userState);
+        }
+        
+        private void OndeleteImprestApplicationLinesOperationCompleted(object arg) {
+            if ((this.deleteImprestApplicationLinesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.deleteImprestApplicationLinesCompleted(this, new deleteImprestApplicationLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteLeaveApplicationLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="deleteLeaveApplicationLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string deleteLeaveApplicationLines(string applicationNo, int lineNo) {
+            object[] results = this.Invoke("deleteLeaveApplicationLines", new object[] {
+                        applicationNo,
+                        lineNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void deleteLeaveApplicationLinesAsync(string applicationNo, int lineNo) {
+            this.deleteLeaveApplicationLinesAsync(applicationNo, lineNo, null);
+        }
+        
+        /// <remarks/>
+        public void deleteLeaveApplicationLinesAsync(string applicationNo, int lineNo, object userState) {
             if ((this.deleteLeaveApplicationLinesOperationCompleted == null)) {
                 this.deleteLeaveApplicationLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OndeleteLeaveApplicationLinesOperationCompleted);
             }
             this.InvokeAsync("deleteLeaveApplicationLines", new object[] {
                         applicationNo,
-                        daysApplied}, this.deleteLeaveApplicationLinesOperationCompleted, userState);
+                        lineNo}, this.deleteLeaveApplicationLinesOperationCompleted, userState);
         }
         
         private void OndeleteLeaveApplicationLinesOperationCompleted(object arg) {
             if ((this.deleteLeaveApplicationLinesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.deleteLeaveApplicationLinesCompleted(this, new deleteLeaveApplicationLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteSafariRequestLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="deleteSafariRequestLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string deleteSafariRequestLines(string documentNo, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime expenseDate) {
+            object[] results = this.Invoke("deleteSafariRequestLines", new object[] {
+                        documentNo,
+                        expenseDate});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void deleteSafariRequestLinesAsync(string documentNo, System.DateTime expenseDate) {
+            this.deleteSafariRequestLinesAsync(documentNo, expenseDate, null);
+        }
+        
+        /// <remarks/>
+        public void deleteSafariRequestLinesAsync(string documentNo, System.DateTime expenseDate, object userState) {
+            if ((this.deleteSafariRequestLinesOperationCompleted == null)) {
+                this.deleteSafariRequestLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OndeleteSafariRequestLinesOperationCompleted);
+            }
+            this.InvokeAsync("deleteSafariRequestLines", new object[] {
+                        documentNo,
+                        expenseDate}, this.deleteSafariRequestLinesOperationCompleted, userState);
+        }
+        
+        private void OndeleteSafariRequestLinesOperationCompleted(object arg) {
+            if ((this.deleteSafariRequestLinesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.deleteSafariRequestLinesCompleted(this, new deleteSafariRequestLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1377,6 +1574,44 @@ namespace HRPortal.NewHrPortal {
             if ((this.editLeaveApplicationLinesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.editLeaveApplicationLinesCompleted(this, new editLeaveApplicationLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:editSafariRequestLines", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="editSafariRequestLines_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string editSafariRequestLines(string applicationNo, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime expseDate, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime returnDate, string travelFrom, string travelTo) {
+            object[] results = this.Invoke("editSafariRequestLines", new object[] {
+                        applicationNo,
+                        expseDate,
+                        returnDate,
+                        travelFrom,
+                        travelTo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void editSafariRequestLinesAsync(string applicationNo, System.DateTime expseDate, System.DateTime returnDate, string travelFrom, string travelTo) {
+            this.editSafariRequestLinesAsync(applicationNo, expseDate, returnDate, travelFrom, travelTo, null);
+        }
+        
+        /// <remarks/>
+        public void editSafariRequestLinesAsync(string applicationNo, System.DateTime expseDate, System.DateTime returnDate, string travelFrom, string travelTo, object userState) {
+            if ((this.editSafariRequestLinesOperationCompleted == null)) {
+                this.editSafariRequestLinesOperationCompleted = new System.Threading.SendOrPostCallback(this.OneditSafariRequestLinesOperationCompleted);
+            }
+            this.InvokeAsync("editSafariRequestLines", new object[] {
+                        applicationNo,
+                        expseDate,
+                        returnDate,
+                        travelFrom,
+                        travelTo}, this.editSafariRequestLinesOperationCompleted, userState);
+        }
+        
+        private void OneditSafariRequestLinesOperationCompleted(object arg) {
+            if ((this.editSafariRequestLinesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.editSafariRequestLinesCompleted(this, new editSafariRequestLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2052,6 +2287,32 @@ namespace HRPortal.NewHrPortal {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void copySafariLines_1044271612CompletedEventHandler(object sender, copySafariLines_1044271612CompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class copySafariLines_1044271612CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal copySafariLines_1044271612CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void copySafariLinesCompletedEventHandler(object sender, copySafariLinesCompletedEventArgs e);
     
     /// <remarks/>
@@ -2089,6 +2350,32 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal createImprestApplicationLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void createImprestRequestCompletedEventHandler(object sender, createImprestRequestCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class createImprestRequestCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal createImprestRequestCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2245,6 +2532,32 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal createLineManagerMyKPILinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void createNewKPILinesCompletedEventHandler(object sender, createNewKPILinesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class createNewKPILinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal createNewKPILinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2624,6 +2937,32 @@ namespace HRPortal.NewHrPortal {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void deleteImprestApplicationLinesCompletedEventHandler(object sender, deleteImprestApplicationLinesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class deleteImprestApplicationLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal deleteImprestApplicationLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
     public delegate void deleteLeaveApplicationLinesCompletedEventHandler(object sender, deleteLeaveApplicationLinesCompletedEventArgs e);
     
     /// <remarks/>
@@ -2635,6 +2974,32 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal deleteLeaveApplicationLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void deleteSafariRequestLinesCompletedEventHandler(object sender, deleteSafariRequestLinesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class deleteSafariRequestLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal deleteSafariRequestLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2713,6 +3078,32 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal editLeaveApplicationLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void editSafariRequestLinesCompletedEventHandler(object sender, editSafariRequestLinesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class editSafariRequestLinesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal editSafariRequestLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

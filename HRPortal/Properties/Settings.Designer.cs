@@ -46,20 +46,20 @@ namespace HRPortal.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/essQueries")]
-        public string HRPortal_essQueries_essQueries {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal")]
+        public string HRPortal_NewHrPortal_NewHrPortal {
             get {
-                return ((string)(this["HRPortal_essQueries_essQueries"]));
+                return ((string)(this["HRPortal_NewHrPortal_NewHrPortal"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/NewHrPortal")]
-        public string HRPortal_NewHrPortal_NewHrPortal {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries")]
+        public string HRPortal_essQueries_essQueries {
             get {
-                return ((string)(this["HRPortal_NewHrPortal_NewHrPortal"]));
+                return ((string)(this["HRPortal_essQueries_essQueries"]));
             }
         }
     }

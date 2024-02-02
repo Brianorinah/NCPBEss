@@ -14,6 +14,26 @@
             <div runat="server" id="feedback"></div>
            <%-- <label class="btn btn-warning pull-left">Expected KPIs:</label>
             <label class="btn btn-danger pull-right">Current Inserted KPIs:</label>--%>
+        <%--    <%
+                String appraisalNo2 = Request.QueryString["applicationNo"];
+                Int32 KRALineNo2 = Convert.ToInt32(Request.QueryString["KRALineNo"]);
+
+                String job2 = Config.ObjNav1.fnGetEmployeeAppraisalKPIs(appraisalNo2, KRALineNo2);
+
+                String[] allInfo2 = job2.Split(new String[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                if (allInfo2 != null)
+                {
+                    foreach(var oneItem in allInfo2)
+                    {
+                        String[] arr2 = oneItem.Split('*');
+                        %>
+            <label class="btn btn-success" onclick="newKPIs();"><i class="fa fa-edit"></i>New1</label>
+            <%
+                    }
+                }
+
+                 %>--%>
+             <label class="btn btn-success" onclick="newKPIs();"><i class="fa fa-edit"></i>New</label>
             <hr />
             <div class="table-responsive">
                 <table class="table table-bordered table-striped" id="example4">
@@ -181,10 +201,6 @@
                 </div>
                 <div class="modal-body">
                     <asp:TextBox runat="server" ID="lineno" hidden></asp:TextBox>
-                   <%-- <div class="form-group">
-                        <strong>KPA</strong>
-                        <asp:TextBox runat="server" CssClass="form-control" id="kpa" ReadOnly></asp:TextBox>
-                    </div>--%>
                     <div class="form-group">
                         <strong>Iniative</strong>
                         <asp:TextBox runat="server" CssClass="form-control" id="iniative"></asp:TextBox>
@@ -201,30 +217,6 @@
                         <strong>Weight</strong>
                         <asp:TextBox runat="server" CssClass="form-control" id="weight"></asp:TextBox>
                     </div>
-                    <%-- <div class="form-group">
-                        <strong>Mid Year Appraisee Assesment1</strong>
-                        <asp:TextBox runat="server" CssClass="form-control" id="myappraiseeassesment"></asp:TextBox>
-                    </div>
-                    <div class="form-group">
-                        <strong>Mid Year Appraisee Comments</strong>
-                        <asp:TextBox runat="server" CssClass="form-control" id="myappraiseecomments"></asp:TextBox>
-                    </div>
-                    <div class="form-group">
-                        <strong>Appraisee Self Rating</strong>
-                        <asp:TextBox runat="server" CssClass="form-control" id="appraiseeselfrating"></asp:TextBox>
-                    </div>
-                    <div class="form-group">
-                        <strong>Employee Comments</strong>
-                        <asp:TextBox runat="server" CssClass="form-control" id="employeecomments"></asp:TextBox>
-                    </div>
-                    <div class="form-group">
-                        <strong>Mid Year Disagreement</strong>
-                        <asp:CheckBox ID="mydisagreement" runat="server" />
-                    </div>
-                    <div class="form-group">
-                       <strong>Mid Year Disagreement Comment</strong>
-                       <asp:TextBox runat="server" CssClass="form-control" id="mydisagreementcomment"></asp:TextBox>
-                    </div>--%>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -403,6 +395,57 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     <asp:Button runat="server" CssClass="btn btn-success" ID="Button4"  Text="Save" OnClientClick="this"  OnClick="eyupdateKPIsLineLineManager_Click"/>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+     <script>
+         function newKPIs() {
+            //document.getElementById("ContentPlaceHolder1_lineno9").value = lineNo;
+            //document.getElementById("ContentPlaceHolder1_kpa").value = kpa;
+            //document.getElementById("ContentPlaceHolder1_objective").value = objective;
+            $("#newKPIsModal").modal();
+        }
+    </script>
+        <div id="newKPIsModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div runat="server" id="Div5"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <h4 class="modal-title">Insert New KPI</h4>
+                </div>
+                <div class="modal-body">
+                  <%--  <asp:TextBox runat="server" ID="lineno9" hidden></asp:TextBox>
+                    <div class="form-group">
+                        <strong>KPA</strong>
+                        <asp:TextBox runat="server" CssClass="form-control" id="kpa"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <strong>Objective</strong>
+                        <asp:TextBox runat="server" CssClass="form-control" id="objective"></asp:TextBox>
+                    </div>--%>
+                    <div class="form-group">
+                        <strong>Iniative</strong>
+                        <asp:TextBox runat="server" CssClass="form-control" id="iniative1"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <strong>KPI</strong>
+                        <asp:TextBox runat="server" CssClass="form-control" id="kpi1"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <strong>Target</strong>
+                        <asp:TextBox runat="server" CssClass="form-control" id="target1"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <strong>Weight</strong>
+                        <asp:TextBox runat="server" CssClass="form-control" id="weight1"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <asp:Button runat="server" CssClass="btn btn-success" ID="Button5"  Text="Save" OnClientClick="this" OnClick="newKPIsLine_Click"/>
                 </div>
             </div>
         </div>

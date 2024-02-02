@@ -8,11 +8,11 @@
     <Setting Name="HRPortal_HRPortal_HRPortal" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://192.168.1.187:5012/KERRAREGION/WS/KURA/Codeunit/HRPortal</Value>
     </Setting>
-    <Setting Name="HRPortal_essQueries_essQueries" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/essQueries</Value>
-    </Setting>
     <Setting Name="HRPortal_NewHrPortal_NewHrPortal" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://192.168.0.29:7047/BC220/WS/NCPB/Codeunit/NewHrPortal</Value>
+      <Value Profile="(Default)">http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal</Value>
+    </Setting>
+    <Setting Name="HRPortal_essQueries_essQueries" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries</Value>
     </Setting>
   </Settings>
 </SettingsFile>

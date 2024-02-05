@@ -25,35 +25,35 @@ namespace HRPortal
                 {
                     foreach (var allin in inf)
                     {
-                        string[] arr10 = allin.Split('*');
+                        string[] arr10 =allin.Split('*');
                         string regionCode = arr10[0];
                         string budgetCode = arr10[1];
                         region.Text = arr10[0];
                         budget.Text = arr10[1];
+                
+                var depot = Config.ObjNav1.fnGetDepotInfo(regionCode,budgetCode);
+                List<ItemList> lctz = new List<ItemList>();
+                string[] infz = depot.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                if (infz.Count() > 0)
+                {
+                    foreach (var allinfo in infz)
+                    {
+                        string[] arr = allinfo.Split('*');
 
-                        var depot = Config.ObjNav1.fnGetDepotInfo(regionCode, budgetCode);
-                        List<ItemList> lctz = new List<ItemList>();
-                        string[] infz = depot.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
-                        if (infz.Count() > 0)
-                        {
-                            foreach (var allinfo in infz)
-                            {
-                                string[] arr = allinfo.Split('*');
-
-                                ItemList mdl = new ItemList();
-                                mdl.code = arr[0];
-                                mdl.description = arr[0] + "-" + arr[1];
-                                lctz.Add(mdl);
-
+                        ItemList mdl = new ItemList();
+                        mdl.code = arr[0];
+                        mdl.description = arr[0]+ "-" + arr[1];
+                        lctz.Add(mdl);
+                                
 
                             }
-                        }
+                }
 
-                        DepotCode.DataSource = lctz;
-                        DepotCode.DataTextField = "description";
-                        DepotCode.DataValueField = "code";
-                        DepotCode.DataBind();
-                        DepotCode.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+                DepotCode.DataSource = lctz;
+                DepotCode.DataTextField = "description";
+                DepotCode.DataValueField = "code";
+                DepotCode.DataBind();
+                DepotCode.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
                     }
                 }
 
@@ -70,7 +70,7 @@ namespace HRPortal
                         mdl.code = arr[0];
                         mdl.description = arr[0];
                         im.Add(mdl);
-
+                     
 
                     }
                 }
@@ -80,9 +80,9 @@ namespace HRPortal
                 RecoveryCode.DataValueField = "code";
                 RecoveryCode.DataBind();
                 RecoveryCode.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+                
 
-
-                var product = Config.ObjNav1.fnGetProductCodes();
+                var product = Config.ObjNav1.fnGetProductCodes();            
                 List<ItemList> itmprdd = new List<ItemList>();
                 string[] infoprd = product.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
                 if (info.Count() > 0)
@@ -121,24 +121,24 @@ namespace HRPortal
                         }
                     }
                     DocumentDate.Text = DateTime.Now.ToString("MM-dd-yyyy");
-                    UnitPrice.Text = "0.00";
-
+                    UnitPrice.Text = "0.00"; 
+            
 
 
                 }
-
+                
 
 
             }
         }
-
+     
         protected void depot_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             string regCodes = region.Text.Trim();
             string locateCodes = DepotCode.Text.Trim();
             string budgetCodes = budget.Text.Trim();
-            var locate = Config.ObjNav1.fnGetStoreCode(regCodes, budgetCodes, locateCodes);
+            var locate = Config.ObjNav1.fnGetStoreCode(regCodes,budgetCodes,locateCodes);
             List<ItemList> itms1 = new List<ItemList>();
             string[] infoz1 = locate.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
             if (infoz1.Count() > 0)
@@ -161,7 +161,7 @@ namespace HRPortal
             LocationCode.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
 
 
-        }
+            }
         protected void product_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -178,7 +178,7 @@ namespace HRPortal
                         String[] arr = allinfo.Split('*');
                         ProductDescription.Text = arr[1];
                         measure.Text = arr[2];
-
+                                                         
                     }
                 }
             }
@@ -215,7 +215,7 @@ namespace HRPortal
                 string documentNo = "";
                 Boolean newCreditSale = false;
                 try
-                {
+                { 
                     if (String.IsNullOrEmpty(documentNo))
                     {
                         documentNo = "";
@@ -227,7 +227,7 @@ namespace HRPortal
                     newCreditSale = true;
                     documentNo = "";
                 }
-                String status = Config.ObjNav2.fnCreateSalesCreditHeader(documentNo, employeeNo, trecovery, tdepot, tlocation);
+                String status = Config.ObjNav2.fnCreateSalesCreditHeader(documentNo, employeeNo, trecovery,tdepot, tlocation);
                 String[] info = status.Split('*');
                 if (info[0] == "success")
                 {
@@ -261,8 +261,20 @@ namespace HRPortal
 
                 String status = Config.ObjNav2.fnCreateStaffCreditLines(documentNo, productCode, quant);
                 String[] info = status.Split('*');
-                linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-
+                if (info[0] == "Sucsess")
+                {
+                    linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    ProductCode.Text="";
+                    quantity.Text = "";
+                    measure.Text = "";
+                    ProductDescription.Text = "";
+                    UnitPrice.Text = "";
+                    TotalPrice.Text = "";
+                }
+                else
+                {
+                    linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
             }
             catch (Exception n)
             {
@@ -310,8 +322,8 @@ namespace HRPortal
                 String status = Config.ObjNav2.CreateSalesOrder(documentNo);
                 String[] info = status.Split('*');
                 documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
-                "setTimeout(function() { window.location.replace('Dashboard.aspx') }, 5000);", true);
+                //ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
+                //"setTimeout(function() { window.location.replace('Dashboard.aspx') }, 5000);", true);
             }
             catch (Exception t)
             {
@@ -319,7 +331,7 @@ namespace HRPortal
             }
         }
 
-        protected void deleteLine(object sender, EventArgs e)
+        protected void deleteLine(object sender,EventArgs e)
         {
             try
             {
@@ -329,11 +341,11 @@ namespace HRPortal
                 String status = Config.ObjNav2.deleteStaffCreditSalesLines(docNo, lnNo);
                 String[] info = status.Split('*');
                 documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-
+                
 
 
             }
-            catch (Exception ed)
+            catch(Exception ed)
             {
                 documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
             }
@@ -341,7 +353,7 @@ namespace HRPortal
 
         protected void Quantity_TextChanged(object sender, EventArgs e)
         {
-
+            
             decimal ttquant = Convert.ToDecimal(quantity.Text.Trim());
             decimal ttselling = Convert.ToDecimal(UnitPrice.Text.Trim());
             decimal ttprce = ttquant * ttselling;

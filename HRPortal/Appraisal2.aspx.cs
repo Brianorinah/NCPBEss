@@ -46,8 +46,6 @@ namespace HRPortal
                         eyenddate.Text = arr[8];
                         supervisor.Text = arr[9];
                         overviewmanager.Text = arr[10];
-                        supervisoroverallcomments.Text = arr[17];
-                        overviewmanagercomments.Text = arr[18];
                     }
                 }
             }
@@ -62,64 +60,6 @@ namespace HRPortal
         {
             String appNo = Request.QueryString["applicationNo"];
             Response.Redirect("Appraisal2.aspx?step=3&&applicationNo=" + appNo);
-        }
-
-        protected void updateSupervisorOverallComments_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                String appNo = Request.QueryString["applicationNo"];
-                String tsupervisoroverallcomment = supervisoroverallcomments.Text.Trim();
-                if (!string.IsNullOrEmpty(appNo))
-                {
-                    String status = Config.ObjNav2.updateSupervisorOverallComments(appNo, tsupervisoroverallcomment);
-                    String[] info = status.Split('*');
-                    if (info[0] == "success")
-                    {
-                        generalFeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                    }
-                    else
-                    {
-                        generalFeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                    }
-
-                }
-            }
-            catch (Exception t)
-            {
-                generalFeedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            }
-
-
-        }
-
-        protected void updateOverallComments_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                String appNo = Request.QueryString["applicationNo"];
-                String toverviewmanagercomments = overviewmanagercomments.Text.Trim();
-                if (!string.IsNullOrEmpty(appNo))
-                {
-                    String status = Config.ObjNav2.updateOverallComments(appNo, toverviewmanagercomments);
-                    String[] info = status.Split('*');
-                    if (info[0] == "success")
-                    {
-                        generalFeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                    }
-                    else
-                    {
-                        generalFeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                    }
-
-                }
-            }
-            catch (Exception t)
-            {
-                generalFeedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            }
-
-
         }
 
         protected void submit_Click(object sender, EventArgs e)
@@ -190,13 +130,6 @@ namespace HRPortal
             }
 
 
-        }
-        protected void previous_Click(Object sender, EventArgs e)
-        {
-                string appNo = Request.QueryString["applicationNo"];
-                int prevstep = (Convert.ToInt32(Request.QueryString["step"])) - 1;
-
-                Response.Redirect("Appraisal2.aspx?step="+prevstep+"&&applicationNo=" + appNo);
         }
     }
 }

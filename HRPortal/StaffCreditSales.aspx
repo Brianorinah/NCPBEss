@@ -215,7 +215,7 @@
                           
 
                         <td>
-                            <label class="btn btn-danger" onclick="removeLine('<%=documentNo %>','<%=arr[6] %>')"><i class="fa fa-trash"></i>Delete</label></td>
+                            <label class="btn btn-danger" onclick="removeLine(documentNo,'<%=arr[4] %>');"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
                     <% 
                             }
@@ -257,35 +257,10 @@
         }
     %>
   <script>
- 
-      function removeLine(documentNumber, lineNo) {
-          document.getElementById("LineNumber").innerText = lineNo;
-          document.getElementById("ContentPlaceHolder1_documentNumber").value = documentNumber;
-            document.getElementById("ContentPlaceHolder1_lineNo").value = lineNo;
-            $("#DeleteModal").modal();
-        }
+    function removeRow(button) {
+        var row = button.closest('tr');
+        row.remove();
+    }
 </script>
-<div id="DeleteModal" class="modal fade" role="dialog">
-<div class="modal-dialog">
- 
-            <!-- Modal content-->
-<div class="modal-content">
-<div class="modal-header">
-<button type="button" class="close" data-dismiss="modal">&times;</button>
-<h4 class="modal-title">Confirm Deleting line</h4>
-</div>
-<div class="modal-body">
-<p>Are you sure you want to delete line <strong id="LineNumber"></strong>?</p>
-<asp:TextBox runat="server" ID="documentNumber" type="hidden" />
-<asp:TextBox runat="server" ID="lineNo" type="hidden" />
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-<asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLine" />
-</div>
-</div>
- 
-        </div>
-</div>
 </asp:Content>
 

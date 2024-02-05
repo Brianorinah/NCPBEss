@@ -45,7 +45,7 @@
                  <div class="panel" style="margin-top: 20px;border: 1px solid #d0dada;border-radius: 4px;">
                     
                        <div class="text-center">
-                        <img src="LoginAssets/images/logo.png" width="200" height="200" />
+                        <img src="LoginAssets/images/ncpb.png" width="200" height="200" />
                     </div> 
                    
                      <h3 style="width: 100%; text-align: center; color:black">Request Account Creation/Reset Password</h3>

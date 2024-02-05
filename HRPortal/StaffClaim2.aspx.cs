@@ -354,6 +354,22 @@ namespace HRPortal
         }
         protected void deleteLine_Click(object sender, EventArgs e)
         {
+            try
+            {
+                String docNo = Request.QueryString["requisitionNo"];
+                String lineNoText = lineNo.Text.Trim();
+                int lnNo = Convert.ToInt32(lineNoText);
+                String status = Config.ObjNav2.deleteStaffClaimLine(docNo, lnNo);
+                String[] info = status.Split('*');
+                documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+
+
+
+            }
+            catch (Exception ed)
+            {
+                documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
         }
         protected void editItem_Click(object sender, EventArgs e)
         {
@@ -365,7 +381,7 @@ namespace HRPortal
                 String safNumber = safariNumber.Text.Trim();
                 String clmNumber = Request.QueryString["requisitionNo"];
                 var nav = Config.ObjNav2;
-                String result = nav.copySafariLines(safNumber, clmNumber);
+                String result = nav.copySafariLines(clmNumber);
                 String[] safari = result.Split('*');
                 if (safari[0] == "success") {
                     documentsfeedback.InnerHtml = "<div class='alert alert-success'>" + safari[0] + safari[1]+"<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";

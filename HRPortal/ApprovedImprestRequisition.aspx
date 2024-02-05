@@ -23,7 +23,7 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>#</th>
+                    
                     <th>Imprest No</th>
                     <th>Date</th>
                     <th>Subject</th>
@@ -45,7 +45,7 @@
                                             {
                                                 String[] oneItem = item.Split(new string[] { "*" }, StringSplitOptions.None);
                                                
-                                                if(oneItem[4] == "Approved")
+                                                if(oneItem[4] == "Approved" && oneItem[5] =="No")
                                                 {
                                                     %>
                                 
@@ -59,7 +59,7 @@
                                     <td><%=oneItem[4]  %> </td>
                                     
                                                         <td>
-                                        <label class="btn btn-success" onclick="createImprest('<% =oneItem[0] %>');"><i class="fa fa-plus"></i>Edit/View</label>
+                                        <label class="btn btn-success" onclick="createImprest('<% =oneItem[0] %>');">CreateImprest</label>
                                     </td>
 
                                     

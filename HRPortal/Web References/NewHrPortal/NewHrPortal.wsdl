@@ -78,6 +78,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="createImprestRequest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="safariNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createImprestRequest_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="createImprest">
         <complexType>
           <sequence>
@@ -182,6 +196,25 @@
         </complexType>
       </element>
       <element name="createLineManagerMyKPILines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createNewKPILines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="kraLineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="iniative" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="kpi" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="target" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="weight" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createNewKPILines_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -488,6 +521,21 @@
           </sequence>
         </complexType>
       </element>
+      <element name="deleteStaffClaimLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteStaffClaimLine_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="deleteStaffCreditSalesLines">
         <complexType>
           <sequence>
@@ -533,6 +581,24 @@
         </complexType>
       </element>
       <element name="editLeaveApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="editSafariRequestLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="expseDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="returnDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="travelFrom" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="travelTo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="editSafariRequestLines_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -836,6 +902,12 @@
   <message name="createImprestApplicationLines_Result">
     <part name="parameters" element="tns:createImprestApplicationLines_Result" />
   </message>
+  <message name="createImprestRequest">
+    <part name="parameters" element="tns:createImprestRequest" />
+  </message>
+  <message name="createImprestRequest_Result">
+    <part name="parameters" element="tns:createImprestRequest_Result" />
+  </message>
   <message name="createImprest">
     <part name="parameters" element="tns:createImprest" />
   </message>
@@ -871,6 +943,12 @@
   </message>
   <message name="createLineManagerMyKPILines_Result">
     <part name="parameters" element="tns:createLineManagerMyKPILines_Result" />
+  </message>
+  <message name="createNewKPILines">
+    <part name="parameters" element="tns:createNewKPILines" />
+  </message>
+  <message name="createNewKPILines_Result">
+    <part name="parameters" element="tns:createNewKPILines_Result" />
   </message>
   <message name="createSafariRequestEntitlements">
     <part name="parameters" element="tns:createSafariRequestEntitlements" />
@@ -974,6 +1052,12 @@
   <message name="deleteSafariRequestLines_Result">
     <part name="parameters" element="tns:deleteSafariRequestLines_Result" />
   </message>
+  <message name="deleteStaffClaimLine">
+    <part name="parameters" element="tns:deleteStaffClaimLine" />
+  </message>
+  <message name="deleteStaffClaimLine_Result">
+    <part name="parameters" element="tns:deleteStaffClaimLine_Result" />
+  </message>
   <message name="deleteStaffCreditSalesLines">
     <part name="parameters" element="tns:deleteStaffCreditSalesLines" />
   </message>
@@ -991,6 +1075,12 @@
   </message>
   <message name="editLeaveApplicationLines_Result">
     <part name="parameters" element="tns:editLeaveApplicationLines_Result" />
+  </message>
+  <message name="editSafariRequestLines">
+    <part name="parameters" element="tns:editSafariRequestLines" />
+  </message>
+  <message name="editSafariRequestLines_Result">
+    <part name="parameters" element="tns:editSafariRequestLines_Result" />
   </message>
   <message name="editStaffCreditSalesLines">
     <part name="parameters" element="tns:editStaffCreditSalesLines" />
@@ -1121,6 +1211,10 @@
       <input name="createImprestApplicationLines" message="tns:createImprestApplicationLines" />
       <output name="createImprestApplicationLines_Result" message="tns:createImprestApplicationLines_Result" />
     </operation>
+    <operation name="createImprestRequest">
+      <input name="createImprestRequest" message="tns:createImprestRequest" />
+      <output name="createImprestRequest_Result" message="tns:createImprestRequest_Result" />
+    </operation>
     <operation name="createImprest">
       <input name="createImprest" message="tns:createImprest" />
       <output name="createImprest_Result" message="tns:createImprest_Result" />
@@ -1144,6 +1238,10 @@
     <operation name="createLineManagerMyKPILines">
       <input name="createLineManagerMyKPILines" message="tns:createLineManagerMyKPILines" />
       <output name="createLineManagerMyKPILines_Result" message="tns:createLineManagerMyKPILines_Result" />
+    </operation>
+    <operation name="createNewKPILines">
+      <input name="createNewKPILines" message="tns:createNewKPILines" />
+      <output name="createNewKPILines_Result" message="tns:createNewKPILines_Result" />
     </operation>
     <operation name="createSafariRequestEntitlements">
       <input name="createSafariRequestEntitlements" message="tns:createSafariRequestEntitlements" />
@@ -1213,6 +1311,10 @@
       <input name="deleteSafariRequestLines" message="tns:deleteSafariRequestLines" />
       <output name="deleteSafariRequestLines_Result" message="tns:deleteSafariRequestLines_Result" />
     </operation>
+    <operation name="deleteStaffClaimLine">
+      <input name="deleteStaffClaimLine" message="tns:deleteStaffClaimLine" />
+      <output name="deleteStaffClaimLine_Result" message="tns:deleteStaffClaimLine_Result" />
+    </operation>
     <operation name="deleteStaffCreditSalesLines">
       <input name="deleteStaffCreditSalesLines" message="tns:deleteStaffCreditSalesLines" />
       <output name="deleteStaffCreditSalesLines_Result" message="tns:deleteStaffCreditSalesLines_Result" />
@@ -1224,6 +1326,10 @@
     <operation name="editLeaveApplicationLines">
       <input name="editLeaveApplicationLines" message="tns:editLeaveApplicationLines" />
       <output name="editLeaveApplicationLines_Result" message="tns:editLeaveApplicationLines_Result" />
+    </operation>
+    <operation name="editSafariRequestLines">
+      <input name="editSafariRequestLines" message="tns:editSafariRequestLines" />
+      <output name="editSafariRequestLines_Result" message="tns:editSafariRequestLines_Result" />
     </operation>
     <operation name="editStaffCreditSalesLines">
       <input name="editStaffCreditSalesLines" message="tns:editStaffCreditSalesLines" />
@@ -1345,6 +1451,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="createImprestRequest">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createImprestRequest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createImprestRequest">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createImprestRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="createImprest">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createImprest" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="createImprest">
@@ -1396,6 +1511,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="createLineManagerMyKPILines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createNewKPILines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createNewKPILines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createNewKPILines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createNewKPILines_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1552,6 +1676,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="deleteStaffClaimLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteStaffClaimLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="deleteStaffClaimLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="deleteStaffClaimLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="deleteStaffCreditSalesLines">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteStaffCreditSalesLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="deleteStaffCreditSalesLines">
@@ -1576,6 +1709,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="editLeaveApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="editSafariRequestLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:editSafariRequestLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="editSafariRequestLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="editSafariRequestLines_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

@@ -59,6 +59,8 @@ namespace HRPortal.essQueries {
         
         private System.Threading.SendOrPostCallback fnGetEmployeesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback fnGetEntitlementDetailsOperationCompleted;
+        
         private System.Threading.SendOrPostCallback fnGetFleetRequisitionOperationCompleted;
         
         private System.Threading.SendOrPostCallback fnGetHrLeaveApplicationDetailsOperationCompleted;
@@ -120,6 +122,8 @@ namespace HRPortal.essQueries {
         private System.Threading.SendOrPostCallback fnGetSurrenderLinesOperationCompleted;
         
         private System.Threading.SendOrPostCallback fnGetTownsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback fnGetUserOperationCompleted;
         
         private System.Threading.SendOrPostCallback fnStoreRequisitionsSingleOperationCompleted;
         
@@ -207,6 +211,9 @@ namespace HRPortal.essQueries {
         
         /// <remarks/>
         public event fnGetEmployeesCompletedEventHandler fnGetEmployeesCompleted;
+        
+        /// <remarks/>
+        public event fnGetEntitlementDetailsCompletedEventHandler fnGetEntitlementDetailsCompleted;
         
         /// <remarks/>
         public event fnGetFleetRequisitionCompletedEventHandler fnGetFleetRequisitionCompleted;
@@ -300,6 +307,9 @@ namespace HRPortal.essQueries {
         
         /// <remarks/>
         public event fnGetTownsCompletedEventHandler fnGetTownsCompleted;
+        
+        /// <remarks/>
+        public event fnGetUserCompletedEventHandler fnGetUserCompleted;
         
         /// <remarks/>
         public event fnStoreRequisitionsSingleCompletedEventHandler fnStoreRequisitionsSingleCompleted;
@@ -765,6 +775,36 @@ namespace HRPortal.essQueries {
             if ((this.fnGetEmployeesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.fnGetEmployeesCompleted(this, new fnGetEmployeesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetEntitlementDetails", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries", ResponseElementName="fnGetEntitlementDetails_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string fnGetEntitlementDetails(string entitlement) {
+            object[] results = this.Invoke("fnGetEntitlementDetails", new object[] {
+                        entitlement});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void fnGetEntitlementDetailsAsync(string entitlement) {
+            this.fnGetEntitlementDetailsAsync(entitlement, null);
+        }
+        
+        /// <remarks/>
+        public void fnGetEntitlementDetailsAsync(string entitlement, object userState) {
+            if ((this.fnGetEntitlementDetailsOperationCompleted == null)) {
+                this.fnGetEntitlementDetailsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfnGetEntitlementDetailsOperationCompleted);
+            }
+            this.InvokeAsync("fnGetEntitlementDetails", new object[] {
+                        entitlement}, this.fnGetEntitlementDetailsOperationCompleted, userState);
+        }
+        
+        private void OnfnGetEntitlementDetailsOperationCompleted(object arg) {
+            if ((this.fnGetEntitlementDetailsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.fnGetEntitlementDetailsCompleted(this, new fnGetEntitlementDetailsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1697,6 +1737,36 @@ namespace HRPortal.essQueries {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetUser", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries", ResponseElementName="fnGetUser_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string fnGetUser(string userName) {
+            object[] results = this.Invoke("fnGetUser", new object[] {
+                        userName});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void fnGetUserAsync(string userName) {
+            this.fnGetUserAsync(userName, null);
+        }
+        
+        /// <remarks/>
+        public void fnGetUserAsync(string userName, object userState) {
+            if ((this.fnGetUserOperationCompleted == null)) {
+                this.fnGetUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfnGetUserOperationCompleted);
+            }
+            this.InvokeAsync("fnGetUser", new object[] {
+                        userName}, this.fnGetUserOperationCompleted, userState);
+        }
+        
+        private void OnfnGetUserOperationCompleted(object arg) {
+            if ((this.fnGetUserCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.fnGetUserCompleted(this, new fnGetUserCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/essQueries:fnStoreRequisitionsSingle", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries", ResponseElementName="fnStoreRequisitionsSingle_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string fnStoreRequisitionsSingle(string empNumber, string appNo) {
@@ -2154,6 +2224,32 @@ namespace HRPortal.essQueries {
         private object[] results;
         
         internal fnGetEmployeesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void fnGetEntitlementDetailsCompletedEventHandler(object sender, fnGetEntitlementDetailsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class fnGetEntitlementDetailsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal fnGetEntitlementDetailsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -2960,6 +3056,32 @@ namespace HRPortal.essQueries {
         private object[] results;
         
         internal fnGetTownsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void fnGetUserCompletedEventHandler(object sender, fnGetUserCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class fnGetUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal fnGetUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

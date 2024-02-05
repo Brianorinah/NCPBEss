@@ -83,7 +83,6 @@
         <div class="panel-heading">
             Staff Claim Lines
              <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 2 of 3 <i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
-            <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Copy Safari Lines" ID="copySafariLines" OnClick="copySafariLines_Click" />
         </div>
         <div class="panel-body">
             <div runat="server" id="linesFeedback"></div>

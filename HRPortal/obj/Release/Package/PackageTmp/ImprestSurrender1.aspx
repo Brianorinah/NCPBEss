@@ -41,26 +41,22 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <strong>Paying Budget Center  <span style="color: red">*</span></strong>
-                         <asp:DropDownList runat="server" ID="payingbudgetcenter" CssClass="form-control select2">                        
-                    </asp:DropDownList>
-                    </div>
+                           <asp:TextBox runat="server" ID="payingbudgetcenters" CssClass="form-control" placeholder="Paying Budget Center" TextMode="Date"  ReadOnly="true"/>                      
+                             </div>
              <div class="form-group">
                 <strong>Travel Date:<span style="color:red">*</span></strong>
-                <asp:TextBox runat="server" ID="traveldate" CssClass="form-control" placeholder="Travel Date" TextMode="Date" />
-                <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="travelDate" ErrorMessage="Please enter Request Date, it cannot be empty!" ForeColor="Red" />
+                <asp:TextBox runat="server" ID="traveldate" CssClass="form-control" placeholder="Travel Date" TextMode="Date"  ReadOnly="true"/>
             </div>
             
                 </div>
             <div class="col-md-6 col-lg-6">
              <div class="form-group">
                 <strong>Requested On:<span style="color:red">*</span></strong>
-                <asp:TextBox runat="server" ID="requestdate" CssClass="form-control" placeholder="Request Date" TextMode="Date" />
-                <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="requestDate" ErrorMessage="Please enter Request Date, it cannot be empty!" ForeColor="Red" />
+                <asp:TextBox runat="server" ID="requestdate" CssClass="form-control" placeholder="Request Date" TextMode="Date" ReadOnly="true"/>
             </div>
                 <div class="form-group">
                 <strong>Purpose:<span style="color:red">*</span></strong>
-                <asp:TextBox runat="server" ID="purpose" CssClass="form-control" placeholder="Purpose"/>
-                <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="purpose" ErrorMessage="Please enter purpose, it cannot be empty!" ForeColor="Red" />
+                <asp:TextBox runat="server" ID="purpose" CssClass="form-control" placeholder="Purpose" ReadOnly="true"/>
             </div>
 
          <%--   <div class="form-group">
@@ -171,7 +167,8 @@
                         <td>
                             <label class="btn btn-danger" onclick="removeLine('<% =arr[1] %>','<%=arr[0] %>');"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
-                    <% }
+                    <% 
+}
                             }
                         }
                     %>

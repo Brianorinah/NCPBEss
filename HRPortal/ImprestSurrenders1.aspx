@@ -9,7 +9,7 @@
         <div class="col-sm-12">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="Dashboard.aspx">Dashboard</a></li>
-                <li class="breadcrumb-item active">Approved Staff Claims</li>
+                <li class="breadcrumb-item active">Approved Imprest Surrenders</li>
             </ol>
         </div>
     </div>

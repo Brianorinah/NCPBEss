@@ -69,6 +69,7 @@
             </div>
         </div>
         <div class="panel-footer">
+            
             <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Next" ID="next" OnClick="next_Click" />
             <div class="clearfix"></div>
         </div>

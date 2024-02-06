@@ -161,7 +161,7 @@
              <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
                     <strong>Quantity<span style="color: red">*</span></strong>
-                    <asp:TextBox runat="server" ID="quantity" CssClass="form-control" TextMode="Number" AutoPostBack="true"/>
+                    <asp:TextBox runat="server" ID="quantity" CssClass="form-control" TextMode="Number" AutoPostBack="true" OnTextChanged="Quantity_TextChanged"/>
                      <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="quantity" InitialValue="--Select--" ErrorMessage="Please Enter Quantity, it cannot be empty!" ForeColor="Red"/>
                 </div>
             </div>

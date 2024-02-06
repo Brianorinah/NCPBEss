@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
- <title>Reset Password - KURA</title>
+ <title>Reset Password - NCPB</title>
 
  
     <meta charset="utf-8" />
@@ -15,7 +15,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="LoginAssets/images/logo.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="LoginAssets/images/ncpb.png" rel="shortcut icon" type="image/x-icon" />
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -45,7 +45,7 @@
                  <div class="panel" style="margin-top: 20px;border: 1px solid #d0dada;border-radius: 4px;">
                     
                        <div class="text-center">
-                        <img src="LoginAssets/images/logo.png" width="200" height="200" />
+                        <img src="LoginAssets/images/ncpb.png" width="200" height="200" />
                     </div> 
                    
                      <h3 style="width: 100%; text-align: center; color:black">Request Account Creation/Reset Password</h3>

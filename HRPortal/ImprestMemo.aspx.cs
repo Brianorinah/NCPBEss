@@ -17,16 +17,15 @@ namespace HRPortal
         {
             try
             {
-                ////Convert.ToString(Session["employeeNo"])
-                //String imprestNo = imprestMemoToApprove.Text.Trim();
-                //String status = Config.ObjNav.SendImprestRequisitionApproval(Convert.ToString(Session["employeeNo"]), imprestNo);
-                //String[] info = status.Split('*');
-                //feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-
+                string approveNo = imprestMemoToApprove.Text.Trim();
+                String status = Config.ObjNav2.sendSafariRequestApplicationApproval(approveNo);
+                String[] info = status.Split('*');
+                feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+               
             }
             catch (Exception t)
             {
-                feedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                feedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
             }
         }
         protected void cancelApproval_Click(object sender, EventArgs e)

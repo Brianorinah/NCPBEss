@@ -429,6 +429,10 @@
   <script>
     function testLine(documentNumber, lineNo, glAccountss, functionCodes, amounts) {
         document.getElementById("LineNumbers").innerText = lineNo;
+        document.getElementById("DocNumber").innerText = documentNumber;
+        document.getElementById("GLA").innerText = glAccountss;
+        document.getElementById("FCT").innerText = functionCodes;
+        document.getElementById("AMT").innerText = amounts;
         document.getElementById('<%= ContentPlaceHolder1_documentNumber.ClientID %>').value = documentNumber;
         document.getElementById('<%= ContentPlaceHolder1_lineNo.ClientID %>').value = lineNo;
         document.getElementById('<%= ContentPlaceHolder1_glAccs.ClientID %>').value = glAccountss;
@@ -439,16 +443,16 @@
 </script>
 
 <div id="EditModals" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="background-color:grey;">
 
         <!-- Modal content-->
-        < class="modal-content">
+        <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Confirm Editing line</h4>
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to Edit line <strong id="LineNumbers"></strong>?</p>
+                <p>Are you sure you want to Edit line <strong id="LineNumbers"></strong>? <strong id="DocNumber"></strong>?<strong id="GLA"></strong>?<strong id="FCT"></strong>?<strong id="AMT"></strong></p>
                 <strong>Imprest No:<span style="color: red">*</span></strong>
                 <asp:TextBox runat="server" ID="ContentPlaceHolder1_documentNumber" CssClass="form-control" ReadOnly="true" />
                 <strong>Line No:<span style="color: red">*</span></strong>
@@ -477,6 +481,7 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 <asp:Button runat="server" CssClass="btn btn-danger" Text="Edit Line" OnClick="editLine_Click" />
             </div>
+        </div>
         </div>
     </div>
 

@@ -175,14 +175,14 @@
             Added Safari Request Lines Details
         </div>
         <div class="panel-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example2" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>Expense Date</th>
                         <th>Return Date</th>
                         <th>Travel From</th>
                         <th>Travel To</th>
-                        <th>Edit/View</th>
+                       <%-- <th>Edit/View</th>--%>
                         <th>Remove</th>
                     </tr>
                 </thead>
@@ -209,8 +209,8 @@
                         <td><% = arr[2] %></td>
                         <%--<td><%=String.Format("{0:n}", Convert.ToDouble(arr[5])) %></td>--%>
                         
-                           <td><label class="btn btn-success" onclick="editingLines('<% =requisitionNo %>','<%=arr[0] %>','<%=arr[5] %>','<% =arr[1] %>','<%=arr[2] %>');"><i class="fa fa-edit"></i>Edit/View</label></td>  
-                        
+                           <%--<td><label class="btn btn-success" onclick="editingLines('<% =requisitionNo %>','<%=arr[0] %>','<%=arr[5] %>','<% =arr[1] %>','<%=arr[2] %>');"><i class="fa fa-edit"></i>Edit/View</label></td>  
+                        --%>
 
                         <td>
                             <label class="btn btn-danger" onclick="removeLines('<% =requisitionNo %>','<%=arr[0] %>');"><i class="fa fa-trash"></i>Delete</label></td>
@@ -299,7 +299,7 @@
                         <th>Rate</th>
                         <th>Quantity</th>
                         <th>Town </th>
-                        <th></th>
+                        <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -326,7 +326,7 @@
                         <%--<td><%=String.Format("{0:n}", Convert.ToDouble(arr[5])) %></td>--%>
 
                         <td>
-                            <label class="btn btn-danger" onclick="removeLine('<% =arr[3] %>','<%=arr[0] %>');"><i class="fa fa-trash"></i>Delete</label></td>
+                            <label class="btn btn-danger" onclick="removeLine('<%=requisitionNo %>','<% =arr[0] %>','<%=arr[2] %>');"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
                     <% 
                                 }
@@ -453,9 +453,11 @@
     </div>
 
     <script>
-        function removeLine(itemName, lineNo) {
-            document.getElementById("itemName").innerText = itemName;
-            document.getElementById("ContentPlaceHolder1_lineNo").value = lineNo;
+        function removeLine(docNos, entitle,towns) {
+            document.getElementById("safari").innerText = docNos;
+            document.getElementById("ContentPlaceHolder1_docNos").value = docNos;
+            document.getElementById("ContentPlaceHolder1_entitle").value = entitle;
+            document.getElementById("ContentPlaceHolder1_towns").value = towns;
             $("#removeLineModal").modal();
         }
         function editLine(lineNo, voteItem, description, amount) {
@@ -478,8 +480,10 @@
                     <h4 class="modal-title">Confirm Remove Line</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to remove the line <strong id="itemName"></strong>from the staff claim?</p>
-                    <asp:TextBox runat="server" ID="lineNo" type="hidden" />
+                    <p>Are you sure you want to remove the line <strong id="safari"></strong>from the safari request entitlements?</p>
+                    <asp:TextBox runat="server" ID="docNos" type="hidden" />
+                     <asp:TextBox runat="server" ID="entitle" type="hidden" />
+                     <asp:TextBox runat="server" ID="towns" type="hidden" />
                 </div>
 
                 <div class="modal-footer">

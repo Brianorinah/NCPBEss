@@ -407,33 +407,36 @@ namespace HRPortal
         }
         protected void editLine_Click(object sender, EventArgs e)
         {
+            String lineN = ContentPlaceHolder1_lineNo.Text.Trim();
+            int lineNo = Convert.ToInt32(lineN);
+            Response.Redirect("Dashboard.aspx?&&lineno="+lineN);
 
-            try
-            {
-                String lineN = ContentPlaceHolder1_lineNo.Text.Trim();
-                int lineNo = Convert.ToInt32(lineN);
-                String docNo = ContentPlaceHolder1_documentNumber.Text.Trim();
-                String gLAcc = ContentPlaceHolder1_glAccs.SelectedValue.Trim();
-                String functionCode = ContentPlaceHolder1_functionCds.SelectedValue.Trim();
-                String amts = ContentPlaceHolder1_amounts.Text.Trim();
-                decimal amt = Convert.ToDecimal(amts);
-                String status = Config.ObjNav2.editImprestApplicationLines(docNo, lineNo, gLAcc, functionCode, amt);
-                String[] info = status.Split('*');
-                if (info[0] == "success")
-                {
-                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                }
-                else
-                {
-                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                }
+            //try
+            //{
+            //    String lineN = ContentPlaceHolder1_lineNo.Text.Trim();
+            //    int lineNo = Convert.ToInt32(lineN);
+            //    String docNo = ContentPlaceHolder1_documentNumber.Text.Trim();
+            //    String gLAcc = ContentPlaceHolder1_glAccs.SelectedValue.Trim();
+            //    String functionCode = ContentPlaceHolder1_functionCds.SelectedValue.Trim();
+            //    String amts = ContentPlaceHolder1_amounts.Text.Trim();
+            //    decimal amt = Convert.ToDecimal(amts);
+            //    String status = Config.ObjNav2.editImprestApplicationLines(docNo, lineNo, gLAcc, functionCode, amt);
+            //    String[] info = status.Split('*');
+            //    if (info[0] == "success")
+            //    {
+            //        documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            //    }
+            //    else
+            //    {
+            //        documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            //    }
 
 
-            }
-            catch (Exception ed)
-            {
-                documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            }
+            //}
+            //catch (Exception ed)
+            //{
+            //    documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            //}
 
         }
     }

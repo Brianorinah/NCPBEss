@@ -461,7 +461,29 @@ namespace HRPortal
         }
         protected void deleteLine_Click(object sender, EventArgs e)
         {
-          
+            try
+            {
+                String doc = docNos.Text.Trim();
+                String ent = entitle.Text.Trim();
+                String twn = towns.Text.Trim();
+                String status = Config.ObjNav2.deleteSafarirequestEntitlement(doc,ent,twn);
+                String[] info = status.Split('*');
+                if (info[0] == "success")
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else if (info[0] == "danger")
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+
+
+            }
+            catch (Exception ed)
+            {
+                documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+
         }
         protected void deleteLines_Clicks(object sender, EventArgs e)
         {
@@ -470,13 +492,15 @@ namespace HRPortal
                 String docNo = documentNumber.Text.Trim();
                 String dt = expenseDate.Text.Trim();
                 DateTime expdate = Convert.ToDateTime(dt);
-                String status = Config.ObjNav2.deleteSafariRequestLines(docNo, expdate);
+                string formattedDate = expdate.ToString("MM/dd/yy");
+                DateTime date = Convert.ToDateTime(formattedDate);
+                String status = Config.ObjNav2.deleteSafariRequestLines(docNo, date);
                 String[] info = status.Split('*');
                 if (info[0] == "success")
                 {
                     documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
                 }
-                else
+                else if(info[0]=="danger")
                 {
                     documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
                 }

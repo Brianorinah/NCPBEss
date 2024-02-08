@@ -89,6 +89,8 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback deleteSafariRequestLinesOperationCompleted;
         
+        private System.Threading.SendOrPostCallback deleteSafarirequestEntitlementOperationCompleted;
+        
         private System.Threading.SendOrPostCallback deleteStaffClaimLineOperationCompleted;
         
         private System.Threading.SendOrPostCallback deleteStaffCreditSalesLinesOperationCompleted;
@@ -262,6 +264,9 @@ namespace HRPortal.NewHrPortal {
         
         /// <remarks/>
         public event deleteSafariRequestLinesCompletedEventHandler deleteSafariRequestLinesCompleted;
+        
+        /// <remarks/>
+        public event deleteSafarirequestEntitlementCompletedEventHandler deleteSafarirequestEntitlementCompleted;
         
         /// <remarks/>
         public event deleteStaffClaimLineCompletedEventHandler deleteStaffClaimLineCompleted;
@@ -1434,6 +1439,41 @@ namespace HRPortal.NewHrPortal {
             if ((this.deleteSafariRequestLinesCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.deleteSafariRequestLinesCompleted(this, new deleteSafariRequestLinesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteSafarirequestEntitlemen" +
+            "t", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="deleteSafarirequestEntitlement_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string deleteSafarirequestEntitlement(string applicationNo, string entitlement, string town) {
+            object[] results = this.Invoke("deleteSafarirequestEntitlement", new object[] {
+                        applicationNo,
+                        entitlement,
+                        town});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void deleteSafarirequestEntitlementAsync(string applicationNo, string entitlement, string town) {
+            this.deleteSafarirequestEntitlementAsync(applicationNo, entitlement, town, null);
+        }
+        
+        /// <remarks/>
+        public void deleteSafarirequestEntitlementAsync(string applicationNo, string entitlement, string town, object userState) {
+            if ((this.deleteSafarirequestEntitlementOperationCompleted == null)) {
+                this.deleteSafarirequestEntitlementOperationCompleted = new System.Threading.SendOrPostCallback(this.OndeleteSafarirequestEntitlementOperationCompleted);
+            }
+            this.InvokeAsync("deleteSafarirequestEntitlement", new object[] {
+                        applicationNo,
+                        entitlement,
+                        town}, this.deleteSafarirequestEntitlementOperationCompleted, userState);
+        }
+        
+        private void OndeleteSafarirequestEntitlementOperationCompleted(object arg) {
+            if ((this.deleteSafarirequestEntitlementCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.deleteSafarirequestEntitlementCompleted(this, new deleteSafarirequestEntitlementCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2974,6 +3014,32 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal deleteSafariRequestLinesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void deleteSafarirequestEntitlementCompletedEventHandler(object sender, deleteSafarirequestEntitlementCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class deleteSafarirequestEntitlementCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal deleteSafarirequestEntitlementCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

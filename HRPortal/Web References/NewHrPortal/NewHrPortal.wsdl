@@ -521,6 +521,22 @@
           </sequence>
         </complexType>
       </element>
+      <element name="deleteSafarirequestEntitlement">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="entitlement" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="town" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteSafarirequestEntitlement_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="deleteStaffClaimLine">
         <complexType>
           <sequence>
@@ -1052,6 +1068,12 @@
   <message name="deleteSafariRequestLines_Result">
     <part name="parameters" element="tns:deleteSafariRequestLines_Result" />
   </message>
+  <message name="deleteSafarirequestEntitlement">
+    <part name="parameters" element="tns:deleteSafarirequestEntitlement" />
+  </message>
+  <message name="deleteSafarirequestEntitlement_Result">
+    <part name="parameters" element="tns:deleteSafarirequestEntitlement_Result" />
+  </message>
   <message name="deleteStaffClaimLine">
     <part name="parameters" element="tns:deleteStaffClaimLine" />
   </message>
@@ -1310,6 +1332,10 @@
     <operation name="deleteSafariRequestLines">
       <input name="deleteSafariRequestLines" message="tns:deleteSafariRequestLines" />
       <output name="deleteSafariRequestLines_Result" message="tns:deleteSafariRequestLines_Result" />
+    </operation>
+    <operation name="deleteSafarirequestEntitlement">
+      <input name="deleteSafarirequestEntitlement" message="tns:deleteSafarirequestEntitlement" />
+      <output name="deleteSafarirequestEntitlement_Result" message="tns:deleteSafarirequestEntitlement_Result" />
     </operation>
     <operation name="deleteStaffClaimLine">
       <input name="deleteStaffClaimLine" message="tns:deleteStaffClaimLine" />
@@ -1673,6 +1699,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="deleteSafariRequestLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="deleteSafarirequestEntitlement">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteSafarirequestEntitlement" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="deleteSafarirequestEntitlement">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="deleteSafarirequestEntitlement_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

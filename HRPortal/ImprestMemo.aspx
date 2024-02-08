@@ -71,7 +71,7 @@
                                             if (oneItem[4] == "New")
                                             {
                                         %>
-                                        <label class="btn btn-success"><i class="fa fa-check"></i>Send Approval Request</label>
+                                        <label class="btn btn-success" onclick="sendApprovalRequest('<%=oneItem[0] %>');"><i class="fa fa-check"></i>Send Approval Request</label>
                                         <%
                                             }
                                             else if (oneItem[4] == "Approval Pending")
@@ -257,9 +257,9 @@
 
     </script>
      <script>
-    function sendApprovalRequest(documentNumber) {
-            document.getElementById("approveImprestMemoNo").innerHTML = documentNumber;
-            document.getElementById("ContentPlaceHolder1_imprestMemoToApprove").value = documentNumber;
+         function sendApprovalRequest(imprestMemoToApprove) {
+             document.getElementById("approveImprestMemoNo").innerHTML = imprestMemoToApprove;
+             document.getElementById("ContentPlaceHolder1_imprestMemoToApprove").value = imprestMemoToApprove;
 
             $("#sendImprestMemoForApproval").modal();
         }
@@ -283,7 +283,7 @@
       </div>
       <div class="modal-body">
           <asp:TextBox runat="server" ID="imprestMemoToApprove" type="hidden"/>
-          Are you sure you want to send Imprest Memo No <strong id="approveImprestMemoNo"></strong>  for approval ? 
+          Are you sure you want to send Safari Request No <strong id="approveImprestMemoNo"></strong>  for approval ? 
         </div>
       <div class="modal-footer">
           <asp:Button runat="server" CssClass="btn btn-success" Text="Send Approval" OnClick="sendApproval_Click"/>

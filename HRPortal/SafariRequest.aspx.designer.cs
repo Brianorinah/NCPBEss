@@ -265,13 +265,31 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.TextBox fileName;
         
         /// <summary>
-        /// lineNo control.
+        /// docNos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lineNo;
+        protected global::System.Web.UI.WebControls.TextBox docNos;
+        
+        /// <summary>
+        /// entitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox entitle;
+        
+        /// <summary>
+        /// towns control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox towns;
         
         /// <summary>
         /// editLineNo control.

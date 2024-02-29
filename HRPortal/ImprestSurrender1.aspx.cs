@@ -125,6 +125,12 @@ namespace HRPortal
                     imprestline.DataBind();
                     imprestline.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
 
+                    imprestline1.DataSource = itms119;
+                    imprestline1.DataTextField = "description";
+                    imprestline1.DataValueField = "code";
+                    imprestline1.DataBind();
+                    imprestline1.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
 
                     var jobs118 = Config.ObjNav1.fnGetTowns();
                     List<ItemList> itms118 = new List<ItemList>();
@@ -147,8 +153,14 @@ namespace HRPortal
                     expenseloaction.DataTextField = "description";
                     expenseloaction.DataValueField = "code";
                     expenseloaction.DataBind();
-                    expenseloaction.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));            
-             
+                    expenseloaction.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                    expenselocation1.DataSource = itms118;
+                    expenselocation1.DataTextField = "description";
+                    expenselocation1.DataValueField = "code";
+                    expenselocation1.DataBind();
+                    expenselocation1.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
                 }
 
 
@@ -276,10 +288,38 @@ namespace HRPortal
                 //get imprest line
                 var job2 = Config.ObjNav1.fnGetImprestLine(timprestlineNo);
                 String imprestLine = job2;
-
+                
                 String status = Config.ObjNav2.createSurrenderApplicationLines(imprestNo, texpensedate, texpenselocation, imprestLine, tamount, timprestlineNo);
                 String[] info = status.Split('*');
                 
+                linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+
+            }
+            catch (Exception n)
+            {
+                linesFeedback.InnerHtml = "<div class='alert alert-danger'>" + n.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+
+        }
+
+        protected void editItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string imprestNo = Request.QueryString["imprestNo"];
+                int lineNo = Convert.ToInt32(lineno.Text.Trim());
+                DateTime texpensedate = Convert.ToDateTime(expensedate1.Text.Trim());
+                string texpenselocation = expenselocation1.SelectedValue.Trim();
+                Int32 timprestlineNo = Convert.ToInt32(imprestline1.SelectedValue.Trim());
+                decimal tamount = Convert.ToInt32(amount1.Text.Trim());
+
+                //get imprest line
+                var job2 = Config.ObjNav1.fnGetImprestLine(timprestlineNo);
+                String imprestLine = job2;
+
+                String status = Config.ObjNav2.editSurrenderApplicationLines(imprestNo,lineNo, texpensedate, texpenselocation, imprestLine, tamount, timprestlineNo);
+                String[] info = status.Split('*');
+
                 linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
 
             }
@@ -423,6 +463,25 @@ namespace HRPortal
 
         }
 
+        protected void deleteItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string reqno = Request.QueryString["imprestno"];
+                int lineno = Convert.ToInt32(lineno2.Text.Trim());
+                string status = Config.ObjNav2.deleteSurrenderApplicationLines(reqno, lineno);
+                string[] info = status.Split('*');
+                documentsfeedback.InnerText = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+
+
+
+            }
+            catch (Exception ex)
+            {
+                documentsFeedback1.InnerText = "<div class='alert alert-danger'>" + ex.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+        }
+
         protected void sendApproval_Click(object sender, EventArgs e)
         {
             try
@@ -441,9 +500,6 @@ namespace HRPortal
             }
         }
 
-        protected void deleteLine_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

@@ -163,9 +163,9 @@
                         <td><% =arr[2] %></td>
                         <td><% = arr[3] %></td>
                         <td><% = arr[4] %></td>
-                        <td><label class="btn btn-success" onclick="editLine(''<% =arr[1] %>','<% =arr[3] %>');">Edit/View</label></td>   
+                        <td><label class="btn btn-success" onclick="editLine('<% =arr[5] %>','<% =arr[0] %>','<% =arr[1] %>','<% =arr[2] %>','<% =arr[4] %>');">Edit/View</label></td>   
                         <td>
-                            <label class="btn btn-danger" onclick="removeLine('<% =arr[1] %>','<%=arr[0] %>');"><i class="fa fa-trash"></i>Delete</label></td>
+                            <label class="btn btn-danger" onclick="removeLine('<% =arr[3] %>','<%=arr[5] %>');"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
                     <% 
 }
@@ -277,6 +277,7 @@
                     <h4 class="modal-title">Confirm Deleting File</h4>
                 </div>
                 <div class="modal-body">
+                    <div ID="documentsFeedback1" runat="server"></div>
                     <p>Are you sure you want to delete the file <strong id="filetoDeleteName"></strong>?</p>
                     <asp:TextBox runat="server" ID="fileName" type="hidden" />
                 </div>
@@ -289,9 +290,10 @@
         </div>
     </div>
     <script>
-        function removeLine(itemName, lineNo) {
-            document.getElementById("itmName").innerText = itemName;
-            document.getElementById("ContentPlaceHolder1_lneNo").value = lineNo;
+        function removeLine(itemname, lineno2) {
+            document.getElementById("itemname").innerText = itemname;
+            //document.getElementById("ContentPlaceHolder1_requisitionNo").value = requisitionNo;
+            document.getElementById("ContentPlaceHolder1_lineno2").value = lineno2;
             $("#removeLineModal").modal();
         }
     </script>
@@ -303,25 +305,26 @@
                     <h4 class="modal-title">Confirm Remove Line</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to remove the line <strong id="itmName"></strong> from the Imprest?</p>
-                    <asp:TextBox runat="server" ID="lneNo" type="hidden" />
+                    <p>Are you sure you want to remove the line <strong id="itemname"></strong> from the Surrender?</p>
+                    <asp:TextBox runat="server" ID="lineno2" type="hidden" />
                 </div>
                 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLine_Click" CausesValidation="false" />
+                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteItem_Click" CausesValidation="false" />
                 </div>
             </div>
         </div>
 
     </div>
       <script>
-          function editLine(description, amount) {
-              //document.getElementById("glaccount1").value = glaccount;
-              document.getElementById("description1").innerText = description;
-            //document.getElementById("funcode1").innerText = funcode;
-            document.getElementById("amount1").innerText = amount;
-            //document.getElementById("ContentPlaceHolder1_lneNo1").value = lineNo;
+          function editLine(lineno,expensedate, expenselocation, imprestline, amount) {
+              document.getElementById("ContentPlaceHolder1_lineno").value = lineno;
+              document.getElementById("ContentPlaceHolder1_expensedate1").value = expensedate;
+              document.getElementById("ContentPlaceHolder1_expenselocation1").value = expenselocation;
+              document.getElementById("ContentPlaceHolder1_imprestline1").value = imprestline;
+              //document.getElementById("ContentPlaceHolder1_description").value = description;
+              document.getElementById("ContentPlaceHolder1_amount1").value = amount;
             $("#editLineModal").modal();
         }
     </script>
@@ -333,52 +336,44 @@
                     <h4 class="modal-title">Confirm Edit Line</h4>
                 </div>
                 <div class="modal-body">
-                    <%--<p>Are you sure you want to remove the line <strong id="GLAccount1"></strong> from the Imprest?</p>--%>
+                    <asp:TextBox runat="server" ID="lineno" hidden></asp:TextBox>
                     <div class="row">
-                       <%-- <div class="col-lg-6 col-sm-6">
-                           <div class="form-group">
-                              <strong>G/L Account:</strong>
-                              <asp:TextBox runat="server" CssClass="form-control" TextMode="Number" ID="glaccount1" ReadOnly />
-                         </div>
-                        </div>--%>
                         <div class="col-lg-6 col-sm-6">
                            <div class="form-group">
-                              <strong>Description:</strong>
-                              <asp:TextBox runat="server" CssClass="form-control" TextMode="Number" ID="description1" ReadOnly />
+                              <strong>Expense Date:</strong>
+                              <asp:TextBox runat="server" CssClass="form-control" TextMode="Date" ID="expensedate1" />
                          </div>
+                       <div class="form-group">
+                        <strong>Expense Location  <span style="color: red">*</span></strong>
+                        <asp:DropDownList runat="server" ID="expenselocation1" CssClass="form-control select2">                        
+                        </asp:DropDownList>
+                       </div>
                         </div>
-                        <%--  <div class="col-lg-6 col-sm-6">
-                           <div class="form-group">
-                              <strong>Function Code:</strong>
-                              <asp:TextBox runat="server" CssClass="form-control" TextMode="Number" ID="funcode1" ReadOnly />
-                         </div>
-                        </div>--%>
-                          <div class="col-lg-6 col-sm-6">
-                           <div class="form-group">
-                              <strong>Amount:</strong>
-                              <asp:TextBox runat="server" CssClass="form-control" TextMode="Number" ID="amount1" ReadOnly />
+
+                       <div class="col-lg-6 col-sm-6">
+                        <div class="form-group">
+                           <strong>Imprest Line  <span style="color: red">*</span></strong>
+                            <asp:DropDownList runat="server" ID="imprestline1" CssClass="form-control select2">                        
+                            </asp:DropDownList>
+                          </div>
+                       <div class="form-group">
+                          <strong>Amount:<span style="color:red">*</span></strong>
+                           <asp:TextBox runat="server" ID="amount1" CssClass="form-control" placeholder="Amount" />
+                          <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="amount" ErrorMessage="Please enter Amount, it cannot be empty!" ForeColor="Red" />
                          </div>
                         </div>
                     </div>
-                   
-                    
-                    <%--<div class="row">
-                        <div class="form-group">
-                    <strong>G/L Account  <span style="color: red">*</span></strong>
-                    <asp:DropDownList runat="server" ID="itmName1" CssClass="form-control select2">                        
-                    </asp:DropDownList>
-                    </div>--%>
                     </div>
                 </div>
                 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLine_Click" CausesValidation="false" />
+                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Edit Line" OnClick="editItem_Click"  CausesValidation="false" />s
                 </div>
             </div>
         </div>
 
-    </div>
+    <%--</div>--%>
     <%--  <div id="editLineModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">

@@ -381,6 +381,7 @@
                     <%
                         try
                         {
+                            String filLoc = ConfigurationManager.AppSettings["FilesLocation"];
                             String fileFolderApplication = ConfigurationManager.AppSettings["FileFolderApplication"];
                             String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Safari Request/";
                             String imprestNo = Request.QueryString["requisitionNo"];
@@ -396,7 +397,7 @@
                     <tr>
                         <td><% =file.Replace(documentDirectory, "") %></td>
 
-                        <td><a href="<%=fileFolderApplication %>\Staff Claim\<% =imprestNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>
+                        <td><a href="<%=fileFolderApplication %>\Safari Request\<% =imprestNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>
                         <td>
                             <label class="btn btn-danger" onclick="deleteFile('<%=file.Replace(documentDirectory, "")%>');"><i class="fa fa-trash-o"></i>Delete</label></td>
                     </tr>

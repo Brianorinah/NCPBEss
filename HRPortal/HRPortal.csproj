@@ -70,6 +70,7 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -113,6 +114,7 @@
     <Content Include="AnnualCalender.aspx" />
     <Content Include="AnnualWorkPlan.aspx" />
     <Content Include="Appraisal2.aspx" />
+    <Content Include="AppraisalTemplate.aspx" />
     <Content Include="ApprovedDailyWorkTicket.aspx" />
     <Content Include="ApprovedImprest.aspx" />
     <Content Include="ApprovedImprestRequisition.aspx" />
@@ -5278,6 +5280,7 @@
     <Content Include="LegalAdviceSaubmitted.aspx" />
     <Content Include="lineManagerObjective.aspx" />
     <Content Include="lineManagerObjectiveSettingList.aspx" />
+    <Content Include="Login3.aspx" />
     <Content Include="MeScripts\PCadditionalActivities.js" />
     <Content Include="MeScripts\StaffPerformanceContract.js" />
     <Content Include="MeScripts\StandardAppraisal.js" />
@@ -5883,6 +5886,13 @@
     </Compile>
     <Compile Include="Appraisal2.aspx.designer.cs">
       <DependentUpon>Appraisal2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppraisalTemplate.aspx.cs">
+      <DependentUpon>AppraisalTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppraisalTemplate.aspx.designer.cs">
+      <DependentUpon>AppraisalTemplate.aspx</DependentUpon>
     </Compile>
     <Compile Include="ApprovedDailyWorkTicket.aspx.cs">
       <DependentUpon>ApprovedDailyWorkTicket.aspx</DependentUpon>
@@ -6524,6 +6534,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login3.aspx.cs">
+      <DependentUpon>Login3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login3.aspx.designer.cs">
+      <DependentUpon>Login3.aspx</DependentUpon>
     </Compile>
     <Compile Include="logout.aspx.cs">
       <DependentUpon>logout.aspx</DependentUpon>
@@ -7251,6 +7268,28 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>HRPortal_HRPortal_HRPortal</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\essQueries\</RelPath>
+      <UpdateFromURL>http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HRPortal_essQueries_essQueries</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NewHrPortal\</RelPath>
+      <UpdateFromURL>http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HRPortal_NewHrPortal_NewHrPortal</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://41.89.47.15:7047/CUELIVE/WS/Data%2520Collection/Codeunit/NavXtender">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\NavExtender\</RelPath>
@@ -7261,28 +7300,6 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>HRPortal_NavExtender_NavXtender</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/essQueries">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\essQueries\</RelPath>
-      <UpdateFromURL>http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/essQueries</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>HRPortal_essQueries_essQueries</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\NewHrPortal\</RelPath>
-      <UpdateFromURL>http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>HRPortal_NewHrPortal_NewHrPortal</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>

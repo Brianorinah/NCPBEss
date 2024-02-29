@@ -567,6 +567,21 @@
           </sequence>
         </complexType>
       </element>
+      <element name="deleteSurrenderApplicationLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="appNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="deleteSurrenderApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="editImprestApplicationLines">
         <complexType>
           <sequence>
@@ -637,6 +652,26 @@
           </sequence>
         </complexType>
       </element>
+      <element name="editSurrenderApplicationLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo1" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="expenseDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="expenseLocation" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="imprestLine" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="editSurrenderApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnCreateSalesCreditHeader">
         <complexType>
           <sequence>
@@ -693,6 +728,21 @@
         </complexType>
       </element>
       <element name="fnStoreRequisitionLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="generateAppraisalTemplate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="generateAppraisalTemplate_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -1086,6 +1136,12 @@
   <message name="deleteStaffCreditSalesLines_Result">
     <part name="parameters" element="tns:deleteStaffCreditSalesLines_Result" />
   </message>
+  <message name="deleteSurrenderApplicationLines">
+    <part name="parameters" element="tns:deleteSurrenderApplicationLines" />
+  </message>
+  <message name="deleteSurrenderApplicationLines_Result">
+    <part name="parameters" element="tns:deleteSurrenderApplicationLines_Result" />
+  </message>
   <message name="editImprestApplicationLines">
     <part name="parameters" element="tns:editImprestApplicationLines" />
   </message>
@@ -1110,6 +1166,12 @@
   <message name="editStaffCreditSalesLines_Result">
     <part name="parameters" element="tns:editStaffCreditSalesLines_Result" />
   </message>
+  <message name="editSurrenderApplicationLines">
+    <part name="parameters" element="tns:editSurrenderApplicationLines" />
+  </message>
+  <message name="editSurrenderApplicationLines_Result">
+    <part name="parameters" element="tns:editSurrenderApplicationLines_Result" />
+  </message>
   <message name="fnCreateSalesCreditHeader">
     <part name="parameters" element="tns:fnCreateSalesCreditHeader" />
   </message>
@@ -1133,6 +1195,12 @@
   </message>
   <message name="fnStoreRequisitionLines_Result">
     <part name="parameters" element="tns:fnStoreRequisitionLines_Result" />
+  </message>
+  <message name="generateAppraisalTemplate">
+    <part name="parameters" element="tns:generateAppraisalTemplate" />
+  </message>
+  <message name="generateAppraisalTemplate_Result">
+    <part name="parameters" element="tns:generateAppraisalTemplate_Result" />
   </message>
   <message name="generateP9">
     <part name="parameters" element="tns:generateP9" />
@@ -1345,6 +1413,10 @@
       <input name="deleteStaffCreditSalesLines" message="tns:deleteStaffCreditSalesLines" />
       <output name="deleteStaffCreditSalesLines_Result" message="tns:deleteStaffCreditSalesLines_Result" />
     </operation>
+    <operation name="deleteSurrenderApplicationLines">
+      <input name="deleteSurrenderApplicationLines" message="tns:deleteSurrenderApplicationLines" />
+      <output name="deleteSurrenderApplicationLines_Result" message="tns:deleteSurrenderApplicationLines_Result" />
+    </operation>
     <operation name="editImprestApplicationLines">
       <input name="editImprestApplicationLines" message="tns:editImprestApplicationLines" />
       <output name="editImprestApplicationLines_Result" message="tns:editImprestApplicationLines_Result" />
@@ -1361,6 +1433,10 @@
       <input name="editStaffCreditSalesLines" message="tns:editStaffCreditSalesLines" />
       <output name="editStaffCreditSalesLines_Result" message="tns:editStaffCreditSalesLines_Result" />
     </operation>
+    <operation name="editSurrenderApplicationLines">
+      <input name="editSurrenderApplicationLines" message="tns:editSurrenderApplicationLines" />
+      <output name="editSurrenderApplicationLines_Result" message="tns:editSurrenderApplicationLines_Result" />
+    </operation>
     <operation name="fnCreateSalesCreditHeader">
       <input name="fnCreateSalesCreditHeader" message="tns:fnCreateSalesCreditHeader" />
       <output name="fnCreateSalesCreditHeader_Result" message="tns:fnCreateSalesCreditHeader_Result" />
@@ -1376,6 +1452,10 @@
     <operation name="fnStoreRequisitionLines">
       <input name="fnStoreRequisitionLines" message="tns:fnStoreRequisitionLines" />
       <output name="fnStoreRequisitionLines_Result" message="tns:fnStoreRequisitionLines_Result" />
+    </operation>
+    <operation name="generateAppraisalTemplate">
+      <input name="generateAppraisalTemplate" message="tns:generateAppraisalTemplate" />
+      <output name="generateAppraisalTemplate_Result" message="tns:generateAppraisalTemplate_Result" />
     </operation>
     <operation name="generateP9">
       <input name="generateP9" message="tns:generateP9" />
@@ -1729,6 +1809,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="deleteSurrenderApplicationLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:deleteSurrenderApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="deleteSurrenderApplicationLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="deleteSurrenderApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="editImprestApplicationLines">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:editImprestApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="editImprestApplicationLines">
@@ -1765,6 +1854,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="editSurrenderApplicationLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:editSurrenderApplicationLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="editSurrenderApplicationLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="editSurrenderApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="fnCreateSalesCreditHeader">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:fnCreateSalesCreditHeader" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="fnCreateSalesCreditHeader">
@@ -1798,6 +1896,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnStoreRequisitionLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="generateAppraisalTemplate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:generateAppraisalTemplate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="generateAppraisalTemplate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="generateAppraisalTemplate_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1921,7 +2028,7 @@
   </binding>
   <service name="NewHrPortal">
     <port name="NewHrPortal_Port" binding="tns:NewHrPortal_Binding">
-      <address location="http://dynamicsbc.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <address location="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
     </port>
   </service>
 </definitions>

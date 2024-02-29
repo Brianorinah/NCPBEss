@@ -158,7 +158,7 @@
                                         <li><a href="LeaveApplication2.aspx"><i class="fa fa-circle-o"></i>New Application</a></li>
                                         <li><a href="leave.aspx"><i class="fa fa-circle-o"></i>Open Applications</a></li>
                                         <li><a href="Approvedleave.aspx"><i class="fa fa-circle-o"></i>Approved Applications</a></li>
-                                        <li><a href="leavebalances.aspx"><i class="fa fa-circle-o"></i>Leave Balances</a></li>
+                                        <%--<li><a href="leavebalances.aspx"><i class="fa fa-circle-o"></i>Leave Balances</a></li>--%>
                                     </ul>
                                 </li>
                                 <li class="treeview">

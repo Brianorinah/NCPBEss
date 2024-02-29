@@ -166,6 +166,15 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.Button sendApproval;
         
         /// <summary>
+        /// documentsFeedback1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl documentsFeedback1;
+        
+        /// <summary>
         /// fileName control.
         /// </summary>
         /// <remarks>
@@ -175,22 +184,49 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.TextBox fileName;
         
         /// <summary>
-        /// lneNo control.
+        /// lineno2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lneNo;
+        protected global::System.Web.UI.WebControls.TextBox lineno2;
         
         /// <summary>
-        /// description1 control.
+        /// lineno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox description1;
+        protected global::System.Web.UI.WebControls.TextBox lineno;
+        
+        /// <summary>
+        /// expensedate1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox expensedate1;
+        
+        /// <summary>
+        /// expenselocation1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList expenselocation1;
+        
+        /// <summary>
+        /// imprestline1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList imprestline1;
         
         /// <summary>
         /// amount1 control.

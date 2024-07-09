@@ -157,6 +157,15 @@ namespace HRPortal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl linesFeedback1;
         
         /// <summary>
+        /// Button3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button3;
+        
+        /// <summary>
         /// entitlement control.
         /// </summary>
         /// <remarks>
@@ -292,40 +301,58 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.TextBox towns;
         
         /// <summary>
-        /// editLineNo control.
+        /// linesFeedback2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox editLineNo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl linesFeedback2;
         
         /// <summary>
-        /// editVoteItem control.
+        /// entitlement1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList editVoteItem;
+        protected global::System.Web.UI.WebControls.DropDownList entitlement1;
         
         /// <summary>
-        /// editDescription control.
+        /// town1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox editDescription;
+        protected global::System.Web.UI.WebControls.TextBox town1;
         
         /// <summary>
-        /// editAmount control.
+        /// quantity1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox editAmount;
+        protected global::System.Web.UI.WebControls.TextBox quantity1;
+        
+        /// <summary>
+        /// rate1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox rate1;
+        
+        /// <summary>
+        /// totalamount1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox totalamount1;
         
         /// <summary>
         /// documentNumber control.

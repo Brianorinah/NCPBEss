@@ -43,7 +43,7 @@ namespace HRPortal
 
                             ItemList mdl = new ItemList();
                             mdl.code = arr1[0];
-                            mdl.description = arr1[1];
+                            mdl.description = arr1[0]+" - "+arr1[1];
                             itms1.Add(mdl);
 
                         }
@@ -66,7 +66,7 @@ namespace HRPortal
 
                             ItemList mdl = new ItemList();
                             mdl.code = arr2[0];
-                            mdl.description = arr2[1];
+                            mdl.description = arr2[0]+" - "+ arr2[1];
                             itms17.Add(mdl);
 
                         }
@@ -174,7 +174,7 @@ namespace HRPortal
 
                             ItemList mdl = new ItemList();
                             mdl.code = arr[0];
-                            mdl.description = arr[1];
+                            mdl.description = arr[0]+" - "+ arr[1];
                             itms11.Add(mdl);
 
                         }
@@ -185,6 +185,12 @@ namespace HRPortal
                     entitlement.DataValueField = "code";
                     entitlement.DataBind();
                     entitlement.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                    entitlement1.DataSource = itms11;
+                    entitlement1.DataTextField = "description";
+                    entitlement1.DataValueField = "code";
+                    entitlement1.DataBind();
+                    entitlement1.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
                 }
 
             }
@@ -222,7 +228,8 @@ namespace HRPortal
                 }
 
                 String employeeNo = Convert.ToString(Session["employeeNo"]);
-                String status = Config.ObjNav2.createSafariRequestHeader(requisitionNo, employeeNo, texptTravelDate, texptTravelDate, ttransMode, tfunctionCode, tbgtCenterCode, tpurpose);
+                String userName = Convert.ToString(Session["username"]).ToString().ToUpper(); ;
+                String status = Config.ObjNav2.createSafariRequestHeader(requisitionNo, employeeNo, texptTravelDate, texptTravelDate, ttransMode, tfunctionCode, tbgtCenterCode, tpurpose,userName);
                 String[] info = status.Split('*');
                 if (info[0] == "success")
                 {
@@ -324,8 +331,9 @@ namespace HRPortal
             try
             {
                 String requisitionNo = Request.QueryString["requisitionNo"];
+                String userName = Convert.ToString(Session["username"]).ToUpper();
                 // Convert.ToString(Session["employeeNo"]),
-                String status = Config.ObjNav2.sendSafariRequestApplicationApproval(requisitionNo);
+                String status = Config.ObjNav2.sendSafariRequestApplicationApproval(requisitionNo,userName);
                 String[] info = status.Split('*');
                 documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
                 ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
@@ -339,12 +347,13 @@ namespace HRPortal
         protected void uploadDocument_Click(object sender, EventArgs e)
         {
 
-            String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Safari Request/";
+            String filesFolder = "~"+ConfigurationManager.AppSettings["FileFolderApplication"] +"/"+ "Safari Request/";
 
             if (document.HasFile)
             {
                 try
                 {
+
                     if (Directory.Exists(filesFolder))
                     {
                         String extension = System.IO.Path.GetExtension(document.FileName);
@@ -422,16 +431,117 @@ namespace HRPortal
 
 
         }
+
+        protected void uploadDocument_Click1(object sender, EventArgs e)
+        {
+            
+            String filesFolder = Server.MapPath("~/downloads/Safari Request/");
+
+            if (document.HasFile)
+            {
+                try
+                {
+
+                    if (Directory.Exists(filesFolder))
+                    {
+
+                        String imprestNo = Request.QueryString["requisitionNo"];
+                        string extension = System.IO.Path.GetExtension(document.FileName);
+                        //string filename1 = imprestNo + extension;
+                        if (new Config().IsAllowedExtension(extension))
+                        {
+                            imprestNo = imprestNo.Replace('/', '_');
+                            imprestNo = imprestNo.Replace(':', '_');
+                            String documentDirectory = filesFolder + imprestNo;
+                            Boolean createDirectory = true;
+                            try
+                            {
+                                //string fullPath = documentDirectory + document.FileName;
+
+                                //if (System.IO.File.Exists(fullPath))
+                                //{
+                                //    System.IO.File.Delete(fullPath);
+                                //}
+
+
+                                //document.PostedFile.SaveAs(fullPath);
+
+                            if (!Directory.Exists(documentDirectory))
+                            {
+                                Directory.CreateDirectory(documentDirectory);
+                            }
+                        }
+                            catch (Exception)
+                            {
+                                createDirectory = false;
+                                documentsfeedback.InnerHtml =
+                                                                "<div class='alert alert-danger'>We could not create a directory for your documents. Please try again" +
+                                                                "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+
+                            }
+                        if (createDirectory)
+                        {
+                            string filename = documentDirectory+"\\" + document.FileName;
+                            if (File.Exists(filename))
+                            {
+                                documentsfeedback.InnerHtml =
+                                                                   "<div class='alert alert-danger'>A document with the given name already exists. Please delete it before uploading the new document or rename the new document<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+
+                            }
+                            else
+                            {
+                                document.PostedFile.SaveAs(filename);
+                                if (File.Exists(filename))
+                                {
+                                    documentsfeedback.InnerHtml =
+                                        "<div class='alert alert-success'>The document was successfully uploaded. <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                                }
+                                else
+                                {
+                                    documentsfeedback.InnerHtml =
+                                        "<div class='alert alert-danger'>The document could not be uploaded. Please try again <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                                }
+                            }
+                        }
+                    }
+                        else
+                        {
+                            documentsfeedback.InnerHtml = "<div class='alert alert-danger'>The document's file extension is not allowed. <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                        }
+
+                    }
+                    else
+                    {
+                        documentsfeedback.InnerHtml = "<div class='alert alert-danger'>The document's root folder defined does not exist in the server. Please contact support. <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-danger'>The document could not be uploaded. Please try again <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+
+                }
+            }
+            else
+            {
+                documentsfeedback.InnerHtml = "<div class='alert alert-danger'>Please select the document to upload. (or the document is empty) <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+
+
+            }
+
+
+        }
         protected void deleteFile_Click(object sender, EventArgs e)
         {
             try
             {
                 String tFileName = fileName.Text.Trim();
                 String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Safari Request/";
+                String filesFolder1 = Server.MapPath("~/downloads/Safari Request/");
                 String imprestNo = Request.QueryString["requisitionNo"];
                 imprestNo = imprestNo.Replace('/', '_');
                 imprestNo = imprestNo.Replace(':', '_');
-                String documentDirectory = filesFolder + imprestNo + "/";
+                String documentDirectory = filesFolder1 + imprestNo + "\\";
                 String myFile = documentDirectory + tFileName;
                 if (File.Exists(myFile))
                 {
@@ -514,6 +624,27 @@ namespace HRPortal
         }
         protected void editItem_Click(object sender, EventArgs e)
         {
+            //try
+            //{
+            //    string requisitionNo = Request.QueryString["requisitionNo"];
+
+            //    string tentitlement = entitlement1.SelectedValue.Trim();
+
+            //    decimal trate = Convert.ToDecimal(rate1.Text.Trim());
+            //    int tquantity = Convert.ToInt16(quantity1.Text.Trim());
+            //    string ttown = town1.Text.Trim();
+
+
+            //    String status = Config.ObjNav2.editSafariRequestEntitlements(requisitionNo, tentitlement, tquantity, trate, ttown);
+            //    String[] info = status.Split('*');
+
+            //    linesFeedback2.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+
+            //}
+            //catch (Exception n)
+            //{
+            //    linesFeedback2.InnerHtml = "<div class='alert alert-danger'>" + n.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            //}
         }
         protected void editLine_Click(object sender, EventArgs e)
         {
@@ -565,6 +696,35 @@ namespace HRPortal
                     }
                 }
             }
+        }
+
+        protected void Entitlement_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+
+
+            var nav = Config.ObjNav1;
+            var result = nav.fnGetEntitlementDetails(entitlement1.Text.Trim());
+            String[] info = result.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+            if (info.Count() > 0)
+            {
+                if (info != null)
+                {
+                    foreach (var allinfo in info)
+                    {
+                        String[] arr = allinfo.Split('*');
+                        rate.Text = arr[1];
+                        app.Text = arr[2];
+
+                    }
+                }
+            }
+        }
+
+        protected void entitlemets_Click(object sender, EventArgs e)
+        {
+            string appNo = Request.QueryString["requisitionNo"];
+
+            Config.ObjNav2.createSafariEntitlements(appNo);
         }
     }
 }

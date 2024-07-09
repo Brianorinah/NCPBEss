@@ -84,7 +84,8 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>
-                   <%                        
+                   <%    
+                        int approvedImprest = 0;                    
                        //var employeesLeaves = nav.Employees.Where(r => r.No == (String) Session["employeeNo"]);
                        //Decimal leaveBalance = 0;
                        //try
@@ -101,15 +102,15 @@
                        //    leaveBalance = 0;
                        //}
                    %>
-                  <% = leaveBalance %>
+                  <% = approvedImprest %>
               </h3>
 
-              <p>Outstanding Leave Balance</p>
+              <p>Approved Leave Applications</p>
             </div>
 <%--            <div class="icon">
               <i class="fa fa-sign-out"></i>
             </div>--%>
-            <a href="leavebalances.aspx" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="Approvedleave.aspx" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -119,7 +120,7 @@
             <div class="inner">
               <h3>
                    <% 
-                       int approvedImprestMemos = 0;
+                       int approvedSafariRequest = 0;
                        //var  imprests = nav.HrLeaveApplication.Where(r => r.Status == "Released" && r.Employee_No == employeeNo && r.Posted == false );;
                        //int approvedImprestMemos = 0;
                        //try
@@ -135,15 +136,15 @@
                        //    approvedImprestMemos = 0;
                        //}
                    %>
-                  <% = approvedImprestMemos %>
+                  <% = approvedSafariRequest %>
               </h3>
 
-              <p>Approved Leave Applications</p>
+              <p>Approved Safari Request</p>
             </div>
 <%--            <div class="icon">
               <i class="fa fa-money"></i>
             </div>--%>
-            <a href="Approvedleave.aspx" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="ApprovedImprestRequisition.aspx" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -172,12 +173,12 @@
                   <% = approvedImprestRequisitions %>
               </h3>
 
-              <p>Approved Imprest Memo</p>
+              <p>Approved Imprest</p>
             </div>
 <%--            <div class="icon">
               <i class="fa fa-money"></i>
             </div>--%>
-            <a href="ApprovedImprestRequisition.aspx" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="ApprovedImprest.aspx" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -211,62 +212,10 @@
 <%--            <div class="icon">
               <i class="fa fa-money"></i>
             </div>--%>
-            <a href="ImprestSurrendersApproved.aspx" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3>
-                  <% int approvedPurchaseReq = 0;
-                      //var headers = nav.PurchaseHeader.Where(r => r.Status == "Released"&& r.Document_Type == "Purchase Requisition" && r.Request_By_No == employeeNo);
-                      //  int approvedPurchaseReq = 0;
-                      //  try
-                      //  {
-                      //      foreach (var header in headers)
-                      //      {
-                      //          approvedPurchaseReq ++;
-
-                      //      }
-                      //  }
-                      //  catch (Exception)
-                      //  {
-                      //      approvedPurchaseReq = 0;
-                      //  }
-                   %>
-                  <% = approvedPurchaseReq %>
-              </h3>
-
-              <p>Approved Purchase Requisition</p>
-            </div>
-<%--            <div class="icon">
-              <i class="fa fa-shopping-cart"></i>
-            </div>--%>
-            <a href="PurchaseRequisitionsApproved.aspx" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="ImprestSurrendersApproved1.aspx" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>
-                   <% 
-                       int approvedStoreReq = 0;
-
-                   %>
-                  <% = approvedStoreReq %>
-              </h3>
-
-              <p>Approved Stores Requisitions</p>
-            </div>
-<%--            <div class="icon">
-              <i class="fa fa-building"></i>
-            </div>--%>
-            <a href="StoreRequisitions.aspx?status=approved" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
         <!-- ./col -->        
         </div>
       </div>

@@ -58,13 +58,13 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.TextBox purpose;
         
         /// <summary>
-        /// addGeneralDetails control.
+        /// addGeneralDetailsNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addGeneralDetails;
+        protected global::System.Web.UI.WebControls.Button addGeneralDetailsNew;
         
         /// <summary>
         /// linesFeedback control.
@@ -92,6 +92,15 @@ namespace HRPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList expenseloaction;
+        
+        /// <summary>
+        /// description control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox description;
         
         /// <summary>
         /// imprestline control.
@@ -227,6 +236,15 @@ namespace HRPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList imprestline1;
+        
+        /// <summary>
+        /// description1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox description1;
         
         /// <summary>
         /// amount1 control.

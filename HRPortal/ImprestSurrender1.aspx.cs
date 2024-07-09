@@ -115,7 +115,7 @@ namespace HRPortal
 
                             ItemList mdl = new ItemList();
                             mdl.code = arr[4];
-                            mdl.description = arr[0]+"-"+arr[1];
+                            mdl.description = arr[5]+" - "+arr[1];
                             itms119.Add(mdl);
                         }
                     }
@@ -197,11 +197,12 @@ namespace HRPortal
 
         }
 
-        protected void addGeneralDetails_Click(object sender, EventArgs e)
+        protected void addGeneralDetails_ClickNew1(object sender, EventArgs e)
         {
             try
             {
                 String employeeNo = Convert.ToString(Session["employeeNo"]);
+                String userName = Convert.ToString(Session["username"]);
                 String tpayingbudgetcenter = payingbudgetcenters.Text.Trim();
                 DateTime trequestdate = Convert.ToDateTime(requestdate.Text.Trim());
                 DateTime ttraveldate = Convert.ToDateTime(traveldate.Text.Trim());
@@ -250,21 +251,23 @@ namespace HRPortal
                         newImprest = true;
                     }
 
-                    String status = Config.ObjNav2.createImprest(imprestNo, employeeNo, tpayingbudgetcenter, trequestdate, ttraveldate, tpurpose);
-                    String[] info = status.Split('*');
-                    if (info[0] == "success")
-                    {
-                        if (newImprest)
-                        {
-                            imprestNo = info[2];
-                        }
-                        String redirectLocation = "ImprestSurrender1.aspx?step=2&&imprestNo=" + imprestNo;
-                        Response.Redirect(redirectLocation, false);
-                    }
-                    else
-                    {
-                        generalFeedback.InnerHtml = "<div class='alert alert-danger'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                    }
+                    String status = Config.ObjNav2.createImprestSurrender(imprestNo, employeeNo, tpayingbudgetcenter, trequestdate, ttraveldate, tpurpose,userName);
+                    String redirectLocation = "ImprestSurrender1.aspx?step=2&&imprestNo=" + imprestNo;
+                    Response.Redirect(redirectLocation, false);
+                    //String[] info = status.Split('*');
+                    //if (info[0] == "success")
+                    //{
+                    //    if (newImprest)
+                    //    {
+                    //        imprestNo = info[2];
+                    //    }
+                    //    String redirectLocation = "ImprestSurrender1.aspx?step=2&&imprestNo=" + imprestNo;
+                    //    Response.Redirect(redirectLocation, false);
+                    //}
+                    //else
+                    //{
+                    //    generalFeedback.InnerHtml = "<div class='alert alert-danger'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    //}
 
                 }
             }
@@ -283,13 +286,14 @@ namespace HRPortal
                 DateTime texpensedate = Convert.ToDateTime(expensedate.Text.Trim());
                 string texpenselocation = expenseloaction.SelectedValue.Trim();
                 Int32 timprestlineNo = Convert.ToInt32(imprestline.SelectedValue.Trim());
-                decimal tamount = Convert.ToInt16(amount.Text.Trim());
+                decimal tamount = Convert.ToDecimal(amount.Text.Trim());
+                string tdescription = description.Text.Trim();
 
                 //get imprest line
                 var job2 = Config.ObjNav1.fnGetImprestLine(timprestlineNo);
                 String imprestLine = job2;
                 
-                String status = Config.ObjNav2.createSurrenderApplicationLines(imprestNo, texpensedate, texpenselocation, imprestLine, tamount, timprestlineNo);
+                String status = Config.ObjNav2.createSurrenderApplicationLines(imprestNo, texpensedate, texpenselocation, imprestLine, tamount, timprestlineNo,tdescription);
                 String[] info = status.Split('*');
                 
                 linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
@@ -306,21 +310,52 @@ namespace HRPortal
         {
             try
             {
-                string imprestNo = Request.QueryString["imprestNo"];
-                int lineNo = Convert.ToInt32(lineno.Text.Trim());
-                DateTime texpensedate = Convert.ToDateTime(expensedate1.Text.Trim());
-                string texpenselocation = expenselocation1.SelectedValue.Trim();
-                Int32 timprestlineNo = Convert.ToInt32(imprestline1.SelectedValue.Trim());
-                decimal tamount = Convert.ToInt32(amount1.Text.Trim());
+                
+                bool error = false;
+                string message = "";
 
-                //get imprest line
-                var job2 = Config.ObjNav1.fnGetImprestLine(timprestlineNo);
-                String imprestLine = job2;
+                if (string.IsNullOrEmpty(lineno.Text.Trim()))
+                {
+                    error = true;
+                    message = message + " . " + "Line is required.";
 
-                String status = Config.ObjNav2.editSurrenderApplicationLines(imprestNo,lineNo, texpensedate, texpenselocation, imprestLine, tamount, timprestlineNo);
-                String[] info = status.Split('*');
+                }
+                if (string.IsNullOrEmpty(expensedate1.Text.Trim()))
+                {
+                    message = message + " . " + "Expense date is required.";
+                }
+                if (string.IsNullOrEmpty(imprestline1.Text.Trim()))
+                {
+                    message = message + " . " + "Imprest Line number is required.";
+                }
+                if (string.IsNullOrEmpty(amount1.Text.Trim()))
+                {
+                    message = message + " . " + "Amount is required.";
+                }
+                if (error)
+                {
+                    linesFeedback.InnerHtml = "<div class='alert alert-danger'>" + message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {
+                    string imprestNo = Request.QueryString["imprestNo"];
+                    int lineNo = Convert.ToInt32(lineno.Text.Trim());
+                    DateTime texpensedate = Convert.ToDateTime(expensedate1.Text.Trim());
+                    string texpenselocation = expenselocation1.SelectedValue.Trim();
+                    Int32 timprestlineNo = Convert.ToInt32(imprestline1.SelectedValue.Trim());
+                    decimal tamount = Convert.ToDecimal(amount1.Text.Trim());
+                    string tdescription = description1.Text.Trim();
 
-                linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    //get imprest line
+                    var job2 = Config.ObjNav1.fnGetImprestLine(timprestlineNo);
+                    String imprestLine = job2;
+
+                    String status = Config.ObjNav2.editSurrenderApplicationLines(imprestNo, lineNo, texpensedate, texpenselocation, imprestLine, tamount, timprestlineNo, tdescription);
+                    String[] info = status.Split('*');
+
+                    linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+               
 
             }
             catch (Exception n)
@@ -344,12 +379,14 @@ namespace HRPortal
         protected void previous_Click(object sender, EventArgs e)
         {
             String imprestNo = Request.QueryString["imprestNo"];
-            Response.Redirect("ImprestSurrender1.aspx?step=1&&imprestNo=" + imprestNo);
+            int step = Convert.ToInt16(Request.QueryString["step"])-1;
+            Response.Redirect("ImprestSurrender1.aspx?step=" +step+"&&imprestNo=" + imprestNo);
         }
 
         protected void uploadDocument_Click(object sender, EventArgs e)
         {
-            String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Imprest/";
+            //String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Imprest/";
+            String filesFolder = Server.MapPath("~/downloads/Imprest Surrender/");
 
             if (document.HasFile)
             {
@@ -432,10 +469,11 @@ namespace HRPortal
             {
                 String tFileName = fileName.Text.Trim();
                 String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Imprest/";
+                String filesFolder1 = Server.MapPath("~/downloads/Imprest Surrender/");
                 String imprestNo = Request.QueryString["imprestNo"];
                 imprestNo = imprestNo.Replace('/', '_');
                 imprestNo = imprestNo.Replace(':', '_');
-                String documentDirectory = filesFolder + imprestNo + "/";
+                String documentDirectory = filesFolder1 + imprestNo + "/";
                 String myFile = documentDirectory + tFileName;
                 if (File.Exists(myFile))
                 {

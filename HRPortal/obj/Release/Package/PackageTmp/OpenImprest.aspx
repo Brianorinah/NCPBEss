@@ -56,20 +56,20 @@
                                     <td><%=oneItem[1] %> </td>
                                     <td><%=oneItem[2] %> </td>
                                     <td><%=oneItem[3] %> </td>
-                                    <td><a href="ApproverEntry.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
+                                    <td><a href="ApproverEntry1.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
                                     <td>
                                         <%
                                             if (oneItem[3] == "New")
                                             {
                                         %>
-                                        <label class="btn btn-success"><i class="fa fa-check" OnClick="sendApproval_Click"></i>Send Approval Request</label>
+                                        <label class="btn btn-success" onclick="sendApprovalRequest('<%=oneItem[0] %>');"><i class="fa fa-check"></i>Send Approval Request</label>
                                         <%
                                             }
                                             else if (oneItem[3] == "Approval Pending")
                                             {
-
+                                                
                                         %>
-                                        <label class="btn btn-danger"><i class="fa fa-times"></i>Cancel Approval Request</label>
+                                        <label class="btn btn-danger"  onclick="cancelApprovalRequest('<%=oneItem[0] %>');"><i class="fa fa-times"></i>Cancel Approval Request</label>
 
                                         <% 
                                             } %>                                              
@@ -105,4 +105,63 @@
             </table>
         </div>
     </div>
+
+         <script>
+         function sendApprovalRequest(imprestMemoToApprove) {
+             document.getElementById("approveImprestMemoNo").innerHTML = imprestMemoToApprove;
+             document.getElementById("ContentPlaceHolder1_imprestMemoToApprove").value = imprestMemoToApprove;
+
+            $("#sendImprestMemoForApproval").modal();
+        }
+        function cancelApprovalRequest(documentNumber) {
+           
+            document.getElementById("cancelImprestMemoText").innerHTML = documentNumber;
+            document.getElementById("ContentPlaceHolder1_cancelImprestMemoNo").value = documentNumber;
+
+            $("#cancelImprestMemoForApprovalModal").modal();
+        }
+		 </script>
+ 
+    <div id="sendImprestMemoForApproval" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+      
+    <!-- Modal content--> 
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Send Imprest Memo For Approval</h4>
+      </div>
+      <div class="modal-body">
+          <asp:TextBox runat="server" ID="imprestMemoToApprove" type="hidden"/>
+          Are you sure you want to send Safari Request No <strong id="approveImprestMemoNo"></strong>  for approval ? 
+        </div>
+      <div class="modal-footer">
+          <asp:Button runat="server" CssClass="btn btn-success" Text="Send Approval" OnClick="sendApproval_Click"/>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+    <div id="cancelImprestMemoForApprovalModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+      
+    <!-- Modal content--> 
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cancel Imprest Memo Approval</h4>
+      </div>
+      <div class="modal-body">
+          <asp:TextBox runat="server" ID="cancelImprestMemoNo" type="hidden"/> 
+          Are you sure you want to cancel approval of  Imprest Memo No <strong id="cancelImprestMemoText"></strong>? 
+        </div>
+      <div class="modal-footer">
+          <asp:Button runat="server" CssClass="btn btn-danger" Text="Cancel Approval" OnClick="cancelApproval_Click" />
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 </asp:Content>

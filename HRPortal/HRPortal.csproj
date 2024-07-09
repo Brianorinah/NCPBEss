@@ -129,6 +129,7 @@
     <Content Include="ApprovedStandingImprest.aspx" />
     <Content Include="ApprovedVechicleServiceRequsitions.aspx" />
     <Content Include="ApproverEntry.aspx" />
+    <Content Include="ApproverEntry1.aspx" />
     <Content Include="AssignedHelpDeskList.aspx" />
     <Content Include="AWPReport.aspx" />
     <Content Include="BoardPerformanceContract.aspx" />
@@ -5479,6 +5480,8 @@
     <Content Include="PurchaseReqPrintOut.aspx" />
     <Content Include="PurchaseRequisitionsApproved.aspx" />
     <Content Include="RecordRequisitionApprovalEntries.aspx" />
+    <Content Include="ReportView.aspx" />
+    <Content Include="RequestToApprove.aspx" />
     <Content Include="ResolvedHelpDeskIssues.aspx" />
     <Content Include="ResourceBookingApproverEntries.aspx" />
     <Content Include="SafariRequest.aspx" />
@@ -5814,6 +5817,13 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\NavExtender\NavXtender.wsdl" />
+    <Content Include="ViewFleet.aspx" />
+    <Content Include="ViewImprest.aspx" />
+    <Content Include="ViewLeave.aspx" />
+    <Content Include="ViewPurchase.aspx" />
+    <Content Include="ViewSafari.aspx" />
+    <Content Include="ViewStaffClaim.aspx" />
+    <Content Include="ViewSurrender.aspx" />
     <Content Include="Web References\NavExtender\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -5991,6 +6001,13 @@
     </Compile>
     <Compile Include="ApproverEntry.aspx.designer.cs">
       <DependentUpon>ApproverEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ApproverEntry1.aspx.cs">
+      <DependentUpon>ApproverEntry1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApproverEntry1.aspx.designer.cs">
+      <DependentUpon>ApproverEntry1.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AssignedHelpDeskList.aspx.cs">
@@ -6950,6 +6967,20 @@
     <Compile Include="RecordRequisitionApprovalEntries.aspx.designer.cs">
       <DependentUpon>RecordRequisitionApprovalEntries.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ReportView.aspx.cs">
+      <DependentUpon>ReportView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportView.aspx.designer.cs">
+      <DependentUpon>ReportView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RequestToApprove.aspx.cs">
+      <DependentUpon>RequestToApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequestToApprove.aspx.designer.cs">
+      <DependentUpon>RequestToApprove.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ResolvedHelpDeskIssues.aspx.cs">
       <DependentUpon>ResolvedHelpDeskIssues.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -7215,6 +7246,55 @@
     <Compile Include="VehicleServiceRequisition.aspx.designer.cs">
       <DependentUpon>VehicleServiceRequisition.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewFleet.aspx.cs">
+      <DependentUpon>ViewFleet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewFleet.aspx.designer.cs">
+      <DependentUpon>ViewFleet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewImprest.aspx.cs">
+      <DependentUpon>ViewImprest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewImprest.aspx.designer.cs">
+      <DependentUpon>ViewImprest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewLeave.aspx.cs">
+      <DependentUpon>ViewLeave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewLeave.aspx.designer.cs">
+      <DependentUpon>ViewLeave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPurchase.aspx.cs">
+      <DependentUpon>ViewPurchase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewPurchase.aspx.designer.cs">
+      <DependentUpon>ViewPurchase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSafari.aspx.cs">
+      <DependentUpon>ViewSafari.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSafari.aspx.designer.cs">
+      <DependentUpon>ViewSafari.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewStaffClaim.aspx.cs">
+      <DependentUpon>ViewStaffClaim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewStaffClaim.aspx.designer.cs">
+      <DependentUpon>ViewStaffClaim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSurrender.aspx.cs">
+      <DependentUpon>ViewSurrender.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSurrender.aspx.designer.cs">
+      <DependentUpon>ViewSurrender.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -7268,28 +7348,6 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>HRPortal_HRPortal_HRPortal</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\essQueries\</RelPath>
-      <UpdateFromURL>http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>HRPortal_essQueries_essQueries</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\NewHrPortal\</RelPath>
-      <UpdateFromURL>http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>HRPortal_NewHrPortal_NewHrPortal</CachedSettingsPropName>
-    </WebReferenceUrl>
     <WebReferenceUrl Include="http://41.89.47.15:7047/CUELIVE/WS/Data%2520Collection/Codeunit/NavXtender">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\NavExtender\</RelPath>
@@ -7300,6 +7358,28 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>HRPortal_NavExtender_NavXtender</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://dynamics.cereals:7047/BC220/WS/NCPB/Codeunit/essQueries">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\essQueries\</RelPath>
+      <UpdateFromURL>http://dynamics.cereals:7047/BC220/WS/NCPB/Codeunit/essQueries</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HRPortal_essQueries_essQueries</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://dynamics.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NewHrPortal\</RelPath>
+      <UpdateFromURL>http://dynamics.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HRPortal_NewHrPortal_NewHrPortal</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>

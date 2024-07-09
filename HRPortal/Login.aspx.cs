@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.DirectoryServices;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -21,127 +22,100 @@ namespace HRPortal
         {
             try
             {
-                String tUsername = username.Text.Trim();
-                String tPassword = password.Text.Trim();
-                if (tPassword == "0000")
+                String tusername = username.Text.Trim();
+                String tpassword = password.Text.Trim();
+
+                // sanitize the request, just incase a user a username and preappends the domain, eg CUEHQ\Administrator
+                String sanitizedUsername = tusername.Split('\\').LastOrDefault();
+
+                bool authenticated = AuthenticateUser(sanitizedUsername, tpassword);
+
+                if (authenticated)
                 {
-                    Session["employeeNo"] = tUsername;
-                    Session["EmailAddress"] = tUsername;
-                    Session["Password"] = "";
-                    Response.Redirect("ChangePassword.aspx");
+                    // preappend CUEHQ to the sanitizeed username
+                    sanitizedUsername = "CEREALS\\" + sanitizedUsername;
+                    Boolean exists = false;
+                    String job = Config.ObjNav1.fnGetUser(sanitizedUsername);
+                    String[] info = job.Split('*');
+
+                    if (info[0] == "success")
+                    {
+                        String employee = Config.ObjNav1.fnGetEmployees(info[2]);
+
+                        String[] allInfo = employee.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                        if (allInfo != null)
+                        {
+                            foreach (var oneItem in allInfo)
+                            {
+                                String[] arr = oneItem.Split('*');
+
+                                Session["name"] = arr[1];
+                                Session["employeeNo"] = arr[0];
+                                Session["idNo"] = arr[3];
+                                Session["Department"] = arr[5];
+                                Session["username"] = info[3];
+                            }
+                            Response.Redirect("Dashboard.aspx");
+                        }
+
+                    }
+                    else
+                    {
+                        feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    }
                 }
                 else
                 {
-                    bool error = false;
-                    var nav = new Config().ReturnNav();
-                    string allData = Config.ObjNav1.fnGetHrPortalUser(tUsername, tPassword);
-                    String[] allInfo = allData.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
-                    if (allInfo != null)
-                    {
-                        foreach (var item in allInfo)
-                        {
-
-                            String[] oneItem = item.Split(new string[] { "**Z" }, StringSplitOptions.None);
-                            //String[] oneItem = item.Split('*');
-
-                            if (oneItem[0] == "danger")
-                            {
-                                error = true;
-                                feedback.InnerHtml = "<div class='alert alert-" + oneItem[0] + "'>" + oneItem[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                            }
-                            else
-                            {
-                                Session["name"] = oneItem[0] + " " + oneItem[1] + " " + oneItem[2];
-                                Session["employeeNo"] = oneItem[3];
-                                Session["idNo"] = oneItem[4];
-                                //Session["admin"] = oneItem[0];
-                                //Session["region"] = oneItem[0];
-                                //Session["FundCode"] = oneItem[0];
-                                //Session["Directorate"] = oneItem[0];
-                                Session["Department"] = oneItem[5];
-                                if (oneItem[5] == "No")
-                                {
-                                    Response.Redirect("ChangePassword.aspx");
-                                }
-                                else
-                                {
-                                    Response.Redirect("Dashboard.aspx");
-                                }
-
-
-
-
-
-                            }
-                        }
-                    }
+                    feedback.InnerHtml =
+                            "<div class='alert alert-danger'>A user with the entered credentials does not exist. Ensure you enter the correct credentials. Contact your system administrator if this error persists.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
                 }
-                //        var users = Config.ObjNav1.fnGetHrPortalUser(tUsername, tPassword);
-                //Boolean exists = false;
-                //foreach (var user in users)
-                //{
-                //    exists = true;
-                //    Session["name"] = user.First_Name + " " + user.Middle_Name + " " + user.Last_Name;
-                //    Session["employeeNo"] = user.employeeNo;
-                //    Session["idNo"] = user.ID_Number;
-                //    Session["admin"] = user.ICT_Help_Desk_Admin;
-                //    Session["region"] = user.Region;
-                //    Session["FundCode"] = user.Global_Dimension_2_Code;
-                //    Session["Directorate"] = user.Directorate_Code;
-                //    Session["Department"] = user.Department_Code;
-                //   // Session["gender"] = user.Gender;
-
-                //if (user.changedPassword == false)
-                //    {
-                //        Response.Redirect("ChangePassword.aspx");
-                //    }
-
-                //}
-                //if (!exists)
-                //{
-                //    feedback.InnerHtml =
-                //        "<div class='alert alert-danger'>A user with the entered credentials does not exist<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                //}
-                //else
-                //{
-                //    Response.Redirect("Dashboard.aspx");
-                //}
             }
             catch (Exception ex)
             {
                 feedback.InnerHtml = "<div class='alert alert-danger'>'" + ex.Message + "'</div>";
-
             }
         }
-        bool IsValidCaptcha()
+
+        protected bool AuthenticateUser(String UserName, String Password)
         {
+            string ldapPath = "LDAP://servergamma.cereals";
+            //string fullUserId = "administrator";
+            bool isAuthenticated = false;
+
             try
             {
-                string resp = Request["g-recaptcha-response"];
-                var req = (HttpWebRequest)WebRequest.Create
-                    ("https://www.google.com/recaptcha/api/siteverify?secret=6Ld4LScUAAAAAMFS3LPFmHywnoRFpywiUiMBDS9n&response=" +
-                     resp);
-                using (WebResponse wResponse = req.GetResponse())
+
+                DirectoryEntry de = new DirectoryEntry(ldapPath, UserName, Password,
+
+                     AuthenticationTypes.Secure | AuthenticationTypes.Sealing | AuthenticationTypes.ServerBind);
+
+                DirectorySearcher dsearch = new DirectorySearcher(de);
+
+                //    DirectoryEntry de = new DirectoryEntry(ldapPath, fullUserId, "Ncpb**Admin",
+                //AuthenticationTypes.Secure);
+
+                //DirectorySearcher dsearch = new DirectorySearcher(de);
+
+                SearchResult results = null;
+                results = dsearch.FindOne();
+
+                if (results != null)
                 {
-                    using (StreamReader readStream = new StreamReader(wResponse.GetResponseStream()))
-                    {
-                        string jsonResponse = readStream.ReadToEnd();
-                        JavaScriptSerializer js = new JavaScriptSerializer();
-                        // Deserialize Json
-                        CaptchaResult data = js.Deserialize<CaptchaResult>(jsonResponse);
-                        if (Convert.ToBoolean(data.success))
-                        {
-                            return true;
-                        }
-                    }
+                    isAuthenticated = true;
                 }
             }
+            //catch (DirectoryServicesCOMException ex)
+            //{
+            //    string message = ex.Message;
+            //    isAuthenticated = false;
+            //}
             catch (Exception ex)
             {
-                feedback.InnerHtml = "<div class='alert alert-danger'>'" + ex.Message + "'</div>";
-                //No internet connection to verify capcha code
+                string message = ex.Message;
+                isAuthenticated = false;
             }
-            return false;
+
+            return isAuthenticated;
         }
     }
 }

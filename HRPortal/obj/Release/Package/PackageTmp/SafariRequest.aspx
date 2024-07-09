@@ -58,13 +58,13 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label class="control-label">Expected Travel Date<span style="color: red">*</span></label>
-                        <asp:TextBox runat="server" ID="exptTravelDate" CssClass="form-control" TextMode="Date" />
+                        <asp:TextBox runat="server" ID="exptTravelDate" CssClass="form-control" />
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label class="control-label">Expected Return Date<span style="color: red">*</span></label>
-                        <asp:TextBox runat="server" ID="exptReturnDate" CssClass="form-control" TextMode="Date" />
+                        <asp:TextBox runat="server" ID="exptReturnDate" CssClass="form-control" />
                     </div>
                 </div>
             </div>
@@ -175,14 +175,14 @@
             Added Safari Request Lines Details
         </div>
         <div class="panel-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example2" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>Expense Date</th>
                         <th>Return Date</th>
                         <th>Travel From</th>
                         <th>Travel To</th>
-                        <th>Edit/View</th>
+                       <%-- <th>Edit/View</th>--%>
                         <th>Remove</th>
                     </tr>
                 </thead>
@@ -209,8 +209,8 @@
                         <td><% = arr[2] %></td>
                         <%--<td><%=String.Format("{0:n}", Convert.ToDouble(arr[5])) %></td>--%>
                         
-                           <td><label class="btn btn-success" onclick="editingLines('<% =requisitionNo %>','<%=arr[0] %>','<%=arr[5] %>','<% =arr[1] %>','<%=arr[2] %>');"><i class="fa fa-edit"></i>Edit/View</label></td>  
-                        
+                           <%--<td><label class="btn btn-success" onclick="editingLines('<% =requisitionNo %>','<%=arr[0] %>','<%=arr[5] %>','<% =arr[1] %>','<%=arr[2] %>');"><i class="fa fa-edit"></i>Edit/View</label></td>  
+                        --%>
 
                         <td>
                             <label class="btn btn-danger" onclick="removeLines('<% =requisitionNo %>','<%=arr[0] %>');"><i class="fa fa-trash"></i>Delete</label></td>
@@ -242,6 +242,14 @@
         </div>
         <div class="panel-body">
             <div runat="server" id="linesFeedback1"></div>
+            <div class="row">
+                            <div class="col-lg-12 col-sm-12">
+               <%-- <div class="form-group">--%>
+                    <br />
+                    <asp:Button runat="server" CssClass="btn btn-info pull-left" Text="Create Entitlemets" ID="Button3" OnClick="entitlemets_Click" UseSubmitBehavior="false" CausesValidation="false" />
+                <%--</div>--%>
+            </div>
+            </div>
             <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
                     <strong>Entitlement<span style="color: red">*</span></strong>
@@ -296,9 +304,11 @@
                 <thead>
                     <tr>                        
                         <th>Entitlement</th>
-                        <th>Rate</th>
+                         <th>Town </th>
                         <th>Quantity</th>
-                        <th>Town </th>
+                        <th>Rate</th>
+                       <th>Total</th>
+                        <%--<th></th>--%>
                         <th></th>
                     </tr>
                 </thead>
@@ -320,13 +330,17 @@
                     %>
                     <tr>
                         <td><% =arr[1] %></td>
+                        <td><% = arr[2] %></td>
                         <td><% =arr[4] %></td>
                         <td><% =arr[5] %></td>
-                        <td><% = arr[2] %></td>
+                        <td><% =arr[6] %></td>
+                        
                         <%--<td><%=String.Format("{0:n}", Convert.ToDouble(arr[5])) %></td>--%>
+<%--                                                <td>
+                            <label class="btn btn-primary" onclick="editLine('<%=arr[1] %>','<% =arr[2] %>','<%=arr[4] %>','<%=arr[5] %>','<%=arr[6] %>');"><i class="fa fa-trash"></i>Edit</label></td>--%>
 
                         <td>
-                            <label class="btn btn-danger" onclick="removeLine('<% =arr[3] %>','<%=arr[0] %>');"><i class="fa fa-trash"></i>Delete</label></td>
+                            <label class="btn btn-danger" onclick="removeLine('<%=requisitionNo %>','<% =arr[0] %>','<%=arr[2] %>');"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
                     <% 
                                 }
@@ -365,7 +379,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <div class="form-group">
                         <br />
-                        <asp:Button runat="server" CssClass="btn btn-success" Text="Upload Document" ID="uploadDocument" OnClick="uploadDocument_Click" />
+                        <asp:Button runat="server" CssClass="btn btn-success" Text="Upload Document" ID="uploadDocument" OnClick="uploadDocument_Click1" />
                     </div>
                 </div>
             </div>
@@ -381,12 +395,14 @@
                     <%
                         try
                         {
+                            String filLoc = ConfigurationManager.AppSettings["FilesLocation"];
                             String fileFolderApplication = ConfigurationManager.AppSettings["FileFolderApplication"];
                             String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Safari Request/";
+                            String filesFolder1 = Server.MapPath("~/downloads/Safari Request/");
                             String imprestNo = Request.QueryString["requisitionNo"];
                             imprestNo = imprestNo.Replace('/', '_');
                             imprestNo = imprestNo.Replace(':', '_');
-                            String documentDirectory = filesFolder + imprestNo + "/";
+                            String documentDirectory = filesFolder1 + imprestNo + "\\";
                             if (Directory.Exists(documentDirectory))
                             {
                                 foreach (String file in Directory.GetFiles(documentDirectory, "*.*", SearchOption.AllDirectories))
@@ -396,7 +412,7 @@
                     <tr>
                         <td><% =file.Replace(documentDirectory, "") %></td>
 
-                        <td><a href="<%=fileFolderApplication %>\Staff Claim\<% =imprestNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>
+                        <td><a href="<%=fileFolderApplication %>\Safari Request\<% =imprestNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>
                         <td>
                             <label class="btn btn-danger" onclick="deleteFile('<%=file.Replace(documentDirectory, "")%>');"><i class="fa fa-trash-o"></i>Delete</label></td>
                     </tr>
@@ -453,19 +469,12 @@
     </div>
 
     <script>
-        function removeLine(itemName, lineNo) {
-            document.getElementById("itemName").innerText = itemName;
-            document.getElementById("ContentPlaceHolder1_lineNo").value = lineNo;
+        function removeLine(docNos, entitle,towns) {
+            document.getElementById("safari").innerText = docNos;
+            document.getElementById("ContentPlaceHolder1_docNos").value = docNos;
+            document.getElementById("ContentPlaceHolder1_entitle").value = entitle;
+            document.getElementById("ContentPlaceHolder1_towns").value = towns;
             $("#removeLineModal").modal();
-        }
-        function editLine(lineNo, voteItem, description, amount) {
-
-            document.getElementById("ContentPlaceHolder1_editVoteItem").value = voteItem;
-            document.getElementById("ContentPlaceHolder1_editDescription").value = description;
-            document.getElementById("ContentPlaceHolder1_editAmount").value = amount;
-            document.getElementById("ContentPlaceHolder1_editLineNo").value = lineNo;
-            $('#ContentPlaceHolder1_editVoteItem').val(voteItem).trigger('change');
-            $("#editLineModal").modal();
         }
     </script>
     <div id="removeLineModal" class="modal fade" role="dialog">
@@ -478,8 +487,10 @@
                     <h4 class="modal-title">Confirm Remove Line</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to remove the line <strong id="itemName"></strong>from the staff claim?</p>
-                    <asp:TextBox runat="server" ID="lineNo" type="hidden" />
+                    <p>Are you sure you want to remove the line <strong id="safari"></strong>from the safari request entitlements?</p>
+                    <asp:TextBox runat="server" ID="docNos" type="hidden" />
+                     <asp:TextBox runat="server" ID="entitle" type="hidden" />
+                     <asp:TextBox runat="server" ID="towns" type="hidden" />
                 </div>
 
                 <div class="modal-footer">
@@ -490,6 +501,18 @@
 
         </div>
     </div>
+    <script>
+        function editLine(entitlement,town, quantity, rate, totalamount) {
+
+            document.getElementById("ContentPlaceHolder1_entitlement1").value = entitlement;
+            document.getElementById("ContentPlaceHolder1_town1").value = town;
+            document.getElementById("ContentPlaceHolder1_quantity1").value = quantity;
+            document.getElementById("ContentPlaceHolder1_rate1").value = rate;
+            document.getElementById("ContentPlaceHolder1_totalamount1").value = totalamount;
+            //$('#ContentPlaceHolder1_editVoteItem').val(voteItem).trigger('change');
+            $("#editLineModal").modal();
+        }
+    </script>
     <div id="editLineModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -500,22 +523,36 @@
                     <h4 class="modal-title">Edit Line</h4>
                 </div>
                 <div class="modal-body">
-                    <asp:TextBox runat="server" ID="editLineNo" type="hidden" />
+                    <div id="linesFeedback2" runat="server"></div>
+                   <%-- <asp:TextBox runat="server" ID="editLineNo" type="hidden" />--%>
+                   <div class="form-group">
+                    <strong>Entitlement<span style="color: red">*</span></strong>
+                    <asp:DropDownList runat="server" ID="entitlement1" CssClass="form-control select2" AppendDataBoundItems="true" OnSelectedIndexChanged="Entitlement_SelectedIndexChanged1" AutoPostBack="false">
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="entitlement1" InitialValue="--Select--" ErrorMessage="Please select Claim Type, it cannot be empty!" ForeColor="Red" />
+                </div>
+<%--                    <div class="form-group">
+                        <strong>Entitlemet:</strong>
+                        <asp:DropDownList runat="server" ID="entitlement1" CssClass="select2 form-control" Style="width: 100%;" />
+                    </div>--%>
 
                     <div class="form-group">
-                        <strong>Vote Item:</strong>
-                        <asp:DropDownList runat="server" ID="editVoteItem" CssClass="select2 form-control" Style="width: 100%;" />
+                        <strong>Town:</strong>
+
+                        <asp:TextBox runat="server" ID="town1" CssClass="form-control" Placeholder="Town" />
                     </div>
 
                     <div class="form-group">
-                        <strong>Description:</strong>
-
-                        <asp:TextBox runat="server" ID="editDescription" CssClass="form-control" Placeholder="Description" />
+                        <strong>quantity:</strong>
+                        <asp:TextBox runat="server" ID="quantity1" CssClass="form-control" Placeholder="Quantity" />
                     </div>
-
                     <div class="form-group">
-                        <strong>Amount:</strong>
-                        <asp:TextBox runat="server" ID="editAmount" CssClass="form-control" Placeholder="Amount" />
+                        <strong>Rate:</strong>
+                        <asp:TextBox runat="server" ID="rate1" CssClass="form-control" Placeholder="Rate" />
+                    </div>
+                    <div class="form-group">
+                        <strong>Total:</strong>
+                        <asp:TextBox runat="server" ID="totalamount1" CssClass="form-control" Readonly />
                     </div>
                 </div>
 

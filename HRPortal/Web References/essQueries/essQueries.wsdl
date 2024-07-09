@@ -227,6 +227,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetFleetRequisitionIndividual">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetFleetRequisitionIndividual_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnGetFleetRequisition">
         <complexType>
           <sequence />
@@ -247,6 +261,20 @@
         </complexType>
       </element>
       <element name="fnGetHrLeaveApplicationDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetHrLeaveApplicationsIndividual">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="appNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetHrLeaveApplicationsIndividual_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -290,6 +318,20 @@
         </complexType>
       </element>
       <element name="fnGetImprestApplications_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetImprestIndividual">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetImprestIndividual_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -377,6 +419,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetPayingBankAccount">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="userName1" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetPayingBankAccount_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnGetPayrollPeriods">
         <complexType>
           <sequence />
@@ -409,6 +465,20 @@
         </complexType>
       </element>
       <element name="fnGetProductDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetRecordsToApprove">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="approverId" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetRecordsToApprove_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -553,6 +623,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetStaffClaimIndividual">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="appNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetStaffClaimIndividual_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnGetStaffClaimLines">
         <complexType>
           <sequence>
@@ -651,6 +735,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetUser1">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="userName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetUser1_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnGetUser">
         <complexType>
           <sequence>
@@ -659,6 +757,34 @@
         </complexType>
       </element>
       <element name="fnGetUser_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnRequisitionsIndividual">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="appNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnRequisitionsIndividual_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnRequisitionsLines">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="appNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnRequisitionsLines_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -688,6 +814,20 @@
         </complexType>
       </element>
       <element name="fnStoreRequisitions_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getApproverEntries">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="getApproverEntries_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -792,6 +932,12 @@
   <message name="fnGetEntitlementDetails_Result">
     <part name="parameters" element="tns:fnGetEntitlementDetails_Result" />
   </message>
+  <message name="fnGetFleetRequisitionIndividual">
+    <part name="parameters" element="tns:fnGetFleetRequisitionIndividual" />
+  </message>
+  <message name="fnGetFleetRequisitionIndividual_Result">
+    <part name="parameters" element="tns:fnGetFleetRequisitionIndividual_Result" />
+  </message>
   <message name="fnGetFleetRequisition">
     <part name="parameters" element="tns:fnGetFleetRequisition" />
   </message>
@@ -803,6 +949,12 @@
   </message>
   <message name="fnGetHrLeaveApplicationDetails_Result">
     <part name="parameters" element="tns:fnGetHrLeaveApplicationDetails_Result" />
+  </message>
+  <message name="fnGetHrLeaveApplicationsIndividual">
+    <part name="parameters" element="tns:fnGetHrLeaveApplicationsIndividual" />
+  </message>
+  <message name="fnGetHrLeaveApplicationsIndividual_Result">
+    <part name="parameters" element="tns:fnGetHrLeaveApplicationsIndividual_Result" />
   </message>
   <message name="fnGetHrLeaveApplications">
     <part name="parameters" element="tns:fnGetHrLeaveApplications" />
@@ -821,6 +973,12 @@
   </message>
   <message name="fnGetImprestApplications_Result">
     <part name="parameters" element="tns:fnGetImprestApplications_Result" />
+  </message>
+  <message name="fnGetImprestIndividual">
+    <part name="parameters" element="tns:fnGetImprestIndividual" />
+  </message>
+  <message name="fnGetImprestIndividual_Result">
+    <part name="parameters" element="tns:fnGetImprestIndividual_Result" />
   </message>
   <message name="fnGetImprestLine">
     <part name="parameters" element="tns:fnGetImprestLine" />
@@ -858,6 +1016,12 @@
   <message name="fnGetLeaveCode_Result">
     <part name="parameters" element="tns:fnGetLeaveCode_Result" />
   </message>
+  <message name="fnGetPayingBankAccount">
+    <part name="parameters" element="tns:fnGetPayingBankAccount" />
+  </message>
+  <message name="fnGetPayingBankAccount_Result">
+    <part name="parameters" element="tns:fnGetPayingBankAccount_Result" />
+  </message>
   <message name="fnGetPayrollPeriods">
     <part name="parameters" element="tns:fnGetPayrollPeriods" />
   </message>
@@ -875,6 +1039,12 @@
   </message>
   <message name="fnGetProductDetails_Result">
     <part name="parameters" element="tns:fnGetProductDetails_Result" />
+  </message>
+  <message name="fnGetRecordsToApprove">
+    <part name="parameters" element="tns:fnGetRecordsToApprove" />
+  </message>
+  <message name="fnGetRecordsToApprove_Result">
+    <part name="parameters" element="tns:fnGetRecordsToApprove_Result" />
   </message>
   <message name="fnGetRegionAndBudgetCenters">
     <part name="parameters" element="tns:fnGetRegionAndBudgetCenters" />
@@ -936,6 +1106,12 @@
   <message name="fnGetStafClaims_Result">
     <part name="parameters" element="tns:fnGetStafClaims_Result" />
   </message>
+  <message name="fnGetStaffClaimIndividual">
+    <part name="parameters" element="tns:fnGetStaffClaimIndividual" />
+  </message>
+  <message name="fnGetStaffClaimIndividual_Result">
+    <part name="parameters" element="tns:fnGetStaffClaimIndividual_Result" />
+  </message>
   <message name="fnGetStaffClaimLines">
     <part name="parameters" element="tns:fnGetStaffClaimLines" />
   </message>
@@ -978,11 +1154,29 @@
   <message name="fnGetTowns_Result">
     <part name="parameters" element="tns:fnGetTowns_Result" />
   </message>
+  <message name="fnGetUser1">
+    <part name="parameters" element="tns:fnGetUser1" />
+  </message>
+  <message name="fnGetUser1_Result">
+    <part name="parameters" element="tns:fnGetUser1_Result" />
+  </message>
   <message name="fnGetUser">
     <part name="parameters" element="tns:fnGetUser" />
   </message>
   <message name="fnGetUser_Result">
     <part name="parameters" element="tns:fnGetUser_Result" />
+  </message>
+  <message name="fnRequisitionsIndividual">
+    <part name="parameters" element="tns:fnRequisitionsIndividual" />
+  </message>
+  <message name="fnRequisitionsIndividual_Result">
+    <part name="parameters" element="tns:fnRequisitionsIndividual_Result" />
+  </message>
+  <message name="fnRequisitionsLines">
+    <part name="parameters" element="tns:fnRequisitionsLines" />
+  </message>
+  <message name="fnRequisitionsLines_Result">
+    <part name="parameters" element="tns:fnRequisitionsLines_Result" />
   </message>
   <message name="fnStoreRequisitionsSingle">
     <part name="parameters" element="tns:fnStoreRequisitionsSingle" />
@@ -995,6 +1189,12 @@
   </message>
   <message name="fnStoreRequisitions_Result">
     <part name="parameters" element="tns:fnStoreRequisitions_Result" />
+  </message>
+  <message name="getApproverEntries">
+    <part name="parameters" element="tns:getApproverEntries" />
+  </message>
+  <message name="getApproverEntries_Result">
+    <part name="parameters" element="tns:getApproverEntries_Result" />
   </message>
   <portType name="essQueries_Port">
     <operation name="fnGLAccount">
@@ -1061,6 +1261,10 @@
       <input name="fnGetEntitlementDetails" message="tns:fnGetEntitlementDetails" />
       <output name="fnGetEntitlementDetails_Result" message="tns:fnGetEntitlementDetails_Result" />
     </operation>
+    <operation name="fnGetFleetRequisitionIndividual">
+      <input name="fnGetFleetRequisitionIndividual" message="tns:fnGetFleetRequisitionIndividual" />
+      <output name="fnGetFleetRequisitionIndividual_Result" message="tns:fnGetFleetRequisitionIndividual_Result" />
+    </operation>
     <operation name="fnGetFleetRequisition">
       <input name="fnGetFleetRequisition" message="tns:fnGetFleetRequisition" />
       <output name="fnGetFleetRequisition_Result" message="tns:fnGetFleetRequisition_Result" />
@@ -1068,6 +1272,10 @@
     <operation name="fnGetHrLeaveApplicationDetails">
       <input name="fnGetHrLeaveApplicationDetails" message="tns:fnGetHrLeaveApplicationDetails" />
       <output name="fnGetHrLeaveApplicationDetails_Result" message="tns:fnGetHrLeaveApplicationDetails_Result" />
+    </operation>
+    <operation name="fnGetHrLeaveApplicationsIndividual">
+      <input name="fnGetHrLeaveApplicationsIndividual" message="tns:fnGetHrLeaveApplicationsIndividual" />
+      <output name="fnGetHrLeaveApplicationsIndividual_Result" message="tns:fnGetHrLeaveApplicationsIndividual_Result" />
     </operation>
     <operation name="fnGetHrLeaveApplications">
       <input name="fnGetHrLeaveApplications" message="tns:fnGetHrLeaveApplications" />
@@ -1080,6 +1288,10 @@
     <operation name="fnGetImprestApplications">
       <input name="fnGetImprestApplications" message="tns:fnGetImprestApplications" />
       <output name="fnGetImprestApplications_Result" message="tns:fnGetImprestApplications_Result" />
+    </operation>
+    <operation name="fnGetImprestIndividual">
+      <input name="fnGetImprestIndividual" message="tns:fnGetImprestIndividual" />
+      <output name="fnGetImprestIndividual_Result" message="tns:fnGetImprestIndividual_Result" />
     </operation>
     <operation name="fnGetImprestLine">
       <input name="fnGetImprestLine" message="tns:fnGetImprestLine" />
@@ -1105,6 +1317,10 @@
       <input name="fnGetLeaveCode" message="tns:fnGetLeaveCode" />
       <output name="fnGetLeaveCode_Result" message="tns:fnGetLeaveCode_Result" />
     </operation>
+    <operation name="fnGetPayingBankAccount">
+      <input name="fnGetPayingBankAccount" message="tns:fnGetPayingBankAccount" />
+      <output name="fnGetPayingBankAccount_Result" message="tns:fnGetPayingBankAccount_Result" />
+    </operation>
     <operation name="fnGetPayrollPeriods">
       <input name="fnGetPayrollPeriods" message="tns:fnGetPayrollPeriods" />
       <output name="fnGetPayrollPeriods_Result" message="tns:fnGetPayrollPeriods_Result" />
@@ -1116,6 +1332,10 @@
     <operation name="fnGetProductDetails">
       <input name="fnGetProductDetails" message="tns:fnGetProductDetails" />
       <output name="fnGetProductDetails_Result" message="tns:fnGetProductDetails_Result" />
+    </operation>
+    <operation name="fnGetRecordsToApprove">
+      <input name="fnGetRecordsToApprove" message="tns:fnGetRecordsToApprove" />
+      <output name="fnGetRecordsToApprove_Result" message="tns:fnGetRecordsToApprove_Result" />
     </operation>
     <operation name="fnGetRegionAndBudgetCenters">
       <input name="fnGetRegionAndBudgetCenters" message="tns:fnGetRegionAndBudgetCenters" />
@@ -1157,6 +1377,10 @@
       <input name="fnGetStafClaims" message="tns:fnGetStafClaims" />
       <output name="fnGetStafClaims_Result" message="tns:fnGetStafClaims_Result" />
     </operation>
+    <operation name="fnGetStaffClaimIndividual">
+      <input name="fnGetStaffClaimIndividual" message="tns:fnGetStaffClaimIndividual" />
+      <output name="fnGetStaffClaimIndividual_Result" message="tns:fnGetStaffClaimIndividual_Result" />
+    </operation>
     <operation name="fnGetStaffClaimLines">
       <input name="fnGetStaffClaimLines" message="tns:fnGetStaffClaimLines" />
       <output name="fnGetStaffClaimLines_Result" message="tns:fnGetStaffClaimLines_Result" />
@@ -1185,9 +1409,21 @@
       <input name="fnGetTowns" message="tns:fnGetTowns" />
       <output name="fnGetTowns_Result" message="tns:fnGetTowns_Result" />
     </operation>
+    <operation name="fnGetUser1">
+      <input name="fnGetUser1" message="tns:fnGetUser1" />
+      <output name="fnGetUser1_Result" message="tns:fnGetUser1_Result" />
+    </operation>
     <operation name="fnGetUser">
       <input name="fnGetUser" message="tns:fnGetUser" />
       <output name="fnGetUser_Result" message="tns:fnGetUser_Result" />
+    </operation>
+    <operation name="fnRequisitionsIndividual">
+      <input name="fnRequisitionsIndividual" message="tns:fnRequisitionsIndividual" />
+      <output name="fnRequisitionsIndividual_Result" message="tns:fnRequisitionsIndividual_Result" />
+    </operation>
+    <operation name="fnRequisitionsLines">
+      <input name="fnRequisitionsLines" message="tns:fnRequisitionsLines" />
+      <output name="fnRequisitionsLines_Result" message="tns:fnRequisitionsLines_Result" />
     </operation>
     <operation name="fnStoreRequisitionsSingle">
       <input name="fnStoreRequisitionsSingle" message="tns:fnStoreRequisitionsSingle" />
@@ -1196,6 +1432,10 @@
     <operation name="fnStoreRequisitions">
       <input name="fnStoreRequisitions" message="tns:fnStoreRequisitions" />
       <output name="fnStoreRequisitions_Result" message="tns:fnStoreRequisitions_Result" />
+    </operation>
+    <operation name="getApproverEntries">
+      <input name="getApproverEntries" message="tns:getApproverEntries" />
+      <output name="getApproverEntries_Result" message="tns:getApproverEntries_Result" />
     </operation>
   </portType>
   <binding name="essQueries_Binding" type="tns:essQueries_Port">
@@ -1344,6 +1584,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="fnGetFleetRequisitionIndividual">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetFleetRequisitionIndividual" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetFleetRequisitionIndividual">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetFleetRequisitionIndividual_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="fnGetFleetRequisition">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetFleetRequisition" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="fnGetFleetRequisition">
@@ -1359,6 +1608,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetHrLeaveApplicationDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetHrLeaveApplicationsIndividual">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetHrLeaveApplicationsIndividual" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetHrLeaveApplicationsIndividual">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetHrLeaveApplicationsIndividual_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1386,6 +1644,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetImprestApplications_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetImprestIndividual">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetImprestIndividual" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetImprestIndividual">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetImprestIndividual_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1443,6 +1710,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="fnGetPayingBankAccount">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetPayingBankAccount" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetPayingBankAccount">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetPayingBankAccount_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="fnGetPayrollPeriods">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetPayrollPeriods" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="fnGetPayrollPeriods">
@@ -1467,6 +1743,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetProductDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetRecordsToApprove">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetRecordsToApprove" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetRecordsToApprove">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetRecordsToApprove_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1560,6 +1845,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="fnGetStaffClaimIndividual">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetStaffClaimIndividual" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetStaffClaimIndividual">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetStaffClaimIndividual_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="fnGetStaffClaimLines">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetStaffClaimLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="fnGetStaffClaimLines">
@@ -1623,12 +1917,39 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="fnGetUser1">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetUser1" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetUser1">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetUser1_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="fnGetUser">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetUser" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="fnGetUser">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetUser_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnRequisitionsIndividual">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnRequisitionsIndividual" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnRequisitionsIndividual">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnRequisitionsIndividual_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnRequisitionsLines">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnRequisitionsLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnRequisitionsLines">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnRequisitionsLines_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1650,10 +1971,19 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="getApproverEntries">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:getApproverEntries" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="getApproverEntries">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="getApproverEntries_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
   </binding>
   <service name="essQueries">
     <port name="essQueries_Port" binding="tns:essQueries_Binding">
-      <address location="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/essQueries" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <address location="http://dynamics.cereals:7047/BC220/WS/NCPB/Codeunit/essQueries" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
     </port>
   </service>
 </definitions>

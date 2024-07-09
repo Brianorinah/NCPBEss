@@ -40,13 +40,13 @@
             <div class="row">
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
-                        <strong>Paying Budget Center  <span style="color: red">*</span></strong>
-                         <asp:DropDownList runat="server" ID="payingbudgetcenter" CssClass="form-control select2">                        
+                        <strong>Paying Bank Account  <span style="color: red">*</span></strong>
+                         <asp:DropDownList runat="server" ID="payingbankaccount" CssClass="form-control select2">                        
                     </asp:DropDownList>
                     </div>
                           <div class="form-group">
                 <strong>Travel Date:<span style="color:red">*</span></strong>
-                <asp:TextBox runat="server" ID="traveldate" CssClass="form-control" placeholder="Travel Date" TextMode="Date" />
+                <asp:TextBox runat="server" ID="traveldate" CssClass="form-control" placeholder="Travel Date"/>
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="travelDate" ErrorMessage="Please enter Request Date, it cannot be empty!" ForeColor="Red" />
             </div>
             
@@ -54,7 +54,7 @@
             <div class="col-md-6 col-lg-6">
              <div class="form-group">
                 <strong>Requested On:<span style="color:red">*</span></strong>
-                <asp:TextBox runat="server" ID="requestdate" CssClass="form-control" placeholder="Request Date" TextMode="Date" />
+                <asp:TextBox runat="server" ID="requestdate" CssClass="form-control" placeholder="Request Date" />
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="requestDate" ErrorMessage="Please enter Request Date, it cannot be empty!" ForeColor="Red" />
             </div>
                 <div class="form-group">
@@ -122,7 +122,7 @@
             <div class="col-lg-12 col-sm-12">
                 <div class="form-group">
                     <br />
-                    <asp:Button runat="server" CssClass="btn btn-info pull-left" Text="Add Staff Claim Line Details" ID="addItem" OnClick="addItem_Click" />
+                    <asp:Button runat="server" CssClass="btn btn-info pull-left" Text="Add Imprest Line Details" ID="addItem" OnClick="addItem_Click" />
                 </div>
             </div>
         </div>
@@ -162,7 +162,7 @@
                         <td><% =arr[1] %></td>
                         <td><% =arr[2] %></td>
                         <td><% = arr[3] %></td>
-                        <td><label class="btn btn-success" onclick="testLine('<% =imprestNo %>','<%=arr[4] %>','<%=arr[0] %>','<% =arr[2] %>','<%=arr[3] %>');"><i class="fa fa-edit"></i>Edit/View</label></td>   
+                        <%--<td><label class="btn btn-success" onclick="testLine('<% =imprestNo %>','<%=arr[4] %>','<%=arr[0] %>','<% =arr[2] %>','<%=arr[3] %>');"><i class="fa fa-edit"></i>Edit/View</label></td>   --%>
                         <td>
                             <label class="btn btn-danger" onclick="removeLine('<% =imprestNo %>','<%=arr[4] %>');"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
@@ -222,10 +222,11 @@
                        {
                            String fileFolderApplication = ConfigurationManager.AppSettings["FileFolderApplication"];
                            String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Imprest/";
+                            String filesFolder1 = Server.MapPath("~/downloads/Imprest/");
                            String imprestNo = Request.QueryString["imprestNo"];
                            imprestNo = imprestNo.Replace('/', '_');
                            imprestNo = imprestNo.Replace(':', '_');
-                           String documentDirectory = filesFolder + imprestNo + "/";
+                           String documentDirectory = filesFolder1 + imprestNo + "/";
 
                            if (Directory.Exists(documentDirectory))
                            {
@@ -234,7 +235,7 @@
                                    %>
                    <tr>
                        <td><%= file.Replace(documentDirectory,"") %></td>
-                       <td><a href="<%=fileFolderApplication %>\Staff Claim\<% =imprestNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>
+                       <td><a href="<%=fileFolderApplication %>\Imprest\<% =imprestNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>
                        <td>
                            <label class="btn btn-danger" onclick="deleteFile('<%=file.Replace(documentDirectory, "")%>');"><i class="fa fa-trash-o"></i>Delete</label>
                        </td>
@@ -253,7 +254,7 @@
            </table>
          </div>
          <div class="panel-footer">
-            <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" />
+            <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous"  OnClick="previous_Click" CausesValidation="false"/>
             <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Send Approval Request" ID="sendApproval" OnClick="sendApproval_Click" /><div class="clearfix"></div>
         </div>
      </div>

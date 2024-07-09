@@ -25,6 +25,7 @@
                     <th>Imprest No</th>
                     <th>Purpose</th>
                     <th>Amount</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -49,6 +50,9 @@
                                     <td><%=oneItem[0] %> </td>
                                     <td><%=oneItem[1] %> </td>
                                     <td><%=oneItem[2]  %> </td> 
+                                                        <td>
+                                        <a href="ReportView.aspx?docType=Surrender&&docNo=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-download"></i> Download</a> 
+                                    </td>
                                 </tr>
                                                         
                                                       <%

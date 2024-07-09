@@ -27,6 +27,7 @@
                     <th>Appraisal Start Date</th>
                     <th>Appraisal End Date</th>
                     <th></th>
+                    <th>Summary</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -50,6 +51,8 @@
                                     <td><%=arr[2] %> </td>
                                     <td><%=arr[3] %> </td>
                                     <td><a href="Appraisal2.aspx?step=1&&applicationNo=<%=arr[0] %>" class="btn btn-success">View/Edit</a></td>
+                                    <td><a href="AppraisalTemplate.aspx?applicationNo=<%=arr[0] %>" class="btn btn-warning">Summary</a></td>
+
                                <%
                                     }
                                 }

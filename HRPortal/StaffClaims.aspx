@@ -61,20 +61,20 @@
                                     <%--<td><%=leave.Leave_Type %> </td>--%>
                                     <td><%=oneItem[1] %> </td>
                                     <td><%=oneItem[2] %> </td>
-                                    <td><a href="ApproverEntry.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
+                                    <td><a href="ApproverEntry1.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
                                     <td>
                                         <%
                                             if (oneItem[2] == "New")
                                             {
                                         %>
-                                        <label class="btn btn-success"><i class="fa fa-check"></i>Send Approval Request</label>
+                                        <label class="btn btn-success" onclick="sendApprovalRequest('<%=oneItem[0] %>');"><i class="fa fa-check"></i>Send Approval Request</label>
                                         <%
                                             }
                                             else if (oneItem[2] == "Approval Pending")
                                             {
 
                                         %>
-                                        <label class="btn btn-danger"><i class="fa fa-times"></i>Cancel Approval Request</label>
+                                        <label class="btn btn-danger" onclick="cancelApprovalRequest('<%=oneItem[0] %>');"><i class="fa fa-times"></i>Cancel Approval Request</label>
 
                                         <% 
                                             } %>                                              
@@ -250,18 +250,18 @@
             document.getElementById("approveImprestMemoNo").innerHTML = documentNumber;
             document.getElementById("ContentPlaceHolder1_imprestMemoToApprove").value = documentNumber;
 
-            $("#sendImprestMemoForApproval").modal();
+            $("#sendClaimForApproval").modal();
         }
         function cancelApprovalRequest(documentNumber) {
            
             document.getElementById("cancelImprestMemoText").innerHTML = documentNumber;
             document.getElementById("ContentPlaceHolder1_cancelImprestMemoNo").value = documentNumber;
 
-            $("#cancelImprestMemoForApprovalModal").modal();
+            $("#cancelClaimForApprovalModal").modal();
         }
 		 </script>
 		
-		<div id="sendImprestMemoForApproval" class="modal fade" role="dialog">
+		<div id="sendClaimForApproval" class="modal fade" role="dialog">
   <div class="modal-dialog">
       
     <!-- Modal content--> 
@@ -282,7 +282,7 @@
 
   </div>
 </div>
-     <div id="cancelImprestMemoForApprovalModal" class="modal fade" role="dialog">
+     <div id="cancelClaimForApprovalModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
       
     <!-- Modal content--> 

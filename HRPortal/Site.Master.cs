@@ -14,7 +14,8 @@ namespace HRPortal
             String Name = (String) Session["name"];
             String EmployeeNo = (String) Session["employeeNo"];
             String idNo = (String) Session["idNo"];
-            if (String.IsNullOrEmpty(Name)&&(String.IsNullOrEmpty(EmployeeNo)||String.IsNullOrEmpty(idNo)))
+            String username = (String)Session["username"];
+            if (String.IsNullOrEmpty(Name)&&(String.IsNullOrEmpty(EmployeeNo)||String.IsNullOrEmpty(idNo)) || String.IsNullOrEmpty(username))
             {
                 Response.Redirect("Login.aspx");
             }

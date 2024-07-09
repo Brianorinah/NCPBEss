@@ -35,9 +35,9 @@
                     <th>Total Subsistence Allowance</th>
                     <%--<th>Total Other Costs</th>--%>
                     <th>Status</th>
-                    <th>View/Edit</th>
                     <th>View Approval Entries</th>
                     <th>Send/Cancel Approval</th>
+                    <th>View/Edit</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -65,7 +65,7 @@
                                     <td><%=oneItem[2] %> </td>
                                     <td><%=oneItem[3] %> </td>
                                     <td><%=oneItem[4] %> </td>
-                                    <td><a href="ApproverEntry.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
+                                    <td><a href="ApproverEntry1.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
                                     <td>
                                         <%
                                             if (oneItem[4] == "New")
@@ -78,7 +78,7 @@
                                             {
 
                                         %>
-                                        <label class="btn btn-danger"><i class="fa fa-times"></i>Cancel Approval Request</label>
+                                        <label class="btn btn-danger" onclick="cancelApprovalRequest('<%=oneItem[0] %>');"><i class="fa fa-times"></i>Cancel Approval Request</label>
 
                                         <% 
                                             } %>                                              

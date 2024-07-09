@@ -30,6 +30,7 @@
                                 <th>Narration</th>
                                 <%--<th>Return Date</th>--%>
                                 <th>Status</th>
+                                <th></th>
 
                             </tr>
                         </thead>
@@ -59,6 +60,9 @@
                                     <td><%=oneItem[6]  %> </td>
                                     <%--<td><%=oneItem[3] %> </td>--%>
                                     <td><%=oneItem[4] %> </td>
+                                    <td>
+                                        <a href="ReportView.aspx?docType=Leave&&docNo=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-download"></i> Download</a> 
+                                    </td>
                                     
                                 </tr>
                                                         

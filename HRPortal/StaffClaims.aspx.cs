@@ -13,20 +13,54 @@ namespace HRPortal
         {
             Session["active"] = 6;
         }
+        //protected void sendApproval_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        //Convert.ToString(Session["employeeNo"])
+        //        String imprestNo = imprestMemoToApprove.Text.Trim();
+        //        String status = Config.ObjNav.SendStaffClaimApproval(Convert.ToString(Session["employeeNo"]), imprestNo);
+        //        String[] info = status.Split('*');
+        //        feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+
+        //    }
+        //    catch (Exception t)
+        //    {
+        //        feedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+        //    }
+        //}
+        //protected void cancelApproval_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        String tDocumentNo = cancelImprestMemoNo.Text.Trim();
+        //        //String status = Config.ObjNav.CancelStaffClaimApproval((String)Session["employeeNo"], tDocumentNo);
+        //        //String[] info = status.Split('*');
+        //        //feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] +
+        //        //                 "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+
+        //    }
+        //    catch (Exception t)
+        //    {
+        //        feedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message +
+        //                             "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+        //    }
+        //}
+
         protected void sendApproval_Click(object sender, EventArgs e)
         {
             try
             {
-                //Convert.ToString(Session["employeeNo"])
-                String imprestNo = imprestMemoToApprove.Text.Trim();
-                String status = Config.ObjNav.SendStaffClaimApproval(Convert.ToString(Session["employeeNo"]), imprestNo);
+                string approveNo = imprestMemoToApprove.Text.Trim();
+                string userName = Convert.ToString(Session["username"]).ToUpper();
+                String status = Config.ObjNav2.sendStaffClaimApplicationApproval(approveNo, userName);
                 String[] info = status.Split('*');
-                feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
 
             }
             catch (Exception t)
             {
-                feedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                feedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
             }
         }
         protected void cancelApproval_Click(object sender, EventArgs e)
@@ -34,10 +68,10 @@ namespace HRPortal
             try
             {
                 String tDocumentNo = cancelImprestMemoNo.Text.Trim();
-                //String status = Config.ObjNav.CancelStaffClaimApproval((String)Session["employeeNo"], tDocumentNo);
-                //String[] info = status.Split('*');
-                //feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] +
-                //                 "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                String status = Config.ObjNav2.CancelClaimApproval(tDocumentNo);
+                String[] info = status.Split('*');
+                feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] +
+                                 "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
 
             }
             catch (Exception t)

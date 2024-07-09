@@ -113,6 +113,13 @@
             </div>
             <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
+                    <strong>Date:<span style="color:red">*</span></strong>
+                    <asp:TextBox runat="server" ID="claimdate" CssClass="form-control"/>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-sm-6">
+                <div class="form-group">
                     <strong>Rate:<span style="color:red">*</span></strong>
                     <asp:TextBox runat="server" ID="rate" CssClass="form-control" placeholder="Rate" />
                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="rate" ErrorMessage="Rate cannot be empty!" ForeColor="Red" />
@@ -157,12 +164,17 @@
         <div class="panel-body">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                    <tr>                        
+                    <tr> 
+                        <th>Claim Type</th>
+                        <th>Description</th>                       
                         <th>Reason</th>
+                        <th>Date</th>
                         <th>Rate</th>
                         <th>Quantity</th>
                         <th>Days Spent </th>
                         <th>Nights Spent </th>
+                        <th>Total Amount</th>
+                        <th>Budget Centre Code</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -181,12 +193,17 @@
                                     String[] arr = allinfo.Split('*');
 
                     %>
-                    <tr>                        
+                    <tr>
+                        <td><% =arr[9] %></td>
+                        <td><% =arr[10] %></td>                        
                         <td><% =arr[1] %></td>
+                        <td><% =arr[6] %></td>
                         <td><% =arr[5] %></td>
-                        <td><% =arr[5] %></td>
+                        <td><% =arr[8] %></td>
                         <td><% = arr[2] %></td>   
-                        <td><% = arr[3] %></td>                      
+                        <td><% = arr[3] %></td>
+                        <td><% = arr[7] %></td>
+                        <td><% = arr[11] %></td>                      
                         <%--<td><%=String.Format("{0:n}", Convert.ToDouble(arr[5])) %></td>--%>
 
                         <td>
@@ -248,10 +265,11 @@
                         {
                             String fileFolderApplication = ConfigurationManager.AppSettings["FileFolderApplication"];
                             String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Staff Claim/";
+                            String filesFolder1 = Server.MapPath("~/downloads/Staff Claim/");
                             String imprestNo = Request.QueryString["requisitionNo"];
                             imprestNo = imprestNo.Replace('/', '_');
                             imprestNo = imprestNo.Replace(':', '_');
-                            String documentDirectory = filesFolder + imprestNo + "/";
+                            String documentDirectory = filesFolder1 + imprestNo + "/";
                             if (Directory.Exists(documentDirectory))
                             {
                                 foreach (String file in Directory.GetFiles(documentDirectory, "*.*", SearchOption.AllDirectories))

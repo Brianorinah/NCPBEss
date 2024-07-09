@@ -124,7 +124,8 @@ namespace HRPortal
                     newRequisition = true;
                     requisitionNo = "";
                 }
-                String status = Config.ObjNav2.createLeaveApplication(requisitionNo, employeeNo, treliever, tcontactAddress, tdescription);
+                String userName = Session["username"].ToString().ToUpper();
+                String status = Config.ObjNav2.createLeaveApplication(requisitionNo, employeeNo, treliever, tcontactAddress, tdescription, userName);
                 String[] info = status.Split('*');
                 if (info[0] == "success")
                 {
@@ -192,8 +193,9 @@ namespace HRPortal
             try
             {
                 String requisitionNo = Request.QueryString["leaveNo"];
+                String userName = Convert.ToString(Session["username"]);
                 // Convert.ToString(Session["employeeNo"]),
-                String status = Config.ObjNav2.sendLeaveApplicationApproval(requisitionNo);
+                String status = Config.ObjNav2.sendLeaveApplicationApproval(requisitionNo, userName.ToUpper());
                 String[] info = status.Split('*');
                 documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
                 ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
@@ -207,7 +209,9 @@ namespace HRPortal
         protected void uploadDocument_Click(object sender, EventArgs e)
         {
 
-            String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Leave Application card/";
+            //String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Leave Application card/";
+            //String filesFolder = "~" + ConfigurationManager.AppSettings["FileFolderApplication"] + "/" + "Leave Application card/";
+            String filesFolder = Server.MapPath("~/downloads/Leave Application card/");
 
             if (document.HasFile)
             {
@@ -295,7 +299,8 @@ namespace HRPortal
             try
             {
                 String tFileName = fileName.Text.Trim();
-                String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Non-Project Store Requisition/";
+                //String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Non-Project Store Requisition/";
+                String filesFolder = Server.MapPath("~/downloads/Leave Application card/");
                 String imprestNo = Request.QueryString["leaveNo"];
                 imprestNo = imprestNo.Replace('/', '_');
                 imprestNo = imprestNo.Replace(':', '_');

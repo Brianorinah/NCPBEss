@@ -35,9 +35,9 @@
                     <th>Total Subsistence Allowance</th>
                     <%--<th>Total Other Costs</th>--%>
                     <th>Status</th>
-                    <th>View/Edit</th>
                     <th>View Approval Entries</th>
                     <th>Send/Cancel Approval</th>
+                    <th>View/Edit</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -65,20 +65,20 @@
                                     <td><%=oneItem[2] %> </td>
                                     <td><%=oneItem[3] %> </td>
                                     <td><%=oneItem[4] %> </td>
-                                    <td><a href="ApproverEntry.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
+                                    <td><a href="ApproverEntry1.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
                                     <td>
                                         <%
                                             if (oneItem[4] == "New")
                                             {
                                         %>
-                                        <label class="btn btn-success"><i class="fa fa-check"></i>Send Approval Request</label>
+                                        <label class="btn btn-success" onclick="sendApprovalRequest('<%=oneItem[0] %>');"><i class="fa fa-check"></i>Send Approval Request</label>
                                         <%
                                             }
                                             else if (oneItem[4] == "Approval Pending")
                                             {
 
                                         %>
-                                        <label class="btn btn-danger"><i class="fa fa-times"></i>Cancel Approval Request</label>
+                                        <label class="btn btn-danger" onclick="cancelApprovalRequest('<%=oneItem[0] %>');"><i class="fa fa-times"></i>Cancel Approval Request</label>
 
                                         <% 
                                             } %>                                              
@@ -257,9 +257,9 @@
 
     </script>
      <script>
-    function sendApprovalRequest(documentNumber) {
-            document.getElementById("approveImprestMemoNo").innerHTML = documentNumber;
-            document.getElementById("ContentPlaceHolder1_imprestMemoToApprove").value = documentNumber;
+         function sendApprovalRequest(imprestMemoToApprove) {
+             document.getElementById("approveImprestMemoNo").innerHTML = imprestMemoToApprove;
+             document.getElementById("ContentPlaceHolder1_imprestMemoToApprove").value = imprestMemoToApprove;
 
             $("#sendImprestMemoForApproval").modal();
         }
@@ -283,7 +283,7 @@
       </div>
       <div class="modal-body">
           <asp:TextBox runat="server" ID="imprestMemoToApprove" type="hidden"/>
-          Are you sure you want to send Imprest Memo No <strong id="approveImprestMemoNo"></strong>  for approval ? 
+          Are you sure you want to send Safari Request No <strong id="approveImprestMemoNo"></strong>  for approval ? 
         </div>
       <div class="modal-footer">
           <asp:Button runat="server" CssClass="btn btn-success" Text="Send Approval" OnClick="sendApproval_Click"/>

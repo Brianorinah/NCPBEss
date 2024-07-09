@@ -64,7 +64,7 @@
                                    <%-- <td><%=Convert.ToDateTime(oneItem[2]).ToString("dd/MM/yyyy") %> </td>--%>
                                     <td><%=oneItem[3] %></td>
                                     <td><%=oneItem[4] %> </td>
-                                    <td><a href="ApproverEntry.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
+                                    <td><a href="ApproverEntry1.aspx?leaveno=<%=oneItem[0] %>" class="btn btn-success"><i class="fa fa-eye"></i>View Approvers</a> </td>
                                     <td>
                                         <%
                                             if (oneItem[4] == "New")
@@ -77,7 +77,7 @@
                                             {
 
                                         %>
-                                        <label class="btn btn-danger"><i class="fa fa-times"></i>Cancel Approval Request</label>
+        <%--                                <label class="btn btn-danger" onclick="sendLeaveForApproval('<%=oneItem[0] %>','<%=oneItem[2] %>')"><i class="fa fa-times"></i>Cancel Approval Request</label>--%>
 
                                         <% 
                                             } %>                                              

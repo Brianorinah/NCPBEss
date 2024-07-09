@@ -51,12 +51,12 @@
                     <div style="padding: 20px;">
                         <div id="feedback" runat="server"></div>
                         <div class="form-group">
-                            <label>Employee Number<span style="color: red">*</span></label>
-                            <asp:TextBox CssClass="form-control" runat="server" ID="username" Placeholder="Enter Your Employee Number" Style="height: 42px;" />
+                            <label>Username<span style="color: red">*</span></label>
+                            <asp:TextBox CssClass="form-control" runat="server" ID="username" Placeholder="Enter Your Username" Style="height: 42px;" />
                             <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="username" ErrorMessage="Please Enter Your Employee Number, it cannot be empty!" ForeColor="Red" />
                         </div>
                         <div class="form-group">
-                            <label>Account Password<span style="color: red">*</span></label>
+                            <label>Password<span style="color: red">*</span></label>
                             <asp:TextBox CssClass="form-control" runat="server" ID="password" Placeholder="Enter Account Password" type="password" Style="height: 42px;" />
                             <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="password" ErrorMessage="Please Enter Account Password, it cannot be empty!" ForeColor="Red" />
                         </div>

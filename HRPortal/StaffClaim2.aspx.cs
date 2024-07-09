@@ -67,7 +67,7 @@ namespace HRPortal
 
                             ItemList mdl = new ItemList();
                             mdl.code = arr[0];
-                            mdl.description = arr[1];
+                            mdl.description = arr[0]+" - "+ arr[1];
                             itms1.Add(mdl);
 
                         }
@@ -183,10 +183,11 @@ namespace HRPortal
                 string treasonForClaim = reasonForClaim.Text.Trim();
                 int trate = Convert.ToInt16(rate.Text.Trim());
                 int tquantity = Convert.ToInt16(quantity.Text.Trim());
+                DateTime tclaimdate = Convert.ToDateTime(claimdate.Text.Trim());
 
-                String status = Config.ObjNav2.createStaffClaimApplicationLines(requisitionNo, tclaimtype, tnoOfDaysSpent, tnoOfNightsSpent,tquantity,trate,treasonForClaim);
+                String status = Config.ObjNav2.createStaffClaimApplicationLines(requisitionNo, tclaimtype, tnoOfDaysSpent, tnoOfNightsSpent,tquantity,trate,treasonForClaim, tclaimdate);
                 String[] info = status.Split('*');
-
+                
                 linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
 
             }
@@ -217,8 +218,9 @@ namespace HRPortal
             try
             {
                 String requisitionNo = Request.QueryString["requisitionNo"];
+                String userName = Convert.ToString(Session["username"]).ToUpper();
                 // Convert.ToString(Session["employeeNo"]),
-                String status = Config.ObjNav2.sendStaffClaimApplicationApproval(requisitionNo);
+                String status = Config.ObjNav2.sendStaffClaimApplicationApproval(requisitionNo,userName);
                 String[] info = status.Split('*');
                 documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
                 ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
@@ -232,7 +234,8 @@ namespace HRPortal
         protected void uploadDocument_Click(object sender, EventArgs e)
         {
 
-            String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Staff Claim/";
+            //String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Staff Claim/";
+            String filesFolder = Server.MapPath("~/downloads/Staff Claim/");
 
             if (document.HasFile)
             {
@@ -320,11 +323,12 @@ namespace HRPortal
             try
             {
                 String tFileName = fileName.Text.Trim();
-                String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Non-Project Store Requisition/";
+                //String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Non-Project Store Requisition/";
+                String filesFolder1 = Server.MapPath("~/downloads/Staff Claim/");
                 String imprestNo = Request.QueryString["requisitionNo"];
                 imprestNo = imprestNo.Replace('/', '_');
                 imprestNo = imprestNo.Replace(':', '_');
-                String documentDirectory = filesFolder + imprestNo + "/";
+                String documentDirectory = filesFolder1 + imprestNo + "/";
                 String myFile = documentDirectory + tFileName;
                 if (File.Exists(myFile))
                 {

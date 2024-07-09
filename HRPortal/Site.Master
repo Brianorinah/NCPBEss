@@ -450,6 +450,21 @@
                                 </li>--%>
                             </ul>
                         </li>  
+
+                        <!--Request To Approve-->  
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-th"></i>
+                                <span>Request To Approve</span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="active">
+                                    <a href="RequestToApprove.aspx">
+                                        <i class="fa fa-circle-o"></i><span>Request To Approve</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li> 
                         <!--SCM SERVICES-->  
                         <%--<li class="treeview">
                             <a href="#">
@@ -574,6 +589,18 @@
          <!-- DataTables -->
         <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
         <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#example55').DataTable({
+                    'paging': true,
+                    'lengthChange': true,
+                    'searching': true,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': true
+                });
+            });
+        </script>
         <script>
             $(document).ready(function () {
                 //called when key is pressed in textbox
@@ -767,9 +794,7 @@
             $('#ContentPlaceHolder1_lastpromotion').datepicker({
                 autoclose: true, format: 'dd/mm/yyyy', startDate: '0d'
             });
-            /*$('ContentPlaceHolder1_travelDate').datepicker({ format: 'dd/mm/yyyy', }).on('changeDate', function (e) {
-                $(this).datepicker('hide');
-            });*/
+       
             $('#ContentPlaceHolder1_Dateofcurrentappointment1').datepicker({
                 autoclose: true, format: 'dd/mm/yyyy'
             });
@@ -816,11 +841,6 @@
 
 
             $('#ContentPlaceHolder1_lastpromotion1').datepicker({
-                autoclose: true, format: 'dd/mm/yyyy', startDate: '0d'
-            });
-
-
-            $('#ContentPlaceHolder1_travelDate').datepicker({
                 autoclose: true, format: 'dd/mm/yyyy', startDate: '0d'
             });
             $('#ContentPlaceHolder1_tripdate').datepicker({
@@ -870,6 +890,25 @@
             $('#ContentPlaceHolder1_qualificationTo').datepicker({
                 autoclose: true, format: 'dd/mm/yyyy'
             });
+            $('#ContentPlaceHolder1_exptTravelDate').datepicker({
+                autoclose: true, format: 'mm/dd/yyyy'
+            });
+            $('#ContentPlaceHolder1_exptReturnDate').datepicker({
+                autoclose: true, format: 'mm/dd/yyyy'
+            });
+            $('#ContentPlaceHolder1_traveldate').datepicker({
+                autoclose: true, format: 'mm/dd/yyyy'
+            });
+            $('#ContentPlaceHolder1_requestdate').datepicker({
+                autoclose: true, format: 'mm/dd/yyyy'
+            }); 
+            $('#ContentPlaceHolder1_expensedate1').datepicker({
+                autoclose: true, format: 'mm/dd/yyyy'
+            }); 
+            $('#ContentPlaceHolder1_claimdate').datepicker({
+                autoclose: true, format: 'mm/dd/yyyy'
+            });
+
         </script>
         <script type="text/javascript">
             function ShowCurrentTime() {
@@ -989,6 +1028,14 @@
                 'autoWidth': false
             })
             $('#example11').DataTable({
+                'paging': true,
+                'lengthChange': true,
+                'searching': true,
+                'ordering': true,
+                'info': true,
+                'autoWidth': true
+            })
+            $('#example77').DataTable({
                 'paging': true,
                 'lengthChange': true,
                 'searching': true,

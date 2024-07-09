@@ -2,6 +2,123 @@
 <definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="updateSupervisorOverallComments">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="supervisorOverallComments" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="updateSupervisorOverallComments_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Approve">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="docType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="aprovalLevel" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="actionID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Approve_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CanceLeaveApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="recordNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CanceLeaveApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CancelClaimApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CancelClaimApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CancelImprestApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CancelImprestApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CancelSafariApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CancelSafariApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CancelSurrenderApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CancelSurrenderApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ClaimRequestReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ClaimRequestReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="CreateSalesOrder">
         <complexType>
           <sequence>
@@ -10,6 +127,146 @@
         </complexType>
       </element>
       <element name="CreateSalesOrder_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ImprestRequestReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ImprestRequestReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InventoryMovementLocationReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="year" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="month" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="InventoryMovementLocationReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LeaveRequestReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LeaveRequestReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Reject1">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="table_ID" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="document_Type" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="portal_User" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="comments" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Reject1_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Reject">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="docType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="aprovalLevel" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="actionID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="comment" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Reject_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SafariRequestReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SafariRequestReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="StaffCreditSalesRequestReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="StaffCreditSalesRequestReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SurrenderRequestReport">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SurrenderRequestReport_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="_Delegate">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="docType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="aprovalLevel" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="actionID" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="selectedUser" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="_Delegate_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -92,7 +349,7 @@
           </sequence>
         </complexType>
       </element>
-      <element name="createImprest">
+      <element name="createImprestSurrender">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
@@ -101,6 +358,27 @@
             <element minOccurs="1" maxOccurs="1" name="requestDate" type="date" />
             <element minOccurs="1" maxOccurs="1" name="travelDate" type="date" />
             <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="userName1" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createImprestSurrender_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createImprest">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="payingBankAccount" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="requestDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="travelDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="userName1" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -156,6 +434,7 @@
             <element minOccurs="1" maxOccurs="1" name="reliever" type="string" />
             <element minOccurs="1" maxOccurs="1" name="contactAddress" type="string" />
             <element minOccurs="1" maxOccurs="1" name="naration" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="userName1" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -221,6 +500,18 @@
           </sequence>
         </complexType>
       </element>
+      <element name="createSafariEntitlements">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createSafariEntitlements_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
       <element name="createSafariRequestEntitlements">
         <complexType>
           <sequence>
@@ -250,6 +541,7 @@
             <element minOccurs="1" maxOccurs="1" name="functionCode" type="string" />
             <element minOccurs="1" maxOccurs="1" name="budgetCode" type="string" />
             <element minOccurs="1" maxOccurs="1" name="purpose" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="userName1" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -305,6 +597,7 @@
             <element minOccurs="1" maxOccurs="1" name="quantity" type="int" />
             <element minOccurs="1" maxOccurs="1" name="rate" type="decimal" />
             <element minOccurs="1" maxOccurs="1" name="reasonForClaim" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dateClaim" type="date" />
           </sequence>
         </complexType>
       </element>
@@ -358,6 +651,7 @@
             <element minOccurs="1" maxOccurs="1" name="imprestLine" type="string" />
             <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
             <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -618,6 +912,24 @@
           </sequence>
         </complexType>
       </element>
+      <element name="editSafariRequestEntitlements">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="entitlement" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="quantity" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="rate" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="town" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="editSafariRequestEntitlements_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="editSafariRequestLines">
         <complexType>
           <sequence>
@@ -662,6 +974,7 @@
             <element minOccurs="1" maxOccurs="1" name="imprestLine" type="string" />
             <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
             <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -780,6 +1093,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="reopenCreditSales">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="reopenCreditSales_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="sendImprestApplicationApproval">
         <complexType>
           <sequence>
@@ -798,6 +1125,7 @@
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="userName" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -840,6 +1168,7 @@
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="userName1" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -854,6 +1183,7 @@
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="userName1" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -921,28 +1251,115 @@
           </sequence>
         </complexType>
       </element>
-      <element name="updateSupervisorOverallComments">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="supervisorOverallComments" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="updateSupervisorOverallComments_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
     </schema>
   </types>
+  <message name="updateSupervisorOverallComments">
+    <part name="parameters" element="tns:updateSupervisorOverallComments" />
+  </message>
+  <message name="updateSupervisorOverallComments_Result">
+    <part name="parameters" element="tns:updateSupervisorOverallComments_Result" />
+  </message>
+  <message name="Approve">
+    <part name="parameters" element="tns:Approve" />
+  </message>
+  <message name="Approve_Result">
+    <part name="parameters" element="tns:Approve_Result" />
+  </message>
+  <message name="CanceLeaveApproval">
+    <part name="parameters" element="tns:CanceLeaveApproval" />
+  </message>
+  <message name="CanceLeaveApproval_Result">
+    <part name="parameters" element="tns:CanceLeaveApproval_Result" />
+  </message>
+  <message name="CancelClaimApproval">
+    <part name="parameters" element="tns:CancelClaimApproval" />
+  </message>
+  <message name="CancelClaimApproval_Result">
+    <part name="parameters" element="tns:CancelClaimApproval_Result" />
+  </message>
+  <message name="CancelImprestApproval">
+    <part name="parameters" element="tns:CancelImprestApproval" />
+  </message>
+  <message name="CancelImprestApproval_Result">
+    <part name="parameters" element="tns:CancelImprestApproval_Result" />
+  </message>
+  <message name="CancelSafariApproval">
+    <part name="parameters" element="tns:CancelSafariApproval" />
+  </message>
+  <message name="CancelSafariApproval_Result">
+    <part name="parameters" element="tns:CancelSafariApproval_Result" />
+  </message>
+  <message name="CancelSurrenderApproval">
+    <part name="parameters" element="tns:CancelSurrenderApproval" />
+  </message>
+  <message name="CancelSurrenderApproval_Result">
+    <part name="parameters" element="tns:CancelSurrenderApproval_Result" />
+  </message>
+  <message name="ClaimRequestReport">
+    <part name="parameters" element="tns:ClaimRequestReport" />
+  </message>
+  <message name="ClaimRequestReport_Result">
+    <part name="parameters" element="tns:ClaimRequestReport_Result" />
+  </message>
   <message name="CreateSalesOrder">
     <part name="parameters" element="tns:CreateSalesOrder" />
   </message>
   <message name="CreateSalesOrder_Result">
     <part name="parameters" element="tns:CreateSalesOrder_Result" />
+  </message>
+  <message name="ImprestRequestReport">
+    <part name="parameters" element="tns:ImprestRequestReport" />
+  </message>
+  <message name="ImprestRequestReport_Result">
+    <part name="parameters" element="tns:ImprestRequestReport_Result" />
+  </message>
+  <message name="InventoryMovementLocationReport">
+    <part name="parameters" element="tns:InventoryMovementLocationReport" />
+  </message>
+  <message name="InventoryMovementLocationReport_Result">
+    <part name="parameters" element="tns:InventoryMovementLocationReport_Result" />
+  </message>
+  <message name="LeaveRequestReport">
+    <part name="parameters" element="tns:LeaveRequestReport" />
+  </message>
+  <message name="LeaveRequestReport_Result">
+    <part name="parameters" element="tns:LeaveRequestReport_Result" />
+  </message>
+  <message name="Reject1">
+    <part name="parameters" element="tns:Reject1" />
+  </message>
+  <message name="Reject1_Result">
+    <part name="parameters" element="tns:Reject1_Result" />
+  </message>
+  <message name="Reject">
+    <part name="parameters" element="tns:Reject" />
+  </message>
+  <message name="Reject_Result">
+    <part name="parameters" element="tns:Reject_Result" />
+  </message>
+  <message name="SafariRequestReport">
+    <part name="parameters" element="tns:SafariRequestReport" />
+  </message>
+  <message name="SafariRequestReport_Result">
+    <part name="parameters" element="tns:SafariRequestReport_Result" />
+  </message>
+  <message name="StaffCreditSalesRequestReport">
+    <part name="parameters" element="tns:StaffCreditSalesRequestReport" />
+  </message>
+  <message name="StaffCreditSalesRequestReport_Result">
+    <part name="parameters" element="tns:StaffCreditSalesRequestReport_Result" />
+  </message>
+  <message name="SurrenderRequestReport">
+    <part name="parameters" element="tns:SurrenderRequestReport" />
+  </message>
+  <message name="SurrenderRequestReport_Result">
+    <part name="parameters" element="tns:SurrenderRequestReport_Result" />
+  </message>
+  <message name="_Delegate">
+    <part name="parameters" element="tns:_Delegate" />
+  </message>
+  <message name="_Delegate_Result">
+    <part name="parameters" element="tns:_Delegate_Result" />
   </message>
   <message name="approveAppraisal">
     <part name="parameters" element="tns:approveAppraisal" />
@@ -973,6 +1390,12 @@
   </message>
   <message name="createImprestRequest_Result">
     <part name="parameters" element="tns:createImprestRequest_Result" />
+  </message>
+  <message name="createImprestSurrender">
+    <part name="parameters" element="tns:createImprestSurrender" />
+  </message>
+  <message name="createImprestSurrender_Result">
+    <part name="parameters" element="tns:createImprestSurrender_Result" />
   </message>
   <message name="createImprest">
     <part name="parameters" element="tns:createImprest" />
@@ -1015,6 +1438,12 @@
   </message>
   <message name="createNewKPILines_Result">
     <part name="parameters" element="tns:createNewKPILines_Result" />
+  </message>
+  <message name="createSafariEntitlements">
+    <part name="parameters" element="tns:createSafariEntitlements" />
+  </message>
+  <message name="createSafariEntitlements_Result">
+    <part name="parameters" element="tns:createSafariEntitlements_Result" />
   </message>
   <message name="createSafariRequestEntitlements">
     <part name="parameters" element="tns:createSafariRequestEntitlements" />
@@ -1154,6 +1583,12 @@
   <message name="editLeaveApplicationLines_Result">
     <part name="parameters" element="tns:editLeaveApplicationLines_Result" />
   </message>
+  <message name="editSafariRequestEntitlements">
+    <part name="parameters" element="tns:editSafariRequestEntitlements" />
+  </message>
+  <message name="editSafariRequestEntitlements_Result">
+    <part name="parameters" element="tns:editSafariRequestEntitlements_Result" />
+  </message>
   <message name="editSafariRequestLines">
     <part name="parameters" element="tns:editSafariRequestLines" />
   </message>
@@ -1213,6 +1648,12 @@
   </message>
   <message name="generatePayslip_Result">
     <part name="parameters" element="tns:generatePayslip_Result" />
+  </message>
+  <message name="reopenCreditSales">
+    <part name="parameters" element="tns:reopenCreditSales" />
+  </message>
+  <message name="reopenCreditSales_Result">
+    <part name="parameters" element="tns:reopenCreditSales_Result" />
   </message>
   <message name="sendImprestApplicationApproval">
     <part name="parameters" element="tns:sendImprestApplicationApproval" />
@@ -1274,16 +1715,78 @@
   <message name="updateOverallComments_Result">
     <part name="parameters" element="tns:updateOverallComments_Result" />
   </message>
-  <message name="updateSupervisorOverallComments">
-    <part name="parameters" element="tns:updateSupervisorOverallComments" />
-  </message>
-  <message name="updateSupervisorOverallComments_Result">
-    <part name="parameters" element="tns:updateSupervisorOverallComments_Result" />
-  </message>
   <portType name="NewHrPortal_Port">
+    <operation name="updateSupervisorOverallComments">
+      <input name="updateSupervisorOverallComments" message="tns:updateSupervisorOverallComments" />
+      <output name="updateSupervisorOverallComments_Result" message="tns:updateSupervisorOverallComments_Result" />
+    </operation>
+    <operation name="Approve">
+      <input name="Approve" message="tns:Approve" />
+      <output name="Approve_Result" message="tns:Approve_Result" />
+    </operation>
+    <operation name="CanceLeaveApproval">
+      <input name="CanceLeaveApproval" message="tns:CanceLeaveApproval" />
+      <output name="CanceLeaveApproval_Result" message="tns:CanceLeaveApproval_Result" />
+    </operation>
+    <operation name="CancelClaimApproval">
+      <input name="CancelClaimApproval" message="tns:CancelClaimApproval" />
+      <output name="CancelClaimApproval_Result" message="tns:CancelClaimApproval_Result" />
+    </operation>
+    <operation name="CancelImprestApproval">
+      <input name="CancelImprestApproval" message="tns:CancelImprestApproval" />
+      <output name="CancelImprestApproval_Result" message="tns:CancelImprestApproval_Result" />
+    </operation>
+    <operation name="CancelSafariApproval">
+      <input name="CancelSafariApproval" message="tns:CancelSafariApproval" />
+      <output name="CancelSafariApproval_Result" message="tns:CancelSafariApproval_Result" />
+    </operation>
+    <operation name="CancelSurrenderApproval">
+      <input name="CancelSurrenderApproval" message="tns:CancelSurrenderApproval" />
+      <output name="CancelSurrenderApproval_Result" message="tns:CancelSurrenderApproval_Result" />
+    </operation>
+    <operation name="ClaimRequestReport">
+      <input name="ClaimRequestReport" message="tns:ClaimRequestReport" />
+      <output name="ClaimRequestReport_Result" message="tns:ClaimRequestReport_Result" />
+    </operation>
     <operation name="CreateSalesOrder">
       <input name="CreateSalesOrder" message="tns:CreateSalesOrder" />
       <output name="CreateSalesOrder_Result" message="tns:CreateSalesOrder_Result" />
+    </operation>
+    <operation name="ImprestRequestReport">
+      <input name="ImprestRequestReport" message="tns:ImprestRequestReport" />
+      <output name="ImprestRequestReport_Result" message="tns:ImprestRequestReport_Result" />
+    </operation>
+    <operation name="InventoryMovementLocationReport">
+      <input name="InventoryMovementLocationReport" message="tns:InventoryMovementLocationReport" />
+      <output name="InventoryMovementLocationReport_Result" message="tns:InventoryMovementLocationReport_Result" />
+    </operation>
+    <operation name="LeaveRequestReport">
+      <input name="LeaveRequestReport" message="tns:LeaveRequestReport" />
+      <output name="LeaveRequestReport_Result" message="tns:LeaveRequestReport_Result" />
+    </operation>
+    <operation name="Reject1">
+      <input name="Reject1" message="tns:Reject1" />
+      <output name="Reject1_Result" message="tns:Reject1_Result" />
+    </operation>
+    <operation name="Reject">
+      <input name="Reject" message="tns:Reject" />
+      <output name="Reject_Result" message="tns:Reject_Result" />
+    </operation>
+    <operation name="SafariRequestReport">
+      <input name="SafariRequestReport" message="tns:SafariRequestReport" />
+      <output name="SafariRequestReport_Result" message="tns:SafariRequestReport_Result" />
+    </operation>
+    <operation name="StaffCreditSalesRequestReport">
+      <input name="StaffCreditSalesRequestReport" message="tns:StaffCreditSalesRequestReport" />
+      <output name="StaffCreditSalesRequestReport_Result" message="tns:StaffCreditSalesRequestReport_Result" />
+    </operation>
+    <operation name="SurrenderRequestReport">
+      <input name="SurrenderRequestReport" message="tns:SurrenderRequestReport" />
+      <output name="SurrenderRequestReport_Result" message="tns:SurrenderRequestReport_Result" />
+    </operation>
+    <operation name="_Delegate">
+      <input name="_Delegate" message="tns:_Delegate" />
+      <output name="_Delegate_Result" message="tns:_Delegate_Result" />
     </operation>
     <operation name="approveAppraisal">
       <input name="approveAppraisal" message="tns:approveAppraisal" />
@@ -1304,6 +1807,10 @@
     <operation name="createImprestRequest">
       <input name="createImprestRequest" message="tns:createImprestRequest" />
       <output name="createImprestRequest_Result" message="tns:createImprestRequest_Result" />
+    </operation>
+    <operation name="createImprestSurrender">
+      <input name="createImprestSurrender" message="tns:createImprestSurrender" />
+      <output name="createImprestSurrender_Result" message="tns:createImprestSurrender_Result" />
     </operation>
     <operation name="createImprest">
       <input name="createImprest" message="tns:createImprest" />
@@ -1332,6 +1839,10 @@
     <operation name="createNewKPILines">
       <input name="createNewKPILines" message="tns:createNewKPILines" />
       <output name="createNewKPILines_Result" message="tns:createNewKPILines_Result" />
+    </operation>
+    <operation name="createSafariEntitlements">
+      <input name="createSafariEntitlements" message="tns:createSafariEntitlements" />
+      <output name="createSafariEntitlements_Result" message="tns:createSafariEntitlements_Result" />
     </operation>
     <operation name="createSafariRequestEntitlements">
       <input name="createSafariRequestEntitlements" message="tns:createSafariRequestEntitlements" />
@@ -1425,6 +1936,10 @@
       <input name="editLeaveApplicationLines" message="tns:editLeaveApplicationLines" />
       <output name="editLeaveApplicationLines_Result" message="tns:editLeaveApplicationLines_Result" />
     </operation>
+    <operation name="editSafariRequestEntitlements">
+      <input name="editSafariRequestEntitlements" message="tns:editSafariRequestEntitlements" />
+      <output name="editSafariRequestEntitlements_Result" message="tns:editSafariRequestEntitlements_Result" />
+    </operation>
     <operation name="editSafariRequestLines">
       <input name="editSafariRequestLines" message="tns:editSafariRequestLines" />
       <output name="editSafariRequestLines_Result" message="tns:editSafariRequestLines_Result" />
@@ -1464,6 +1979,10 @@
     <operation name="generatePayslip">
       <input name="generatePayslip" message="tns:generatePayslip" />
       <output name="generatePayslip_Result" message="tns:generatePayslip_Result" />
+    </operation>
+    <operation name="reopenCreditSales">
+      <input name="reopenCreditSales" message="tns:reopenCreditSales" />
+      <output name="reopenCreditSales_Result" message="tns:reopenCreditSales_Result" />
     </operation>
     <operation name="sendImprestApplicationApproval">
       <input name="sendImprestApplicationApproval" message="tns:sendImprestApplicationApproval" />
@@ -1505,19 +2024,168 @@
       <input name="updateOverallComments" message="tns:updateOverallComments" />
       <output name="updateOverallComments_Result" message="tns:updateOverallComments_Result" />
     </operation>
-    <operation name="updateSupervisorOverallComments">
-      <input name="updateSupervisorOverallComments" message="tns:updateSupervisorOverallComments" />
-      <output name="updateSupervisorOverallComments_Result" message="tns:updateSupervisorOverallComments_Result" />
-    </operation>
   </portType>
   <binding name="NewHrPortal_Binding" type="tns:NewHrPortal_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="updateSupervisorOverallComments">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:updateSupervisorOverallComments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="updateSupervisorOverallComments">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="updateSupervisorOverallComments_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Approve">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:Approve" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Approve">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Approve_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CanceLeaveApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:CanceLeaveApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CanceLeaveApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CanceLeaveApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CancelClaimApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:CancelClaimApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CancelClaimApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CancelClaimApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CancelImprestApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:CancelImprestApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CancelImprestApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CancelImprestApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CancelSafariApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:CancelSafariApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CancelSafariApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CancelSafariApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CancelSurrenderApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:CancelSurrenderApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CancelSurrenderApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CancelSurrenderApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ClaimRequestReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:ClaimRequestReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ClaimRequestReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ClaimRequestReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="CreateSalesOrder">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:CreateSalesOrder" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="CreateSalesOrder">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="CreateSalesOrder_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ImprestRequestReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:ImprestRequestReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ImprestRequestReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ImprestRequestReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="InventoryMovementLocationReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:InventoryMovementLocationReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="InventoryMovementLocationReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="InventoryMovementLocationReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="LeaveRequestReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:LeaveRequestReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LeaveRequestReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LeaveRequestReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Reject1">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:Reject1" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Reject1">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Reject1_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Reject">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:Reject" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Reject">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Reject_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SafariRequestReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:SafariRequestReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SafariRequestReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SafariRequestReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="StaffCreditSalesRequestReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:StaffCreditSalesRequestReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="StaffCreditSalesRequestReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="StaffCreditSalesRequestReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SurrenderRequestReport">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:SurrenderRequestReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SurrenderRequestReport">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SurrenderRequestReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="_Delegate">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:_Delegate" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="_Delegate">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="_Delegate_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1563,6 +2231,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="createImprestRequest_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createImprestSurrender">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createImprestSurrender" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createImprestSurrender">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createImprestSurrender_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1626,6 +2303,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="createNewKPILines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createSafariEntitlements">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createSafariEntitlements" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createSafariEntitlements">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createSafariEntitlements_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1836,6 +2522,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="editSafariRequestEntitlements">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:editSafariRequestEntitlements" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="editSafariRequestEntitlements">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="editSafariRequestEntitlements_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="editSafariRequestLines">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:editSafariRequestLines" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="editSafariRequestLines">
@@ -1923,6 +2618,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="generatePayslip_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="reopenCreditSales">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:reopenCreditSales" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="reopenCreditSales">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="reopenCreditSales_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -2016,19 +2720,10 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
-    <operation name="updateSupervisorOverallComments">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:updateSupervisorOverallComments" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="updateSupervisorOverallComments">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="updateSupervisorOverallComments_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
   </binding>
   <service name="NewHrPortal">
     <port name="NewHrPortal_Port" binding="tns:NewHrPortal_Binding">
-      <address location="http://41.139.199.18:7047/BC220/WS/NCPB/Codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <address location="http://dynamics.cereals:7047/BC220/WS/NCPB/Codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
     </port>
   </service>
 </definitions>

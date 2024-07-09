@@ -18,7 +18,8 @@ namespace HRPortal
             try
             {
                 string approveNo = imprestMemoToApprove.Text.Trim();
-                String status = Config.ObjNav2.sendSafariRequestApplicationApproval(approveNo);
+                string userName = Convert.ToString(Session["username"]).ToUpper();
+                String status = Config.ObjNav2.sendSafariRequestApplicationApproval(approveNo,userName);
                 String[] info = status.Split('*');
                 feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
                
@@ -33,10 +34,10 @@ namespace HRPortal
             try
             {
                 String tDocumentNo = cancelImprestMemoNo.Text.Trim();
-                //String status = Config.ObjNav.CancelRecordApproval((String)Session["employeeNo"], tDocumentNo, "Imprest Memo");
-                //String[] info = status.Split('*');
-                //feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] +
-                //                 "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                String status = Config.ObjNav2.CancelSafariApproval(tDocumentNo);
+                String[] info = status.Split('*');
+                feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] +
+                                 "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
 
             }
             catch (Exception t)

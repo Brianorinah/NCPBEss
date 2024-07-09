@@ -77,18 +77,25 @@ namespace HRPortal
 
         protected bool AuthenticateUser(String UserName, String Password)
         {
-            string ldapPath = "ldap://192.168.0.6";
-
+            string ldapPath = "LDAP://servergamma.ncpb.co.ke";
+            //string fullUserId = "administrator";
             bool isAuthenticated = false;
-
+            
             try
             {
-                DirectoryEntry de = new DirectoryEntry(ldapPath, UserName, Password,
-                                AuthenticationTypes.Secure | AuthenticationTypes.Sealing | AuthenticationTypes.ServerBind);
 
-                DirectorySearcher dsearch = new DirectorySearcher(de);
+           DirectoryEntry de = new DirectoryEntry(ldapPath, UserName, Password,
 
-                SearchResult results = null;
+                AuthenticationTypes.Secure | AuthenticationTypes.Sealing | AuthenticationTypes.ServerBind);
+
+        DirectorySearcher dsearch = new DirectorySearcher(de);
+
+        //    DirectoryEntry de = new DirectoryEntry(ldapPath, fullUserId, "Ncpb**Admin",
+        //AuthenticationTypes.Secure);
+
+        //DirectorySearcher dsearch = new DirectorySearcher(de);
+
+        SearchResult results = null;
                 results = dsearch.FindOne();
 
                 if (results != null)
@@ -96,11 +103,16 @@ namespace HRPortal
                     isAuthenticated = true;
                 }
             }
-            catch (Exception ex)
+            catch (DirectoryServicesCOMException ex)
             {
                 string message = ex.Message;
                 isAuthenticated = false;
             }
+            //catch (Exception ex)
+            //{
+            //    string message = ex.Message;
+            //    isAuthenticated = false;
+            //}
 
             return isAuthenticated;
         }

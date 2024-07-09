@@ -16,7 +16,8 @@ namespace HRPortal
         {
             if (!IsPostBack)
             {
-                var jobs = Config.ObjNav1.fnGetDimension(2);
+                String userName = Convert.ToString(Session["username"]);
+                var jobs = Config.ObjNav1.fnGetPayingBankAccount(userName);
                 List<ItemList> itms = new List<ItemList>();
                 string[] infoz = jobs.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
                 if (infoz.Count() > 0)
@@ -32,11 +33,11 @@ namespace HRPortal
                     }
                 }
 
-                payingbudgetcenter.DataSource = itms;
-                payingbudgetcenter.DataTextField = "description";
-                payingbudgetcenter.DataValueField = "code";
-                payingbudgetcenter.DataBind();
-                payingbudgetcenter.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+                payingbankaccount.DataSource = itms;
+                payingbankaccount.DataTextField = "description";
+                payingbankaccount.DataValueField = "code";
+                payingbankaccount.DataBind();
+                payingbankaccount.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
 
 
                 var jobs1 = Config.ObjNav1.fnGLAccount();
@@ -113,9 +114,10 @@ namespace HRPortal
                             {
                                 String[] arr = allinfo.Split('*');
 
-                                payingbudgetcenter.SelectedValue = arr[7];
-                                requestdate.Text = arr[8];
-                                traveldate.Text = arr[9];
+                                payingbankaccount.SelectedValue = arr[7];
+                            
+                                requestdate.Text = string.IsNullOrEmpty(arr[8]) ? "" : Convert.ToDateTime(arr[8]).ToString(); 
+                                traveldate.Text = string.IsNullOrEmpty(arr[9]) ? "" : Convert.ToDateTime(arr[9]).ToString();
                                 purpose.Text = arr[1];
                             }
                         }
@@ -132,17 +134,18 @@ namespace HRPortal
             try
             {
                 String employeeNo = Convert.ToString(Session["employeeNo"]);
-                String tpayingbudgetcenter = payingbudgetcenter.SelectedValue.Trim();
+                string userName = Convert.ToString(Session["username"]);
+                String tpayingbankaccount = payingbankaccount.SelectedValue.Trim();
                 DateTime trequestdate = Convert.ToDateTime(requestdate.Text.Trim());
                 DateTime ttraveldate = Convert.ToDateTime(traveldate.Text.Trim());
                 String tpurpose = purpose.Text.Trim();
                 Boolean error = false;
                 String message = "";
                 //DateTime myTravelDate = new DateTime();
-                if (String.IsNullOrEmpty(tpayingbudgetcenter))
+                if (String.IsNullOrEmpty(tpayingbankaccount))
                 {
                     error = true;
-                    message = "Please specify the purpose of the imprest";
+                    message = "Please specify the paying bank account of the imprest";
                 }
                 //try
                 //{
@@ -180,7 +183,7 @@ namespace HRPortal
                         newImprest = true;
                     }
 
-                    String status = Config.ObjNav2.createImprest(imprestNo, employeeNo, tpayingbudgetcenter, trequestdate, ttraveldate, tpurpose);
+                    String status = Config.ObjNav2.createImprest(imprestNo, employeeNo, tpayingbankaccount, trequestdate, ttraveldate, tpurpose, userName);
                     String[] info = status.Split('*');
                     if (info[0] == "success")
                     {
@@ -212,7 +215,7 @@ namespace HRPortal
                 string imprestNo = Request.QueryString["imprestNo"];
                 string tglaccount = glaccount.SelectedValue.Trim();
                 string tfunctioncode = functioncode.SelectedValue.Trim();
-                decimal tamount = Convert.ToInt16(amount.Text.Trim());
+                decimal tamount = Convert.ToDecimal(amount.Text.Trim());
 
                 String status = Config.ObjNav2.createImprestApplicationLines(imprestNo, tglaccount, tfunctioncode, tamount);
                 String[] info = status.Split('*');
@@ -241,12 +244,14 @@ namespace HRPortal
         protected void previous_Click(object sender, EventArgs e)
         {
             String imprestNo = Request.QueryString["imprestNo"];
-            Response.Redirect("Imprest1.aspx?step=1&&imprestNo=" + imprestNo);
+            int step = Convert.ToInt16(Request.QueryString["step"]) - 1;
+            Response.Redirect("Imprest1.aspx?step="+step+"&&imprestNo=" + imprestNo);
         }
 
         protected void uploadDocument_Click(object sender, EventArgs e)
         {
-            String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Imprest/";
+            //String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Imprest/";
+            String filesFolder = Server.MapPath("~/downloads/Imprest/");
 
             if (document.HasFile)
             {
@@ -328,11 +333,12 @@ namespace HRPortal
             try
             {
                 String tFileName = fileName.Text.Trim();
-                String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Imprest/";
+                //String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Imprest/";
+                String filesFolder1 = Server.MapPath("~/downloads/Imprest/");
                 String imprestNo = Request.QueryString["imprestNo"];
                 imprestNo = imprestNo.Replace('/', '_');
                 imprestNo = imprestNo.Replace(':', '_');
-                String documentDirectory = filesFolder + imprestNo + "/";
+                String documentDirectory = filesFolder1 + imprestNo + "/";
                 String myFile = documentDirectory + tFileName;
                 if (File.Exists(myFile))
                 {
@@ -407,36 +413,36 @@ namespace HRPortal
         }
         protected void editLine_Click(object sender, EventArgs e)
         {
-            String lineN = ContentPlaceHolder1_lineNo.Text.Trim();
-            int lineNo = Convert.ToInt32(lineN);
-            Response.Redirect("Dashboard.aspx?&&lineno="+lineN);
+            //String lineN = ContentPlaceHolder1_lineNo.Text.Trim();
+            //int lineNo = Convert.ToInt32(lineN);
+            //Response.Redirect("Dashboard.aspx?&&lineno="+lineN);
 
-            //try
-            //{
-            //    String lineN = ContentPlaceHolder1_lineNo.Text.Trim();
-            //    int lineNo = Convert.ToInt32(lineN);
-            //    String docNo = ContentPlaceHolder1_documentNumber.Text.Trim();
-            //    String gLAcc = ContentPlaceHolder1_glAccs.SelectedValue.Trim();
-            //    String functionCode = ContentPlaceHolder1_functionCds.SelectedValue.Trim();
-            //    String amts = ContentPlaceHolder1_amounts.Text.Trim();
-            //    decimal amt = Convert.ToDecimal(amts);
-            //    String status = Config.ObjNav2.editImprestApplicationLines(docNo, lineNo, gLAcc, functionCode, amt);
-            //    String[] info = status.Split('*');
-            //    if (info[0] == "success")
-            //    {
-            //        documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            //    }
-            //    else
-            //    {
-            //        documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            //    }
+            try
+            {
+                String lineN = ContentPlaceHolder1_lineNo.Text.Trim();
+                int lineNo = Convert.ToInt32(lineN);
+                String docNo = Request.QueryString["re"];
+                String gLAcc = ContentPlaceHolder1_glAccs.SelectedValue.Trim();
+                String functionCode = ContentPlaceHolder1_functionCds.SelectedValue.Trim();
+                String amts = ContentPlaceHolder1_amounts.Text.Trim();
+                decimal amt = Convert.ToDecimal(amts);
+                String status = Config.ObjNav2.editImprestApplicationLines(docNo, lineNo, gLAcc, functionCode, amt);
+                String[] info = status.Split('*');
+                if (info[0] == "success")
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {
+                    documentsfeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                
 
-
-            //}
-            //catch (Exception ed)
-            //{
-            //    documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-            //}
+            }
+            catch (Exception ed)
+            {
+                documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + ed.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
 
         }
     }

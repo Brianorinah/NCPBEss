@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -48,23 +49,26 @@ namespace HRPortal
             if (!Error)
             {
                 try
-                {
-                    //String tStartDate = Convert.ToDateTime(startDate.Text).ToString("M/d/yyyy");
-                    //String tEndDate = Convert.ToDateTime(endDate.Text).ToString("M/d/yyyy");
+                {                    
                     int tyear = Convert.ToInt32(year.Text.Trim());
                     string empNo = (String)Session["employeeNo"];
 
                     string status = Config.ObjNav2.generateP9(empNo, tyear);
-                    //String status = Config.ObjNav.GenerateP9(, Convert.ToDateTime(tStartDate), Convert.ToDateTime(tEndDate));
-                    String[] info = status.Split('*');
-                    if (info[0] == "success")
+                    if (status != "danger" && !string.IsNullOrEmpty(status))
                     {
-                        p9form.Attributes.Add("src", ResolveUrl(info[2]));
+                        bool downloaded = ConvertAndDownloadToLocal(status, "P9");
+                        if (downloaded)
+                        {
+                            p9form.Attributes.Add("src", ResolveUrl("~/Downloads/" + string.Format("{0}.pdf", empNo)));
+                        }
+                        else
+                        {
+                            feedback.InnerHtml = "<div class='alert alert-danger'>An error occured while generating your payslip.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                        }
                     }
                     else
                     {
-                        feedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] +
-                                             "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                        feedback.InnerHtml = "<div class='alert alert-danger'>An error ocuured while pulling your document.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
                     }
                 }
                 catch (Exception t)
@@ -77,6 +81,53 @@ namespace HRPortal
             }
 
 
+        }
+        public bool ConvertAndDownloadToLocal(string base64String, string docType)
+        {
+            Boolean uploaded = false;
+            try
+            {
+                //string docNo = HttpContext.Request.Query["docNo"].ToString();
+                string employeeNumber = (String)Session["employeeNo"];
+
+                //var filePathInit = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Downloads");
+
+                //System.IO.Directory.CreateDirectory(Path.GetDirectoryName(filePathInit));
+
+                //string fileName = docType + "_" + employeeNumber + ".pdf";
+                //string fileName = employeeNumber + ".pdf";
+
+
+                //string filePath = Path.Combine(filePathInit, fileName);
+
+                string filesFolder = Server.MapPath("~/Downloads/");
+                string fileName = employeeNumber + ".pdf";
+                string documentDirectory = filesFolder + "/";
+                string filePath = documentDirectory + fileName;
+
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+
+                byte[] fileBytes = Convert.FromBase64String(base64String);
+
+
+                using (StreamWriter writer = new StreamWriter(filePath, false))
+                {
+                    writer.BaseStream.Write(fileBytes, 0, fileBytes.Length);
+                }
+
+                return true;
+
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., invalid base64 string)
+                //TempData["error"] = ex.Message;
+                return false;
+            }
         }
     }
 }

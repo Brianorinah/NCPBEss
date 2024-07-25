@@ -7,6 +7,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <%
         string docNo = Request.QueryString["docNo"].Trim();
+         String imprestNo = Request.QueryString["docNo"];
         string docType = Request.QueryString["docType"].Trim();
         string approvalLevel = Request.QueryString["approvalLevel"].Trim();
         string action = !string.IsNullOrEmpty(Request.QueryString["action"].Trim()) ? Request.QueryString["action"].Trim(): "";
@@ -38,11 +39,11 @@
                         try
                         {
                             String fileFolderApplication = ConfigurationManager.AppSettings["FileFolderApplication"];
-                            String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Fleet card/";
-                            String imprestNo = Request.QueryString["leaveNo"];
+                            String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Staff Claim/";
+                            String filesFolder1 = Server.MapPath("~/downloads/Surrender/");                            
                             imprestNo = imprestNo.Replace('/', '_');
                             imprestNo = imprestNo.Replace(':', '_');
-                            String documentDirectory = filesFolder + imprestNo + "/";
+                            String documentDirectory = filesFolder1 + imprestNo + "/";
                             if (Directory.Exists(documentDirectory))
                             {
                                 foreach (String file in Directory.GetFiles(documentDirectory, "*.*", SearchOption.AllDirectories))
@@ -52,8 +53,7 @@
                     <tr>
                         <td><% =file.Replace(documentDirectory, "") %></td>
 
-                        <td><a href="<%=fileFolderApplication %>\Fleet Application\<% =docNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>
-
+                        <td><a href="<%=fileFolderApplication %>\Staff Claim\<% =imprestNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>                        
                     </tr>
                     <%
                                 }

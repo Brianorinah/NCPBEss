@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -64,6 +65,36 @@ namespace HRPortal.Models
         public string Description { get; set; }
     }
 
+    public class ODataResponse
+    {
+        [JsonProperty("@odata.context")]
+        public string ODataContext { get; set; }
+        [JsonProperty("value")]
+        public List<Vendor> Value { get; set; }
+    }
+    public class ODataCustomerResponse
+    {
+        [JsonProperty("@odata.context")]
+        public string ODataContext { get; set; }
+        [JsonProperty("value")]
+        public List<Customer> Value { get; set; }
+    }
+
+    public class Vendor
+    {
+        [JsonProperty("@odata.etag")]
+        public string ETag { get; set; }
+        public string No { get; set; }
+        public string Name { get; set; }
+    }
+
+    public class Customer
+    {
+        [JsonProperty("@odata.etag")]
+        public string ETag { get; set; }
+        public string No { get; set; }
+        public string Name { get; set; }
+    }
 
 
 

@@ -70,14 +70,14 @@
                                             if (oneItem[4] == "New")
                                             {
                                         %>
-                                        <label class="btn btn-success" onclick="sendLeaveForApproval('<%=oneItem[0] %>','<%=oneItem[2] %>')"><i class="fa fa-check"></i>Send Approval Request</label>
+                                        <label class="btn btn-success" onclick="sendLeaveForApproval('<%=oneItem[0] %>','<%=oneItem[2] %>','<%=oneItem[3] %>')"><i class="fa fa-check"></i>Send Approval Request</label>
                                         <%
                                             }
                                             else if (oneItem[4] == "Approval Pending")
                                             {
 
                                         %>
-        <%--                                <label class="btn btn-danger" onclick="sendLeaveForApproval('<%=oneItem[0] %>','<%=oneItem[2] %>')"><i class="fa fa-times"></i>Cancel Approval Request</label>--%>
+                                        <label class="btn btn-danger" onclick="cancelLeaveApproval('<%=oneItem[0] %>','<%=oneItem[2] %>')"><i class="fa fa-times"></i>Cancel Approval Request</label>
 
                                         <% 
                                             } %>                                              
@@ -94,7 +94,7 @@
                                             {
 
                                         %>
-                                        <label class="btn btn-default"><i class="fa fa-times"></i>Edit</label>
+                                        <label class="btn btn-default"><i class="fa fa-times"></i>Pending Approval</label>
 
                                         <% 
                                             } %>                                              

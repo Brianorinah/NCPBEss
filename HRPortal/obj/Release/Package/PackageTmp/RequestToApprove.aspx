@@ -56,7 +56,7 @@
                             int counter = 0;
                             var request = Config.ObjNav1.fnGetRecordsToApprove(username.ToUpper());
                             String[] info = request.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
-                            if (info != null)
+                            if (info.Count() > 0)
                             {
                                 foreach (var allinfo in info)
                                 {

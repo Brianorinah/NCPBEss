@@ -113,7 +113,7 @@
                         {
                             String fileFolderApplication = ConfigurationManager.AppSettings["FileFolderApplication"];
                             String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Imprest/";
-                            String filesFolder1 = Server.MapPath("~/downloads/Imprest/");
+                            String filesFolder1 = Server.MapPath("~/downloads/Purchase/");
                             imprestNo = imprestNo.Replace('/', '_');
                             imprestNo = imprestNo.Replace(':', '_');
                             String documentDirectory = filesFolder1 + imprestNo + "/";

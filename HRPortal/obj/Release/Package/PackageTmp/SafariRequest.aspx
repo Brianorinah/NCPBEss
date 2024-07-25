@@ -85,12 +85,13 @@
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
-                        <strong>Budget Center Code:<span style="color: red">*</span></strong>
-                        <asp:DropDownList runat="server" ID="bgtCenterCode" CssClass="form-control select2" AutoPostBack="true">
-                        </asp:DropDownList>
+                        <div class="form-group">
+                            <label class="control-label">Purpose<span style="color: red">*</span></label>
+                            <asp:TextBox runat="server" ID="purpose" CssClass="form-control" placeholder="Purpose" />
+                        </div>
                     </div>
-
                 </div>
+                
             </div>
             <div class="row">
                 <div class="col-md-6 col-lg-6">
@@ -102,12 +103,13 @@
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
-                        <div class="form-group">
-                            <label class="control-label">Purpose<span style="color: red">*</span></label>
-                            <asp:TextBox runat="server" ID="purpose" CssClass="form-control" placeholder="Purpose" />
-                        </div>
+                        <strong>Budget Center Code:<span style="color: red">*</span></strong>
+                        <asp:DropDownList runat="server" ID="bgtCenterCode" CssClass="form-control select2" AutoPostBack="true">
+                        </asp:DropDownList>
                     </div>
+
                 </div>
+                
             </div>
         </div>
         <div class="panel-footer">
@@ -461,7 +463,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete File" OnClick="deleteFile_Click" />
+                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete File" OnClick="deleteFile_Click" CausesValidation="false"/>
                 </div>
             </div>
 
@@ -592,7 +594,7 @@
 </div>
 <div class="modal-footer">
 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-<asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLines_Clicks" />
+<asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLines_Clicks" CausesValidation="false" />
 </div>
 </div>
  
@@ -637,7 +639,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <asp:Button runat="server" CssClass="btn btn-danger" Text="Edit Line" OnClick="editLine_Click" />
+                <asp:Button runat="server" CssClass="btn btn-danger" Text="Edit Line" OnClick="editLine_Click" CausesValidation="false"/>
             </div>
         </div>
     </div>

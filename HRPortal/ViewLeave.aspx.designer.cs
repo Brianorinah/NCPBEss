@@ -40,24 +40,6 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.TextBox reliver;
         
         /// <summary>
-        /// leaveStartDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox leaveStartDate;
-        
-        /// <summary>
-        /// returnDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox returnDate;
-        
-        /// <summary>
         /// Div1 control.
         /// </summary>
         /// <remarks>

@@ -9,6 +9,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%
         string docNo = Request.QueryString["docNo"].Trim();
+        String imprestNo = Request.QueryString["docNo"];
         string docType = Request.QueryString["docType"].Trim();
         string approvalLevel = Request.QueryString["approvalLevel"].Trim();
         string action = !string.IsNullOrEmpty(Request.QueryString["action"].Trim()) ? Request.QueryString["action"].Trim() : "";
@@ -74,11 +75,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%
-                        String requisitionNo = Request.QueryString["requisitionNo"];
+                    <%                        
                         String employeeNo = Convert.ToString(Session["employeeNo"]);
                         var nav = Config.ObjNav1;
-                        var result = nav.fnGetStaffClaimLines(requisitionNo);
+                        var result = nav.fnGetStaffClaimLines(docNo);
                         String[] info = result.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
                         if (info.Count() > 0)
                         {
@@ -132,8 +132,7 @@
                         {
                             String fileFolderApplication = ConfigurationManager.AppSettings["FileFolderApplication"];
                             String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Staff Claim/";
-                            String filesFolder1 = Server.MapPath("~/downloads/Staff Claim/");
-                            String imprestNo = Request.QueryString["requisitionNo"];
+                            String filesFolder1 = Server.MapPath("~/downloads/Staff Claim/");                            
                             imprestNo = imprestNo.Replace('/', '_');
                             imprestNo = imprestNo.Replace(':', '_');
                             String documentDirectory = filesFolder1 + imprestNo + "/";
@@ -146,9 +145,7 @@
                     <tr>
                         <td><% =file.Replace(documentDirectory, "") %></td>
 
-                        <td><a href="<%=fileFolderApplication %>\Staff Claim\<% =imprestNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>
-                        <td>
-                            <label class="btn btn-danger" onclick="deleteFile('<%=file.Replace(documentDirectory, "")%>');"><i class="fa fa-trash-o"></i>Delete</label></td>
+                        <td><a href="<%=fileFolderApplication %>\Staff Claim\<% =imprestNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>                        
                     </tr>
                     <%
                                 }

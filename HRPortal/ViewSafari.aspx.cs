@@ -52,8 +52,8 @@ namespace HRPortal
                             exptTravelDate.Text = arr[0];
                             exptReturnDate.Text = arr[1];
                             transMode.Text = arr[2];
-                            bgtCenterCode.Text = arr[3];
-                            functionCode.Text = arr[4];
+                            bgtCenterCode.Text = arr[4];
+                            functionCode.Text = arr[3];
                             purpose.Text = arr[5];
                             empName.Text = arr[6];
                         }

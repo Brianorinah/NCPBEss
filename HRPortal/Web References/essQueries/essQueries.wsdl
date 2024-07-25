@@ -82,6 +82,30 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetBankAccounts">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetBankAccounts_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetBankPostingGroup">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetBankPostingGroup_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnGetClaimApplicationDetails">
         <complexType>
           <sequence>
@@ -90,6 +114,30 @@
         </complexType>
       </element>
       <element name="fnGetClaimApplicationDetails_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetCustomerPostingGroup">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetCustomerPostingGroup_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetCustomers">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetCustomers_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -413,6 +461,18 @@
         </complexType>
       </element>
       <element name="fnGetLeaveCode_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetLocations">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetLocations_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -763,6 +823,30 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetVendorPostingGroup">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetVendorPostingGroup_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetVendors">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="fnGetVendors_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnRequisitionsIndividual">
         <complexType>
           <sequence>
@@ -872,11 +956,35 @@
   <message name="fnGetAppraisalRatings_Result">
     <part name="parameters" element="tns:fnGetAppraisalRatings_Result" />
   </message>
+  <message name="fnGetBankAccounts">
+    <part name="parameters" element="tns:fnGetBankAccounts" />
+  </message>
+  <message name="fnGetBankAccounts_Result">
+    <part name="parameters" element="tns:fnGetBankAccounts_Result" />
+  </message>
+  <message name="fnGetBankPostingGroup">
+    <part name="parameters" element="tns:fnGetBankPostingGroup" />
+  </message>
+  <message name="fnGetBankPostingGroup_Result">
+    <part name="parameters" element="tns:fnGetBankPostingGroup_Result" />
+  </message>
   <message name="fnGetClaimApplicationDetails">
     <part name="parameters" element="tns:fnGetClaimApplicationDetails" />
   </message>
   <message name="fnGetClaimApplicationDetails_Result">
     <part name="parameters" element="tns:fnGetClaimApplicationDetails_Result" />
+  </message>
+  <message name="fnGetCustomerPostingGroup">
+    <part name="parameters" element="tns:fnGetCustomerPostingGroup" />
+  </message>
+  <message name="fnGetCustomerPostingGroup_Result">
+    <part name="parameters" element="tns:fnGetCustomerPostingGroup_Result" />
+  </message>
+  <message name="fnGetCustomers">
+    <part name="parameters" element="tns:fnGetCustomers" />
+  </message>
+  <message name="fnGetCustomers_Result">
+    <part name="parameters" element="tns:fnGetCustomers_Result" />
   </message>
   <message name="fnGetDepartments">
     <part name="parameters" element="tns:fnGetDepartments" />
@@ -1015,6 +1123,12 @@
   </message>
   <message name="fnGetLeaveCode_Result">
     <part name="parameters" element="tns:fnGetLeaveCode_Result" />
+  </message>
+  <message name="fnGetLocations">
+    <part name="parameters" element="tns:fnGetLocations" />
+  </message>
+  <message name="fnGetLocations_Result">
+    <part name="parameters" element="tns:fnGetLocations_Result" />
   </message>
   <message name="fnGetPayingBankAccount">
     <part name="parameters" element="tns:fnGetPayingBankAccount" />
@@ -1166,6 +1280,18 @@
   <message name="fnGetUser_Result">
     <part name="parameters" element="tns:fnGetUser_Result" />
   </message>
+  <message name="fnGetVendorPostingGroup">
+    <part name="parameters" element="tns:fnGetVendorPostingGroup" />
+  </message>
+  <message name="fnGetVendorPostingGroup_Result">
+    <part name="parameters" element="tns:fnGetVendorPostingGroup_Result" />
+  </message>
+  <message name="fnGetVendors">
+    <part name="parameters" element="tns:fnGetVendors" />
+  </message>
+  <message name="fnGetVendors_Result">
+    <part name="parameters" element="tns:fnGetVendors_Result" />
+  </message>
   <message name="fnRequisitionsIndividual">
     <part name="parameters" element="tns:fnRequisitionsIndividual" />
   </message>
@@ -1221,9 +1347,25 @@
       <input name="fnGetAppraisalRatings" message="tns:fnGetAppraisalRatings" />
       <output name="fnGetAppraisalRatings_Result" message="tns:fnGetAppraisalRatings_Result" />
     </operation>
+    <operation name="fnGetBankAccounts">
+      <input name="fnGetBankAccounts" message="tns:fnGetBankAccounts" />
+      <output name="fnGetBankAccounts_Result" message="tns:fnGetBankAccounts_Result" />
+    </operation>
+    <operation name="fnGetBankPostingGroup">
+      <input name="fnGetBankPostingGroup" message="tns:fnGetBankPostingGroup" />
+      <output name="fnGetBankPostingGroup_Result" message="tns:fnGetBankPostingGroup_Result" />
+    </operation>
     <operation name="fnGetClaimApplicationDetails">
       <input name="fnGetClaimApplicationDetails" message="tns:fnGetClaimApplicationDetails" />
       <output name="fnGetClaimApplicationDetails_Result" message="tns:fnGetClaimApplicationDetails_Result" />
+    </operation>
+    <operation name="fnGetCustomerPostingGroup">
+      <input name="fnGetCustomerPostingGroup" message="tns:fnGetCustomerPostingGroup" />
+      <output name="fnGetCustomerPostingGroup_Result" message="tns:fnGetCustomerPostingGroup_Result" />
+    </operation>
+    <operation name="fnGetCustomers">
+      <input name="fnGetCustomers" message="tns:fnGetCustomers" />
+      <output name="fnGetCustomers_Result" message="tns:fnGetCustomers_Result" />
     </operation>
     <operation name="fnGetDepartments">
       <input name="fnGetDepartments" message="tns:fnGetDepartments" />
@@ -1316,6 +1458,10 @@
     <operation name="fnGetLeaveCode">
       <input name="fnGetLeaveCode" message="tns:fnGetLeaveCode" />
       <output name="fnGetLeaveCode_Result" message="tns:fnGetLeaveCode_Result" />
+    </operation>
+    <operation name="fnGetLocations">
+      <input name="fnGetLocations" message="tns:fnGetLocations" />
+      <output name="fnGetLocations_Result" message="tns:fnGetLocations_Result" />
     </operation>
     <operation name="fnGetPayingBankAccount">
       <input name="fnGetPayingBankAccount" message="tns:fnGetPayingBankAccount" />
@@ -1417,6 +1563,14 @@
       <input name="fnGetUser" message="tns:fnGetUser" />
       <output name="fnGetUser_Result" message="tns:fnGetUser_Result" />
     </operation>
+    <operation name="fnGetVendorPostingGroup">
+      <input name="fnGetVendorPostingGroup" message="tns:fnGetVendorPostingGroup" />
+      <output name="fnGetVendorPostingGroup_Result" message="tns:fnGetVendorPostingGroup_Result" />
+    </operation>
+    <operation name="fnGetVendors">
+      <input name="fnGetVendors" message="tns:fnGetVendors" />
+      <output name="fnGetVendors_Result" message="tns:fnGetVendors_Result" />
+    </operation>
     <operation name="fnRequisitionsIndividual">
       <input name="fnRequisitionsIndividual" message="tns:fnRequisitionsIndividual" />
       <output name="fnRequisitionsIndividual_Result" message="tns:fnRequisitionsIndividual_Result" />
@@ -1494,12 +1648,48 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="fnGetBankAccounts">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetBankAccounts" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetBankAccounts">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetBankAccounts_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetBankPostingGroup">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetBankPostingGroup" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetBankPostingGroup">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetBankPostingGroup_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="fnGetClaimApplicationDetails">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetClaimApplicationDetails" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="fnGetClaimApplicationDetails">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetClaimApplicationDetails_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetCustomerPostingGroup">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetCustomerPostingGroup" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetCustomerPostingGroup">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetCustomerPostingGroup_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetCustomers">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetCustomers" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetCustomers">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetCustomers_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1707,6 +1897,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetLeaveCode_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetLocations">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetLocations" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetLocations">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetLocations_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -1932,6 +2131,24 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetUser_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetVendorPostingGroup">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetVendorPostingGroup" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetVendorPostingGroup">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetVendorPostingGroup_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetVendors">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetVendors" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetVendors">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetVendors_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

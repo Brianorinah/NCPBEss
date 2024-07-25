@@ -1,12 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewLeave.aspx.cs" Inherits="HRPortal.ViewLeave" %>
 
 <%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="HRPortal" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%
+        String imprestNo = Request.QueryString["docNo"];
+        String requisitionNo = Request.QueryString["docNo"];
         string docNo = Request.QueryString["docNo"].Trim();
         string docType = Request.QueryString["docType"].Trim();
         string approvalLevel = Request.QueryString["approvalLevel"].Trim();
@@ -37,21 +40,60 @@
                     <asp:TextBox runat="server" ID="reliver" CssClass="form-control span3" ReadOnly="true" />
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6">
-                <div class="form-group">
-                    <label class="span2">Start Date<span style="color: red">*</span></label>
-                    <asp:TextBox runat="server" ID="leaveStartDate" CssClass="form-control span3" ReadOnly="true" />
-                </div>
-                <div class="form-group">
-                    <label class="span2">Return Date<span style="color: red">*</span></label>
-                    <asp:TextBox runat="server" ID="returnDate" CssClass="form-control span3" ReadOnly="true" />
-                </div>
-
-            </div>
+            
         </div>
 
     </div>
 
+    <hr />
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+           Leave Application Lines             
+        </div>
+        <div class="panel-body">            
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Leave Type</th>
+                        <th>Leave Balance</th>
+                        <th>Start Date</th>
+                        <th>Days Applied</th>
+                        <th>End Date</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        
+                        String employeeNo = Convert.ToString(Session["employeeNo"]);
+                        var nav = Config.ObjNav1;
+                        var result = nav.fnGetLeaveApplicationLines(requisitionNo);
+                        String[] info = result.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                        if (info.Count() > 0)
+                        {
+                            if (info != null)
+                            {
+                                foreach (var allinfo in info)
+                                {
+                                    String[] arr = allinfo.Split('*');
+
+                    %>
+                    <tr>                        
+                        <td><% =arr[0] %></td>
+                        <td><% =arr[1] %></td>
+                        <td><% = arr[2] %></td>
+                         <td><% =arr[3] %></td>   
+                        <td><% = arr[4] %></td>                     
+                        
+                    </tr>
+                    <% 
+                            }
+                        }
+                    }
+                    %>
+                </tbody>
+            </table>
+        </div>        
+    </div>
     <hr />
 
     <div class="panel panel-primary">
@@ -68,15 +110,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%
+                     <%
                         try
                         {
                             String fileFolderApplication = ConfigurationManager.AppSettings["FileFolderApplication"];
                             String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Leave Application card/";
-                            String imprestNo = Request.QueryString["leaveNo"];
+                            String filesFolder1 = Server.MapPath("~/downloads/Leave Application card/");                            
                             imprestNo = imprestNo.Replace('/', '_');
                             imprestNo = imprestNo.Replace(':', '_');
-                            String documentDirectory = filesFolder + imprestNo + "/";
+                            String documentDirectory = filesFolder1 + imprestNo + "/";
                             if (Directory.Exists(documentDirectory))
                             {
                                 foreach (String file in Directory.GetFiles(documentDirectory, "*.*", SearchOption.AllDirectories))
@@ -86,8 +128,8 @@
                     <tr>
                         <td><% =file.Replace(documentDirectory, "") %></td>
 
-                        <td><a href="<%=fileFolderApplication %>\Leave Application\<% =imprestNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>
-
+                        <td><a href="<%=fileFolderApplication %>\Leave Application Card\<% =imprestNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>
+                        
                     </tr>
                     <%
                                 }
@@ -101,7 +143,7 @@
             </table>
         </div>
         <div class="panel-footer">            
-            <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Back" OnClick="Unnamed10_Click" />
+            <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Back" OnClick="Unnamed10_Click" CausesValidation="false"/>
             <center>
                  <label class="btn btn-danger" onclick="sendCancelRequest('<%=docType%>','<%=docNo%>','<%=approvalLevel%>','<%=action%>');"><i class="fa fa-times"></i>Reject</label>  
             <label class="btn btn-success" onclick="sendApprovalRequest('<%=docType%>','<%=docNo%>','<%=approvalLevel%>');"><i class="fa fa-check"></i>Approve</label>  

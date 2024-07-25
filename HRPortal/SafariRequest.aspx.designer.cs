@@ -49,13 +49,13 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.DropDownList transMode;
         
         /// <summary>
-        /// bgtCenterCode control.
+        /// purpose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList bgtCenterCode;
+        protected global::System.Web.UI.WebControls.TextBox purpose;
         
         /// <summary>
         /// functionCode control.
@@ -67,13 +67,13 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.DropDownList functionCode;
         
         /// <summary>
-        /// purpose control.
+        /// bgtCenterCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox purpose;
+        protected global::System.Web.UI.WebControls.DropDownList bgtCenterCode;
         
         /// <summary>
         /// next control.

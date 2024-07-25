@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -136,12 +137,50 @@ namespace HRPortal
                 String employeeNo = Convert.ToString(Session["employeeNo"]);
                 string userName = Convert.ToString(Session["username"]);
                 String tpayingbankaccount = payingbankaccount.SelectedValue.Trim();
-                DateTime trequestdate = Convert.ToDateTime(requestdate.Text.Trim());
-                DateTime ttraveldate = Convert.ToDateTime(traveldate.Text.Trim());
+                string dateFormat = "dd/MM/yyyy"; // Or "MM/dd/yyyy" depending on your requirement
+                string dateFormat1 = "dd/MM/yyyy"; // Or "MM/dd/yyyy" depending on your requirement
+                DateTime trequestdate;
+                DateTime ttraveldate;
+
+                try
+                {
+                    trequestdate = DateTime.ParseExact(requestdate.Text.Trim(), dateFormat, CultureInfo.InvariantCulture);
+                   ttraveldate = DateTime.ParseExact(traveldate.Text.Trim(), dateFormat, CultureInfo.InvariantCulture);
+                }
+                catch (Exception ex)
+                {
+                     trequestdate = DateTime.ParseExact(requestdate.Text.Trim(), dateFormat1, CultureInfo.InvariantCulture);
+                     ttraveldate = DateTime.ParseExact(traveldate.Text.Trim(), dateFormat1, CultureInfo.InvariantCulture);
+                }
+
+                //string[] dateFormats = { "dd/MM/yyyy", "MM/dd/yyyy" }; // Add more formats if needed
+                //DateTime trequestdate;
+                //DateTime ttraveldate;
+
+                //if (DateTime.TryParseExact(requestdate.Text.Trim(), dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None, out trequestdate) &&
+                //    DateTime.TryParseExact(traveldate.Text.Trim(), dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None, out ttraveldate))
+                //{
+                //    // Dates parsed successfully
+                //    Console.WriteLine($"Request Date: {trequestdate}");
+                //    Console.WriteLine($"Travel Date: {ttraveldate}");
+                //}
+
+                //DateTime trequestdate = Convert.ToDateTime(traveldate.Text.Trim());
+                //DateTime ttraveldate = Convert.ToDateTime(traveldate.Text.Trim());
                 String tpurpose = purpose.Text.Trim();
                 Boolean error = false;
                 String message = "";
                 //DateTime myTravelDate = new DateTime();
+                if (String.IsNullOrEmpty(tpayingbankaccount))
+                {
+                    error = true;
+                    message = "Please specify the paying bank account of the imprest";
+                }
+                if (String.IsNullOrEmpty(tpayingbankaccount))
+                {
+                    error = true;
+                    message = "Please specify the paying bank account of the imprest";
+                }
                 if (String.IsNullOrEmpty(tpayingbankaccount))
                 {
                     error = true;

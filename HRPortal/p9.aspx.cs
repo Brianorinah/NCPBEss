@@ -90,16 +90,6 @@ namespace HRPortal
                 //string docNo = HttpContext.Request.Query["docNo"].ToString();
                 string employeeNumber = (String)Session["employeeNo"];
 
-                //var filePathInit = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Downloads");
-
-                //System.IO.Directory.CreateDirectory(Path.GetDirectoryName(filePathInit));
-
-                //string fileName = docType + "_" + employeeNumber + ".pdf";
-                //string fileName = employeeNumber + ".pdf";
-
-
-                //string filePath = Path.Combine(filePathInit, fileName);
-
                 string filesFolder = Server.MapPath("~/Downloads/");
                 string fileName = employeeNumber + ".pdf";
                 string documentDirectory = filesFolder + "/";
@@ -107,6 +97,7 @@ namespace HRPortal
 
                 if (System.IO.File.Exists(filePath))
                 {
+
                     System.IO.File.Delete(filePath);
                 }
 

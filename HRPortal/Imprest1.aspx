@@ -45,7 +45,7 @@
                     </asp:DropDownList>
                     </div>
                           <div class="form-group">
-                <strong>Travel Date:<span style="color:red">*</span></strong>
+                <strong>Travel Date:<i>(dd/mm/yyyy)</i><span style="color:red">*</span></strong>
                 <asp:TextBox runat="server" ID="traveldate" CssClass="form-control" placeholder="Travel Date"/>
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="travelDate" ErrorMessage="Please enter Request Date, it cannot be empty!" ForeColor="Red" />
             </div>
@@ -53,7 +53,7 @@
                 </div>
             <div class="col-md-6 col-lg-6">
              <div class="form-group">
-                <strong>Requested On:<span style="color:red">*</span></strong>
+                <strong>Requested On:<i>(dd/mm/yyyy)</i><span style="color:red">*</span></strong>
                 <asp:TextBox runat="server" ID="requestdate" CssClass="form-control" placeholder="Request Date" />
                 <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="requestDate" ErrorMessage="Please enter Request Date, it cannot be empty!" ForeColor="Red" />
             </div>

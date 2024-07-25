@@ -228,7 +228,7 @@ namespace HRPortal
                 }
 
                 String employeeNo = Convert.ToString(Session["employeeNo"]);
-                String userName = Convert.ToString(Session["username"]).ToString().ToUpper(); ;
+                String userName = Convert.ToString(Session["username"]).ToString().ToUpper(); 
                 String status = Config.ObjNav2.createSafariRequestHeader(requisitionNo, employeeNo, texptTravelDate, texptTravelDate, ttransMode, tfunctionCode, tbgtCenterCode, tpurpose,userName);
                 String[] info = status.Split('*');
                 if (info[0] == "success")

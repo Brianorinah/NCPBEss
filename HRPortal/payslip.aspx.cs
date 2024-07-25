@@ -66,12 +66,9 @@ namespace HRPortal
                 feedback.InnerHtml = "";
                 int tyear = Convert.ToInt32(year.Text.Trim());
                 int tmonth = Convert.ToInt32(month.Text.Trim());
-                string empNo = (String)Session["employeeNo"];
-                //var selecetdPayPeriod = payperiod.SelectedValue;
-                //DateTime startDate = Convert.ToDateTime(selecetdPayPeriod);
-                //CultureInfo culture = new CultureInfo("ru-RU");
+                string empNo = (String)Session["employeeNo"];                
                 string status = Config.ObjNav2.generatePayslip(empNo, tyear, tmonth);
-                if (string.IsNullOrEmpty(status))
+                if (status != "danger" && !string.IsNullOrEmpty(status))
                 {
                     bool downloaded = ConvertAndDownloadToLocal(status, "Payslip");
                     if (downloaded)
@@ -103,15 +100,10 @@ namespace HRPortal
                 //string docNo = HttpContext.Request.Query["docNo"].ToString();
                 string employeeNumber = (String)Session["employeeNo"];
 
-                var filePathInit = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Downloads");
-
-                System.IO.Directory.CreateDirectory(Path.GetDirectoryName(filePathInit));
-
-                //string fileName = docType + "_" + employeeNumber + ".pdf";
+                string filesFolder = Server.MapPath("~/Downloads/");
                 string fileName = employeeNumber + ".pdf";
-
-
-                string filePath = Path.Combine(filePathInit, fileName);
+                string documentDirectory = filesFolder + "/";
+                string filePath = documentDirectory + fileName;
 
                 if (System.IO.File.Exists(filePath))
                 {

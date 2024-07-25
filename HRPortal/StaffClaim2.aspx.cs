@@ -148,7 +148,8 @@ namespace HRPortal
                 }
 
                 String employeeNo = Convert.ToString(Session["employeeNo"]);
-                String status = Config.ObjNav2.createStaffApplication(requisitionNo, employeeNo, tsafariNumber, tfunctionCode);
+                String userName = Convert.ToString(Session["username"]).ToString().ToUpper();
+                String status = Config.ObjNav2.createStaffApplication(requisitionNo, employeeNo, tsafariNumber, tfunctionCode, userName);
                 String[] info = status.Split('*');
                 if (info[0] == "success")
                 {

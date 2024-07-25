@@ -56,12 +56,12 @@
 </head>
 <body class="hold-transition skin-green-light sidebar-mini">
     <form runat="server">
-                <div class="wrapper">
+        <div class="wrapper">
 
             <header class="main-header">
-                        <%
-                var image = "Passport/" + Convert.ToString(Session["employeeNo"]) + ".png";
-                        
+                <%
+                    var image = "Passport/" + Convert.ToString(Session["employeeNo"]) + ".png";
+
                 %>
                 <a href="Dashboard.aspx" class="logo">
                     <span class="logo-mini"><b>NCPB</b></span>
@@ -120,7 +120,7 @@
                                 <i class="fa fa-home"></i><span>Dashboard</span>
                             </a>
                         </li>
-                        <!--PAYROLL SERVICES-->   
+                        <!--PAYROLL SERVICES-->
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-th"></i>
@@ -138,7 +138,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li> 
+                        </li>
                         <!--HR SERVICES-->
                         <li class="treeview">
                             <a href="#">
@@ -174,7 +174,7 @@
                                         <li><a href="StaffCreditSalesNew.aspx"><i class="fa fa-circle-o"></i>Open Applications</a></li>
                                         <li><a href="StaffCreditSalesPending.aspx"><i class="fa fa-circle-o"></i>Pending Staff Credit Sales</a></li>
                                         <li><a href="StaffCreditSalesApproved.aspx"><i class="fa fa-circle-o"></i>Approved Applications</a></li>
-                                        
+
                                     </ul>
                                 </li>
                                 <%--<li class="treeview">
@@ -300,8 +300,8 @@
                                 </li>--%>
                             </ul>
                         </li>
-                        
-                        <!--FINANCE SERVICES-->   
+
+                        <!--FINANCE SERVICES-->
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-th"></i>
@@ -332,7 +332,7 @@
                                     </a>
                                     <ul class="treeview-menu">
                                         <li><a href="SafariRequest.aspx"><i class="fa fa-circle-o"></i>New Safari Request</a></li>
-                                        <li><a href="ImprestMemo.aspx"><i class="fa fa-circle-o"></i>Open Safari Request</a></li>                                    
+                                        <li><a href="ImprestMemo.aspx"><i class="fa fa-circle-o"></i>Open Safari Request</a></li>
                                         <li><a href="ApprovedImprestRequisition.aspx"><i class="fa fa-circle-o"></i>Approved Safari Request</a></li>
                                     </ul>
                                 </li>
@@ -346,7 +346,7 @@
                                     </a>
                                     <ul class="treeview-menu">
                                         <li><a href="Imprest1.aspx"><i class="fa fa-circle-o"></i>New Imprest</a></li>
-                                        <li><a href="OpenImprest.aspx"><i class="fa fa-circle-o"></i>Open Imprest</a></li>                                    
+                                        <li><a href="OpenImprest.aspx"><i class="fa fa-circle-o"></i>Open Imprest</a></li>
                                         <li><a href="ApprovedImprest.aspx"><i class="fa fa-circle-o"></i>Approved Imprest</a></li>
                                     </ul>
                                 </li>
@@ -364,7 +364,7 @@
                                         <li><a href="ImprestSurrendersApproved1.aspx"><i class="fa fa-circle-o"></i>Approved Surrenders</a></li>
                                     </ul>
                                 </li>
-                                
+
                                 <%--<li class="treeview">
                                     <a href="#">
                                         <i class="fa fa-money"></i>
@@ -382,7 +382,7 @@
                             </ul>
                         </li>
                         <%--PERFORMANCE MANAGEMENT--%>
-                          <li class="treeview">
+                        <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-th"></i>
                                 <span>Performance Management</span>
@@ -415,7 +415,7 @@
                                     </a>
                                     <ul class="treeview-menu">
                                         <li><a href="lineManagerObjectiveSettingList.aspx"><i class="fa fa-circle-o"></i>Objective List</a></li>
-                                        <li><a href="myLineManagerList.aspx"><i class="fa fa-circle-o"></i>MY Supervisor List</a></li>                                    
+                                        <li><a href="myLineManagerList.aspx"><i class="fa fa-circle-o"></i>MY Supervisor List</a></li>
                                         <li><a href="eyLineManagerList.aspx"><i class="fa fa-circle-o"></i>EY Supervisor List</a></li>
                                     </ul>
                                 </li>
@@ -429,11 +429,11 @@
                                     </a>
                                     <ul class="treeview-menu">
                                         <li><a href="overviewManagerObjectiveSettingList.aspx"><i class="fa fa-circle-o"></i>Objective List</a></li>
-                                        <li><a href="myOverviewManagerList.aspx"><i class="fa fa-circle-o"></i>MY Overview List</a></li>                                    
+                                        <li><a href="myOverviewManagerList.aspx"><i class="fa fa-circle-o"></i>MY Overview List</a></li>
                                         <li><a href="EYOverviewManagerList.aspx"><i class="fa fa-circle-o"></i>EY Overview List</a></li>
                                     </ul>
                                 </li>
-                                
+
                                 <%--<li class="treeview">
                                     <a href="#">
                                         <i class="fa fa-money"></i>
@@ -449,9 +449,9 @@
                                     </ul>
                                 </li>--%>
                             </ul>
-                        </li>  
+                        </li>
 
-                        <!--Request To Approve-->  
+                        <!--Request To Approve-->
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-th"></i>
@@ -464,8 +464,70 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li> 
-                        <!--SCM SERVICES-->  
+                        </li>
+                        <%--Reports--%>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-th"></i>
+                                <span>Reports</span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-money"></i>
+                                        <span>Cash Ledger Reports</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="ReportCashBook.aspx"><i class="fa fa-circle-o"></i>Cash Book</a></li>
+                                        <li><a href="ReportBankSummary.aspx"><i class="fa fa-circle-o"></i>Bank Summary Report</a></li>
+                                        <li><a href="ReportGeneralLedgerStatement.aspx"><i class="fa fa-circle-o"></i>General Ledger Statement Report</a></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-money"></i>
+                                        <span>Debtors Reports</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="ReportCustomerStatement.aspx"><i class="fa fa-circle-o"></i>Customer Statement</a></li>
+                                        <li><a href="ReportCustomerTrialBalance.aspx"><i class="fa fa-circle-o"></i>Customer Trial Balance</a></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-money"></i>
+                                        <span>Inventory Reports</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="ReportStockLedger.aspx"><i class="fa fa-circle-o"></i>Stock Ledger</a></li>
+                                        <li><a href="ReportStockBalancePerStore.aspx"><i class="fa fa-circle-o"></i>Stock Balance Per Store</a></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-money"></i>
+                                        <span>Purchase Ledger Reports</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="ReportVendorStatement.aspx"><i class="fa fa-circle-o"></i>Vendor Statement</a></li>
+                                        <li><a href="ReportVendorDetailedPass.aspx"><i class="fa fa-circle-o"></i>Detailed Pass</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--SCM SERVICES-->
                         <%--<li class="treeview">
                             <a href="#">
                                 <i class="fa fa-th"></i>
@@ -503,16 +565,16 @@
                             </ul>
                         </li>--%>
                         <!--M&E-->
-                        
-                        <!--LEGAL SERVICES-->  
-                        
+
+                        <!--LEGAL SERVICES-->
+
                         <!--RESOURCE BOOKING-->
-                        
-                        
-                        
-                        
-                        <!--ICT SERVICES-->  
-                          
+
+
+
+
+                        <!--ICT SERVICES-->
+
                         <li class="active">
                             <a href="logout.aspx">
                                 <i class="fa fa-sign-out"></i><span>Logout</span>
@@ -527,7 +589,7 @@
 
 
                 <div class="box" style="margin: auto; width: 98%;">
- <%--                   <div class="box-header with-border">
+                    <%--                   <div class="box-header with-border">
 
                         <h3 class="box-title"></h3>
 
@@ -543,13 +605,13 @@
                         </asp:ContentPlaceHolder>
 
                     </div>
- <%--                   <div class="box-footer">
+                    <%--                   <div class="box-footer">
                     </div>--%>
                 </div>
             </div>
             <footer class="main-footer">
                 <div class="pull-right hidden-xs">
-                    <b>Powered By: </b><a href="https://dynasoft.co.ke"> Dynasoft Business Solutions</a>
+                    <b>Powered By: </b><a href="https://dynasoft.co.ke">Dynasoft Business Solutions</a>
                 </div>
                 <strong>Copyright&copy; <%: DateTime.Now.Year %>   <a href="https://ncpb.co.ke/">National Cereals and Produce Board</a>.</strong> All rights Reserved.
             </footer>
@@ -586,7 +648,7 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-         <!-- DataTables -->
+        <!-- DataTables -->
         <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
         <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
         <script>
@@ -794,7 +856,7 @@
             $('#ContentPlaceHolder1_lastpromotion').datepicker({
                 autoclose: true, format: 'dd/mm/yyyy', startDate: '0d'
             });
-       
+
             $('#ContentPlaceHolder1_Dateofcurrentappointment1').datepicker({
                 autoclose: true, format: 'dd/mm/yyyy'
             });
@@ -901,10 +963,10 @@
             });
             $('#ContentPlaceHolder1_requestdate').datepicker({
                 autoclose: true, format: 'mm/dd/yyyy'
-            }); 
+            });
             $('#ContentPlaceHolder1_expensedate1').datepicker({
                 autoclose: true, format: 'mm/dd/yyyy'
-            }); 
+            });
             $('#ContentPlaceHolder1_claimdate').datepicker({
                 autoclose: true, format: 'mm/dd/yyyy'
             });
@@ -945,106 +1007,106 @@
     });
         });
            </script>--%>
-  <script>
-        $(function () {
-            $('#example1').DataTable({
-                'paging': true,
-                'lengthChange': true,
-                'searching': true,
-                'ordering': true,
-                'info': true,
-                'autoWidth': true
+        <script>
+            $(function () {
+                $('#example1').DataTable({
+                    'paging': true,
+                    'lengthChange': true,
+                    'searching': true,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': true
+                })
+                $('#example2').DataTable({
+                    'paging': true,
+                    'lengthChange': true,
+                    'searching': true,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': false
+                })
+                $('#example3').DataTable({
+                    'paging': true,
+                    'lengthChange': true,
+                    'searching': true,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': false
+                })
+                $('#example4').DataTable({
+                    'paging': true,
+                    'lengthChange': true,
+                    'searching': true,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': false
+                })
+                $('#example5').DataTable({
+                    'paging': true,
+                    'lengthChange': true,
+                    'searching': true,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': false
+                })
+                $('#example6').DataTable({
+                    'paging': true,
+                    'lengthChange': true,
+                    'searching': true,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': false
+                })
+                $('#example7').DataTable({
+                    'paging': true,
+                    'lengthChange': true,
+                    'searching': true,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': false
+                })
+                $('#example8').DataTable({
+                    'paging': true,
+                    'lengthChange': true,
+                    'searching': true,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': false
+                })
+                $('#example9').DataTable({
+                    'paging': true,
+                    'lengthChange': true,
+                    'searching': true,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': false
+                })
+                $('#example10').DataTable({
+                    'paging': true,
+                    'lengthChange': true,
+                    'searching': true,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': false
+                })
+                $('#example11').DataTable({
+                    'paging': true,
+                    'lengthChange': true,
+                    'searching': true,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': true
+                })
+                $('#example77').DataTable({
+                    'paging': true,
+                    'lengthChange': true,
+                    'searching': true,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': true
+                })
             })
-            $('#example2').DataTable({
-                'paging': true,
-                'lengthChange': true,
-                'searching': true,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
-            })
-            $('#example3').DataTable({
-                'paging': true,
-                'lengthChange': true,
-                'searching': true,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
-            })
-            $('#example4').DataTable({
-                'paging': true,
-                'lengthChange': true,
-                'searching': true,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
-            })
-            $('#example5').DataTable({
-                'paging': true,
-                'lengthChange': true,
-                'searching': true,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
-            })
-            $('#example6').DataTable({
-                'paging': true,
-                'lengthChange': true,
-                'searching': true,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
-            })
-            $('#example7').DataTable({
-                'paging': true,
-                'lengthChange': true,
-                'searching': true,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
-            })
-            $('#example8').DataTable({
-                'paging': true,
-                'lengthChange': true,
-                'searching': true,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
-            })
-            $('#example9').DataTable({
-                'paging': true,
-                'lengthChange': true,
-                'searching': true,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
-            })
-            $('#example10').DataTable({
-                'paging': true,
-                'lengthChange': true,
-                'searching': true,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
-            })
-            $('#example11').DataTable({
-                'paging': true,
-                'lengthChange': true,
-                'searching': true,
-                'ordering': true,
-                'info': true,
-                'autoWidth': true
-            })
-            $('#example77').DataTable({
-                'paging': true,
-                'lengthChange': true,
-                'searching': true,
-                'ordering': true,
-                'info': true,
-                'autoWidth': true
-            })
-        })
-    </script>
+        </script>
     </form>
 </body>
 </html>

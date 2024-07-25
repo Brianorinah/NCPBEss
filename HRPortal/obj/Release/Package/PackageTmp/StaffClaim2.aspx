@@ -90,7 +90,7 @@
                 <div class="col-lg-12 col-sm-12">
                 <div class="form-group">
                     <br />
-                    <asp:Button runat="server" CssClass="btn btn-info pull-left" Text="Copy Safari lines" ID="Button1" OnClick="copySafariLines_Click" />
+                    <asp:Button runat="server" CssClass="btn btn-info pull-left" Text="Copy Safari lines" ID="Button1" OnClick="copySafariLines_Click" CausesValidation="false" />
                 </div>
             </div>
             </div>

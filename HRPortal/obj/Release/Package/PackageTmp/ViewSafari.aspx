@@ -8,9 +8,10 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%
-        
-                        String employeeNo = Convert.ToString(Session["employeeNo"]);
+
+        String employeeNo = Convert.ToString(Session["employeeNo"]);
         var nav = Config.ObjNav1;
+        String imprestNo = Request.QueryString["docNo"];
         string docNo = Request.QueryString["docNo"].Trim();
         string docType = Request.QueryString["docType"].Trim();
         string approvalLevel = Request.QueryString["approvalLevel"].Trim();
@@ -27,13 +28,13 @@
 
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Fleet Requisition General Details             
+            Safari Application General Details             
         </div>
         <div class="panel-body">
             <div runat="server" id="Div1"></div>
             <div id="generalFeedback" runat="server"></div>
 
-            <div class="row">                
+            <div class="row">
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label class="control-label">Employee Name<span style="color: red">*</span></label>
@@ -103,13 +104,14 @@
                         <th>Return Date</th>
                         <th>Travel From</th>
                         <th>Travel To</th>
-                       <%-- <th>Edit/View</th>--%>
-                        <th>Remove</th>
+                        <th>G/L Account</th>
+                        <%-- <th>Edit/View</th>--%>
+                        <%-- <th>Remove</th>--%>
                     </tr>
                 </thead>
                 <tbody>
                     <%                        
-                        
+
                         var result = nav.fnGetSafariRequestLines(docNo);
                         String[] info = result.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
                         if (info.Count() > 0)
@@ -125,7 +127,8 @@
                         <td><% =arr[0] %></td>
                         <td><% =arr[5] %></td>
                         <td><% =arr[1] %></td>
-                        <td><% = arr[2] %></td>  
+                        <td><% = arr[7] %></td>
+
                     </tr>
                     <% 
                                 }
@@ -134,7 +137,7 @@
                     %>
                 </tbody>
             </table>
-        </div>        
+        </div>
     </div>
     <hr />
     <div class="panel panel-primary">
@@ -144,20 +147,19 @@
         <div class="panel-body">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                    <tr>                        
+                    <tr>
                         <th>Entitlement</th>
-                         <th>Town </th>
+                        <th>Town </th>
                         <th>Quantity</th>
                         <th>Rate</th>
-                       <th>Total</th>
-                        <%--<th></th>--%>
-                        <th></th>
+                        <th>Total</th>
+                        <th>G/L Account</th>                       
                     </tr>
                 </thead>
                 <tbody>
                     <%
-                        
-                        
+
+
                         var result1 = nav.fnGetSafariEarnings(docNo);
                         String[] info1 = result1.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
                         if (info1.Count() > 0)
@@ -174,8 +176,8 @@
                         <td><% = arr[2] %></td>
                         <td><% =arr[4] %></td>
                         <td><% =arr[5] %></td>
-                        <td><% =arr[6] %></td>                        
-                      
+                        <td><% =arr[6] %></td>
+                        <td><% = arr[7] %></td>
                     </tr>
                     <% 
                                 }
@@ -184,14 +186,14 @@
                     %>
                 </tbody>
             </table>
-        </div>        
+        </div>
     </div>
     <hr />
 
     <hr />
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Attached  Fleet Application Supporting Documents             
+            Attached  Safari Application Supporting Documents             
         </div>
         <div class="panel-body">
             <div runat="server" id="feedback"></div>
@@ -206,12 +208,13 @@
                     <%
                         try
                         {
+                            String filLoc = ConfigurationManager.AppSettings["FilesLocation"];
                             String fileFolderApplication = ConfigurationManager.AppSettings["FileFolderApplication"];
-                            String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Fleet card/";
-                            String imprestNo = Request.QueryString["leaveNo"];
+                            String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Safari Request/";
+                            String filesFolder1 = Server.MapPath("~/downloads/Safari Request/");                            
                             imprestNo = imprestNo.Replace('/', '_');
                             imprestNo = imprestNo.Replace(':', '_');
-                            String documentDirectory = filesFolder + imprestNo + "/";
+                            String documentDirectory = filesFolder1 + imprestNo + "\\";
                             if (Directory.Exists(documentDirectory))
                             {
                                 foreach (String file in Directory.GetFiles(documentDirectory, "*.*", SearchOption.AllDirectories))
@@ -221,8 +224,8 @@
                     <tr>
                         <td><% =file.Replace(documentDirectory, "") %></td>
 
-                        <td><a href="<%=fileFolderApplication %>\Fleet Application\<% =docNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>
-
+                        <td><a href="<%=fileFolderApplication %>\Safari Request\<% =imprestNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>
+                       
                     </tr>
                     <%
                                 }
@@ -236,7 +239,7 @@
             </table>
         </div>
         <div class="panel-footer">
-            <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Back" OnClick="Unnamed10_Click" CausesValidation="false"/>
+            <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Back" OnClick="Unnamed10_Click" CausesValidation="false" />
             <center>
                  <label class="btn btn-danger" onclick="sendCancelRequest('<%=docType%>','<%=docNo%>','<%=approvalLevel%>','<%=action%>');"><i class="fa fa-times"></i>Reject</label>  
             <label class="btn btn-success" onclick="sendApprovalRequest('<%=docType%>','<%=docNo%>','<%=approvalLevel%>');"><i class="fa fa-check"></i>Approve</label>  

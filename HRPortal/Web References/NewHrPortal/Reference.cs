@@ -29,9 +29,29 @@ namespace HRPortal.NewHrPortal {
     [System.Web.Services.WebServiceBindingAttribute(Name="NewHrPortal_Binding", Namespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal")]
     public partial class NewHrPortal : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback sendLeaveApplicationApprovalOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback sendObjectiveSettingsBackToAppraiseeOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback sendObjectiveSettingsToLineManagerOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback sendSafariRequestApplicationApprovalOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback sendStaffClaimApplicationApprovalOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback sendStaffCreditSaleApprovalOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback sendSurrenderApplicationApprovalOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback sendToAppraiseeForAgreementOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback updateOverallCommentsOperationCompleted;
+        
         private System.Threading.SendOrPostCallback updateSupervisorOverallCommentsOperationCompleted;
         
         private System.Threading.SendOrPostCallback ApproveOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback BankSummaryReportOperationCompleted;
         
         private System.Threading.SendOrPostCallback CanceLeaveApprovalOperationCompleted;
         
@@ -43,9 +63,19 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback CancelSurrenderApprovalOperationCompleted;
         
+        private System.Threading.SendOrPostCallback CashBookReportOperationCompleted;
+        
         private System.Threading.SendOrPostCallback ClaimRequestReportOperationCompleted;
         
         private System.Threading.SendOrPostCallback CreateSalesOrderOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CustomerStatementReportOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CustomerTrialBalanceReportOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DetailedPassReportOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GeneralLedgerStatementReportOperationCompleted;
         
         private System.Threading.SendOrPostCallback ImprestRequestReportOperationCompleted;
         
@@ -61,7 +91,13 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback StaffCreditSalesRequestReportOperationCompleted;
         
+        private System.Threading.SendOrPostCallback StockBalancePerStoreReportOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback StockLedgerReportOperationCompleted;
+        
         private System.Threading.SendOrPostCallback SurrenderRequestReportOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback VendorStatementReportOperationCompleted;
         
         private System.Threading.SendOrPostCallback _DelegateOperationCompleted;
         
@@ -165,24 +201,6 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback sendImprestApplicationApprovalOperationCompleted;
         
-        private System.Threading.SendOrPostCallback sendLeaveApplicationApprovalOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback sendObjectiveSettingsBackToAppraiseeOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback sendObjectiveSettingsToLineManagerOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback sendSafariRequestApplicationApprovalOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback sendStaffClaimApplicationApprovalOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback sendStaffCreditSaleApprovalOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback sendSurrenderApplicationApprovalOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback sendToAppraiseeForAgreementOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback updateOverallCommentsOperationCompleted;
-        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -222,10 +240,40 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
+        public event sendLeaveApplicationApprovalCompletedEventHandler sendLeaveApplicationApprovalCompleted;
+        
+        /// <remarks/>
+        public event sendObjectiveSettingsBackToAppraiseeCompletedEventHandler sendObjectiveSettingsBackToAppraiseeCompleted;
+        
+        /// <remarks/>
+        public event sendObjectiveSettingsToLineManagerCompletedEventHandler sendObjectiveSettingsToLineManagerCompleted;
+        
+        /// <remarks/>
+        public event sendSafariRequestApplicationApprovalCompletedEventHandler sendSafariRequestApplicationApprovalCompleted;
+        
+        /// <remarks/>
+        public event sendStaffClaimApplicationApprovalCompletedEventHandler sendStaffClaimApplicationApprovalCompleted;
+        
+        /// <remarks/>
+        public event sendStaffCreditSaleApprovalCompletedEventHandler sendStaffCreditSaleApprovalCompleted;
+        
+        /// <remarks/>
+        public event sendSurrenderApplicationApprovalCompletedEventHandler sendSurrenderApplicationApprovalCompleted;
+        
+        /// <remarks/>
+        public event sendToAppraiseeForAgreementCompletedEventHandler sendToAppraiseeForAgreementCompleted;
+        
+        /// <remarks/>
+        public event updateOverallCommentsCompletedEventHandler updateOverallCommentsCompleted;
+        
+        /// <remarks/>
         public event updateSupervisorOverallCommentsCompletedEventHandler updateSupervisorOverallCommentsCompleted;
         
         /// <remarks/>
         public event ApproveCompletedEventHandler ApproveCompleted;
+        
+        /// <remarks/>
+        public event BankSummaryReportCompletedEventHandler BankSummaryReportCompleted;
         
         /// <remarks/>
         public event CanceLeaveApprovalCompletedEventHandler CanceLeaveApprovalCompleted;
@@ -243,10 +291,25 @@ namespace HRPortal.NewHrPortal {
         public event CancelSurrenderApprovalCompletedEventHandler CancelSurrenderApprovalCompleted;
         
         /// <remarks/>
+        public event CashBookReportCompletedEventHandler CashBookReportCompleted;
+        
+        /// <remarks/>
         public event ClaimRequestReportCompletedEventHandler ClaimRequestReportCompleted;
         
         /// <remarks/>
         public event CreateSalesOrderCompletedEventHandler CreateSalesOrderCompleted;
+        
+        /// <remarks/>
+        public event CustomerStatementReportCompletedEventHandler CustomerStatementReportCompleted;
+        
+        /// <remarks/>
+        public event CustomerTrialBalanceReportCompletedEventHandler CustomerTrialBalanceReportCompleted;
+        
+        /// <remarks/>
+        public event DetailedPassReportCompletedEventHandler DetailedPassReportCompleted;
+        
+        /// <remarks/>
+        public event GeneralLedgerStatementReportCompletedEventHandler GeneralLedgerStatementReportCompleted;
         
         /// <remarks/>
         public event ImprestRequestReportCompletedEventHandler ImprestRequestReportCompleted;
@@ -270,7 +333,16 @@ namespace HRPortal.NewHrPortal {
         public event StaffCreditSalesRequestReportCompletedEventHandler StaffCreditSalesRequestReportCompleted;
         
         /// <remarks/>
+        public event StockBalancePerStoreReportCompletedEventHandler StockBalancePerStoreReportCompleted;
+        
+        /// <remarks/>
+        public event StockLedgerReportCompletedEventHandler StockLedgerReportCompleted;
+        
+        /// <remarks/>
         public event SurrenderRequestReportCompletedEventHandler SurrenderRequestReportCompleted;
+        
+        /// <remarks/>
+        public event VendorStatementReportCompletedEventHandler VendorStatementReportCompleted;
         
         /// <remarks/>
         public event _DelegateCompletedEventHandler _DelegateCompleted;
@@ -426,31 +498,287 @@ namespace HRPortal.NewHrPortal {
         public event sendImprestApplicationApprovalCompletedEventHandler sendImprestApplicationApprovalCompleted;
         
         /// <remarks/>
-        public event sendLeaveApplicationApprovalCompletedEventHandler sendLeaveApplicationApprovalCompleted;
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendLeaveApplicationApproval", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendLeaveApplicationApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string sendLeaveApplicationApproval(string applicationNo, string userName) {
+            object[] results = this.Invoke("sendLeaveApplicationApproval", new object[] {
+                        applicationNo,
+                        userName});
+            return ((string)(results[0]));
+        }
         
         /// <remarks/>
-        public event sendObjectiveSettingsBackToAppraiseeCompletedEventHandler sendObjectiveSettingsBackToAppraiseeCompleted;
+        public void sendLeaveApplicationApprovalAsync(string applicationNo, string userName) {
+            this.sendLeaveApplicationApprovalAsync(applicationNo, userName, null);
+        }
         
         /// <remarks/>
-        public event sendObjectiveSettingsToLineManagerCompletedEventHandler sendObjectiveSettingsToLineManagerCompleted;
+        public void sendLeaveApplicationApprovalAsync(string applicationNo, string userName, object userState) {
+            if ((this.sendLeaveApplicationApprovalOperationCompleted == null)) {
+                this.sendLeaveApplicationApprovalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendLeaveApplicationApprovalOperationCompleted);
+            }
+            this.InvokeAsync("sendLeaveApplicationApproval", new object[] {
+                        applicationNo,
+                        userName}, this.sendLeaveApplicationApprovalOperationCompleted, userState);
+        }
+        
+        private void OnsendLeaveApplicationApprovalOperationCompleted(object arg) {
+            if ((this.sendLeaveApplicationApprovalCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.sendLeaveApplicationApprovalCompleted(this, new sendLeaveApplicationApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
-        public event sendSafariRequestApplicationApprovalCompletedEventHandler sendSafariRequestApplicationApprovalCompleted;
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendObjectiveSettingsBackToAp" +
+            "praisee", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendObjectiveSettingsBackToAppraisee_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string sendObjectiveSettingsBackToAppraisee(string applicationNo) {
+            object[] results = this.Invoke("sendObjectiveSettingsBackToAppraisee", new object[] {
+                        applicationNo});
+            return ((string)(results[0]));
+        }
         
         /// <remarks/>
-        public event sendStaffClaimApplicationApprovalCompletedEventHandler sendStaffClaimApplicationApprovalCompleted;
+        public void sendObjectiveSettingsBackToAppraiseeAsync(string applicationNo) {
+            this.sendObjectiveSettingsBackToAppraiseeAsync(applicationNo, null);
+        }
         
         /// <remarks/>
-        public event sendStaffCreditSaleApprovalCompletedEventHandler sendStaffCreditSaleApprovalCompleted;
+        public void sendObjectiveSettingsBackToAppraiseeAsync(string applicationNo, object userState) {
+            if ((this.sendObjectiveSettingsBackToAppraiseeOperationCompleted == null)) {
+                this.sendObjectiveSettingsBackToAppraiseeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendObjectiveSettingsBackToAppraiseeOperationCompleted);
+            }
+            this.InvokeAsync("sendObjectiveSettingsBackToAppraisee", new object[] {
+                        applicationNo}, this.sendObjectiveSettingsBackToAppraiseeOperationCompleted, userState);
+        }
+        
+        private void OnsendObjectiveSettingsBackToAppraiseeOperationCompleted(object arg) {
+            if ((this.sendObjectiveSettingsBackToAppraiseeCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.sendObjectiveSettingsBackToAppraiseeCompleted(this, new sendObjectiveSettingsBackToAppraiseeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
-        public event sendSurrenderApplicationApprovalCompletedEventHandler sendSurrenderApplicationApprovalCompleted;
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendObjectiveSettingsToLineMa" +
+            "nager", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendObjectiveSettingsToLineManager_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string sendObjectiveSettingsToLineManager(string applicationNo) {
+            object[] results = this.Invoke("sendObjectiveSettingsToLineManager", new object[] {
+                        applicationNo});
+            return ((string)(results[0]));
+        }
         
         /// <remarks/>
-        public event sendToAppraiseeForAgreementCompletedEventHandler sendToAppraiseeForAgreementCompleted;
+        public void sendObjectiveSettingsToLineManagerAsync(string applicationNo) {
+            this.sendObjectiveSettingsToLineManagerAsync(applicationNo, null);
+        }
         
         /// <remarks/>
-        public event updateOverallCommentsCompletedEventHandler updateOverallCommentsCompleted;
+        public void sendObjectiveSettingsToLineManagerAsync(string applicationNo, object userState) {
+            if ((this.sendObjectiveSettingsToLineManagerOperationCompleted == null)) {
+                this.sendObjectiveSettingsToLineManagerOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendObjectiveSettingsToLineManagerOperationCompleted);
+            }
+            this.InvokeAsync("sendObjectiveSettingsToLineManager", new object[] {
+                        applicationNo}, this.sendObjectiveSettingsToLineManagerOperationCompleted, userState);
+        }
+        
+        private void OnsendObjectiveSettingsToLineManagerOperationCompleted(object arg) {
+            if ((this.sendObjectiveSettingsToLineManagerCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.sendObjectiveSettingsToLineManagerCompleted(this, new sendObjectiveSettingsToLineManagerCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendSafariRequestApplicationA" +
+            "pproval", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendSafariRequestApplicationApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string sendSafariRequestApplicationApproval(string applicationNo, string userName1) {
+            object[] results = this.Invoke("sendSafariRequestApplicationApproval", new object[] {
+                        applicationNo,
+                        userName1});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void sendSafariRequestApplicationApprovalAsync(string applicationNo, string userName1) {
+            this.sendSafariRequestApplicationApprovalAsync(applicationNo, userName1, null);
+        }
+        
+        /// <remarks/>
+        public void sendSafariRequestApplicationApprovalAsync(string applicationNo, string userName1, object userState) {
+            if ((this.sendSafariRequestApplicationApprovalOperationCompleted == null)) {
+                this.sendSafariRequestApplicationApprovalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendSafariRequestApplicationApprovalOperationCompleted);
+            }
+            this.InvokeAsync("sendSafariRequestApplicationApproval", new object[] {
+                        applicationNo,
+                        userName1}, this.sendSafariRequestApplicationApprovalOperationCompleted, userState);
+        }
+        
+        private void OnsendSafariRequestApplicationApprovalOperationCompleted(object arg) {
+            if ((this.sendSafariRequestApplicationApprovalCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.sendSafariRequestApplicationApprovalCompleted(this, new sendSafariRequestApplicationApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendStaffClaimApplicationAppr" +
+            "oval", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendStaffClaimApplicationApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string sendStaffClaimApplicationApproval(string applicationNo, string userName1) {
+            object[] results = this.Invoke("sendStaffClaimApplicationApproval", new object[] {
+                        applicationNo,
+                        userName1});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void sendStaffClaimApplicationApprovalAsync(string applicationNo, string userName1) {
+            this.sendStaffClaimApplicationApprovalAsync(applicationNo, userName1, null);
+        }
+        
+        /// <remarks/>
+        public void sendStaffClaimApplicationApprovalAsync(string applicationNo, string userName1, object userState) {
+            if ((this.sendStaffClaimApplicationApprovalOperationCompleted == null)) {
+                this.sendStaffClaimApplicationApprovalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendStaffClaimApplicationApprovalOperationCompleted);
+            }
+            this.InvokeAsync("sendStaffClaimApplicationApproval", new object[] {
+                        applicationNo,
+                        userName1}, this.sendStaffClaimApplicationApprovalOperationCompleted, userState);
+        }
+        
+        private void OnsendStaffClaimApplicationApprovalOperationCompleted(object arg) {
+            if ((this.sendStaffClaimApplicationApprovalCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.sendStaffClaimApplicationApprovalCompleted(this, new sendStaffClaimApplicationApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendStaffCreditSaleApproval", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendStaffCreditSaleApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string sendStaffCreditSaleApproval(string documentNo) {
+            object[] results = this.Invoke("sendStaffCreditSaleApproval", new object[] {
+                        documentNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void sendStaffCreditSaleApprovalAsync(string documentNo) {
+            this.sendStaffCreditSaleApprovalAsync(documentNo, null);
+        }
+        
+        /// <remarks/>
+        public void sendStaffCreditSaleApprovalAsync(string documentNo, object userState) {
+            if ((this.sendStaffCreditSaleApprovalOperationCompleted == null)) {
+                this.sendStaffCreditSaleApprovalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendStaffCreditSaleApprovalOperationCompleted);
+            }
+            this.InvokeAsync("sendStaffCreditSaleApproval", new object[] {
+                        documentNo}, this.sendStaffCreditSaleApprovalOperationCompleted, userState);
+        }
+        
+        private void OnsendStaffCreditSaleApprovalOperationCompleted(object arg) {
+            if ((this.sendStaffCreditSaleApprovalCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.sendStaffCreditSaleApprovalCompleted(this, new sendStaffCreditSaleApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendSurrenderApplicationAppro" +
+            "val", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendSurrenderApplicationApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string sendSurrenderApplicationApproval(string applicationNo) {
+            object[] results = this.Invoke("sendSurrenderApplicationApproval", new object[] {
+                        applicationNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void sendSurrenderApplicationApprovalAsync(string applicationNo) {
+            this.sendSurrenderApplicationApprovalAsync(applicationNo, null);
+        }
+        
+        /// <remarks/>
+        public void sendSurrenderApplicationApprovalAsync(string applicationNo, object userState) {
+            if ((this.sendSurrenderApplicationApprovalOperationCompleted == null)) {
+                this.sendSurrenderApplicationApprovalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendSurrenderApplicationApprovalOperationCompleted);
+            }
+            this.InvokeAsync("sendSurrenderApplicationApproval", new object[] {
+                        applicationNo}, this.sendSurrenderApplicationApprovalOperationCompleted, userState);
+        }
+        
+        private void OnsendSurrenderApplicationApprovalOperationCompleted(object arg) {
+            if ((this.sendSurrenderApplicationApprovalCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.sendSurrenderApplicationApprovalCompleted(this, new sendSurrenderApplicationApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendToAppraiseeForAgreement", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendToAppraiseeForAgreement_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string sendToAppraiseeForAgreement(string applicationNo) {
+            object[] results = this.Invoke("sendToAppraiseeForAgreement", new object[] {
+                        applicationNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void sendToAppraiseeForAgreementAsync(string applicationNo) {
+            this.sendToAppraiseeForAgreementAsync(applicationNo, null);
+        }
+        
+        /// <remarks/>
+        public void sendToAppraiseeForAgreementAsync(string applicationNo, object userState) {
+            if ((this.sendToAppraiseeForAgreementOperationCompleted == null)) {
+                this.sendToAppraiseeForAgreementOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendToAppraiseeForAgreementOperationCompleted);
+            }
+            this.InvokeAsync("sendToAppraiseeForAgreement", new object[] {
+                        applicationNo}, this.sendToAppraiseeForAgreementOperationCompleted, userState);
+        }
+        
+        private void OnsendToAppraiseeForAgreementOperationCompleted(object arg) {
+            if ((this.sendToAppraiseeForAgreementCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.sendToAppraiseeForAgreementCompleted(this, new sendToAppraiseeForAgreementCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:updateOverallComments", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="updateOverallComments_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string updateOverallComments(string applicationNo, string overallComments) {
+            object[] results = this.Invoke("updateOverallComments", new object[] {
+                        applicationNo,
+                        overallComments});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void updateOverallCommentsAsync(string applicationNo, string overallComments) {
+            this.updateOverallCommentsAsync(applicationNo, overallComments, null);
+        }
+        
+        /// <remarks/>
+        public void updateOverallCommentsAsync(string applicationNo, string overallComments, object userState) {
+            if ((this.updateOverallCommentsOperationCompleted == null)) {
+                this.updateOverallCommentsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnupdateOverallCommentsOperationCompleted);
+            }
+            this.InvokeAsync("updateOverallComments", new object[] {
+                        applicationNo,
+                        overallComments}, this.updateOverallCommentsOperationCompleted, userState);
+        }
+        
+        private void OnupdateOverallCommentsOperationCompleted(object arg) {
+            if ((this.updateOverallCommentsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.updateOverallCommentsCompleted(this, new updateOverallCommentsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:updateSupervisorOverallCommen" +
@@ -518,6 +846,44 @@ namespace HRPortal.NewHrPortal {
             if ((this.ApproveCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.ApproveCompleted(this, new ApproveCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:BankSummaryReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="BankSummaryReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string BankSummaryReport(string no, string functionCodeFilter, string budgetCenterFilter, string bankAccountPostingGroup, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter) {
+            object[] results = this.Invoke("BankSummaryReport", new object[] {
+                        no,
+                        functionCodeFilter,
+                        budgetCenterFilter,
+                        bankAccountPostingGroup,
+                        dateFilter});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void BankSummaryReportAsync(string no, string functionCodeFilter, string budgetCenterFilter, string bankAccountPostingGroup, System.DateTime dateFilter) {
+            this.BankSummaryReportAsync(no, functionCodeFilter, budgetCenterFilter, bankAccountPostingGroup, dateFilter, null);
+        }
+        
+        /// <remarks/>
+        public void BankSummaryReportAsync(string no, string functionCodeFilter, string budgetCenterFilter, string bankAccountPostingGroup, System.DateTime dateFilter, object userState) {
+            if ((this.BankSummaryReportOperationCompleted == null)) {
+                this.BankSummaryReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBankSummaryReportOperationCompleted);
+            }
+            this.InvokeAsync("BankSummaryReport", new object[] {
+                        no,
+                        functionCodeFilter,
+                        budgetCenterFilter,
+                        bankAccountPostingGroup,
+                        dateFilter}, this.BankSummaryReportOperationCompleted, userState);
+        }
+        
+        private void OnBankSummaryReportOperationCompleted(object arg) {
+            if ((this.BankSummaryReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.BankSummaryReportCompleted(this, new BankSummaryReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -674,6 +1040,40 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:CashBookReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="CashBookReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string CashBookReport(string no, string bankAccountPostingGroup, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter) {
+            object[] results = this.Invoke("CashBookReport", new object[] {
+                        no,
+                        bankAccountPostingGroup,
+                        dateFilter});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CashBookReportAsync(string no, string bankAccountPostingGroup, System.DateTime dateFilter) {
+            this.CashBookReportAsync(no, bankAccountPostingGroup, dateFilter, null);
+        }
+        
+        /// <remarks/>
+        public void CashBookReportAsync(string no, string bankAccountPostingGroup, System.DateTime dateFilter, object userState) {
+            if ((this.CashBookReportOperationCompleted == null)) {
+                this.CashBookReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCashBookReportOperationCompleted);
+            }
+            this.InvokeAsync("CashBookReport", new object[] {
+                        no,
+                        bankAccountPostingGroup,
+                        dateFilter}, this.CashBookReportOperationCompleted, userState);
+        }
+        
+        private void OnCashBookReportOperationCompleted(object arg) {
+            if ((this.CashBookReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CashBookReportCompleted(this, new CashBookReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:ClaimRequestReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="ClaimRequestReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string ClaimRequestReport(string applicationNo) {
@@ -730,6 +1130,148 @@ namespace HRPortal.NewHrPortal {
             if ((this.CreateSalesOrderCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.CreateSalesOrderCompleted(this, new CreateSalesOrderCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:CustomerStatementReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="CustomerStatementReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string CustomerStatementReport(string no, string customerFilter) {
+            object[] results = this.Invoke("CustomerStatementReport", new object[] {
+                        no,
+                        customerFilter});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CustomerStatementReportAsync(string no, string customerFilter) {
+            this.CustomerStatementReportAsync(no, customerFilter, null);
+        }
+        
+        /// <remarks/>
+        public void CustomerStatementReportAsync(string no, string customerFilter, object userState) {
+            if ((this.CustomerStatementReportOperationCompleted == null)) {
+                this.CustomerStatementReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCustomerStatementReportOperationCompleted);
+            }
+            this.InvokeAsync("CustomerStatementReport", new object[] {
+                        no,
+                        customerFilter}, this.CustomerStatementReportOperationCompleted, userState);
+        }
+        
+        private void OnCustomerStatementReportOperationCompleted(object arg) {
+            if ((this.CustomerStatementReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CustomerStatementReportCompleted(this, new CustomerStatementReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:CustomerTrialBalanceReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="CustomerTrialBalanceReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string CustomerTrialBalanceReport(string no, string customerPostingGroup, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter) {
+            object[] results = this.Invoke("CustomerTrialBalanceReport", new object[] {
+                        no,
+                        customerPostingGroup,
+                        dateFilter});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CustomerTrialBalanceReportAsync(string no, string customerPostingGroup, System.DateTime dateFilter) {
+            this.CustomerTrialBalanceReportAsync(no, customerPostingGroup, dateFilter, null);
+        }
+        
+        /// <remarks/>
+        public void CustomerTrialBalanceReportAsync(string no, string customerPostingGroup, System.DateTime dateFilter, object userState) {
+            if ((this.CustomerTrialBalanceReportOperationCompleted == null)) {
+                this.CustomerTrialBalanceReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCustomerTrialBalanceReportOperationCompleted);
+            }
+            this.InvokeAsync("CustomerTrialBalanceReport", new object[] {
+                        no,
+                        customerPostingGroup,
+                        dateFilter}, this.CustomerTrialBalanceReportOperationCompleted, userState);
+        }
+        
+        private void OnCustomerTrialBalanceReportOperationCompleted(object arg) {
+            if ((this.CustomerTrialBalanceReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CustomerTrialBalanceReportCompleted(this, new CustomerTrialBalanceReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:DetailedPassReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="DetailedPassReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string DetailedPassReport(string no, string localFilter, string budgetCenterFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter) {
+            object[] results = this.Invoke("DetailedPassReport", new object[] {
+                        no,
+                        localFilter,
+                        budgetCenterFilter,
+                        dateFilter});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DetailedPassReportAsync(string no, string localFilter, string budgetCenterFilter, System.DateTime dateFilter) {
+            this.DetailedPassReportAsync(no, localFilter, budgetCenterFilter, dateFilter, null);
+        }
+        
+        /// <remarks/>
+        public void DetailedPassReportAsync(string no, string localFilter, string budgetCenterFilter, System.DateTime dateFilter, object userState) {
+            if ((this.DetailedPassReportOperationCompleted == null)) {
+                this.DetailedPassReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDetailedPassReportOperationCompleted);
+            }
+            this.InvokeAsync("DetailedPassReport", new object[] {
+                        no,
+                        localFilter,
+                        budgetCenterFilter,
+                        dateFilter}, this.DetailedPassReportOperationCompleted, userState);
+        }
+        
+        private void OnDetailedPassReportOperationCompleted(object arg) {
+            if ((this.DetailedPassReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DetailedPassReportCompleted(this, new DetailedPassReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:GeneralLedgerStatementReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="GeneralLedgerStatementReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GeneralLedgerStatementReport(string no, string functionCodeFilter, string budgetCenterFilter, int incomeOrBalance, int debitOrCredit, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter) {
+            object[] results = this.Invoke("GeneralLedgerStatementReport", new object[] {
+                        no,
+                        functionCodeFilter,
+                        budgetCenterFilter,
+                        incomeOrBalance,
+                        debitOrCredit,
+                        dateFilter});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GeneralLedgerStatementReportAsync(string no, string functionCodeFilter, string budgetCenterFilter, int incomeOrBalance, int debitOrCredit, System.DateTime dateFilter) {
+            this.GeneralLedgerStatementReportAsync(no, functionCodeFilter, budgetCenterFilter, incomeOrBalance, debitOrCredit, dateFilter, null);
+        }
+        
+        /// <remarks/>
+        public void GeneralLedgerStatementReportAsync(string no, string functionCodeFilter, string budgetCenterFilter, int incomeOrBalance, int debitOrCredit, System.DateTime dateFilter, object userState) {
+            if ((this.GeneralLedgerStatementReportOperationCompleted == null)) {
+                this.GeneralLedgerStatementReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGeneralLedgerStatementReportOperationCompleted);
+            }
+            this.InvokeAsync("GeneralLedgerStatementReport", new object[] {
+                        no,
+                        functionCodeFilter,
+                        budgetCenterFilter,
+                        incomeOrBalance,
+                        debitOrCredit,
+                        dateFilter}, this.GeneralLedgerStatementReportOperationCompleted, userState);
+        }
+        
+        private void OnGeneralLedgerStatementReportOperationCompleted(object arg) {
+            if ((this.GeneralLedgerStatementReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GeneralLedgerStatementReportCompleted(this, new GeneralLedgerStatementReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -966,6 +1508,82 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:StockBalancePerStoreReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="StockBalancePerStoreReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string StockBalancePerStoreReport(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter) {
+            object[] results = this.Invoke("StockBalancePerStoreReport", new object[] {
+                        no,
+                        localFilter,
+                        functionCodeFilter,
+                        budgetCenterFilter,
+                        dateFilter});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void StockBalancePerStoreReportAsync(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, System.DateTime dateFilter) {
+            this.StockBalancePerStoreReportAsync(no, localFilter, functionCodeFilter, budgetCenterFilter, dateFilter, null);
+        }
+        
+        /// <remarks/>
+        public void StockBalancePerStoreReportAsync(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, System.DateTime dateFilter, object userState) {
+            if ((this.StockBalancePerStoreReportOperationCompleted == null)) {
+                this.StockBalancePerStoreReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnStockBalancePerStoreReportOperationCompleted);
+            }
+            this.InvokeAsync("StockBalancePerStoreReport", new object[] {
+                        no,
+                        localFilter,
+                        functionCodeFilter,
+                        budgetCenterFilter,
+                        dateFilter}, this.StockBalancePerStoreReportOperationCompleted, userState);
+        }
+        
+        private void OnStockBalancePerStoreReportOperationCompleted(object arg) {
+            if ((this.StockBalancePerStoreReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.StockBalancePerStoreReportCompleted(this, new StockBalancePerStoreReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:StockLedgerReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="StockLedgerReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string StockLedgerReport(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter) {
+            object[] results = this.Invoke("StockLedgerReport", new object[] {
+                        no,
+                        localFilter,
+                        functionCodeFilter,
+                        budgetCenterFilter,
+                        dateFilter});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void StockLedgerReportAsync(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, System.DateTime dateFilter) {
+            this.StockLedgerReportAsync(no, localFilter, functionCodeFilter, budgetCenterFilter, dateFilter, null);
+        }
+        
+        /// <remarks/>
+        public void StockLedgerReportAsync(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, System.DateTime dateFilter, object userState) {
+            if ((this.StockLedgerReportOperationCompleted == null)) {
+                this.StockLedgerReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnStockLedgerReportOperationCompleted);
+            }
+            this.InvokeAsync("StockLedgerReport", new object[] {
+                        no,
+                        localFilter,
+                        functionCodeFilter,
+                        budgetCenterFilter,
+                        dateFilter}, this.StockLedgerReportOperationCompleted, userState);
+        }
+        
+        private void OnStockLedgerReportOperationCompleted(object arg) {
+            if ((this.StockLedgerReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.StockLedgerReportCompleted(this, new StockLedgerReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:SurrenderRequestReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="SurrenderRequestReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string SurrenderRequestReport(string applicationNo) {
@@ -992,6 +1610,40 @@ namespace HRPortal.NewHrPortal {
             if ((this.SurrenderRequestReportCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SurrenderRequestReportCompleted(this, new SurrenderRequestReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:VendorStatementReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="VendorStatementReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string VendorStatementReport(string no, string vendorPostingGroup, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter) {
+            object[] results = this.Invoke("VendorStatementReport", new object[] {
+                        no,
+                        vendorPostingGroup,
+                        dateFilter});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void VendorStatementReportAsync(string no, string vendorPostingGroup, System.DateTime dateFilter) {
+            this.VendorStatementReportAsync(no, vendorPostingGroup, dateFilter, null);
+        }
+        
+        /// <remarks/>
+        public void VendorStatementReportAsync(string no, string vendorPostingGroup, System.DateTime dateFilter, object userState) {
+            if ((this.VendorStatementReportOperationCompleted == null)) {
+                this.VendorStatementReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnVendorStatementReportOperationCompleted);
+            }
+            this.InvokeAsync("VendorStatementReport", new object[] {
+                        no,
+                        vendorPostingGroup,
+                        dateFilter}, this.VendorStatementReportOperationCompleted, userState);
+        }
+        
+        private void OnVendorStatementReportOperationCompleted(object arg) {
+            if ((this.VendorStatementReportCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.VendorStatementReportCompleted(this, new VendorStatementReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1668,22 +2320,23 @@ namespace HRPortal.NewHrPortal {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createStaffApplication", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="createStaffApplication_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string createStaffApplication(string applicationNo, string employeeNumber, string safariCode, string fundCode) {
+        public string createStaffApplication(string applicationNo, string employeeNumber, string safariCode, string fundCode, string username) {
             object[] results = this.Invoke("createStaffApplication", new object[] {
                         applicationNo,
                         employeeNumber,
                         safariCode,
-                        fundCode});
+                        fundCode,
+                        username});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void createStaffApplicationAsync(string applicationNo, string employeeNumber, string safariCode, string fundCode) {
-            this.createStaffApplicationAsync(applicationNo, employeeNumber, safariCode, fundCode, null);
+        public void createStaffApplicationAsync(string applicationNo, string employeeNumber, string safariCode, string fundCode, string username) {
+            this.createStaffApplicationAsync(applicationNo, employeeNumber, safariCode, fundCode, username, null);
         }
         
         /// <remarks/>
-        public void createStaffApplicationAsync(string applicationNo, string employeeNumber, string safariCode, string fundCode, object userState) {
+        public void createStaffApplicationAsync(string applicationNo, string employeeNumber, string safariCode, string fundCode, string username, object userState) {
             if ((this.createStaffApplicationOperationCompleted == null)) {
                 this.createStaffApplicationOperationCompleted = new System.Threading.SendOrPostCallback(this.OncreateStaffApplicationOperationCompleted);
             }
@@ -1691,7 +2344,8 @@ namespace HRPortal.NewHrPortal {
                         applicationNo,
                         employeeNumber,
                         safariCode,
-                        fundCode}, this.createStaffApplicationOperationCompleted, userState);
+                        fundCode,
+                        username}, this.createStaffApplicationOperationCompleted, userState);
         }
         
         private void OncreateStaffApplicationOperationCompleted(object arg) {
@@ -2555,23 +3209,24 @@ namespace HRPortal.NewHrPortal {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:fnCreateSalesCreditHeader", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="fnCreateSalesCreditHeader_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string fnCreateSalesCreditHeader(string documentNo, string payroll, string recoveryPeriod, string deportCode, string locationCode) {
+        public string fnCreateSalesCreditHeader(string documentNo, string payroll, string recoveryPeriod, string deportCode, string locationCode, string username) {
             object[] results = this.Invoke("fnCreateSalesCreditHeader", new object[] {
                         documentNo,
                         payroll,
                         recoveryPeriod,
                         deportCode,
-                        locationCode});
+                        locationCode,
+                        username});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void fnCreateSalesCreditHeaderAsync(string documentNo, string payroll, string recoveryPeriod, string deportCode, string locationCode) {
-            this.fnCreateSalesCreditHeaderAsync(documentNo, payroll, recoveryPeriod, deportCode, locationCode, null);
+        public void fnCreateSalesCreditHeaderAsync(string documentNo, string payroll, string recoveryPeriod, string deportCode, string locationCode, string username) {
+            this.fnCreateSalesCreditHeaderAsync(documentNo, payroll, recoveryPeriod, deportCode, locationCode, username, null);
         }
         
         /// <remarks/>
-        public void fnCreateSalesCreditHeaderAsync(string documentNo, string payroll, string recoveryPeriod, string deportCode, string locationCode, object userState) {
+        public void fnCreateSalesCreditHeaderAsync(string documentNo, string payroll, string recoveryPeriod, string deportCode, string locationCode, string username, object userState) {
             if ((this.fnCreateSalesCreditHeaderOperationCompleted == null)) {
                 this.fnCreateSalesCreditHeaderOperationCompleted = new System.Threading.SendOrPostCallback(this.OnfnCreateSalesCreditHeaderOperationCompleted);
             }
@@ -2580,7 +3235,8 @@ namespace HRPortal.NewHrPortal {
                         payroll,
                         recoveryPeriod,
                         deportCode,
-                        locationCode}, this.fnCreateSalesCreditHeaderOperationCompleted, userState);
+                        locationCode,
+                        username}, this.fnCreateSalesCreditHeaderOperationCompleted, userState);
         }
         
         private void OnfnCreateSalesCreditHeaderOperationCompleted(object arg) {
@@ -2844,289 +3500,6 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendLeaveApplicationApproval", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendLeaveApplicationApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string sendLeaveApplicationApproval(string applicationNo, string userName) {
-            object[] results = this.Invoke("sendLeaveApplicationApproval", new object[] {
-                        applicationNo,
-                        userName});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void sendLeaveApplicationApprovalAsync(string applicationNo, string userName) {
-            this.sendLeaveApplicationApprovalAsync(applicationNo, userName, null);
-        }
-        
-        /// <remarks/>
-        public void sendLeaveApplicationApprovalAsync(string applicationNo, string userName, object userState) {
-            if ((this.sendLeaveApplicationApprovalOperationCompleted == null)) {
-                this.sendLeaveApplicationApprovalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendLeaveApplicationApprovalOperationCompleted);
-            }
-            this.InvokeAsync("sendLeaveApplicationApproval", new object[] {
-                        applicationNo,
-                        userName}, this.sendLeaveApplicationApprovalOperationCompleted, userState);
-        }
-        
-        private void OnsendLeaveApplicationApprovalOperationCompleted(object arg) {
-            if ((this.sendLeaveApplicationApprovalCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.sendLeaveApplicationApprovalCompleted(this, new sendLeaveApplicationApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendObjectiveSettingsBackToAp" +
-            "praisee", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendObjectiveSettingsBackToAppraisee_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string sendObjectiveSettingsBackToAppraisee(string applicationNo) {
-            object[] results = this.Invoke("sendObjectiveSettingsBackToAppraisee", new object[] {
-                        applicationNo});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void sendObjectiveSettingsBackToAppraiseeAsync(string applicationNo) {
-            this.sendObjectiveSettingsBackToAppraiseeAsync(applicationNo, null);
-        }
-        
-        /// <remarks/>
-        public void sendObjectiveSettingsBackToAppraiseeAsync(string applicationNo, object userState) {
-            if ((this.sendObjectiveSettingsBackToAppraiseeOperationCompleted == null)) {
-                this.sendObjectiveSettingsBackToAppraiseeOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendObjectiveSettingsBackToAppraiseeOperationCompleted);
-            }
-            this.InvokeAsync("sendObjectiveSettingsBackToAppraisee", new object[] {
-                        applicationNo}, this.sendObjectiveSettingsBackToAppraiseeOperationCompleted, userState);
-        }
-        
-        private void OnsendObjectiveSettingsBackToAppraiseeOperationCompleted(object arg) {
-            if ((this.sendObjectiveSettingsBackToAppraiseeCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.sendObjectiveSettingsBackToAppraiseeCompleted(this, new sendObjectiveSettingsBackToAppraiseeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendObjectiveSettingsToLineMa" +
-            "nager", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendObjectiveSettingsToLineManager_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string sendObjectiveSettingsToLineManager(string applicationNo) {
-            object[] results = this.Invoke("sendObjectiveSettingsToLineManager", new object[] {
-                        applicationNo});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void sendObjectiveSettingsToLineManagerAsync(string applicationNo) {
-            this.sendObjectiveSettingsToLineManagerAsync(applicationNo, null);
-        }
-        
-        /// <remarks/>
-        public void sendObjectiveSettingsToLineManagerAsync(string applicationNo, object userState) {
-            if ((this.sendObjectiveSettingsToLineManagerOperationCompleted == null)) {
-                this.sendObjectiveSettingsToLineManagerOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendObjectiveSettingsToLineManagerOperationCompleted);
-            }
-            this.InvokeAsync("sendObjectiveSettingsToLineManager", new object[] {
-                        applicationNo}, this.sendObjectiveSettingsToLineManagerOperationCompleted, userState);
-        }
-        
-        private void OnsendObjectiveSettingsToLineManagerOperationCompleted(object arg) {
-            if ((this.sendObjectiveSettingsToLineManagerCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.sendObjectiveSettingsToLineManagerCompleted(this, new sendObjectiveSettingsToLineManagerCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendSafariRequestApplicationA" +
-            "pproval", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendSafariRequestApplicationApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string sendSafariRequestApplicationApproval(string applicationNo, string userName1) {
-            object[] results = this.Invoke("sendSafariRequestApplicationApproval", new object[] {
-                        applicationNo,
-                        userName1});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void sendSafariRequestApplicationApprovalAsync(string applicationNo, string userName1) {
-            this.sendSafariRequestApplicationApprovalAsync(applicationNo, userName1, null);
-        }
-        
-        /// <remarks/>
-        public void sendSafariRequestApplicationApprovalAsync(string applicationNo, string userName1, object userState) {
-            if ((this.sendSafariRequestApplicationApprovalOperationCompleted == null)) {
-                this.sendSafariRequestApplicationApprovalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendSafariRequestApplicationApprovalOperationCompleted);
-            }
-            this.InvokeAsync("sendSafariRequestApplicationApproval", new object[] {
-                        applicationNo,
-                        userName1}, this.sendSafariRequestApplicationApprovalOperationCompleted, userState);
-        }
-        
-        private void OnsendSafariRequestApplicationApprovalOperationCompleted(object arg) {
-            if ((this.sendSafariRequestApplicationApprovalCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.sendSafariRequestApplicationApprovalCompleted(this, new sendSafariRequestApplicationApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendStaffClaimApplicationAppr" +
-            "oval", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendStaffClaimApplicationApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string sendStaffClaimApplicationApproval(string applicationNo, string userName1) {
-            object[] results = this.Invoke("sendStaffClaimApplicationApproval", new object[] {
-                        applicationNo,
-                        userName1});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void sendStaffClaimApplicationApprovalAsync(string applicationNo, string userName1) {
-            this.sendStaffClaimApplicationApprovalAsync(applicationNo, userName1, null);
-        }
-        
-        /// <remarks/>
-        public void sendStaffClaimApplicationApprovalAsync(string applicationNo, string userName1, object userState) {
-            if ((this.sendStaffClaimApplicationApprovalOperationCompleted == null)) {
-                this.sendStaffClaimApplicationApprovalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendStaffClaimApplicationApprovalOperationCompleted);
-            }
-            this.InvokeAsync("sendStaffClaimApplicationApproval", new object[] {
-                        applicationNo,
-                        userName1}, this.sendStaffClaimApplicationApprovalOperationCompleted, userState);
-        }
-        
-        private void OnsendStaffClaimApplicationApprovalOperationCompleted(object arg) {
-            if ((this.sendStaffClaimApplicationApprovalCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.sendStaffClaimApplicationApprovalCompleted(this, new sendStaffClaimApplicationApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendStaffCreditSaleApproval", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendStaffCreditSaleApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string sendStaffCreditSaleApproval(string documentNo) {
-            object[] results = this.Invoke("sendStaffCreditSaleApproval", new object[] {
-                        documentNo});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void sendStaffCreditSaleApprovalAsync(string documentNo) {
-            this.sendStaffCreditSaleApprovalAsync(documentNo, null);
-        }
-        
-        /// <remarks/>
-        public void sendStaffCreditSaleApprovalAsync(string documentNo, object userState) {
-            if ((this.sendStaffCreditSaleApprovalOperationCompleted == null)) {
-                this.sendStaffCreditSaleApprovalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendStaffCreditSaleApprovalOperationCompleted);
-            }
-            this.InvokeAsync("sendStaffCreditSaleApproval", new object[] {
-                        documentNo}, this.sendStaffCreditSaleApprovalOperationCompleted, userState);
-        }
-        
-        private void OnsendStaffCreditSaleApprovalOperationCompleted(object arg) {
-            if ((this.sendStaffCreditSaleApprovalCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.sendStaffCreditSaleApprovalCompleted(this, new sendStaffCreditSaleApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendSurrenderApplicationAppro" +
-            "val", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendSurrenderApplicationApproval_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string sendSurrenderApplicationApproval(string applicationNo) {
-            object[] results = this.Invoke("sendSurrenderApplicationApproval", new object[] {
-                        applicationNo});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void sendSurrenderApplicationApprovalAsync(string applicationNo) {
-            this.sendSurrenderApplicationApprovalAsync(applicationNo, null);
-        }
-        
-        /// <remarks/>
-        public void sendSurrenderApplicationApprovalAsync(string applicationNo, object userState) {
-            if ((this.sendSurrenderApplicationApprovalOperationCompleted == null)) {
-                this.sendSurrenderApplicationApprovalOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendSurrenderApplicationApprovalOperationCompleted);
-            }
-            this.InvokeAsync("sendSurrenderApplicationApproval", new object[] {
-                        applicationNo}, this.sendSurrenderApplicationApprovalOperationCompleted, userState);
-        }
-        
-        private void OnsendSurrenderApplicationApprovalOperationCompleted(object arg) {
-            if ((this.sendSurrenderApplicationApprovalCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.sendSurrenderApplicationApprovalCompleted(this, new sendSurrenderApplicationApprovalCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendToAppraiseeForAgreement", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="sendToAppraiseeForAgreement_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string sendToAppraiseeForAgreement(string applicationNo) {
-            object[] results = this.Invoke("sendToAppraiseeForAgreement", new object[] {
-                        applicationNo});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void sendToAppraiseeForAgreementAsync(string applicationNo) {
-            this.sendToAppraiseeForAgreementAsync(applicationNo, null);
-        }
-        
-        /// <remarks/>
-        public void sendToAppraiseeForAgreementAsync(string applicationNo, object userState) {
-            if ((this.sendToAppraiseeForAgreementOperationCompleted == null)) {
-                this.sendToAppraiseeForAgreementOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsendToAppraiseeForAgreementOperationCompleted);
-            }
-            this.InvokeAsync("sendToAppraiseeForAgreement", new object[] {
-                        applicationNo}, this.sendToAppraiseeForAgreementOperationCompleted, userState);
-        }
-        
-        private void OnsendToAppraiseeForAgreementOperationCompleted(object arg) {
-            if ((this.sendToAppraiseeForAgreementCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.sendToAppraiseeForAgreementCompleted(this, new sendToAppraiseeForAgreementCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:updateOverallComments", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="updateOverallComments_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string updateOverallComments(string applicationNo, string overallComments) {
-            object[] results = this.Invoke("updateOverallComments", new object[] {
-                        applicationNo,
-                        overallComments});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void updateOverallCommentsAsync(string applicationNo, string overallComments) {
-            this.updateOverallCommentsAsync(applicationNo, overallComments, null);
-        }
-        
-        /// <remarks/>
-        public void updateOverallCommentsAsync(string applicationNo, string overallComments, object userState) {
-            if ((this.updateOverallCommentsOperationCompleted == null)) {
-                this.updateOverallCommentsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnupdateOverallCommentsOperationCompleted);
-            }
-            this.InvokeAsync("updateOverallComments", new object[] {
-                        applicationNo,
-                        overallComments}, this.updateOverallCommentsOperationCompleted, userState);
-        }
-        
-        private void OnupdateOverallCommentsOperationCompleted(object arg) {
-            if ((this.updateOverallCommentsCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.updateOverallCommentsCompleted(this, new updateOverallCommentsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -3142,6 +3515,240 @@ namespace HRPortal.NewHrPortal {
                 return true;
             }
             return false;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void sendLeaveApplicationApprovalCompletedEventHandler(object sender, sendLeaveApplicationApprovalCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class sendLeaveApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal sendLeaveApplicationApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void sendObjectiveSettingsBackToAppraiseeCompletedEventHandler(object sender, sendObjectiveSettingsBackToAppraiseeCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class sendObjectiveSettingsBackToAppraiseeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal sendObjectiveSettingsBackToAppraiseeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void sendObjectiveSettingsToLineManagerCompletedEventHandler(object sender, sendObjectiveSettingsToLineManagerCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class sendObjectiveSettingsToLineManagerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal sendObjectiveSettingsToLineManagerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void sendSafariRequestApplicationApprovalCompletedEventHandler(object sender, sendSafariRequestApplicationApprovalCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class sendSafariRequestApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal sendSafariRequestApplicationApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void sendStaffClaimApplicationApprovalCompletedEventHandler(object sender, sendStaffClaimApplicationApprovalCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class sendStaffClaimApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal sendStaffClaimApplicationApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void sendStaffCreditSaleApprovalCompletedEventHandler(object sender, sendStaffCreditSaleApprovalCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class sendStaffCreditSaleApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal sendStaffCreditSaleApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void sendSurrenderApplicationApprovalCompletedEventHandler(object sender, sendSurrenderApplicationApprovalCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class sendSurrenderApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal sendSurrenderApplicationApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void sendToAppraiseeForAgreementCompletedEventHandler(object sender, sendToAppraiseeForAgreementCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class sendToAppraiseeForAgreementCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal sendToAppraiseeForAgreementCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void updateOverallCommentsCompletedEventHandler(object sender, updateOverallCommentsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class updateOverallCommentsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal updateOverallCommentsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
         }
     }
     
@@ -3184,6 +3791,32 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal ApproveCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void BankSummaryReportCompletedEventHandler(object sender, BankSummaryReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class BankSummaryReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal BankSummaryReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -3329,6 +3962,32 @@ namespace HRPortal.NewHrPortal {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void CashBookReportCompletedEventHandler(object sender, CashBookReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CashBookReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CashBookReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void ClaimRequestReportCompletedEventHandler(object sender, ClaimRequestReportCompletedEventArgs e);
     
     /// <remarks/>
@@ -3366,6 +4025,110 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal CreateSalesOrderCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void CustomerStatementReportCompletedEventHandler(object sender, CustomerStatementReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CustomerStatementReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CustomerStatementReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void CustomerTrialBalanceReportCompletedEventHandler(object sender, CustomerTrialBalanceReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CustomerTrialBalanceReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CustomerTrialBalanceReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void DetailedPassReportCompletedEventHandler(object sender, DetailedPassReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DetailedPassReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DetailedPassReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void GeneralLedgerStatementReportCompletedEventHandler(object sender, GeneralLedgerStatementReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GeneralLedgerStatementReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GeneralLedgerStatementReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -3563,6 +4326,58 @@ namespace HRPortal.NewHrPortal {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void StockBalancePerStoreReportCompletedEventHandler(object sender, StockBalancePerStoreReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class StockBalancePerStoreReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal StockBalancePerStoreReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void StockLedgerReportCompletedEventHandler(object sender, StockLedgerReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class StockLedgerReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal StockLedgerReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void SurrenderRequestReportCompletedEventHandler(object sender, SurrenderRequestReportCompletedEventArgs e);
     
     /// <remarks/>
@@ -3574,6 +4389,32 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal SurrenderRequestReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void VendorStatementReportCompletedEventHandler(object sender, VendorStatementReportCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class VendorStatementReportCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal VendorStatementReportCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -4878,240 +5719,6 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal sendImprestApplicationApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void sendLeaveApplicationApprovalCompletedEventHandler(object sender, sendLeaveApplicationApprovalCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class sendLeaveApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal sendLeaveApplicationApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void sendObjectiveSettingsBackToAppraiseeCompletedEventHandler(object sender, sendObjectiveSettingsBackToAppraiseeCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class sendObjectiveSettingsBackToAppraiseeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal sendObjectiveSettingsBackToAppraiseeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void sendObjectiveSettingsToLineManagerCompletedEventHandler(object sender, sendObjectiveSettingsToLineManagerCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class sendObjectiveSettingsToLineManagerCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal sendObjectiveSettingsToLineManagerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void sendSafariRequestApplicationApprovalCompletedEventHandler(object sender, sendSafariRequestApplicationApprovalCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class sendSafariRequestApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal sendSafariRequestApplicationApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void sendStaffClaimApplicationApprovalCompletedEventHandler(object sender, sendStaffClaimApplicationApprovalCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class sendStaffClaimApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal sendStaffClaimApplicationApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void sendStaffCreditSaleApprovalCompletedEventHandler(object sender, sendStaffCreditSaleApprovalCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class sendStaffCreditSaleApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal sendStaffCreditSaleApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void sendSurrenderApplicationApprovalCompletedEventHandler(object sender, sendSurrenderApplicationApprovalCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class sendSurrenderApplicationApprovalCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal sendSurrenderApplicationApprovalCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void sendToAppraiseeForAgreementCompletedEventHandler(object sender, sendToAppraiseeForAgreementCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class sendToAppraiseeForAgreementCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal sendToAppraiseeForAgreementCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void updateOverallCommentsCompletedEventHandler(object sender, updateOverallCommentsCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class updateOverallCommentsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal updateOverallCommentsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

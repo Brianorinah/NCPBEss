@@ -193,7 +193,8 @@ namespace HRPortal
                 string tdepot = DepotCode.Text.Trim();
 
                 string documentNo =Request.QueryString["documentNo"];
-                String status = Config.ObjNav2.fnCreateSalesCreditHeader(documentNo, employeeNo, trecovery, tdepot, tlocation);
+                String userName = Convert.ToString(Session["username"]).ToString().ToUpper();
+                String status = Config.ObjNav2.fnCreateSalesCreditHeader(documentNo, employeeNo, trecovery, tdepot, tlocation, userName);
                 String[] info = status.Split('*');
                 if (info[0] == "Success")
                 {

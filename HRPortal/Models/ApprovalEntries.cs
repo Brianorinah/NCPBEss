@@ -94,6 +94,14 @@ namespace HRPortal.Models
         public string ETag { get; set; }
         public string No { get; set; }
         public string Name { get; set; }
+        // Add this property
+        public string DisplayName
+        {
+            get
+            {
+                return $"{No} - {Name}";
+            }
+        }
     }
 
 

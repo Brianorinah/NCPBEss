@@ -336,7 +336,7 @@
 </div>
 <div class="modal-footer">
 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-<asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLine" />
+<asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLine" CausesValidation="false" />
 </div>
 </div>
  

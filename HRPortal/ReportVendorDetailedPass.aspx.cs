@@ -105,10 +105,15 @@ namespace HRPortal
                 string tlocationFilter = locationFilter.SelectedValue.Trim();                
                 string tbudgetCenterFilter = budgetCenterFilter.SelectedValue.Trim();
                 DateTime tdateFilter = new DateTime();
+                DateTime tdateFilterEnd = new DateTime();
 
                 if (!string.IsNullOrEmpty(dateFilter.Text.Trim()))
                 {
                     tdateFilter = Convert.ToDateTime(dateFilter.Text.Trim());
+                }
+                if (!string.IsNullOrEmpty(endDate.Text.Trim()))
+                {
+                    tdateFilterEnd = Convert.ToDateTime(endDate.Text.Trim());
                 }
                 if (string.IsNullOrEmpty(taccNo))
                 {
@@ -123,7 +128,7 @@ namespace HRPortal
                     tbudgetCenterFilter = "";
                 }               
 
-                string status = Config.ObjNav2.DetailedPassReport(taccNo, tlocationFilter, tbudgetCenterFilter, tdateFilter);
+                string status = Config.ObjNav2.DetailedPassReport(taccNo, tlocationFilter, tbudgetCenterFilter, tdateFilter, tdateFilterEnd);
                 if (status != "danger" && !string.IsNullOrEmpty(status))
                 {
                     bool downloaded = ConvertAndDownloadToLocal(status);

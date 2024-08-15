@@ -45,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.17.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.17\lib\net45\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AspNet.FriendlyUrls, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
       <Private>True</Private>
@@ -123,6 +127,7 @@
     <Content Include="Approvedleave.aspx" />
     <Content Include="ApprovedPerformanceLogs.aspx" />
     <Content Include="ApprovedPerformanceLogsDetails.aspx" />
+    <Content Include="ApprovedPurchaseRequistions.aspx" />
     <Content Include="ApprovedRecordRequsitions.aspx" />
     <Content Include="ApprovedSalaryAdvance.aspx" />
     <Content Include="ApprovedScoreCard.aspx" />
@@ -735,6 +740,13 @@
     </Compile>
     <Compile Include="ApprovedPerformanceLogsDetails.aspx.designer.cs">
       <DependentUpon>ApprovedPerformanceLogsDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ApprovedPurchaseRequistions.aspx.cs">
+      <DependentUpon>ApprovedPurchaseRequistions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApprovedPurchaseRequistions.aspx.designer.cs">
+      <DependentUpon>ApprovedPurchaseRequistions.aspx</DependentUpon>
     </Compile>
     <Compile Include="ApprovedRecordRequsitions.aspx.cs">
       <DependentUpon>ApprovedRecordRequsitions.aspx</DependentUpon>

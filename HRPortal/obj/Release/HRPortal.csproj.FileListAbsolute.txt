@@ -816,3 +816,5 @@ D:\Client Projects\NCPB\NCPBEss\HRPortal\obj\Release\HRPortal.csprojResolveAssem
 D:\Client Projects\NCPB\NCPBEss\HRPortal\obj\Release\HRPortal.dll
 D:\Client Projects\NCPB\NCPBEss\HRPortal\obj\Release\HRPortal.pdb
 D:\Client Projects\NCPB\NCPBEss\HRPortal\obj\Release\HRPortal.XmlSerializers.dll
+D:\Client Projects\NCPB\NCPBEss\HRPortal\bin\log4net.dll
+D:\Client Projects\NCPB\NCPBEss\HRPortal\bin\log4net.xml

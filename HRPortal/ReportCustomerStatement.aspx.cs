@@ -150,7 +150,7 @@ namespace HRPortal
             List<Customer> Customers = await FetchCustomerData();
 
             accNo.DataSource = Customers;
-            accNo.DataTextField = "Name";
+            accNo.DataTextField = "DisplayName";
             accNo.DataValueField = "No";
             accNo.DataBind();
 

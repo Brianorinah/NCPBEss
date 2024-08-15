@@ -128,14 +128,20 @@ namespace HRPortal
                 string tIncOrBalance = IncOrBalance.SelectedValue.Trim();
                 string tDebitOrCredit = DebitOrCredit.SelectedValue.Trim();
                 string tfunctionFilter = functionFilter.SelectedValue.Trim();
-                string tbudgetCenterFilter = budgetCenterFilter.SelectedValue.Trim();
-                DateTime tdateFilter = new DateTime();
+                string tbudgetCenterFilter = budgetCenterFilter.SelectedValue.Trim();              
                 int InttIncOrBalance = 10;
                 int InttDebitOrCredit = 10;
+
+                DateTime tdateFilter = new DateTime();
+                DateTime tdateFilterEnd = new DateTime();
 
                 if (!string.IsNullOrEmpty(dateFilter.Text.Trim()))
                 {
                     tdateFilter = Convert.ToDateTime(dateFilter.Text.Trim());
+                }
+                if (!string.IsNullOrEmpty(endDate.Text.Trim()))
+                {
+                    tdateFilterEnd = Convert.ToDateTime(endDate.Text.Trim());
                 }
                 if (string.IsNullOrEmpty(taccNo))
                 {
@@ -158,27 +164,27 @@ namespace HRPortal
                     tfunctionFilter = "";
                 }
 
-                string status = Config.ObjNav2.GeneralLedgerStatementReport(taccNo, tfunctionFilter, tbudgetCenterFilter, InttIncOrBalance, InttDebitOrCredit, tdateFilter);
-                if (status != "danger" && !string.IsNullOrEmpty(status))
-                {
-                    bool downloaded = ConvertAndDownloadToLocal(status);
-                    if (downloaded)
-                    {
-                        reportViewFrame.Attributes.Add("src", ResolveUrl("~/Downloads/" + string.Format("{0}.pdf", empNo)));
-                    }
-                    else if (status == "danger")
-                    {
-                        feedback.InnerHtml = "<div class='alert alert-danger'>Document could not be found.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                    }
-                    else
-                    {
-                        feedback.InnerHtml = "<div class='alert alert-danger'>An error occured while generating your document.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                    }
-                }
-                else
-                {
-                    feedback.InnerHtml = "<div class='alert alert-danger'>An error ocuured while pulling your document.The provided filter does not have ant data.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                }
+                //string status = Config.ObjNav2.GeneralLedgerStatementReport(taccNo, tfunctionFilter, tbudgetCenterFilter, InttIncOrBalance, InttDebitOrCredit, tdateFilter, tdateFilterEnd);
+                //if (status != "danger" && !string.IsNullOrEmpty(status))
+                //{
+                //    bool downloaded = ConvertAndDownloadToLocal(status);
+                //    if (downloaded)
+                //    {
+                //        reportViewFrame.Attributes.Add("src", ResolveUrl("~/Downloads/" + string.Format("{0}.pdf", empNo)));
+                //    }
+                //    else if (status == "danger")
+                //    {
+                //        feedback.InnerHtml = "<div class='alert alert-danger'>Document could not be found.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                //    }
+                //    else
+                //    {
+                //        feedback.InnerHtml = "<div class='alert alert-danger'>An error occured while generating your document.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                //    }
+                //}
+                //else
+                //{
+                //    feedback.InnerHtml = "<div class='alert alert-danger'>An error ocuured while pulling your document.The provided filter does not have ant data.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                //}
 
 
             }

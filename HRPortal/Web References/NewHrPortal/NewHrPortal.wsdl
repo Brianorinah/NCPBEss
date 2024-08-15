@@ -2,6 +2,37 @@
 <definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="Approve">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="docType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="aprovalLevel" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="actionID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Approve_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sendImprestApplicationApproval">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sendImprestApplicationApproval_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="sendLeaveApplicationApproval">
         <complexType>
           <sequence>
@@ -147,23 +178,6 @@
           </sequence>
         </complexType>
       </element>
-      <element name="Approve">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="docType" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="aprovalLevel" type="int" />
-            <element minOccurs="1" maxOccurs="1" name="actionID" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="Approve_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
       <element name="BankSummaryReport">
         <complexType>
           <sequence>
@@ -172,6 +186,7 @@
             <element minOccurs="1" maxOccurs="1" name="budgetCenterFilter" type="string" />
             <element minOccurs="1" maxOccurs="1" name="bankAccountPostingGroup" type="string" />
             <element minOccurs="1" maxOccurs="1" name="dateFilter" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dateFilterEnd" type="date" />
           </sequence>
         </complexType>
       </element>
@@ -259,6 +274,7 @@
             <element minOccurs="1" maxOccurs="1" name="no" type="string" />
             <element minOccurs="1" maxOccurs="1" name="bankAccountPostingGroup" type="string" />
             <element minOccurs="1" maxOccurs="1" name="dateFilter" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dateFilterEnd" type="date" />
           </sequence>
         </complexType>
       </element>
@@ -318,6 +334,7 @@
             <element minOccurs="1" maxOccurs="1" name="no" type="string" />
             <element minOccurs="1" maxOccurs="1" name="customerPostingGroup" type="string" />
             <element minOccurs="1" maxOccurs="1" name="dateFilter" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dateFilterEnd" type="date" />
           </sequence>
         </complexType>
       </element>
@@ -335,6 +352,7 @@
             <element minOccurs="1" maxOccurs="1" name="localFilter" type="string" />
             <element minOccurs="1" maxOccurs="1" name="budgetCenterFilter" type="string" />
             <element minOccurs="1" maxOccurs="1" name="dateFilter" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dateFilterEnd" type="date" />
           </sequence>
         </complexType>
       </element>
@@ -354,6 +372,7 @@
             <element minOccurs="1" maxOccurs="1" name="incomeOrBalance" type="int" />
             <element minOccurs="1" maxOccurs="1" name="debitOrCredit" type="int" />
             <element minOccurs="1" maxOccurs="1" name="dateFilter" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dateFilterEnd" type="date" />
           </sequence>
         </complexType>
       </element>
@@ -480,6 +499,7 @@
             <element minOccurs="1" maxOccurs="1" name="functionCodeFilter" type="string" />
             <element minOccurs="1" maxOccurs="1" name="budgetCenterFilter" type="string" />
             <element minOccurs="1" maxOccurs="1" name="dateFilter" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dateFilterEnd" type="date" />
           </sequence>
         </complexType>
       </element>
@@ -498,6 +518,7 @@
             <element minOccurs="1" maxOccurs="1" name="functionCodeFilter" type="string" />
             <element minOccurs="1" maxOccurs="1" name="budgetCenterFilter" type="string" />
             <element minOccurs="1" maxOccurs="1" name="dateFilter" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dateFilterEnd" type="date" />
           </sequence>
         </complexType>
       </element>
@@ -528,6 +549,7 @@
             <element minOccurs="1" maxOccurs="1" name="no" type="string" />
             <element minOccurs="1" maxOccurs="1" name="vendorPostingGroup" type="string" />
             <element minOccurs="1" maxOccurs="1" name="dateFilter" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dateFilterEnd" type="date" />
           </sequence>
         </complexType>
       </element>
@@ -607,11 +629,26 @@
             <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
             <element minOccurs="1" maxOccurs="1" name="gLAccou" type="string" />
             <element minOccurs="1" maxOccurs="1" name="functionCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="budgetCenter" type="string" />
             <element minOccurs="1" maxOccurs="1" name="amount" type="decimal" />
           </sequence>
         </complexType>
       </element>
       <element name="createImprestApplicationLines_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createImprestFromPurchase">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createImprestFromPurchase_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -1392,22 +1429,20 @@
           </sequence>
         </complexType>
       </element>
-      <element name="sendImprestApplicationApproval">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="sendImprestApplicationApproval_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
     </schema>
   </types>
+  <message name="Approve">
+    <part name="parameters" element="tns:Approve" />
+  </message>
+  <message name="Approve_Result">
+    <part name="parameters" element="tns:Approve_Result" />
+  </message>
+  <message name="sendImprestApplicationApproval">
+    <part name="parameters" element="tns:sendImprestApplicationApproval" />
+  </message>
+  <message name="sendImprestApplicationApproval_Result">
+    <part name="parameters" element="tns:sendImprestApplicationApproval_Result" />
+  </message>
   <message name="sendLeaveApplicationApproval">
     <part name="parameters" element="tns:sendLeaveApplicationApproval" />
   </message>
@@ -1467,12 +1502,6 @@
   </message>
   <message name="updateSupervisorOverallComments_Result">
     <part name="parameters" element="tns:updateSupervisorOverallComments_Result" />
-  </message>
-  <message name="Approve">
-    <part name="parameters" element="tns:Approve" />
-  </message>
-  <message name="Approve_Result">
-    <part name="parameters" element="tns:Approve_Result" />
   </message>
   <message name="BankSummaryReport">
     <part name="parameters" element="tns:BankSummaryReport" />
@@ -1647,6 +1676,12 @@
   </message>
   <message name="createImprestApplicationLines_Result">
     <part name="parameters" element="tns:createImprestApplicationLines_Result" />
+  </message>
+  <message name="createImprestFromPurchase">
+    <part name="parameters" element="tns:createImprestFromPurchase" />
+  </message>
+  <message name="createImprestFromPurchase_Result">
+    <part name="parameters" element="tns:createImprestFromPurchase_Result" />
   </message>
   <message name="createImprestRequest">
     <part name="parameters" element="tns:createImprestRequest" />
@@ -1918,13 +1953,15 @@
   <message name="reopenCreditSales_Result">
     <part name="parameters" element="tns:reopenCreditSales_Result" />
   </message>
-  <message name="sendImprestApplicationApproval">
-    <part name="parameters" element="tns:sendImprestApplicationApproval" />
-  </message>
-  <message name="sendImprestApplicationApproval_Result">
-    <part name="parameters" element="tns:sendImprestApplicationApproval_Result" />
-  </message>
   <portType name="NewHrPortal_Port">
+    <operation name="Approve">
+      <input name="Approve" message="tns:Approve" />
+      <output name="Approve_Result" message="tns:Approve_Result" />
+    </operation>
+    <operation name="sendImprestApplicationApproval">
+      <input name="sendImprestApplicationApproval" message="tns:sendImprestApplicationApproval" />
+      <output name="sendImprestApplicationApproval_Result" message="tns:sendImprestApplicationApproval_Result" />
+    </operation>
     <operation name="sendLeaveApplicationApproval">
       <input name="sendLeaveApplicationApproval" message="tns:sendLeaveApplicationApproval" />
       <output name="sendLeaveApplicationApproval_Result" message="tns:sendLeaveApplicationApproval_Result" />
@@ -1964,10 +2001,6 @@
     <operation name="updateSupervisorOverallComments">
       <input name="updateSupervisorOverallComments" message="tns:updateSupervisorOverallComments" />
       <output name="updateSupervisorOverallComments_Result" message="tns:updateSupervisorOverallComments_Result" />
-    </operation>
-    <operation name="Approve">
-      <input name="Approve" message="tns:Approve" />
-      <output name="Approve_Result" message="tns:Approve_Result" />
     </operation>
     <operation name="BankSummaryReport">
       <input name="BankSummaryReport" message="tns:BankSummaryReport" />
@@ -2084,6 +2117,10 @@
     <operation name="createImprestApplicationLines">
       <input name="createImprestApplicationLines" message="tns:createImprestApplicationLines" />
       <output name="createImprestApplicationLines_Result" message="tns:createImprestApplicationLines_Result" />
+    </operation>
+    <operation name="createImprestFromPurchase">
+      <input name="createImprestFromPurchase" message="tns:createImprestFromPurchase" />
+      <output name="createImprestFromPurchase_Result" message="tns:createImprestFromPurchase_Result" />
     </operation>
     <operation name="createImprestRequest">
       <input name="createImprestRequest" message="tns:createImprestRequest" />
@@ -2265,13 +2302,27 @@
       <input name="reopenCreditSales" message="tns:reopenCreditSales" />
       <output name="reopenCreditSales_Result" message="tns:reopenCreditSales_Result" />
     </operation>
-    <operation name="sendImprestApplicationApproval">
-      <input name="sendImprestApplicationApproval" message="tns:sendImprestApplicationApproval" />
-      <output name="sendImprestApplicationApproval_Result" message="tns:sendImprestApplicationApproval_Result" />
-    </operation>
   </portType>
   <binding name="NewHrPortal_Binding" type="tns:NewHrPortal_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="Approve">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:Approve" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Approve">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Approve_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="sendImprestApplicationApproval">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendImprestApplicationApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="sendImprestApplicationApproval">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="sendImprestApplicationApproval_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="sendLeaveApplicationApproval">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendLeaveApplicationApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="sendLeaveApplicationApproval">
@@ -2359,15 +2410,6 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="updateSupervisorOverallComments_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
-    <operation name="Approve">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:Approve" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="Approve">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="Approve_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -2629,6 +2671,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="createImprestApplicationLines_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createImprestFromPurchase">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createImprestFromPurchase" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createImprestFromPurchase">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createImprestFromPurchase_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -3034,15 +3085,6 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="reopenCreditSales_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
-    <operation name="sendImprestApplicationApproval">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendImprestApplicationApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="sendImprestApplicationApproval">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="sendImprestApplicationApproval_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

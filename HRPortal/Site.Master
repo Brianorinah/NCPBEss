@@ -325,6 +325,18 @@
                                 <li class="treeview">
                                     <a href="#">
                                         <i class="fa fa-money"></i>
+                                        <span>PurchaseRequisition</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">                                       
+                                        <li><a href="ApprovedPurchaseRequistions.aspx"><i class="fa fa-circle-o"></i>Approved Purchase Requisitions</a></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-money"></i>
                                         <span>Safari Request</span>
                                         <span class="pull-right-container">
                                             <i class="fa fa-angle-left pull-right"></i>
@@ -345,7 +357,7 @@
                                         </span>
                                     </a>
                                     <ul class="treeview-menu">
-                                        <li><a href="Imprest1.aspx"><i class="fa fa-circle-o"></i>New Imprest</a></li>
+                                        <%--<li><a href="Imprest1.aspx"><i class="fa fa-circle-o"></i>New Imprest</a></li>--%>
                                         <li><a href="OpenImprest.aspx"><i class="fa fa-circle-o"></i>Open Imprest</a></li>
                                         <li><a href="ApprovedImprest.aspx"><i class="fa fa-circle-o"></i>Approved Imprest</a></li>
                                     </ul>

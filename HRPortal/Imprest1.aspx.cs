@@ -13,6 +13,8 @@ namespace HRPortal
 {
     public partial class Imprest1 : System.Web.UI.Page
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -91,6 +93,28 @@ namespace HRPortal
                 functioncode.DataBind();
                 functioncode.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
 
+                var budgetCenterFilters = Config.ObjNav1.fnGetDimension(2);
+                List<ItemList> allbudgetCenterFilters = new List<ItemList>();
+                string[] infobudgetCenterFilters = budgetCenterFilters.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                if (infobudgetCenterFilters.Count() > 0)
+                {
+                    foreach (var allInfo in infobudgetCenterFilters)
+                    {
+                        String[] arr = allInfo.Split('*');
+
+                        ItemList mdl = new ItemList();
+                        mdl.code = arr[0];
+                        mdl.description = arr[0] + "-" + arr[1];
+                        allbudgetCenterFilters.Add(mdl);
+                    }
+                }
+
+                budgetCenterFilter.DataSource = allbudgetCenterFilters;
+                budgetCenterFilter.DataTextField = "description";
+                budgetCenterFilter.DataValueField = "code";
+                budgetCenterFilter.DataBind();
+                budgetCenterFilter.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
                 ContentPlaceHolder1_functionCds.DataSource = itms2;
                 ContentPlaceHolder1_functionCds.DataTextField = "description";
                 ContentPlaceHolder1_functionCds.DataValueField = "code";
@@ -117,8 +141,8 @@ namespace HRPortal
 
                                 payingbankaccount.SelectedValue = arr[7];
                             
-                                requestdate.Text = string.IsNullOrEmpty(arr[8]) ? "" : Convert.ToDateTime(arr[8]).ToString(); 
-                                traveldate.Text = string.IsNullOrEmpty(arr[9]) ? "" : Convert.ToDateTime(arr[9]).ToString();
+                                requestdate.Text = string.IsNullOrEmpty(arr[8]) ? "" : arr[8]; 
+                                traveldate.Text = string.IsNullOrEmpty(arr[9]) ? "" : arr[9];
                                 purpose.Text = arr[1];
                             }
                         }
@@ -137,21 +161,23 @@ namespace HRPortal
                 String employeeNo = Convert.ToString(Session["employeeNo"]);
                 string userName = Convert.ToString(Session["username"]);
                 String tpayingbankaccount = payingbankaccount.SelectedValue.Trim();
-                string dateFormat = "dd/MM/yyyy"; // Or "MM/dd/yyyy" depending on your requirement
-                string dateFormat1 = "dd/MM/yyyy"; // Or "MM/dd/yyyy" depending on your requirement
-                DateTime trequestdate;
-                DateTime ttraveldate;
+                DateTime trequestdate = Convert.ToDateTime(requestdate.Text.Trim());
+                DateTime ttraveldate = Convert.ToDateTime(traveldate.Text.Trim());
+                //string dateFormat = "dd/MM/yyyy"; // Or "MM/dd/yyyy" depending on your requirement
+                //string dateFormat1 = "dd/MM/yyyy"; // Or "MM/dd/yyyy" depending on your requirement
+                //DateTime trequestdate;
+                //DateTime ttraveldate;
 
-                try
-                {
-                    trequestdate = DateTime.ParseExact(requestdate.Text.Trim(), dateFormat, CultureInfo.InvariantCulture);
-                   ttraveldate = DateTime.ParseExact(traveldate.Text.Trim(), dateFormat, CultureInfo.InvariantCulture);
-                }
-                catch (Exception ex)
-                {
-                     trequestdate = DateTime.ParseExact(requestdate.Text.Trim(), dateFormat1, CultureInfo.InvariantCulture);
-                     ttraveldate = DateTime.ParseExact(traveldate.Text.Trim(), dateFormat1, CultureInfo.InvariantCulture);
-                }
+                //try
+                //{
+                //    trequestdate = DateTime.ParseExact(requestdate.Text.Trim(), dateFormat, CultureInfo.InvariantCulture);
+                //   ttraveldate = DateTime.ParseExact(traveldate.Text.Trim(), dateFormat, CultureInfo.InvariantCulture);
+                //}
+                //catch (Exception ex)
+                //{
+                //     trequestdate = DateTime.ParseExact(requestdate.Text.Trim(), dateFormat1, CultureInfo.InvariantCulture);
+                //     ttraveldate = DateTime.ParseExact(traveldate.Text.Trim(), dateFormat1, CultureInfo.InvariantCulture);
+                //}
 
                 //string[] dateFormats = { "dd/MM/yyyy", "MM/dd/yyyy" }; // Add more formats if needed
                 //DateTime trequestdate;
@@ -226,6 +252,7 @@ namespace HRPortal
                     String[] info = status.Split('*');
                     if (info[0] == "success")
                     {
+                        log.Info($"Login attempt -> Email address: {info}.");
                         if (newImprest)
                         {
                             imprestNo = info[2];
@@ -242,6 +269,7 @@ namespace HRPortal
             }
             catch (Exception m)
             {
+                log.Error($"Login attempt -> Email address: {m.Message}.");
                 generalFeedback.InnerHtml = "<div class='alert alert-danger'>" + m.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
             }
         }
@@ -251,15 +279,36 @@ namespace HRPortal
         {
             try
             {
+                Boolean error = false;
+                string message = "";
                 string imprestNo = Request.QueryString["imprestNo"];
                 string tglaccount = glaccount.SelectedValue.Trim();
                 string tfunctioncode = functioncode.SelectedValue.Trim();
+                string tbudgetCenterFilter = budgetCenterFilter.SelectedValue.Trim();
                 decimal tamount = Convert.ToDecimal(amount.Text.Trim());
 
-                String status = Config.ObjNav2.createImprestApplicationLines(imprestNo, tglaccount, tfunctioncode, tamount);
-                String[] info = status.Split('*');
+                if (string.IsNullOrEmpty(tfunctioncode))
+                {
+                    error = true;
+                    message = "Kindly enter function code";
+                }
+                if (string.IsNullOrEmpty(tbudgetCenterFilter))
+                {
+                    error = true;
+                    message = "Kindly enter budget center";
+                }
 
-                linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                if (error)
+                {
+                    linesFeedback.InnerHtml = "<div class='alert alert-danger'>" +message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {
+                    String status = Config.ObjNav2.createImprestApplicationLines(imprestNo, tglaccount, tfunctioncode, tbudgetCenterFilter, tamount);
+                    String[] info = status.Split('*');
+
+                    linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
 
             }
             catch (Exception n)

@@ -80,11 +80,16 @@ namespace HRPortal
                 string empNo = (String)Session["employeeNo"];               
                 string taccNo = accNo.SelectedValue.Trim();
                 string tbankAccountPostingGroup = bankAccountPostingGroup.SelectedValue.Trim();
+                DateTime tdateFilterEnd = new DateTime();
                 DateTime tdateFilter = new DateTime();
 
                 if (!string.IsNullOrEmpty(dateFilter.Text.Trim()))
                 {
                     tdateFilter = Convert.ToDateTime(dateFilter.Text.Trim());
+                }
+                if (!string.IsNullOrEmpty(endDate.Text.Trim()))
+                {
+                    tdateFilterEnd = Convert.ToDateTime(endDate.Text.Trim());
                 }
                 if (string.IsNullOrEmpty(taccNo))
                 {
@@ -96,7 +101,7 @@ namespace HRPortal
                 }
 
 
-                string status = Config.ObjNav2.CashBookReport(taccNo, tbankAccountPostingGroup, tdateFilter);
+                string status = Config.ObjNav2.CashBookReport(taccNo, tbankAccountPostingGroup, tdateFilter, tdateFilterEnd);
                 if (status != "danger" && !string.IsNullOrEmpty(status))
                 {
                     bool downloaded = ConvertAndDownloadToLocal(status);

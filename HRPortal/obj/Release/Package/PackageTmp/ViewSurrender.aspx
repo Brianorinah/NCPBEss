@@ -12,6 +12,8 @@
         string approvalLevel = Request.QueryString["approvalLevel"].Trim();
         string action = !string.IsNullOrEmpty(Request.QueryString["action"].Trim()) ? Request.QueryString["action"].Trim(): "";
          %>
+    <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Back" OnClick="Unnamed10_Click" CausesValidation="false"/>
+    <br />
     <div class="row">
         <div class="col-sm-12">
             <ol class="breadcrumb float-sm-right">

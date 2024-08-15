@@ -52,9 +52,14 @@
                     </asp:DropDownList>
                 </div>
                 <div class="form-group">
-                    <label>Date Filter<span style="color: red">*</span></label>
+                    <label>Start Date<span style="color: red">*</span></label>
                     <asp:TextBox CssClass="form-control" ID="dateFilter" TextMode="Date" runat="server" />
-                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="dateFilter"  ErrorMessage="Please select date filter, it cannot be empty!" ForeColor="Red" />
+                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="dateFilter"  ErrorMessage="Please select start date, it cannot be empty!" ForeColor="Red" />
+                </div>
+                <div class="form-group">
+                    <label>End Date<span style="color: red">*</span></label>
+                    <asp:TextBox CssClass="form-control" ID="endDate" TextMode="Date" runat="server" />
+                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="endDate"  ErrorMessage="Please select end date, it cannot be empty!" ForeColor="Red" />
                 </div>
 
                 <center>

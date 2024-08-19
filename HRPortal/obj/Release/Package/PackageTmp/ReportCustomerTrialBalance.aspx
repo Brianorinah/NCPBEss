@@ -20,6 +20,30 @@
             </div>
             <div class="panel-body">
                 <div id="feedback" runat="server"></div>
+                <div class="row" style="display:flex;align-items:center;">
+                    <div class="col-md-2 col-lg-5">
+                        <div class="form-group">
+                            <label>Search By</label>
+                            <asp:DropDownList CssClass="form-control select2" ID="searchBy" runat="server">
+                                <asp:ListItem Value="">--Select--</asp:ListItem>
+                                <asp:ListItem Value="0">Id</asp:ListItem>
+                                <asp:ListItem Value="1">Name</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-lg-5">
+                        <div class="form-group">
+                            <label>Customer Search</label>
+                            <asp:TextBox runat="server" ID="custSearch" CssClass="form-control span3"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+
+                            <asp:Button CssClass="btn btn-primary form-control span3" ID="Button1" runat="server" Text="Search" OnClick="searchBy_SelectedIndexChanged" causesvalidation="false"/>
+
+                        
+                    </div>
+                </div>
                 <div class="form-group">
                     <label>Customer</label>
                     <asp:DropDownList CssClass="form-control select2" ID="accNo" runat="server">                        

@@ -162,11 +162,13 @@
         </div>
         <div class="panel-footer">
             <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Back" OnClick="Unnamed10_Click" CausesValidation="false" />
-            <center>
+            <div id="tasksDiv">
+                <center>
                  <label class="btn btn-danger" onclick="sendCancelRequest('<%=docType%>','<%=docNo%>','<%=approvalLevel%>','<%=action%>');"><i class="fa fa-times"></i>Reject</label>  
             <label class="btn btn-success" onclick="sendApprovalRequest('<%=docType%>','<%=docNo%>','<%=approvalLevel%>');"><i class="fa fa-check"></i>Approve</label>  
              <label class="btn btn-primary" onclick="sendDelegateRequest('<%=docType%>','<%=docNo%>','<%=approvalLevel%>');"><i class="fa fa-check"></i>Delegate</label>                                                          
             </center>
+            </div>
             <div class="clearfix"></div>
         </div>
     </div>
@@ -296,4 +298,9 @@
 
         </div>
     </div>
+    <script type="text/javascript">
+        function HideDiv() {
+            document.getElementById("tasksDiv").style.display = "none";
+        }
+    </script>
 </asp:Content>

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ReportVendorDetailedPass.aspx.cs" Inherits="HRPortal.ReportVendorDetailedPass" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -20,30 +21,57 @@
             </div>
             <div class="panel-body">
                 <div id="feedback" runat="server"></div>
+                <div class="row" style="display: flex; align-items: center;">
+                    <div class="col-md-2 col-lg-2">
+                        <div class="form-group">
+                            <label>Search By Range</label>
+                            <asp:CheckBox runat="server" ID="dangeCheckbox" AutoPostBack="true" OnCheckedChanged="dangeCheckbox_CheckedChanged" />
+                        </div>
+                    </div>
+                    <div runat="server" id="rangeDiv" visible="false">
+                        <div class="col-md-5 col-lg-5" style="margin-right: 30px!important;">
+                            <div class="form-group">
+                                <label>Item Filter 1</label>
+                                <asp:DropDownList CssClass="form-control select2" ID="accNo1" runat="server">
+                                </asp:DropDownList>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-lg-5">
+                            <div class="form-group">
+                                <label>Item Filter 1</label>
+                                <asp:DropDownList CssClass="form-control select2" ID="accNo2" runat="server">
+                                </asp:DropDownList>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                <div runat="server" id="itemDiv" visible="true">
+                    <div class="form-group">
+                        <label>Item</label>
+                        <asp:DropDownList CssClass="form-control select2" ID="accNo" runat="server">
+                        </asp:DropDownList>
+                    </div>
+                </div>
+
                 <div class="form-group">
-                    <label>Item</label>
-                    <asp:DropDownList CssClass="form-control select2" ID="accNo" runat="server">                        
+                    <label>Location Filter</label>
+                    <asp:DropDownList CssClass="form-control select2" ID="locationFilter" runat="server">
                     </asp:DropDownList>
                 </div>
                 <div class="form-group">
-                    <label>Location Filter</label>
-                    <asp:DropDownList CssClass="form-control select2" ID="locationFilter" runat="server">                        
-                    </asp:DropDownList>
-                </div>                
-                <div class="form-group">
                     <label>Budget Center Filter</label>
-                    <asp:DropDownList CssClass="form-control select2" ID="budgetCenterFilter" runat="server">                        
+                    <asp:DropDownList CssClass="form-control select2" ID="budgetCenterFilter" runat="server">
                     </asp:DropDownList>
                 </div>
                 <div class="form-group">
                     <label>Start Date<span style="color: red">*</span></label>
                     <asp:TextBox CssClass="form-control" ID="dateFilter" TextMode="Date" runat="server" />
-                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="dateFilter"  ErrorMessage="Please select start date, it cannot be empty!" ForeColor="Red" />
+                    <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="dateFilter" ErrorMessage="Please select start date, it cannot be empty!" ForeColor="Red" />
                 </div>
                 <div class="form-group">
                     <label>End Date<span style="color: red">*</span></label>
                     <asp:TextBox CssClass="form-control" ID="endDate" TextMode="Date" runat="server" />
-                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="endDate"  ErrorMessage="Please select end date, it cannot be empty!" ForeColor="Red" />
+                    <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="endDate" ErrorMessage="Please select end date, it cannot be empty!" ForeColor="Red" />
                 </div>
 
                 <center>

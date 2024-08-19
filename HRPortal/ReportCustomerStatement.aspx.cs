@@ -26,7 +26,7 @@ namespace HRPortal
             {
                 try
                 {
-                    BindCustomerData();
+                    //BindCustomerData();
 
                     //var bankAccounts = Config.ObjNav1.fnGetCustomers();
                     //List<ItemList> itmsBankAccount = new List<ItemList>();
@@ -194,6 +194,60 @@ namespace HRPortal
             {
                 string error = ex.Message;
                 return new List<Customer>();
+            }
+        }
+
+        protected void searchBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tsearchBy = searchBy.SelectedValue.Trim();
+            string tcustSearch = custSearch.Text.Trim();
+
+            if (tsearchBy == "0")
+            {
+                var items = Config.ObjNav1.fnGetCustomersSearchById(tcustSearch);
+                List<ItemList> itms = new List<ItemList>();
+                string[] infoItems = items.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                if (infoItems.Count() > 0)
+                {
+                    foreach (var allInfo in infoItems)
+                    {
+                        String[] arr = allInfo.Split('*');
+
+                        ItemList mdl = new ItemList();
+                        mdl.code = arr[0];
+                        mdl.description = arr[0] + "-" + arr[1];
+                        itms.Add(mdl);
+                    }
+                }
+                accNo.DataSource = itms;
+                accNo.DataTextField = "description";
+                accNo.DataValueField = "code";
+                accNo.DataBind();
+                accNo.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+            }
+            else
+            {
+                var items = Config.ObjNav1.fnGetCustomersSearchByName(tcustSearch);
+                List<ItemList> itms = new List<ItemList>();
+                string[] infoItems = items.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                if (infoItems.Count() > 0)
+                {
+                    foreach (var allInfo in infoItems)
+                    {
+                        String[] arr = allInfo.Split('*');
+
+                        ItemList mdl = new ItemList();
+                        mdl.code = arr[0];
+                        mdl.description = arr[0] + "-" + arr[1];
+                        itms.Add(mdl);
+                    }
+                }
+                accNo.DataSource = itms;
+                accNo.DataTextField = "description";
+                accNo.DataValueField = "code";
+                accNo.DataBind();
+                accNo.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
             }
         }
     }

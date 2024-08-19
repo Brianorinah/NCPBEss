@@ -64,6 +64,18 @@ namespace HRPortal
                     accNo.DataBind();
                     accNo.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
 
+                    accNo1.DataSource = itmsGLAccount;
+                    accNo1.DataTextField = "description";
+                    accNo1.DataValueField = "code";
+                    accNo1.DataBind();
+                    accNo1.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                    accNo2.DataSource = itmsGLAccount;
+                    accNo2.DataTextField = "description";
+                    accNo2.DataValueField = "code";
+                    accNo2.DataBind();
+                    accNo2.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
                     var functionFilters = Config.ObjNav1.fnGetDimension(1);
                     List<ItemList> allFunctionFilters = new List<ItemList>();
                     string[] infofunctionFilters = functionFilters.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
@@ -125,12 +137,16 @@ namespace HRPortal
             {
                 string empNo = (String)Session["employeeNo"];
                 string taccNo = accNo.SelectedValue.Trim();
+                string taccNo1 = accNo1.SelectedValue.Trim();
+                string taccNo2 = accNo2.SelectedValue.Trim();
                 string tIncOrBalance = IncOrBalance.SelectedValue.Trim();
                 string tDebitOrCredit = DebitOrCredit.SelectedValue.Trim();
                 string tfunctionFilter = functionFilter.SelectedValue.Trim();
                 string tbudgetCenterFilter = budgetCenterFilter.SelectedValue.Trim();              
                 int InttIncOrBalance = 10;
                 int InttDebitOrCredit = 10;
+
+                Boolean tdangeCheckbox = dangeCheckbox.Checked;
 
                 DateTime tdateFilter = new DateTime();
                 DateTime tdateFilterEnd = new DateTime();
@@ -146,6 +162,14 @@ namespace HRPortal
                 if (string.IsNullOrEmpty(taccNo))
                 {
                     taccNo = "";
+                }
+                if (string.IsNullOrEmpty(taccNo1))
+                {
+                    taccNo1 = "";
+                }
+                if (string.IsNullOrEmpty(taccNo2))
+                {
+                    taccNo2 = "";
                 }
                 if (!string.IsNullOrEmpty(tIncOrBalance))
                 {
@@ -164,27 +188,27 @@ namespace HRPortal
                     tfunctionFilter = "";
                 }
 
-                //string status = Config.ObjNav2.GeneralLedgerStatementReport(taccNo, tfunctionFilter, tbudgetCenterFilter, InttIncOrBalance, InttDebitOrCredit, tdateFilter, tdateFilterEnd);
-                //if (status != "danger" && !string.IsNullOrEmpty(status))
-                //{
-                //    bool downloaded = ConvertAndDownloadToLocal(status);
-                //    if (downloaded)
-                //    {
-                //        reportViewFrame.Attributes.Add("src", ResolveUrl("~/Downloads/" + string.Format("{0}.pdf", empNo)));
-                //    }
-                //    else if (status == "danger")
-                //    {
-                //        feedback.InnerHtml = "<div class='alert alert-danger'>Document could not be found.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                //    }
-                //    else
-                //    {
-                //        feedback.InnerHtml = "<div class='alert alert-danger'>An error occured while generating your document.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                //    }
-                //}
-                //else
-                //{
-                //    feedback.InnerHtml = "<div class='alert alert-danger'>An error ocuured while pulling your document.The provided filter does not have ant data.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                //}
+                string status = Config.ObjNav2.GeneralLedgerStatementReport(taccNo, tfunctionFilter, tbudgetCenterFilter, InttIncOrBalance, InttDebitOrCredit, tdateFilter, tdateFilterEnd, tdangeCheckbox, taccNo1, taccNo2);
+                if (status != "danger" && !string.IsNullOrEmpty(status))
+                {
+                    bool downloaded = ConvertAndDownloadToLocal(status);
+                    if (downloaded)
+                    {
+                        reportViewFrame.Attributes.Add("src", ResolveUrl("~/Downloads/" + string.Format("{0}.pdf", empNo)));
+                    }
+                    else if (status == "danger")
+                    {
+                        feedback.InnerHtml = "<div class='alert alert-danger'>Document could not be found.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    }
+                    else
+                    {
+                        feedback.InnerHtml = "<div class='alert alert-danger'>An error occured while generating your document.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    }
+                }
+                else
+                {
+                    feedback.InnerHtml = "<div class='alert alert-danger'>An error ocuured while pulling your document.The provided filter does not have ant data.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
 
 
             }
@@ -229,6 +253,19 @@ namespace HRPortal
                 // Handle exceptions (e.g., invalid base64 string)
                 //TempData["error"] = ex.Message;
                 return false;
+            }
+        }
+        protected void dangeCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (dangeCheckbox.Checked)
+            {
+                rangeDiv.Visible = true;
+                itemDiv.Visible = false;
+            }
+            else
+            {
+                rangeDiv.Visible = false;
+                itemDiv.Visible = true;
             }
         }
     }

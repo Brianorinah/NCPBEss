@@ -64,6 +64,18 @@ namespace HRPortal
                     accNo.DataBind();
                     accNo.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
 
+                    accNo1.DataSource = itms;
+                    accNo1.DataTextField = "description";
+                    accNo1.DataValueField = "code";
+                    accNo1.DataBind();
+                    accNo1.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                    accNo2.DataSource = itms;
+                    accNo2.DataTextField = "description";
+                    accNo2.DataValueField = "code";
+                    accNo2.DataBind();
+                    accNo2.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
                     var functionFilters = Config.ObjNav1.fnGetDimension(1);
                     List<ItemList> allFunctionFilters = new List<ItemList>();
                     string[] infofunctionFilters = functionFilters.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
@@ -124,11 +136,14 @@ namespace HRPortal
             {
                 string empNo = (String)Session["employeeNo"];                
                 string taccNo = accNo.SelectedValue.Trim();
+                string taccNo1 = accNo1.SelectedValue.Trim();
+                string taccNo2 = accNo2.SelectedValue.Trim();
                 string tlocationFilter = locationFilter.SelectedValue.Trim();
                 string tfunctionFilter = functionFilter.SelectedValue.Trim();
                 string tbudgetCenterFilter = budgetCenterFilter.SelectedValue.Trim();
                 DateTime tdateFilter = new DateTime();
                 DateTime tdateFilterEnd = new DateTime();
+                Boolean tdangeCheckbox = dangeCheckbox.Checked;
 
                 if (!string.IsNullOrEmpty(dateFilter.Text.Trim()))
                 {
@@ -141,6 +156,14 @@ namespace HRPortal
                 if (string.IsNullOrEmpty(taccNo))
                 {
                     taccNo = "";
+                }
+                if (string.IsNullOrEmpty(taccNo1))
+                {
+                    taccNo1 = "";
+                }
+                if (string.IsNullOrEmpty(taccNo2))
+                {
+                    taccNo2 = "";
                 }
                 if (string.IsNullOrEmpty(tlocationFilter))
                 {
@@ -155,7 +178,7 @@ namespace HRPortal
                     tfunctionFilter = "";
                 }
 
-                string status = Config.ObjNav2.StockBalancePerStoreReport(taccNo, tlocationFilter, tfunctionFilter, tbudgetCenterFilter, tdateFilter, tdateFilterEnd);
+                string status = Config.ObjNav2.StockBalancePerStoreReport(taccNo, tlocationFilter, tfunctionFilter, tbudgetCenterFilter, tdateFilter, tdateFilterEnd, tdangeCheckbox, taccNo1, taccNo2);
                 if (status != "danger" && !string.IsNullOrEmpty(status))
                 {
                     bool downloaded = ConvertAndDownloadToLocal(status);
@@ -220,6 +243,19 @@ namespace HRPortal
                 // Handle exceptions (e.g., invalid base64 string)
                 //TempData["error"] = ex.Message;
                 return false;
+            }
+        }
+        protected void dangeCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (dangeCheckbox.Checked)
+            {
+                rangeDiv.Visible = true;
+                itemDiv.Visible = false;
+            }
+            else
+            {
+                rangeDiv.Visible = false;
+                itemDiv.Visible = true;
             }
         }
     }

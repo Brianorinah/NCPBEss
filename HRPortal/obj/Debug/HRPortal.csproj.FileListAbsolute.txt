@@ -1151,4 +1151,6 @@ D:\Client Projects\NCPB\NCPBEss\HRPortal\bin\zh-Hans\System.Spatial.resources.dl
 D:\Client Projects\NCPB\NCPBEss\HRPortal\bin\zh-Hant\System.Spatial.resources.dll
 D:\Client Projects\NCPB\NCPBEss\HRPortal\obj\Debug\HRPortal.dll
 D:\Client Projects\NCPB\NCPBEss\HRPortal\obj\Debug\HRPortal.pdb
+D:\Client Projects\NCPB\NCPBEss\HRPortal\bin\log4net.dll
+D:\Client Projects\NCPB\NCPBEss\HRPortal\bin\log4net.xml
 D:\Client Projects\NCPB\NCPBEss\HRPortal\obj\Debug\HRPortal.csprojResolveAssemblyReference.cache

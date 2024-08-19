@@ -2,23 +2,6 @@
 <definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" xmlns="http://www.w3.org/2001/XMLSchema">
-      <element name="Approve">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="docType" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="aprovalLevel" type="int" />
-            <element minOccurs="1" maxOccurs="1" name="actionID" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="Approve_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
       <element name="sendImprestApplicationApproval">
         <complexType>
           <sequence>
@@ -178,6 +161,23 @@
           </sequence>
         </complexType>
       </element>
+      <element name="Approve">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="docType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="aprovalLevel" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="actionID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Approve_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="BankSummaryReport">
         <complexType>
           <sequence>
@@ -187,6 +187,9 @@
             <element minOccurs="1" maxOccurs="1" name="bankAccountPostingGroup" type="string" />
             <element minOccurs="1" maxOccurs="1" name="dateFilter" type="date" />
             <element minOccurs="1" maxOccurs="1" name="dateFilterEnd" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="rangeFilter" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="no1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="no2" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -275,6 +278,9 @@
             <element minOccurs="1" maxOccurs="1" name="bankAccountPostingGroup" type="string" />
             <element minOccurs="1" maxOccurs="1" name="dateFilter" type="date" />
             <element minOccurs="1" maxOccurs="1" name="dateFilterEnd" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="rangeFilter" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="no1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="no2" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -353,6 +359,9 @@
             <element minOccurs="1" maxOccurs="1" name="budgetCenterFilter" type="string" />
             <element minOccurs="1" maxOccurs="1" name="dateFilter" type="date" />
             <element minOccurs="1" maxOccurs="1" name="dateFilterEnd" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="rangeFilter" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="no1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="no2" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -373,6 +382,9 @@
             <element minOccurs="1" maxOccurs="1" name="debitOrCredit" type="int" />
             <element minOccurs="1" maxOccurs="1" name="dateFilter" type="date" />
             <element minOccurs="1" maxOccurs="1" name="dateFilterEnd" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="rangeFilter" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="no1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="no2" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -500,6 +512,9 @@
             <element minOccurs="1" maxOccurs="1" name="budgetCenterFilter" type="string" />
             <element minOccurs="1" maxOccurs="1" name="dateFilter" type="date" />
             <element minOccurs="1" maxOccurs="1" name="dateFilterEnd" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="rangeFilter" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="no1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="no2" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -519,6 +534,9 @@
             <element minOccurs="1" maxOccurs="1" name="budgetCenterFilter" type="string" />
             <element minOccurs="1" maxOccurs="1" name="dateFilter" type="date" />
             <element minOccurs="1" maxOccurs="1" name="dateFilterEnd" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="rangeFilter" type="boolean" />
+            <element minOccurs="1" maxOccurs="1" name="no1" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="no2" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -1431,12 +1449,6 @@
       </element>
     </schema>
   </types>
-  <message name="Approve">
-    <part name="parameters" element="tns:Approve" />
-  </message>
-  <message name="Approve_Result">
-    <part name="parameters" element="tns:Approve_Result" />
-  </message>
   <message name="sendImprestApplicationApproval">
     <part name="parameters" element="tns:sendImprestApplicationApproval" />
   </message>
@@ -1502,6 +1514,12 @@
   </message>
   <message name="updateSupervisorOverallComments_Result">
     <part name="parameters" element="tns:updateSupervisorOverallComments_Result" />
+  </message>
+  <message name="Approve">
+    <part name="parameters" element="tns:Approve" />
+  </message>
+  <message name="Approve_Result">
+    <part name="parameters" element="tns:Approve_Result" />
   </message>
   <message name="BankSummaryReport">
     <part name="parameters" element="tns:BankSummaryReport" />
@@ -1954,10 +1972,6 @@
     <part name="parameters" element="tns:reopenCreditSales_Result" />
   </message>
   <portType name="NewHrPortal_Port">
-    <operation name="Approve">
-      <input name="Approve" message="tns:Approve" />
-      <output name="Approve_Result" message="tns:Approve_Result" />
-    </operation>
     <operation name="sendImprestApplicationApproval">
       <input name="sendImprestApplicationApproval" message="tns:sendImprestApplicationApproval" />
       <output name="sendImprestApplicationApproval_Result" message="tns:sendImprestApplicationApproval_Result" />
@@ -2001,6 +2015,10 @@
     <operation name="updateSupervisorOverallComments">
       <input name="updateSupervisorOverallComments" message="tns:updateSupervisorOverallComments" />
       <output name="updateSupervisorOverallComments_Result" message="tns:updateSupervisorOverallComments_Result" />
+    </operation>
+    <operation name="Approve">
+      <input name="Approve" message="tns:Approve" />
+      <output name="Approve_Result" message="tns:Approve_Result" />
     </operation>
     <operation name="BankSummaryReport">
       <input name="BankSummaryReport" message="tns:BankSummaryReport" />
@@ -2305,15 +2323,6 @@
   </portType>
   <binding name="NewHrPortal_Binding" type="tns:NewHrPortal_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-    <operation name="Approve">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:Approve" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="Approve">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="Approve_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
     <operation name="sendImprestApplicationApproval">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendImprestApplicationApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="sendImprestApplicationApproval">
@@ -2410,6 +2419,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="updateSupervisorOverallComments_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="Approve">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:Approve" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Approve">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Approve_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

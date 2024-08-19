@@ -26,7 +26,7 @@ namespace HRPortal
             {
                 try
                 {
-                    BindVendorData();
+                    //BindVendorData();
 
                     var jobs1 = Config.ObjNav1.fnGetVendorPostingGroup();
                     List<ItemList> itms1 = new List<ItemList>();
@@ -90,7 +90,7 @@ namespace HRPortal
             try
             {
                 string empNo = (String)Session["employeeNo"];              
-                string taccNo = accNo.SelectedValue.Trim();
+                string taccNo = accNo.SelectedValue.Trim();                
                 string tvendorPostingGroup = vendorPostingGroup.SelectedValue.Trim();
                 DateTime tdateFilter = new DateTime();
                 DateTime tdateFilterEnd = new DateTime();
@@ -230,6 +230,59 @@ namespace HRPortal
             {
                 string error = ex.Message;
                 return new List<Vendor>();
+            }
+        }
+        protected void searchBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tsearchBy = searchBy.SelectedValue.Trim();
+            string tcustSearch = custSearch.Text.Trim();
+
+            if (tsearchBy == "0")
+            {
+                var items = Config.ObjNav1.fnGetVendorsId(tcustSearch);
+                List<ItemList> itms = new List<ItemList>();
+                string[] infoItems = items.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                if (infoItems.Count() > 0)
+                {
+                    foreach (var allInfo in infoItems)
+                    {
+                        String[] arr = allInfo.Split('*');
+
+                        ItemList mdl = new ItemList();
+                        mdl.code = arr[0];
+                        mdl.description = arr[0] + "-" + arr[1];
+                        itms.Add(mdl);
+                    }
+                }
+                accNo.DataSource = itms;
+                accNo.DataTextField = "description";
+                accNo.DataValueField = "code";
+                accNo.DataBind();
+                accNo.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+            }
+            else
+            {
+                var items = Config.ObjNav1.fnGetVendorsName(tcustSearch);
+                List<ItemList> itms = new List<ItemList>();
+                string[] infoItems = items.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                if (infoItems.Count() > 0)
+                {
+                    foreach (var allInfo in infoItems)
+                    {
+                        String[] arr = allInfo.Split('*');
+
+                        ItemList mdl = new ItemList();
+                        mdl.code = arr[0];
+                        mdl.description = arr[0] + "-" + arr[1];
+                        itms.Add(mdl);
+                    }
+                }
+                accNo.DataSource = itms;
+                accNo.DataTextField = "description";
+                accNo.DataValueField = "code";
+                accNo.DataBind();
+                accNo.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
             }
         }
     }

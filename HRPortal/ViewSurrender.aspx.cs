@@ -53,6 +53,13 @@ namespace HRPortal
                 String[] info = status.Split('*');
                 Div1.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] +
                                  "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                if (info[0] == "success")
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "HideDiv();", true);
+
+                    ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
+                "setTimeout(function() { window.location.replace('Dashboard.aspx') }, 500);", true);
+                }
 
             }
             catch (Exception t)
@@ -75,6 +82,13 @@ namespace HRPortal
                 String[] info = status.Split('*');
                 Div1.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] +
                                  "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                if (info[0] == "success")
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "HideDiv();", true);
+
+                    ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
+                "setTimeout(function() { window.location.replace('Dashboard.aspx') }, 500);", true);
+                }
 
             }
             catch (Exception t)
@@ -97,6 +111,13 @@ namespace HRPortal
                 String[] info = status.Split('*');
                 Div1.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] +
                                  "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                if (info[0] == "success")
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "HideDiv();", true);
+
+                    ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
+                "setTimeout(function() { window.location.replace('Dashboard.aspx') }, 500);", true);
+                }
 
             }
             catch (Exception t)

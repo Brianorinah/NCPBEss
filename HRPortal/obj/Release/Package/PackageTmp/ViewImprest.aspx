@@ -27,24 +27,24 @@
                     <div class="form-group">
                         <strong>Paying Bank Account  <span style="color: red">*</span></strong>
                         <asp:TextBox runat="server" ID="payingbankaccount1" CssClass="form-control span3" ReadOnly="true" />
-                        
+
                     </div>
                     <div class="form-group">
-                        <strong>Travel Date:<span style="color: red">*</span></strong>                        
-                        <asp:TextBox runat="server" ID="travelDate" CssClass="form-control span3" ReadOnly="true" />                       
+                        <strong>Travel Date:<span style="color: red">*</span></strong>
+                        <asp:TextBox runat="server" ID="travelDate" CssClass="form-control span3" ReadOnly="true" />
                     </div>
 
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <strong>Requested On:<span style="color: red">*</span></strong>
-                        <asp:TextBox runat="server" ID="requestdate" CssClass="form-control span3" ReadOnly="true" />  
-                        
+                        <asp:TextBox runat="server" ID="requestdate" CssClass="form-control span3" ReadOnly="true" />
+
                     </div>
                     <div class="form-group">
                         <strong>Purpose:<span style="color: red">*</span></strong>
-                        <asp:TextBox runat="server" ID="purpose" CssClass="form-control span3" ReadOnly="true" /> 
-                        
+                        <asp:TextBox runat="server" ID="purpose" CssClass="form-control span3" ReadOnly="true" />
+
                     </div>
                 </div>
             </div>
@@ -145,12 +145,14 @@
             </table>
         </div>
         <div class="panel-footer">
-            <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Back" OnClick="Unnamed10_Click" CausesValidation="false"/>
-            <center>
+            <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Back" OnClick="Unnamed10_Click" CausesValidation="false" />
+            <div id="tasksDiv">
+                <center>
                  <label class="btn btn-danger" onclick="sendCancelRequest('<%=docType%>','<%=docNo%>','<%=approvalLevel%>','<%=action%>');"><i class="fa fa-times"></i>Reject</label>  
             <label class="btn btn-success" onclick="sendApprovalRequest('<%=docType%>','<%=docNo%>','<%=approvalLevel%>');"><i class="fa fa-check"></i>Approve</label>  
              <label class="btn btn-primary" onclick="sendDelegateRequest('<%=docType%>','<%=docNo%>','<%=approvalLevel%>');"><i class="fa fa-check"></i>Delegate</label>                                                          
             </center>
+            </div>
             <div class="clearfix"></div>
         </div>
     </div>
@@ -281,5 +283,9 @@
         </div>
     </div>
 
-
+    <script type="text/javascript">
+        function HideDiv() {
+            document.getElementById("tasksDiv").style.display = "none";
+        }
+    </script>
 </asp:Content>

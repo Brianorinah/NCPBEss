@@ -1,18 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewFleet.aspx.cs" Inherits="HRPortal.ViewFleet" %>
+
 <%@ Import Namespace="System.IO" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <%
-         String imprestNo = Request.QueryString["docNo"];
+    <%
+        String imprestNo = Request.QueryString["docNo"];
         string docNo = Request.QueryString["docNo"].Trim();
         string docType = Request.QueryString["docType"].Trim();
         string approvalLevel = Request.QueryString["approvalLevel"].Trim();
-        string action = !string.IsNullOrEmpty(Request.QueryString["action"].Trim()) ? Request.QueryString["action"].Trim(): "";
-         %>
-     <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Back" OnClick="Unnamed10_Click" CausesValidation="false"/>
+        string action = !string.IsNullOrEmpty(Request.QueryString["action"].Trim()) ? Request.QueryString["action"].Trim() : "";
+    %>
+    <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Back" OnClick="Unnamed10_Click" CausesValidation="false" />
     <br />
     <div class="row">
         <div class="col-sm-12">
@@ -21,8 +22,8 @@
                 <li class="breadcrumb-item active">Fleet Requisition</li>
             </ol>
         </div>
-    </div>     
-       
+    </div>
+
     <div class="panel panel-primary">
         <div class="panel-heading">
             Fleet Requisition General Details             
@@ -51,12 +52,12 @@
                 </div>
 
             </div>
-             <div class="col-md-6 col-lg-6">
+            <div class="col-md-6 col-lg-6">
                 <div class="form-group">
                     <label class="span2">Expected Time Back<span style="color: red">*</span></label>
                     <asp:TextBox runat="server" ID="expTimeBack" CssClass="form-control span3" ReadOnly="true" />
                 </div>
-               
+
 
             </div>
         </div>
@@ -77,14 +78,14 @@
                         <th>Download</th>
                     </tr>
                 </thead>
-                <tbody>                   
+                <tbody>
 
-                     <%
+                    <%
                         try
                         {
                             String fileFolderApplication = ConfigurationManager.AppSettings["FileFolderApplication"];
                             String filesFolder = ConfigurationManager.AppSettings["FilesLocation"] + "Fleet card/";
-                            String filesFolder1 = Server.MapPath("~/downloads/Fleet card/");                            
+                            String filesFolder1 = Server.MapPath("~/downloads/Fleet card/");
                             imprestNo = imprestNo.Replace('/', '_');
                             imprestNo = imprestNo.Replace(':', '_');
                             String documentDirectory = filesFolder1 + imprestNo + "/";
@@ -98,7 +99,7 @@
                         <td><% =file.Replace(documentDirectory, "") %></td>
 
                         <td><a href="<%=fileFolderApplication %>\Leave Application Card\<% =imprestNo+"\\"+file.Replace(documentDirectory, "") %>" class="btn btn-success" download>Download</a></td>
-                        
+
                     </tr>
                     <%
                                 }
@@ -111,21 +112,23 @@
                 </tbody>
             </table>
         </div>
-        <div class="panel-footer">            
-            <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Back" OnClick="Unnamed10_Click" CausesValidation="false"/>
-            <center>
+        <div class="panel-footer">
+            <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Back" OnClick="Unnamed10_Click" CausesValidation="false" />
+            <div id="tasksDiv">
+                <center>
                  <label class="btn btn-danger" onclick="sendCancelRequest('<%=docType%>','<%=docNo%>','<%=approvalLevel%>','<%=action%>');"><i class="fa fa-times"></i>Reject</label>  
             <label class="btn btn-success" onclick="sendApprovalRequest('<%=docType%>','<%=docNo%>','<%=approvalLevel%>');"><i class="fa fa-check"></i>Approve</label>  
              <label class="btn btn-primary" onclick="sendDelegateRequest('<%=docType%>','<%=docNo%>','<%=approvalLevel%>');"><i class="fa fa-check"></i>Delegate</label>                                                          
             </center>
+            </div>
             <div class="clearfix"></div>
         </div>
     </div>
 
 
     <script>
-       
-        function sendApprovalRequest(doctype,documentnumber,approvallevel) {
+
+        function sendApprovalRequest(doctype, documentnumber, approvallevel) {
             console.log("Reached1");
             document.getElementById("approveRecord").innerHTML = documentnumber;
             document.getElementById("ContentPlaceHolder1_approveDocumentNo").value = documentnumber;
@@ -141,7 +144,7 @@
             document.getElementById("ContentPlaceHolder1_doctype1").value = doctype;
             document.getElementById("ContentPlaceHolder1_approvallevel1").value = approvallevel;
             document.getElementById("ContentPlaceHolder1_comment").value = comment;
-            
+
             $("#cancelRequest").modal();
         }
 
@@ -170,7 +173,7 @@
 
         </div>
     </div>
-     <div id="cancelRequest" class="modal fade" role="dialog">
+    <div id="cancelRequest" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -181,19 +184,19 @@
                 </div>
                 <div class="modal-body">
                     <asp:TextBox runat="server" ID="rejectDocumentNo" type="hidden" />
-                     <asp:TextBox runat="server" ID="doctype1" type="hidden" />
+                    <asp:TextBox runat="server" ID="doctype1" type="hidden" />
                     <asp:TextBox runat="server" ID="approvallevel1" type="hidden" />
                     Are you sure you want to Reject the record: <strong id="cancelRecord"></strong>? 
                     <div class="row">
                         <div class="col-md-8 col-lg-8 col-sm-8">
-                    <div class="form-group">
-                        <strong>Comment<span style="color: red">*</span></strong>
-                        <asp:TextBox runat="server" ID="comment" TextMode="MultiLine" CssClass="form-control" placeholder="Reason for Reject" />
-                        <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="comment" ErrorMessage="Enter your reason for rejecting. It cannot be empty!" ForeColor="Red" />
+                            <div class="form-group">
+                                <strong>Comment<span style="color: red">*</span></strong>
+                                <asp:TextBox runat="server" ID="comment" TextMode="MultiLine" CssClass="form-control" placeholder="Reason for Reject" />
+                                <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="comment" ErrorMessage="Enter your reason for rejecting. It cannot be empty!" ForeColor="Red" />
+                            </div>
+                        </div>
+
                     </div>
-                    </div>
-                    
-                </div>
                 </div>
                 <div class="modal-footer">
                     <asp:Button runat="server" CssClass="btn btn-danger" Text="Reject Record" OnClick="rejectRequestClick" />
@@ -214,7 +217,7 @@
             $("#delegateRequest").modal();
         }
     </script>
-        <div id="delegateRequest" class="modal fade" role="dialog">
+    <div id="delegateRequest" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -229,15 +232,15 @@
                     <asp:TextBox runat="server" ID="approvallevel2" type="hidden" />
                     Are you sure you want to approve the record: <strong id="delegateRecord"></strong>?
                                         <div class="row">
-                        <div class="col-md-8 col-lg-8 col-sm-8">
-                    <div class="form-group">
-                        <strong>Select User<span style="color: red">*</span></strong>
-                        <asp:DropDownList runat="server" ID="seleceteduser" CssClass="form-control select2">                        
-                    </asp:DropDownList>
-                    </div>
-                    </div>
-                    
-                </div> 
+                                            <div class="col-md-8 col-lg-8 col-sm-8">
+                                                <div class="form-group">
+                                                    <strong>Select User<span style="color: red">*</span></strong>
+                                                    <asp:DropDownList runat="server" ID="seleceteduser" CssClass="form-control select2">
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+
+                                        </div>
                 </div>
                 <div class="modal-footer">
                     <asp:Button runat="server" CssClass="btn btn-success" Text="Delegate Record" OnClick="delegateRequestClick" CausesValidation="false" />
@@ -247,4 +250,9 @@
 
         </div>
     </div>
+    <script type="text/javascript">
+        function HideDiv() {
+            document.getElementById("tasksDiv").style.display = "none";
+        }
+    </script>
 </asp:Content>

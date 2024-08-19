@@ -29,8 +29,6 @@ namespace HRPortal.NewHrPortal {
     [System.Web.Services.WebServiceBindingAttribute(Name="NewHrPortal_Binding", Namespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal")]
     public partial class NewHrPortal : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback ApproveOperationCompleted;
-        
         private System.Threading.SendOrPostCallback sendImprestApplicationApprovalOperationCompleted;
         
         private System.Threading.SendOrPostCallback sendLeaveApplicationApprovalOperationCompleted;
@@ -52,6 +50,8 @@ namespace HRPortal.NewHrPortal {
         private System.Threading.SendOrPostCallback updateOverallCommentsOperationCompleted;
         
         private System.Threading.SendOrPostCallback updateSupervisorOverallCommentsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ApproveOperationCompleted;
         
         private System.Threading.SendOrPostCallback BankSummaryReportOperationCompleted;
         
@@ -242,9 +242,6 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
-        public event ApproveCompletedEventHandler ApproveCompleted;
-        
-        /// <remarks/>
         public event sendImprestApplicationApprovalCompletedEventHandler sendImprestApplicationApprovalCompleted;
         
         /// <remarks/>
@@ -276,6 +273,9 @@ namespace HRPortal.NewHrPortal {
         
         /// <remarks/>
         public event updateSupervisorOverallCommentsCompletedEventHandler updateSupervisorOverallCommentsCompleted;
+        
+        /// <remarks/>
+        public event ApproveCompletedEventHandler ApproveCompleted;
         
         /// <remarks/>
         public event BankSummaryReportCompletedEventHandler BankSummaryReportCompleted;
@@ -501,42 +501,6 @@ namespace HRPortal.NewHrPortal {
         
         /// <remarks/>
         public event reopenCreditSalesCompletedEventHandler reopenCreditSalesCompleted;
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:Approve", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="Approve_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string Approve(string docNo, string docType, int aprovalLevel, string actionID) {
-            object[] results = this.Invoke("Approve", new object[] {
-                        docNo,
-                        docType,
-                        aprovalLevel,
-                        actionID});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void ApproveAsync(string docNo, string docType, int aprovalLevel, string actionID) {
-            this.ApproveAsync(docNo, docType, aprovalLevel, actionID, null);
-        }
-        
-        /// <remarks/>
-        public void ApproveAsync(string docNo, string docType, int aprovalLevel, string actionID, object userState) {
-            if ((this.ApproveOperationCompleted == null)) {
-                this.ApproveOperationCompleted = new System.Threading.SendOrPostCallback(this.OnApproveOperationCompleted);
-            }
-            this.InvokeAsync("Approve", new object[] {
-                        docNo,
-                        docType,
-                        aprovalLevel,
-                        actionID}, this.ApproveOperationCompleted, userState);
-        }
-        
-        private void OnApproveOperationCompleted(object arg) {
-            if ((this.ApproveCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.ApproveCompleted(this, new ApproveCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendImprestApplicationApprova" +
@@ -886,26 +850,65 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:Approve", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="Approve_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string Approve(string docNo, string docType, int aprovalLevel, string actionID) {
+            object[] results = this.Invoke("Approve", new object[] {
+                        docNo,
+                        docType,
+                        aprovalLevel,
+                        actionID});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ApproveAsync(string docNo, string docType, int aprovalLevel, string actionID) {
+            this.ApproveAsync(docNo, docType, aprovalLevel, actionID, null);
+        }
+        
+        /// <remarks/>
+        public void ApproveAsync(string docNo, string docType, int aprovalLevel, string actionID, object userState) {
+            if ((this.ApproveOperationCompleted == null)) {
+                this.ApproveOperationCompleted = new System.Threading.SendOrPostCallback(this.OnApproveOperationCompleted);
+            }
+            this.InvokeAsync("Approve", new object[] {
+                        docNo,
+                        docType,
+                        aprovalLevel,
+                        actionID}, this.ApproveOperationCompleted, userState);
+        }
+        
+        private void OnApproveOperationCompleted(object arg) {
+            if ((this.ApproveCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ApproveCompleted(this, new ApproveCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:BankSummaryReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="BankSummaryReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string BankSummaryReport(string no, string functionCodeFilter, string budgetCenterFilter, string bankAccountPostingGroup, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilterEnd) {
+        public string BankSummaryReport(string no, string functionCodeFilter, string budgetCenterFilter, string bankAccountPostingGroup, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2) {
             object[] results = this.Invoke("BankSummaryReport", new object[] {
                         no,
                         functionCodeFilter,
                         budgetCenterFilter,
                         bankAccountPostingGroup,
                         dateFilter,
-                        dateFilterEnd});
+                        dateFilterEnd,
+                        rangeFilter,
+                        no1,
+                        no2});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void BankSummaryReportAsync(string no, string functionCodeFilter, string budgetCenterFilter, string bankAccountPostingGroup, System.DateTime dateFilter, System.DateTime dateFilterEnd) {
-            this.BankSummaryReportAsync(no, functionCodeFilter, budgetCenterFilter, bankAccountPostingGroup, dateFilter, dateFilterEnd, null);
+        public void BankSummaryReportAsync(string no, string functionCodeFilter, string budgetCenterFilter, string bankAccountPostingGroup, System.DateTime dateFilter, System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2) {
+            this.BankSummaryReportAsync(no, functionCodeFilter, budgetCenterFilter, bankAccountPostingGroup, dateFilter, dateFilterEnd, rangeFilter, no1, no2, null);
         }
         
         /// <remarks/>
-        public void BankSummaryReportAsync(string no, string functionCodeFilter, string budgetCenterFilter, string bankAccountPostingGroup, System.DateTime dateFilter, System.DateTime dateFilterEnd, object userState) {
+        public void BankSummaryReportAsync(string no, string functionCodeFilter, string budgetCenterFilter, string bankAccountPostingGroup, System.DateTime dateFilter, System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2, object userState) {
             if ((this.BankSummaryReportOperationCompleted == null)) {
                 this.BankSummaryReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBankSummaryReportOperationCompleted);
             }
@@ -915,7 +918,10 @@ namespace HRPortal.NewHrPortal {
                         budgetCenterFilter,
                         bankAccountPostingGroup,
                         dateFilter,
-                        dateFilterEnd}, this.BankSummaryReportOperationCompleted, userState);
+                        dateFilterEnd,
+                        rangeFilter,
+                        no1,
+                        no2}, this.BankSummaryReportOperationCompleted, userState);
         }
         
         private void OnBankSummaryReportOperationCompleted(object arg) {
@@ -1080,22 +1086,25 @@ namespace HRPortal.NewHrPortal {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:CashBookReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="CashBookReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string CashBookReport(string no, string bankAccountPostingGroup, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilterEnd) {
+        public string CashBookReport(string no, string bankAccountPostingGroup, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2) {
             object[] results = this.Invoke("CashBookReport", new object[] {
                         no,
                         bankAccountPostingGroup,
                         dateFilter,
-                        dateFilterEnd});
+                        dateFilterEnd,
+                        rangeFilter,
+                        no1,
+                        no2});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void CashBookReportAsync(string no, string bankAccountPostingGroup, System.DateTime dateFilter, System.DateTime dateFilterEnd) {
-            this.CashBookReportAsync(no, bankAccountPostingGroup, dateFilter, dateFilterEnd, null);
+        public void CashBookReportAsync(string no, string bankAccountPostingGroup, System.DateTime dateFilter, System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2) {
+            this.CashBookReportAsync(no, bankAccountPostingGroup, dateFilter, dateFilterEnd, rangeFilter, no1, no2, null);
         }
         
         /// <remarks/>
-        public void CashBookReportAsync(string no, string bankAccountPostingGroup, System.DateTime dateFilter, System.DateTime dateFilterEnd, object userState) {
+        public void CashBookReportAsync(string no, string bankAccountPostingGroup, System.DateTime dateFilter, System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2, object userState) {
             if ((this.CashBookReportOperationCompleted == null)) {
                 this.CashBookReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCashBookReportOperationCompleted);
             }
@@ -1103,7 +1112,10 @@ namespace HRPortal.NewHrPortal {
                         no,
                         bankAccountPostingGroup,
                         dateFilter,
-                        dateFilterEnd}, this.CashBookReportOperationCompleted, userState);
+                        dateFilterEnd,
+                        rangeFilter,
+                        no1,
+                        no2}, this.CashBookReportOperationCompleted, userState);
         }
         
         private void OnCashBookReportOperationCompleted(object arg) {
@@ -1244,23 +1256,26 @@ namespace HRPortal.NewHrPortal {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:DetailedPassReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="DetailedPassReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string DetailedPassReport(string no, string localFilter, string budgetCenterFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilterEnd) {
+        public string DetailedPassReport(string no, string localFilter, string budgetCenterFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2) {
             object[] results = this.Invoke("DetailedPassReport", new object[] {
                         no,
                         localFilter,
                         budgetCenterFilter,
                         dateFilter,
-                        dateFilterEnd});
+                        dateFilterEnd,
+                        rangeFilter,
+                        no1,
+                        no2});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void DetailedPassReportAsync(string no, string localFilter, string budgetCenterFilter, System.DateTime dateFilter, System.DateTime dateFilterEnd) {
-            this.DetailedPassReportAsync(no, localFilter, budgetCenterFilter, dateFilter, dateFilterEnd, null);
+        public void DetailedPassReportAsync(string no, string localFilter, string budgetCenterFilter, System.DateTime dateFilter, System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2) {
+            this.DetailedPassReportAsync(no, localFilter, budgetCenterFilter, dateFilter, dateFilterEnd, rangeFilter, no1, no2, null);
         }
         
         /// <remarks/>
-        public void DetailedPassReportAsync(string no, string localFilter, string budgetCenterFilter, System.DateTime dateFilter, System.DateTime dateFilterEnd, object userState) {
+        public void DetailedPassReportAsync(string no, string localFilter, string budgetCenterFilter, System.DateTime dateFilter, System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2, object userState) {
             if ((this.DetailedPassReportOperationCompleted == null)) {
                 this.DetailedPassReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDetailedPassReportOperationCompleted);
             }
@@ -1269,7 +1284,10 @@ namespace HRPortal.NewHrPortal {
                         localFilter,
                         budgetCenterFilter,
                         dateFilter,
-                        dateFilterEnd}, this.DetailedPassReportOperationCompleted, userState);
+                        dateFilterEnd,
+                        rangeFilter,
+                        no1,
+                        no2}, this.DetailedPassReportOperationCompleted, userState);
         }
         
         private void OnDetailedPassReportOperationCompleted(object arg) {
@@ -1282,7 +1300,7 @@ namespace HRPortal.NewHrPortal {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:GeneralLedgerStatementReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="GeneralLedgerStatementReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string GeneralLedgerStatementReport(string no, string functionCodeFilter, string budgetCenterFilter, int incomeOrBalance, int debitOrCredit, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilterEnd) {
+        public string GeneralLedgerStatementReport(string no, string functionCodeFilter, string budgetCenterFilter, int incomeOrBalance, int debitOrCredit, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2) {
             object[] results = this.Invoke("GeneralLedgerStatementReport", new object[] {
                         no,
                         functionCodeFilter,
@@ -1290,17 +1308,20 @@ namespace HRPortal.NewHrPortal {
                         incomeOrBalance,
                         debitOrCredit,
                         dateFilter,
-                        dateFilterEnd});
+                        dateFilterEnd,
+                        rangeFilter,
+                        no1,
+                        no2});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void GeneralLedgerStatementReportAsync(string no, string functionCodeFilter, string budgetCenterFilter, int incomeOrBalance, int debitOrCredit, System.DateTime dateFilter, System.DateTime dateFilterEnd) {
-            this.GeneralLedgerStatementReportAsync(no, functionCodeFilter, budgetCenterFilter, incomeOrBalance, debitOrCredit, dateFilter, dateFilterEnd, null);
+        public void GeneralLedgerStatementReportAsync(string no, string functionCodeFilter, string budgetCenterFilter, int incomeOrBalance, int debitOrCredit, System.DateTime dateFilter, System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2) {
+            this.GeneralLedgerStatementReportAsync(no, functionCodeFilter, budgetCenterFilter, incomeOrBalance, debitOrCredit, dateFilter, dateFilterEnd, rangeFilter, no1, no2, null);
         }
         
         /// <remarks/>
-        public void GeneralLedgerStatementReportAsync(string no, string functionCodeFilter, string budgetCenterFilter, int incomeOrBalance, int debitOrCredit, System.DateTime dateFilter, System.DateTime dateFilterEnd, object userState) {
+        public void GeneralLedgerStatementReportAsync(string no, string functionCodeFilter, string budgetCenterFilter, int incomeOrBalance, int debitOrCredit, System.DateTime dateFilter, System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2, object userState) {
             if ((this.GeneralLedgerStatementReportOperationCompleted == null)) {
                 this.GeneralLedgerStatementReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGeneralLedgerStatementReportOperationCompleted);
             }
@@ -1311,7 +1332,10 @@ namespace HRPortal.NewHrPortal {
                         incomeOrBalance,
                         debitOrCredit,
                         dateFilter,
-                        dateFilterEnd}, this.GeneralLedgerStatementReportOperationCompleted, userState);
+                        dateFilterEnd,
+                        rangeFilter,
+                        no1,
+                        no2}, this.GeneralLedgerStatementReportOperationCompleted, userState);
         }
         
         private void OnGeneralLedgerStatementReportOperationCompleted(object arg) {
@@ -1556,24 +1580,27 @@ namespace HRPortal.NewHrPortal {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:StockBalancePerStoreReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="StockBalancePerStoreReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string StockBalancePerStoreReport(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilterEnd) {
+        public string StockBalancePerStoreReport(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2) {
             object[] results = this.Invoke("StockBalancePerStoreReport", new object[] {
                         no,
                         localFilter,
                         functionCodeFilter,
                         budgetCenterFilter,
                         dateFilter,
-                        dateFilterEnd});
+                        dateFilterEnd,
+                        rangeFilter,
+                        no1,
+                        no2});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void StockBalancePerStoreReportAsync(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, System.DateTime dateFilter, System.DateTime dateFilterEnd) {
-            this.StockBalancePerStoreReportAsync(no, localFilter, functionCodeFilter, budgetCenterFilter, dateFilter, dateFilterEnd, null);
+        public void StockBalancePerStoreReportAsync(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, System.DateTime dateFilter, System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2) {
+            this.StockBalancePerStoreReportAsync(no, localFilter, functionCodeFilter, budgetCenterFilter, dateFilter, dateFilterEnd, rangeFilter, no1, no2, null);
         }
         
         /// <remarks/>
-        public void StockBalancePerStoreReportAsync(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, System.DateTime dateFilter, System.DateTime dateFilterEnd, object userState) {
+        public void StockBalancePerStoreReportAsync(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, System.DateTime dateFilter, System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2, object userState) {
             if ((this.StockBalancePerStoreReportOperationCompleted == null)) {
                 this.StockBalancePerStoreReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnStockBalancePerStoreReportOperationCompleted);
             }
@@ -1583,7 +1610,10 @@ namespace HRPortal.NewHrPortal {
                         functionCodeFilter,
                         budgetCenterFilter,
                         dateFilter,
-                        dateFilterEnd}, this.StockBalancePerStoreReportOperationCompleted, userState);
+                        dateFilterEnd,
+                        rangeFilter,
+                        no1,
+                        no2}, this.StockBalancePerStoreReportOperationCompleted, userState);
         }
         
         private void OnStockBalancePerStoreReportOperationCompleted(object arg) {
@@ -1596,24 +1626,27 @@ namespace HRPortal.NewHrPortal {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:StockLedgerReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="StockLedgerReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string StockLedgerReport(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilterEnd) {
+        public string StockLedgerReport(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilter, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2) {
             object[] results = this.Invoke("StockLedgerReport", new object[] {
                         no,
                         localFilter,
                         functionCodeFilter,
                         budgetCenterFilter,
                         dateFilter,
-                        dateFilterEnd});
+                        dateFilterEnd,
+                        rangeFilter,
+                        no1,
+                        no2});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void StockLedgerReportAsync(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, System.DateTime dateFilter, System.DateTime dateFilterEnd) {
-            this.StockLedgerReportAsync(no, localFilter, functionCodeFilter, budgetCenterFilter, dateFilter, dateFilterEnd, null);
+        public void StockLedgerReportAsync(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, System.DateTime dateFilter, System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2) {
+            this.StockLedgerReportAsync(no, localFilter, functionCodeFilter, budgetCenterFilter, dateFilter, dateFilterEnd, rangeFilter, no1, no2, null);
         }
         
         /// <remarks/>
-        public void StockLedgerReportAsync(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, System.DateTime dateFilter, System.DateTime dateFilterEnd, object userState) {
+        public void StockLedgerReportAsync(string no, string localFilter, string functionCodeFilter, string budgetCenterFilter, System.DateTime dateFilter, System.DateTime dateFilterEnd, bool rangeFilter, string no1, string no2, object userState) {
             if ((this.StockLedgerReportOperationCompleted == null)) {
                 this.StockLedgerReportOperationCompleted = new System.Threading.SendOrPostCallback(this.OnStockLedgerReportOperationCompleted);
             }
@@ -1623,7 +1656,10 @@ namespace HRPortal.NewHrPortal {
                         functionCodeFilter,
                         budgetCenterFilter,
                         dateFilter,
-                        dateFilterEnd}, this.StockLedgerReportOperationCompleted, userState);
+                        dateFilterEnd,
+                        rangeFilter,
+                        no1,
+                        no2}, this.StockLedgerReportOperationCompleted, userState);
         }
         
         private void OnStockLedgerReportOperationCompleted(object arg) {
@@ -3573,32 +3609,6 @@ namespace HRPortal.NewHrPortal {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void ApproveCompletedEventHandler(object sender, ApproveCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class ApproveCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal ApproveCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void sendImprestApplicationApprovalCompletedEventHandler(object sender, sendImprestApplicationApprovalCompletedEventArgs e);
     
     /// <remarks/>
@@ -3870,6 +3880,32 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal updateSupervisorOverallCommentsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void ApproveCompletedEventHandler(object sender, ApproveCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ApproveCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ApproveCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

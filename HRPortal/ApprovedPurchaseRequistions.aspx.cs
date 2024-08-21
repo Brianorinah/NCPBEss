@@ -18,18 +18,24 @@ namespace HRPortal
             try
             {
                 String docNumber = documentNumber.Text.Trim();
+                string userName = Convert.ToString(Session["username"]);
+                String employeeNo = Convert.ToString(Session["employeeNo"]);
                 var nav = Config.ObjNav2;
-                String result = nav.createImprestFromPurchase(docNumber);
+                String result = nav.createImprestFromPurchase(docNumber, userName, employeeNo);
                 String[] safari = result.Split('*');
+                documentsfeedback.InnerHtml = "<div class='alert alert-" + safari[0] + "'>" + safari[1] +
+                                 "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
                 if (safari[0] == "success")
                 {
-                    documentsfeedback.InnerHtml = "<div class='alert alert-success'>" + safari[0] + safari[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    if (safari[0] == "success")
+                    {
+                        ScriptManager.RegisterStartupScript(this, GetType(), "Pop", "HideDiv();", true);
 
+                        ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS",
+                    "setTimeout(function() { window.location.replace('Dashboard.aspx') }, 2000);", true);
+                    }
                 }
-                else
-                {
-                    documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + safari[0] + safari[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
-                }
+
 
             }
             catch (Exception ed)

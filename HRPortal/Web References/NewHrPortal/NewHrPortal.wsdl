@@ -2,6 +2,41 @@
 <definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="Approve">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="docType" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="aprovalLevel" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="actionID" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Approve_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createSafariRequestEntitlements">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="entitlement" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="quantity" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="rate" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="town" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="createSafariRequestEntitlements_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="sendImprestApplicationApproval">
         <complexType>
           <sequence>
@@ -155,23 +190,6 @@
         </complexType>
       </element>
       <element name="updateSupervisorOverallComments_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="Approve">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="docType" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="aprovalLevel" type="int" />
-            <element minOccurs="1" maxOccurs="1" name="actionID" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="Approve_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -663,6 +681,8 @@
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="userName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
           </sequence>
         </complexType>
       </element>
@@ -848,24 +868,6 @@
       <element name="createSafariEntitlements_Result">
         <complexType>
           <sequence />
-        </complexType>
-      </element>
-      <element name="createSafariRequestEntitlements">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="entitlement" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="quantity" type="int" />
-            <element minOccurs="1" maxOccurs="1" name="rate" type="decimal" />
-            <element minOccurs="1" maxOccurs="1" name="town" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="createSafariRequestEntitlements_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
         </complexType>
       </element>
       <element name="createSafariRequestHeader">
@@ -1449,6 +1451,18 @@
       </element>
     </schema>
   </types>
+  <message name="Approve">
+    <part name="parameters" element="tns:Approve" />
+  </message>
+  <message name="Approve_Result">
+    <part name="parameters" element="tns:Approve_Result" />
+  </message>
+  <message name="createSafariRequestEntitlements">
+    <part name="parameters" element="tns:createSafariRequestEntitlements" />
+  </message>
+  <message name="createSafariRequestEntitlements_Result">
+    <part name="parameters" element="tns:createSafariRequestEntitlements_Result" />
+  </message>
   <message name="sendImprestApplicationApproval">
     <part name="parameters" element="tns:sendImprestApplicationApproval" />
   </message>
@@ -1514,12 +1528,6 @@
   </message>
   <message name="updateSupervisorOverallComments_Result">
     <part name="parameters" element="tns:updateSupervisorOverallComments_Result" />
-  </message>
-  <message name="Approve">
-    <part name="parameters" element="tns:Approve" />
-  </message>
-  <message name="Approve_Result">
-    <part name="parameters" element="tns:Approve_Result" />
   </message>
   <message name="BankSummaryReport">
     <part name="parameters" element="tns:BankSummaryReport" />
@@ -1761,12 +1769,6 @@
   <message name="createSafariEntitlements_Result">
     <part name="parameters" element="tns:createSafariEntitlements_Result" />
   </message>
-  <message name="createSafariRequestEntitlements">
-    <part name="parameters" element="tns:createSafariRequestEntitlements" />
-  </message>
-  <message name="createSafariRequestEntitlements_Result">
-    <part name="parameters" element="tns:createSafariRequestEntitlements_Result" />
-  </message>
   <message name="createSafariRequestHeader">
     <part name="parameters" element="tns:createSafariRequestHeader" />
   </message>
@@ -1972,6 +1974,14 @@
     <part name="parameters" element="tns:reopenCreditSales_Result" />
   </message>
   <portType name="NewHrPortal_Port">
+    <operation name="Approve">
+      <input name="Approve" message="tns:Approve" />
+      <output name="Approve_Result" message="tns:Approve_Result" />
+    </operation>
+    <operation name="createSafariRequestEntitlements">
+      <input name="createSafariRequestEntitlements" message="tns:createSafariRequestEntitlements" />
+      <output name="createSafariRequestEntitlements_Result" message="tns:createSafariRequestEntitlements_Result" />
+    </operation>
     <operation name="sendImprestApplicationApproval">
       <input name="sendImprestApplicationApproval" message="tns:sendImprestApplicationApproval" />
       <output name="sendImprestApplicationApproval_Result" message="tns:sendImprestApplicationApproval_Result" />
@@ -2015,10 +2025,6 @@
     <operation name="updateSupervisorOverallComments">
       <input name="updateSupervisorOverallComments" message="tns:updateSupervisorOverallComments" />
       <output name="updateSupervisorOverallComments_Result" message="tns:updateSupervisorOverallComments_Result" />
-    </operation>
-    <operation name="Approve">
-      <input name="Approve" message="tns:Approve" />
-      <output name="Approve_Result" message="tns:Approve_Result" />
     </operation>
     <operation name="BankSummaryReport">
       <input name="BankSummaryReport" message="tns:BankSummaryReport" />
@@ -2180,10 +2186,6 @@
       <input name="createSafariEntitlements" message="tns:createSafariEntitlements" />
       <output name="createSafariEntitlements_Result" message="tns:createSafariEntitlements_Result" />
     </operation>
-    <operation name="createSafariRequestEntitlements">
-      <input name="createSafariRequestEntitlements" message="tns:createSafariRequestEntitlements" />
-      <output name="createSafariRequestEntitlements_Result" message="tns:createSafariRequestEntitlements_Result" />
-    </operation>
     <operation name="createSafariRequestHeader">
       <input name="createSafariRequestHeader" message="tns:createSafariRequestHeader" />
       <output name="createSafariRequestHeader_Result" message="tns:createSafariRequestHeader_Result" />
@@ -2323,6 +2325,24 @@
   </portType>
   <binding name="NewHrPortal_Binding" type="tns:NewHrPortal_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="Approve">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:Approve" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="Approve">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="Approve_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="createSafariRequestEntitlements">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createSafariRequestEntitlements" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="createSafariRequestEntitlements">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="createSafariRequestEntitlements_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="sendImprestApplicationApproval">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendImprestApplicationApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="sendImprestApplicationApproval">
@@ -2419,15 +2439,6 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="updateSupervisorOverallComments_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
-    <operation name="Approve">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:Approve" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="Approve">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="Approve_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -2788,15 +2799,6 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="createSafariEntitlements_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
-    <operation name="createSafariRequestEntitlements">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:createSafariRequestEntitlements" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="createSafariRequestEntitlements">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="createSafariRequestEntitlements_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

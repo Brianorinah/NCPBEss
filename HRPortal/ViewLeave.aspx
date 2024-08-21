@@ -33,6 +33,16 @@
             <div runat="server" id="feedback"></div>
             <div class="col-md-6 col-lg-6">
                 <div class="form-group">
+                    <label class="span2">Raised By<span style="color: red">*</span></label>
+                    <asp:TextBox runat="server" ID="raisedBy" CssClass="form-control span3" ReadOnly="true" />
+
+                </div>
+                <div class="form-group">
+                    <label class="span2">Employee Number<span style="color: red">*</span></label>
+                    <asp:TextBox runat="server" ID="empNo" CssClass="form-control span3" ReadOnly="true" />
+
+                </div>
+                <div class="form-group">
                     <label class="span2">Days Applied<span style="color: red">*</span></label>
                     <asp:TextBox runat="server" ID="daysApplied" CssClass="form-control span3" ReadOnly="true" />
 

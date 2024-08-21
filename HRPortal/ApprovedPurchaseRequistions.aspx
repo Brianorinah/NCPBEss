@@ -23,13 +23,12 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-
+                        <th></th>
                         <th>Imprest No</th>
                         <th>Date</th>
                         <th>Amount</th>
                         <th>Subject</th> 
                         <th>Create Imprest</th>
-                      
                     </tr>
                 </thead>
                 <tbody>
@@ -38,19 +37,21 @@
                         {
                             string empNo = Convert.ToString(Session["employeeNo"]);
                             String memo = Config.ObjNav1.fnPurchaseRequisitions();
+                            int count = 0;
                             String[] allInfo = memo.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
                             if (allInfo != null)
                             {
                                 foreach (var item in allInfo)
                                 {
                                     String[] oneItem = item.Split(new string[] { "*" }, StringSplitOptions.None);
-
+                                    count++;
                                     //if (oneItem[4] == "Approved" && oneItem[5] == "No")
                                     //{
                     %>
 
                     <tr>                      
 
+                        <td><%=count %></td>
                         <td><%=oneItem[0] %> </td>
                         <td><%=oneItem[1] %> </td>
                         <td><%=oneItem[2]  %> </td>
@@ -106,4 +107,19 @@
 
         </div>
     </div>
+    <script type="text/javascript">
+        function HideDiv() {
+            Swal.fire
+            ({
+                title: "Imprest Created Success",
+                text: "You have successfully created your imprest.",
+                type: "success"
+            }).then(() => {
+                $("#payfeedback").css("display", "block");
+                $("#payfeedback").css("color", "green");
+                $('#payfeedback').addClass('alert alert-success');
+                $("#payfeedback").html("You have successfully made your payment.");
+            });
+        }
+    </script>
 </asp:Content>

@@ -52,8 +52,8 @@ namespace HRPortal
                             String[] arr = allinfo.Split('*');
                             daysApplied.Text = arr[1];
                             reliver.Text = arr[9];
-                            //leaveStartDate.Text = arr[2];
-                            //returnDate.Text = arr[3];                            
+                            raisedBy.Text = arr[11];
+                            empNo.Text = arr[10];
                         }
                     }
                 }

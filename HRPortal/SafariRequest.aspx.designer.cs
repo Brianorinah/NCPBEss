@@ -211,6 +211,24 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.TextBox town;
         
         /// <summary>
+        /// functionCode1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList functionCode1;
+        
+        /// <summary>
+        /// bgtCenterCode1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList bgtCenterCode1;
+        
+        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>

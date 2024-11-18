@@ -29,8 +29,6 @@
                         <th>Amount</th>
                         <th>Subject</th> 
                         <th>Create Imprest</th>
-                        
-                      
                     </tr>
                 </thead>
                 <tbody>

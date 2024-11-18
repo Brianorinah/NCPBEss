@@ -2,48 +2,6 @@
 <definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/essQueries" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/essQueries" xmlns="http://www.w3.org/2001/XMLSchema">
-      <element name="fnGetSafariEarnings">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="appNo" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="fnGetSafariEarnings_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="fnGetRecordsToApprove">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="approverId" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="fnGetRecordsToApprove_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="fnGetUser1">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="userName" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="fnGetUser1_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
       <element name="fnGLAccount">
         <complexType>
           <sequence />
@@ -601,6 +559,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetRecordsToApprove">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="approverId" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetRecordsToApprove_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnGetRegionAndBudgetCenters">
         <complexType>
           <sequence>
@@ -649,6 +621,20 @@
         </complexType>
       </element>
       <element name="fnGetSafariCode_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetSafariEarnings">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="appNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetSafariEarnings_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -837,6 +823,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="fnGetUser1">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="userName" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="fnGetUser1_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="fnGetUser">
         <complexType>
           <sequence>
@@ -988,24 +988,6 @@
       </element>
     </schema>
   </types>
-  <message name="fnGetSafariEarnings">
-    <part name="parameters" element="tns:fnGetSafariEarnings" />
-  </message>
-  <message name="fnGetSafariEarnings_Result">
-    <part name="parameters" element="tns:fnGetSafariEarnings_Result" />
-  </message>
-  <message name="fnGetRecordsToApprove">
-    <part name="parameters" element="tns:fnGetRecordsToApprove" />
-  </message>
-  <message name="fnGetRecordsToApprove_Result">
-    <part name="parameters" element="tns:fnGetRecordsToApprove_Result" />
-  </message>
-  <message name="fnGetUser1">
-    <part name="parameters" element="tns:fnGetUser1" />
-  </message>
-  <message name="fnGetUser1_Result">
-    <part name="parameters" element="tns:fnGetUser1_Result" />
-  </message>
   <message name="fnGLAccount">
     <part name="parameters" element="tns:fnGLAccount" />
   </message>
@@ -1252,6 +1234,12 @@
   <message name="fnGetProductDetails_Result">
     <part name="parameters" element="tns:fnGetProductDetails_Result" />
   </message>
+  <message name="fnGetRecordsToApprove">
+    <part name="parameters" element="tns:fnGetRecordsToApprove" />
+  </message>
+  <message name="fnGetRecordsToApprove_Result">
+    <part name="parameters" element="tns:fnGetRecordsToApprove_Result" />
+  </message>
   <message name="fnGetRegionAndBudgetCenters">
     <part name="parameters" element="tns:fnGetRegionAndBudgetCenters" />
   </message>
@@ -1275,6 +1263,12 @@
   </message>
   <message name="fnGetSafariCode_Result">
     <part name="parameters" element="tns:fnGetSafariCode_Result" />
+  </message>
+  <message name="fnGetSafariEarnings">
+    <part name="parameters" element="tns:fnGetSafariEarnings" />
+  </message>
+  <message name="fnGetSafariEarnings_Result">
+    <part name="parameters" element="tns:fnGetSafariEarnings_Result" />
   </message>
   <message name="fnGetSafariEntitlements">
     <part name="parameters" element="tns:fnGetSafariEntitlements" />
@@ -1354,6 +1348,12 @@
   <message name="fnGetTowns_Result">
     <part name="parameters" element="tns:fnGetTowns_Result" />
   </message>
+  <message name="fnGetUser1">
+    <part name="parameters" element="tns:fnGetUser1" />
+  </message>
+  <message name="fnGetUser1_Result">
+    <part name="parameters" element="tns:fnGetUser1_Result" />
+  </message>
   <message name="fnGetUser">
     <part name="parameters" element="tns:fnGetUser" />
   </message>
@@ -1421,18 +1421,6 @@
     <part name="parameters" element="tns:getApproverEntries_Result" />
   </message>
   <portType name="essQueries_Port">
-    <operation name="fnGetSafariEarnings">
-      <input name="fnGetSafariEarnings" message="tns:fnGetSafariEarnings" />
-      <output name="fnGetSafariEarnings_Result" message="tns:fnGetSafariEarnings_Result" />
-    </operation>
-    <operation name="fnGetRecordsToApprove">
-      <input name="fnGetRecordsToApprove" message="tns:fnGetRecordsToApprove" />
-      <output name="fnGetRecordsToApprove_Result" message="tns:fnGetRecordsToApprove_Result" />
-    </operation>
-    <operation name="fnGetUser1">
-      <input name="fnGetUser1" message="tns:fnGetUser1" />
-      <output name="fnGetUser1_Result" message="tns:fnGetUser1_Result" />
-    </operation>
     <operation name="fnGLAccount">
       <input name="fnGLAccount" message="tns:fnGLAccount" />
       <output name="fnGLAccount_Result" message="tns:fnGLAccount_Result" />
@@ -1597,6 +1585,10 @@
       <input name="fnGetProductDetails" message="tns:fnGetProductDetails" />
       <output name="fnGetProductDetails_Result" message="tns:fnGetProductDetails_Result" />
     </operation>
+    <operation name="fnGetRecordsToApprove">
+      <input name="fnGetRecordsToApprove" message="tns:fnGetRecordsToApprove" />
+      <output name="fnGetRecordsToApprove_Result" message="tns:fnGetRecordsToApprove_Result" />
+    </operation>
     <operation name="fnGetRegionAndBudgetCenters">
       <input name="fnGetRegionAndBudgetCenters" message="tns:fnGetRegionAndBudgetCenters" />
       <output name="fnGetRegionAndBudgetCenters_Result" message="tns:fnGetRegionAndBudgetCenters_Result" />
@@ -1612,6 +1604,10 @@
     <operation name="fnGetSafariCode">
       <input name="fnGetSafariCode" message="tns:fnGetSafariCode" />
       <output name="fnGetSafariCode_Result" message="tns:fnGetSafariCode_Result" />
+    </operation>
+    <operation name="fnGetSafariEarnings">
+      <input name="fnGetSafariEarnings" message="tns:fnGetSafariEarnings" />
+      <output name="fnGetSafariEarnings_Result" message="tns:fnGetSafariEarnings_Result" />
     </operation>
     <operation name="fnGetSafariEntitlements">
       <input name="fnGetSafariEntitlements" message="tns:fnGetSafariEntitlements" />
@@ -1665,6 +1661,10 @@
       <input name="fnGetTowns" message="tns:fnGetTowns" />
       <output name="fnGetTowns_Result" message="tns:fnGetTowns_Result" />
     </operation>
+    <operation name="fnGetUser1">
+      <input name="fnGetUser1" message="tns:fnGetUser1" />
+      <output name="fnGetUser1_Result" message="tns:fnGetUser1_Result" />
+    </operation>
     <operation name="fnGetUser">
       <input name="fnGetUser" message="tns:fnGetUser" />
       <output name="fnGetUser_Result" message="tns:fnGetUser_Result" />
@@ -1712,33 +1712,6 @@
   </portType>
   <binding name="essQueries_Binding" type="tns:essQueries_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-    <operation name="fnGetSafariEarnings">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetSafariEarnings" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="fnGetSafariEarnings">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="fnGetSafariEarnings_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
-    <operation name="fnGetRecordsToApprove">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetRecordsToApprove" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="fnGetRecordsToApprove">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="fnGetRecordsToApprove_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
-    <operation name="fnGetUser1">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetUser1" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="fnGetUser1">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="fnGetUser1_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
     <operation name="fnGLAccount">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGLAccount" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="fnGLAccount">
@@ -2108,6 +2081,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="fnGetRecordsToApprove">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetRecordsToApprove" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetRecordsToApprove">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetRecordsToApprove_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="fnGetRegionAndBudgetCenters">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetRegionAndBudgetCenters" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="fnGetRegionAndBudgetCenters">
@@ -2141,6 +2123,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetSafariCode_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetSafariEarnings">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetSafariEarnings" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetSafariEarnings">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetSafariEarnings_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -2258,6 +2249,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="fnGetTowns_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="fnGetUser1">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/essQueries:fnGetUser1" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="fnGetUser1">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="fnGetUser1_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

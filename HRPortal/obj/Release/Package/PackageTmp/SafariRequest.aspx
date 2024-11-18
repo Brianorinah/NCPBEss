@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
             <div class="row">
                 <div class="col-md-6 col-lg-6">
@@ -109,7 +109,7 @@
                     </div>
 
                 </div>
-                
+
             </div>
         </div>
         <div class="panel-footer">
@@ -184,7 +184,7 @@
                         <th>Return Date</th>
                         <th>Travel From</th>
                         <th>Travel To</th>
-                       <%-- <th>Edit/View</th>--%>
+                        <%-- <th>Edit/View</th>--%>
                         <th>Remove</th>
                     </tr>
                 </thead>
@@ -210,8 +210,8 @@
                         <td><% =arr[1] %></td>
                         <td><% = arr[2] %></td>
                         <%--<td><%=String.Format("{0:n}", Convert.ToDouble(arr[5])) %></td>--%>
-                        
-                           <%--<td><label class="btn btn-success" onclick="editingLines('<% =requisitionNo %>','<%=arr[0] %>','<%=arr[5] %>','<% =arr[1] %>','<%=arr[2] %>');"><i class="fa fa-edit"></i>Edit/View</label></td>  
+
+                        <%--<td><label class="btn btn-success" onclick="editingLines('<% =requisitionNo %>','<%=arr[0] %>','<%=arr[5] %>','<% =arr[1] %>','<%=arr[2] %>');"><i class="fa fa-edit"></i>Edit/View</label></td>  
                         --%>
 
                         <td>
@@ -245,12 +245,12 @@
         <div class="panel-body">
             <div runat="server" id="linesFeedback1"></div>
             <div class="row">
-                            <div class="col-lg-12 col-sm-12">
-               <%-- <div class="form-group">--%>
+                <div class="col-lg-12 col-sm-12">
+                    <%-- <div class="form-group">--%>
                     <br />
                     <asp:Button runat="server" CssClass="btn btn-info pull-left" Text="Create Entitlemets" ID="Button3" OnClick="entitlemets_Click" UseSubmitBehavior="false" CausesValidation="false" />
-                <%--</div>--%>
-            </div>
+                    <%--</div>--%>
+                </div>
             </div>
             <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
@@ -277,8 +277,8 @@
             <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
                     <strong>Apply's On:<span style="color: red">*</span></strong>
-                    <asp:TextBox runat="server" ID="app" CssClass="form-control" placeholder="Apply's On" ReadOnly="true"/>
-                    
+                    <asp:TextBox runat="server" ID="app" CssClass="form-control" placeholder="Apply's On" ReadOnly="true" />
+
                 </div>
             </div>
             <div class="col-lg-6 col-sm-6">
@@ -288,6 +288,31 @@
                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="town" ErrorMessage="Please enter Quantity, it cannot be empty!" ForeColor="Red" />
                 </div>
             </div>
+
+            <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                    <strong>Function Code:<span style="color: red">*</span></strong>
+                    <asp:DropDownList runat="server" ID="functionCode1" CssClass="form-control select2" AutoPostBack="true">
+                    </asp:DropDownList>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="form-group">
+                    <strong>Budget Center Code:<span style="color: red">*</span></strong>
+                    <asp:DropDownList runat="server" ID="bgtCenterCode1" CssClass="form-control select2" AutoPostBack="true">
+                    </asp:DropDownList>
+                </div>
+
+            </div>
+           <%-- <div class="col-md-5 col-lg-5" style="margin-right: 30px!important;">
+                <div class="form-group">
+                    <label>G/L Account</label>
+                    <asp:DropDownList CssClass="form-control select2" ID="glAccount" runat="server">
+                    </asp:DropDownList>
+                </div>
+            </div>--%>
+
+
 
             <div class="col-lg-12 col-sm-12">
                 <div class="form-group">
@@ -304,12 +329,12 @@
         <div class="panel-body">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                    <tr>                        
+                    <tr>
                         <th>Entitlement</th>
-                         <th>Town </th>
+                        <th>Town </th>
                         <th>Quantity</th>
                         <th>Rate</th>
-                       <th>Total</th>
+                        <th>Total</th>
                         <%--<th></th>--%>
                         <th></th>
                     </tr>
@@ -336,9 +361,9 @@
                         <td><% =arr[4] %></td>
                         <td><% =arr[5] %></td>
                         <td><% =arr[6] %></td>
-                        
+
                         <%--<td><%=String.Format("{0:n}", Convert.ToDouble(arr[5])) %></td>--%>
-<%--                                                <td>
+                        <%--                                                <td>
                             <label class="btn btn-primary" onclick="editLine('<%=arr[1] %>','<% =arr[2] %>','<%=arr[4] %>','<%=arr[5] %>','<%=arr[6] %>');"><i class="fa fa-trash"></i>Edit</label></td>--%>
 
                         <td>
@@ -463,7 +488,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete File" OnClick="deleteFile_Click" CausesValidation="false"/>
+                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete File" OnClick="deleteFile_Click" CausesValidation="false" />
                 </div>
             </div>
 
@@ -471,7 +496,7 @@
     </div>
 
     <script>
-        function removeLine(docNos, entitle,towns) {
+        function removeLine(docNos, entitle, towns) {
             document.getElementById("safari").innerText = docNos;
             document.getElementById("ContentPlaceHolder1_docNos").value = docNos;
             document.getElementById("ContentPlaceHolder1_entitle").value = entitle;
@@ -491,8 +516,8 @@
                 <div class="modal-body">
                     <p>Are you sure you want to remove the line <strong id="safari"></strong>from the safari request entitlements?</p>
                     <asp:TextBox runat="server" ID="docNos" type="hidden" />
-                     <asp:TextBox runat="server" ID="entitle" type="hidden" />
-                     <asp:TextBox runat="server" ID="towns" type="hidden" />
+                    <asp:TextBox runat="server" ID="entitle" type="hidden" />
+                    <asp:TextBox runat="server" ID="towns" type="hidden" />
                 </div>
 
                 <div class="modal-footer">
@@ -504,7 +529,7 @@
         </div>
     </div>
     <script>
-        function editLine(entitlement,town, quantity, rate, totalamount) {
+        function editLine(entitlement, town, quantity, rate, totalamount) {
 
             document.getElementById("ContentPlaceHolder1_entitlement1").value = entitlement;
             document.getElementById("ContentPlaceHolder1_town1").value = town;
@@ -526,14 +551,14 @@
                 </div>
                 <div class="modal-body">
                     <div id="linesFeedback2" runat="server"></div>
-                   <%-- <asp:TextBox runat="server" ID="editLineNo" type="hidden" />--%>
-                   <div class="form-group">
-                    <strong>Entitlement<span style="color: red">*</span></strong>
-                    <asp:DropDownList runat="server" ID="entitlement1" CssClass="form-control select2" AppendDataBoundItems="true" OnSelectedIndexChanged="Entitlement_SelectedIndexChanged1" AutoPostBack="false">
-                    </asp:DropDownList>
-                    <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="entitlement1" InitialValue="--Select--" ErrorMessage="Please select Claim Type, it cannot be empty!" ForeColor="Red" />
-                </div>
-<%--                    <div class="form-group">
+                    <%-- <asp:TextBox runat="server" ID="editLineNo" type="hidden" />--%>
+                    <div class="form-group">
+                        <strong>Entitlement<span style="color: red">*</span></strong>
+                        <asp:DropDownList runat="server" ID="entitlement1" CssClass="form-control select2" AppendDataBoundItems="true" OnSelectedIndexChanged="Entitlement_SelectedIndexChanged1" AutoPostBack="false">
+                        </asp:DropDownList>
+                        <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="entitlement1" InitialValue="--Select--" ErrorMessage="Please select Claim Type, it cannot be empty!" ForeColor="Red" />
+                    </div>
+                    <%--                    <div class="form-group">
                         <strong>Entitlemet:</strong>
                         <asp:DropDownList runat="server" ID="entitlement1" CssClass="select2 form-control" Style="width: 100%;" />
                     </div>--%>
@@ -554,7 +579,7 @@
                     </div>
                     <div class="form-group">
                         <strong>Total:</strong>
-                        <asp:TextBox runat="server" ID="totalamount1" CssClass="form-control" Readonly />
+                        <asp:TextBox runat="server" ID="totalamount1" CssClass="form-control" ReadOnly />
                     </div>
                 </div>
 
@@ -568,83 +593,83 @@
         </div>
     </div>
 
-    
-      <script>
- 
-          function removeLines(documentNumber, expenseDate) {
-          document.getElementById("DocumentNumbers").innerText = expenseDate;
-          document.getElementById("ContentPlaceHolder1_documentNumber").value = documentNumber;
-          document.getElementById("ContentPlaceHolder1_expenseDate").value = expenseDate;
+
+    <script>
+
+        function removeLines(documentNumber, expenseDate) {
+            document.getElementById("DocumentNumbers").innerText = expenseDate;
+            document.getElementById("ContentPlaceHolder1_documentNumber").value = documentNumber;
+            document.getElementById("ContentPlaceHolder1_expenseDate").value = expenseDate;
             $("#DeletetingModal").modal();
         }
-</script>
-<div id="DeletetingModal" class="modal fade" role="dialog">
-<div class="modal-dialog">
- 
+    </script>
+    <div id="DeletetingModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
             <!-- Modal content-->
-<div class="modal-content">
-<div class="modal-header">
-<button type="button" class="close" data-dismiss="modal">&times;</button>
-<h4 class="modal-title">Confirm Deleting line</h4>
-</div>
-<div class="modal-body">
-<p>Are you sure you want to delete request <strong id="DocumentNumbers"></strong>?</p>
-<asp:TextBox runat="server" ID="documentNumber" type="hidden" />
-<asp:TextBox runat="server" ID="expenseDate" type="hidden" />
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-<asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLines_Clicks" CausesValidation="false" />
-</div>
-</div>
- 
-        </div>
-</div>
-
-     <script>
-         function editingLines(documentNumber, expenseDate, returnDate, travelFrom, travelTo) {
-        document.getElementById("ExpenseDate").innerText = expenseDate;
-        document.getElementById('<%= ContentPlaceHolder1_documentNumber.ClientID %>').value = documentNumber;
-        document.getElementById('<%= ContentPlaceHolder1_expenseDate.ClientID %>').value = expenseDate;
-        document.getElementById('<%= ContentPlaceHolder1_returnDate.ClientID %>').value = returnDate;
-        document.getElementById('<%= ContentPlaceHolder1_travelFrom.ClientID %>').value = travelFrom;
-        document.getElementById('<%= ContentPlaceHolder1_travelTo.ClientID %>').value = travelTo;
-        $("#EditModals").modal();
-    }
-</script>
-
-<div id="EditModals" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Confirm Editing line</h4>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Confirm Deleting line</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete request <strong id="DocumentNumbers"></strong>?</p>
+                    <asp:TextBox runat="server" ID="documentNumber" type="hidden" />
+                    <asp:TextBox runat="server" ID="expenseDate" type="hidden" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLines_Clicks" CausesValidation="false" />
+                </div>
             </div>
-            <div class="modal-body">
-                <p>Are you sure you want to Edit line of expense date<strong id="ExpenseDate"></strong>?</p>
-                <strong>Safari Request No:<span style="color: red">*</span></strong>
-                <asp:TextBox runat="server" ID="ContentPlaceHolder1_documentNumber" CssClass="form-control" ReadOnly="true" />
-                <strong>Expense Date:<span style="color: red">*</span></strong>
-                <asp:TextBox runat="server" ID="ContentPlaceHolder1_expenseDate" CssClass="form-control" TextMode="Date"/>
-                <strong>Return Date<span style="color: red">*</span></strong>
-                <asp:TextBox runat="server" ID="ContentPlaceHolder1_returnDate" CssClass="form-control" TextMode="Date"/>
-                <strong>Travel From:<span style="color: red">*</span></strong>
-                <asp:DropDownList runat="server" ID="ContentPlaceHolder1_travelFrom" CssClass="form-control select2">                        
-                    </asp:DropDownList>
-                <strong>Travel To:<span style="color: red">*</span></strong>
-                <asp:DropDownList runat="server" ID="ContentPlaceHolder1_travelTo" CssClass="form-control select2">                        
-                    </asp:DropDownList>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <asp:Button runat="server" CssClass="btn btn-danger" Text="Edit Line" OnClick="editLine_Click" CausesValidation="false"/>
-            </div>
+
         </div>
     </div>
 
-</div>
+    <script>
+        function editingLines(documentNumber, expenseDate, returnDate, travelFrom, travelTo) {
+            document.getElementById("ExpenseDate").innerText = expenseDate;
+            document.getElementById('<%= ContentPlaceHolder1_documentNumber.ClientID %>').value = documentNumber;
+        document.getElementById('<%= ContentPlaceHolder1_expenseDate.ClientID %>').value = expenseDate;
+             document.getElementById('<%= ContentPlaceHolder1_returnDate.ClientID %>').value = returnDate;
+             document.getElementById('<%= ContentPlaceHolder1_travelFrom.ClientID %>').value = travelFrom;
+             document.getElementById('<%= ContentPlaceHolder1_travelTo.ClientID %>').value = travelTo;
+             $("#EditModals").modal();
+         }
+    </script>
 
-    
+    <div id="EditModals" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Confirm Editing line</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to Edit line of expense date<strong id="ExpenseDate"></strong>?</p>
+                    <strong>Safari Request No:<span style="color: red">*</span></strong>
+                    <asp:TextBox runat="server" ID="ContentPlaceHolder1_documentNumber" CssClass="form-control" ReadOnly="true" />
+                    <strong>Expense Date:<span style="color: red">*</span></strong>
+                    <asp:TextBox runat="server" ID="ContentPlaceHolder1_expenseDate" CssClass="form-control" TextMode="Date" />
+                    <strong>Return Date<span style="color: red">*</span></strong>
+                    <asp:TextBox runat="server" ID="ContentPlaceHolder1_returnDate" CssClass="form-control" TextMode="Date" />
+                    <strong>Travel From:<span style="color: red">*</span></strong>
+                    <asp:DropDownList runat="server" ID="ContentPlaceHolder1_travelFrom" CssClass="form-control select2">
+                    </asp:DropDownList>
+                    <strong>Travel To:<span style="color: red">*</span></strong>
+                    <asp:DropDownList runat="server" ID="ContentPlaceHolder1_travelTo" CssClass="form-control select2">
+                    </asp:DropDownList>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Edit Line" OnClick="editLine_Click" CausesValidation="false" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
 </asp:Content>

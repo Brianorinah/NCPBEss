@@ -31,6 +31,7 @@
         <div class="panel-body">
             <div runat="server" id="Div1"></div>
             <div class="col-md-6 col-lg-6">
+                <asp:HiddenField ID="hdnButtonClicked" runat="server" Value="false" />
                 <div class="form-group">
                     <label class="span2">Purpose<span style="color: red">*</span></label>
                     <asp:TextBox runat="server" ID="description" CssClass="form-control span3" ReadOnly="true" />
@@ -166,7 +167,7 @@
                     Are you sure you want to approve the record: <strong id="approveRecord"></strong>? 
                 </div>
                 <div class="modal-footer">
-                    <asp:Button runat="server" CssClass="btn btn-success" Text="Approve Record" OnClick="approvalRequestClick" CausesValidation="false" />
+                    <asp:Button runat="server" CssClass="btn btn-success" Text="Approve Record" OnClick="approvalRequestClick" OnClientClick="disableButton(this);" CausesValidation="false" />
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
@@ -206,6 +207,22 @@
 
         </div>
     </div>
+    <script type="text/javascript">
+        function disableButton(button) {
+            Console.log("Hidden Done")
+            button.disabled = true;
+        }
+</script>
+    <script type="text/javascript">
+        function checkButtonClick(button) {
+            var hdnButtonClicked = document.getElementById('<%= hdnButtonClicked.ClientID %>');
+        if (hdnButtonClicked.value == "true") {
+            return false;
+        }
+        hdnButtonClicked.value = "true";
+        return true;
+    }
+</script>
     <script>
         function sendDelegateRequest(doctype, documentnumber, approvallevel) {
             console.log("Reached3");

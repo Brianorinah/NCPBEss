@@ -291,7 +291,7 @@
                     %>
                     <tr>
                         <td><% =line.No %></td>
-                        <td><% <%--<td><% =line.Transport_Costs %></td>--%>=line.Name %></td>
+                        <td><% =line.Name %></td>
                         
                          <%--<td><label class="btn btn-success" onclick="editFuel('<%=line.Work_Type %>','<%=line.No %>','<%=line.Time_Period %>');"><i class="fa fa-edit-o"></i> Edit</label></td>--%>
                          <td><label class="btn btn-danger" onclick="removeFuel('<%=line.Imprest_Memo_No %>','<%=line.No %>','<%=line.Name %>');"><i class="fa fa-trash-o"></i> Remove</label></td>

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewPurchase.aspx.cs" Inherits="HRPortal.ViewPurchase" %>
+
 <%@ Import Namespace="System.IO" %>
 <%@ Import Namespace="HRPortal" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -14,7 +15,7 @@
         string approvalLevel = Request.QueryString["approvalLevel"].Trim();
         string action = !string.IsNullOrEmpty(Request.QueryString["action"].Trim()) ? Request.QueryString["action"].Trim() : "";
     %>
-    <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Back" OnClick="Unnamed10_Click" CausesValidation="false"/>
+    <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Back" OnClick="Unnamed10_Click" CausesValidation="false" />
     <br />
     <div class="panel panel-primary">
         <div class="panel-heading">
@@ -23,28 +24,29 @@
         <div class="panel-body">
             <div id="generalFeedback" runat="server"></div>
             <div class="row">
+                <asp:HiddenField ID="hdnButtonClicked" runat="server" Value="false" />
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <strong>Requested By<span style="color: red">*</span></strong>
                         <asp:TextBox runat="server" ID="requestedBy" CssClass="form-control span3" ReadOnly="true" />
-                        
+
                     </div>
                     <div class="form-group">
-                        <strong>Due Date:<span style="color: red">*</span></strong>                        
-                        <asp:TextBox runat="server" ID="dueDate" CssClass="form-control span3" ReadOnly="true" />                       
+                        <strong>Due Date:<span style="color: red">*</span></strong>
+                        <asp:TextBox runat="server" ID="dueDate" CssClass="form-control span3" ReadOnly="true" />
                     </div>
 
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <strong>Location:<span style="color: red">*</span></strong>
-                        <asp:TextBox runat="server" ID="location" CssClass="form-control span3" ReadOnly="true" />  
-                        
+                        <asp:TextBox runat="server" ID="location" CssClass="form-control span3" ReadOnly="true" />
+
                     </div>
                     <div class="form-group">
                         <strong>Naration:<span style="color: red">*</span></strong>
-                        <asp:TextBox runat="server" ID="naration" CssClass="form-control span3" ReadOnly="true" /> 
-                        
+                        <asp:TextBox runat="server" ID="naration" CssClass="form-control span3" ReadOnly="true" />
+
                     </div>
                 </div>
             </div>
@@ -59,7 +61,7 @@
         <div class="panel-body">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                    <tr>                        
+                    <tr>
                         <th>Description</th>
                         <th>Quantity</th>
                         <th>Unit Price</th>
@@ -154,7 +156,22 @@
             <div class="clearfix"></div>
         </div>
     </div>
-
+    <script type="text/javascript">
+        function disableButton(button) {
+            Console.log("Hidden Done")
+            button.disabled = true;
+        }
+</script>
+    <script type="text/javascript">
+        function checkButtonClick(button) {
+            var hdnButtonClicked = document.getElementById('<%= hdnButtonClicked.ClientID %>');
+        if (hdnButtonClicked.value == "true") {
+            return false;
+        }
+        hdnButtonClicked.value = "true";
+        return true;
+    }
+</script>
     <script>
 
         function sendApprovalRequest(doctype, documentnumber, approvallevel) {
@@ -196,7 +213,7 @@
                     Are you sure you want to approve the record: <strong id="approveRecord"></strong>? 
                 </div>
                 <div class="modal-footer">
-                    <asp:Button runat="server" CssClass="btn btn-success" Text="Approve Record" OnClick="approvalRequestClick" CausesValidation="false" />
+                    <asp:Button runat="server" CssClass="btn btn-success" Text="Approve Record" OnClick="approvalRequestClick" OnClientClick="disableButton(this);" CausesValidation="false" />
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
             </div>

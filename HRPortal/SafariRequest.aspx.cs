@@ -191,6 +191,74 @@ namespace HRPortal
                     entitlement1.DataValueField = "code";
                     entitlement1.DataBind();
                     entitlement1.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                    var jobs1 = Config.ObjNav1.fnGetDimension(1);
+                    List<ItemList> itms1 = new List<ItemList>();
+                    string[] infoz1 = jobs1.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (infoz1.Count() > 0)
+                    {
+                        foreach (var allInfo in infoz1)
+                        {
+                            String[] arr1 = allInfo.Split('*');
+
+                            ItemList mdl = new ItemList();
+                            mdl.code = arr1[0];
+                            mdl.description = arr1[0] + " - " + arr1[1];
+                            itms1.Add(mdl);
+
+                        }
+                    }
+
+                    functionCode1.DataSource = itms1;
+                    functionCode1.DataTextField = "description";
+                    functionCode1.DataValueField = "code";
+                    functionCode1.DataBind();
+                    functionCode1.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                    var jobs17 = Config.ObjNav1.fnGetDimension(2);
+                    List<ItemList> itms17 = new List<ItemList>();
+                    string[] infoz17 = jobs17.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (infoz17.Count() > 0)
+                    {
+                        foreach (var allInfo in infoz17)
+                        {
+                            String[] arr2 = allInfo.Split('*');
+
+                            ItemList mdl = new ItemList();
+                            mdl.code = arr2[0];
+                            mdl.description = arr2[0] + " - " + arr2[1];
+                            itms17.Add(mdl);
+
+                        }
+                    }
+
+                    bgtCenterCode1.DataSource = itms17;
+                    bgtCenterCode1.DataTextField = "description";
+                    bgtCenterCode1.DataValueField = "code";
+                    bgtCenterCode1.DataBind();
+                    bgtCenterCode1.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                    //var glAccounts = Config.ObjNav1.fnGLAccount();
+                    //List<ItemList> itmsGLAccount = new List<ItemList>();
+                    //string[] infoGLAccounts = glAccounts.Split(new string[] { "::::" }, StringSplitOptions.RemoveEmptyEntries);
+                    //if (infoGLAccounts.Count() > 0)
+                    //{
+                    //    foreach (var allInfo in infoGLAccounts)
+                    //    {
+                    //        String[] arr = allInfo.Split('*');
+
+                    //        ItemList mdl = new ItemList();
+                    //        mdl.code = arr[0];
+                    //        mdl.description = arr[0] + "-" + arr[1];
+                    //        itmsGLAccount.Add(mdl);
+                    //    }
+                    //}
+
+                    //glAccount.DataSource = itmsGLAccount;
+                    //glAccount.DataTextField = "description";
+                    //glAccount.DataValueField = "code";
+                    //glAccount.DataBind();
+                    //glAccount.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
                 }
 
             }
@@ -283,13 +351,16 @@ namespace HRPortal
                 string requisitionNo = Request.QueryString["requisitionNo"];                
 
                 string tentitlement = entitlement.SelectedValue.Trim();
-                
+                string tbgtCenterCode = bgtCenterCode1.SelectedValue.Trim();
+                string tfunctionCode = functionCode1.SelectedValue.Trim();
+                //string tglAccount = glAccount.SelectedValue.Trim();
+
                 decimal trate = Convert.ToDecimal(rate.Text.Trim());
                 int tquantity = Convert.ToInt16(quantity.Text.Trim());
                 string ttown = town.Text.Trim();
 
 
-                String status = Config.ObjNav2.createSafariRequestEntitlements(requisitionNo, tentitlement, tquantity, trate, ttown);
+                String status = Config.ObjNav2.createSafariRequestEntitlements(requisitionNo, tentitlement, tquantity, trate, ttown, tfunctionCode, tbgtCenterCode);
                 String[] info = status.Split('*');
 
                 linesFeedback1.InnerHtml = "<div class='alert alert-" + info[0] + " '>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";

@@ -29,10 +29,11 @@ namespace HRPortal
                 {
                     step = 1;
                 }
+                String empNo = Convert.ToString(Session["employeeNo"]);
                 if (step == 1)
                 {
                     String imprestNo = Request.QueryString["imprestNo"];
-                    String empNo = Convert.ToString(Session["employeeNo"]);
+                    
                     if (!String.IsNullOrEmpty(imprestNo))
                     {
                         var nav = Config.ObjNav1;
@@ -162,7 +163,31 @@ namespace HRPortal
                     expenselocation1.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
 
                 }
-
+                if (step == 3)
+                {
+                    String appNo = Request.QueryString["imprestNo"];
+                    string status = Config.ObjNav2.SurrenderRequestReport(appNo);
+                    if (status != "danger" && !string.IsNullOrEmpty(status))
+                    {
+                        bool downloaded = ConvertAndDownloadToLocal(status, "Surrender");
+                        if (downloaded)
+                        {
+                            p9form.Attributes.Add("src", ResolveUrl("~/Downloads/" + string.Format("{0}.pdf", empNo)));
+                        }
+                        else if (status == "danger")
+                        {
+                            documentsfeedback.InnerHtml = "<div class='alert alert-danger'>Document could not be found.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                        }
+                        else
+                        {
+                            documentsfeedback.InnerHtml = "<div class='alert alert-danger'>An error occured while generating your document.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                        }
+                    }
+                    else
+                    {
+                        documentsfeedback.InnerHtml = "<div class='alert alert-danger'>An error ocuured while pulling your document.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    }
+                }
 
 
 
@@ -535,6 +560,43 @@ namespace HRPortal
             catch (Exception t)
             {
                 documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+        }
+        public bool ConvertAndDownloadToLocal(string base64String, string docType)
+        {
+            Boolean uploaded = false;
+            try
+            {
+
+                string employeeNumber = (String)Session["employeeNo"];
+
+                string filesFolder = Server.MapPath("~/Downloads/");
+                string fileName = employeeNumber + ".pdf";
+                string documentDirectory = filesFolder + "/";
+                string filePath = documentDirectory + fileName;
+
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+
+                byte[] fileBytes = Convert.FromBase64String(base64String);
+
+
+                using (StreamWriter writer = new StreamWriter(filePath, false))
+                {
+                    writer.BaseStream.Write(fileBytes, 0, fileBytes.Length);
+                }
+
+                return true;
+
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., invalid base64 string)
+                //TempData["error"] = ex.Message;
+                return false;
             }
         }
 

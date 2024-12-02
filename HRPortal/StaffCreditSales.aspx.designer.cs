@@ -202,6 +202,15 @@ namespace HRPortal {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl documentsfeedback;
         
         /// <summary>
+        /// p9form control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe p9form;
+        
+        /// <summary>
         /// sendApproval control.
         /// </summary>
         /// <remarks>

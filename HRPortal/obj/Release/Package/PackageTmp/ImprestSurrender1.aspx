@@ -267,6 +267,11 @@
                </tbody>
            </table>
          </div>
+         <hr />
+        <br />
+        <div class="form-group">
+            <iframe runat="server" class="col-sm-12 col-xs-12 col-md-12 col-lg-12" height="500px" id="p9form" style="margin-top: 10px;"></iframe>
+        </div>
          <div class="panel-footer">
             <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" OnClick="previous_Click" CausesValidation="false" />
             <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Send Approval Request" ID="sendApproval" OnClick="sendApproval_Click" CausesValidation="false" /><div class="clearfix"></div>

@@ -304,7 +304,7 @@
                 </div>
 
             </div>
-           <%-- <div class="col-md-5 col-lg-5" style="margin-right: 30px!important;">
+            <%-- <div class="col-md-5 col-lg-5" style="margin-right: 30px!important;">
                 <div class="form-group">
                     <label>G/L Account</label>
                     <asp:DropDownList CssClass="form-control select2" ID="glAccount" runat="server">
@@ -453,6 +453,11 @@
                         }%>
                 </tbody>
             </table>
+        </div>
+        <hr />
+        <br />
+        <div class="form-group">
+            <iframe runat="server" class="col-sm-12 col-xs-12 col-md-12 col-lg-12" height="500px" id="p9form" style="margin-top: 10px;"></iframe>
         </div>
         <div class="panel-footer">
             <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" OnClick="Unnamed3_Click" />
@@ -630,12 +635,12 @@
         function editingLines(documentNumber, expenseDate, returnDate, travelFrom, travelTo) {
             document.getElementById("ExpenseDate").innerText = expenseDate;
             document.getElementById('<%= ContentPlaceHolder1_documentNumber.ClientID %>').value = documentNumber;
-        document.getElementById('<%= ContentPlaceHolder1_expenseDate.ClientID %>').value = expenseDate;
-             document.getElementById('<%= ContentPlaceHolder1_returnDate.ClientID %>').value = returnDate;
-             document.getElementById('<%= ContentPlaceHolder1_travelFrom.ClientID %>').value = travelFrom;
-             document.getElementById('<%= ContentPlaceHolder1_travelTo.ClientID %>').value = travelTo;
-             $("#EditModals").modal();
-         }
+            document.getElementById('<%= ContentPlaceHolder1_expenseDate.ClientID %>').value = expenseDate;
+            document.getElementById('<%= ContentPlaceHolder1_returnDate.ClientID %>').value = returnDate;
+            document.getElementById('<%= ContentPlaceHolder1_travelFrom.ClientID %>').value = travelFrom;
+            document.getElementById('<%= ContentPlaceHolder1_travelTo.ClientID %>').value = travelTo;
+            $("#EditModals").modal();
+        }
     </script>
 
     <div id="EditModals" class="modal fade" role="dialog">

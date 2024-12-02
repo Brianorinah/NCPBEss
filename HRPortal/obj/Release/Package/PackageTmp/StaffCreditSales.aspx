@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StaffCreditSales.aspx.cs" Inherits="HRPortal.StaffCreditSales" %>
+
 <%@ Import Namespace="System.IO" %>
 <%@ Import Namespace="HRPortal" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -49,69 +50,69 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label class="control-label">Employee Name<span style="color: red">*</span></label>
-                        <asp:Label runat="server" ID="empname" class="form-control"  readonly="true"> <%=Session["name"] %></asp:Label>
+                        <asp:Label runat="server" ID="empname" class="form-control" readonly="true"> <%=Session["name"] %></asp:Label>
                     </div>
                 </div>
-                 <div class="col-lg-6 col-sm-6">
-                <div class="form-group">
-                    <strong>Document Date<span style="color: red">*</span></strong>
-                    <asp:TextBox runat="server" ID="DocumentDate" TextMode="Date" CssClass="form-control" placeholder="Document Date"/>
-                    <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="DocumentDate" ErrorMessage="Please enter Document Date, it cannot be empty!" ForeColor="Red" />
+                <div class="col-lg-6 col-sm-6">
+                    <div class="form-group">
+                        <strong>Document Date<span style="color: red">*</span></strong>
+                        <asp:TextBox runat="server" ID="DocumentDate" TextMode="Date" CssClass="form-control" placeholder="Document Date" />
+                        <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="DocumentDate" ErrorMessage="Please enter Document Date, it cannot be empty!" ForeColor="Red" />
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-sm-6">
-                <div class="form-group">
-                    <strong>Current Balance<span style="color: red">*</span></strong>
-                    <asp:TextBox runat="server" ID="currentBalance" CssClass="form-control" placeholder="0.00" ReadOnly="true" />
-                  
-                </div>
-            </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="form-group">
+                        <strong>Current Balance<span style="color: red">*</span></strong>
+                        <asp:TextBox runat="server" ID="currentBalance" CssClass="form-control" placeholder="0.00" ReadOnly="true" />
 
-            <div class="col-lg-6 col-sm-6">
-                <div class="form-group">
-                      <strong>Total<span style="color: red">*</span></strong>
-                      <asp:TextBox runat="server" ID="total" CssClass="form-control" placeholder="0.00" ReadOnly="true" />
-                      
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-sm-6">
-                <div class="form-group">
-                      <strong>Region<span style="color: red">*</span></strong>
-                      <asp:TextBox runat="server" ID="region" CssClass="form-control" placeholder="Region" ReadOnly="true" />
-                      
+
+                <div class="col-lg-6 col-sm-6">
+                    <div class="form-group">
+                        <strong>Total<span style="color: red">*</span></strong>
+                        <asp:TextBox runat="server" ID="total" CssClass="form-control" placeholder="0.00" ReadOnly="true" />
+
+                    </div>
                 </div>
-            </div>
-                 <div class="col-lg-6 col-sm-6">
-                <div class="form-group">
-                      <strong>Budget Center<span style="color: red">*</span></strong>
-                      <asp:TextBox runat="server" ID="budget" CssClass="form-control" placeholder="budget" ReadOnly="true" />
-                      
+                <div class="col-lg-6 col-sm-6">
+                    <div class="form-group">
+                        <strong>Region<span style="color: red">*</span></strong>
+                        <asp:TextBox runat="server" ID="region" CssClass="form-control" placeholder="Region" ReadOnly="true" />
+
+                    </div>
                 </div>
-            </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="form-group">
+                        <strong>Budget Center<span style="color: red">*</span></strong>
+                        <asp:TextBox runat="server" ID="budget" CssClass="form-control" placeholder="budget" ReadOnly="true" />
+
+                    </div>
+                </div>
                 <div class="col-lg-6 col-sm-6">
                     <div class="form-group">
                         <strong>Recovery Period <span style="color: red">*</span></strong>
-                         <asp:DropDownList runat="server" ID="RecoveryCode" CssClass="form-control select2">                        
-                    </asp:DropDownList>
+                        <asp:DropDownList runat="server" ID="RecoveryCode" CssClass="form-control select2">
+                        </asp:DropDownList>
                     </div>
                 </div>
-                   <div class="col-lg-6 col-sm-6">
+                <div class="col-lg-6 col-sm-6">
                     <div class="form-group">
                         <strong>Depot Code <span style="color: red">*</span></strong>
-                         <asp:DropDownList runat="server" ID="DepotCode" CssClass="form-control select2" OnSelectedIndexChanged="depot_SelectedIndexChanged" AutoPostBack="true">                        
-                    </asp:DropDownList>
-                         <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="DepotCode" InitialValue="--Select--" ErrorMessage="Please select Depot Code, it cannot be empty!" ForeColor="Red" />
+                        <asp:DropDownList runat="server" ID="DepotCode" CssClass="form-control select2" OnSelectedIndexChanged="depot_SelectedIndexChanged" AutoPostBack="true">
+                        </asp:DropDownList>
+                        <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="DepotCode" InitialValue="--Select--" ErrorMessage="Please select Depot Code, it cannot be empty!" ForeColor="Red" />
                     </div>
                 </div>
-                 <div class="col-lg-6 col-sm-6">
+                <div class="col-lg-6 col-sm-6">
                     <div class="form-group">
                         <strong>Location Code <span style="color: red">*</span></strong>
-                         <asp:DropDownList runat="server" ID="LocationCode" CssClass="form-control select2" >                                                     
-                    </asp:DropDownList>
-                         <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="LocationCode" InitialValue="--Select--" ErrorMessage="Please select Location Code, it cannot be empty!" ForeColor="Red" />
+                        <asp:DropDownList runat="server" ID="LocationCode" CssClass="form-control select2">
+                        </asp:DropDownList>
+                        <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="LocationCode" InitialValue="--Select--" ErrorMessage="Please select Location Code, it cannot be empty!" ForeColor="Red" />
                     </div>
                 </div>
-                   </div>
+            </div>
         </div>
         <div class="panel-footer">
             <asp:Button runat="server" ID="apply" CssClass="btn btn-success pull-right" Text="Next" OnClick="apply_Click" />
@@ -126,7 +127,7 @@
 
     <div class="panel panel-primary">
         <div class="panel-heading">
-           Staff Credit Sales Lines
+            Staff Credit Sales Lines
              <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 2 of 3 <i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
         </div>
         <div class="panel-body">
@@ -135,7 +136,7 @@
             <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
                     <strong>Product Code<span style="color: red">*</span></strong>
-                    <asp:DropDownList runat="server" ID="ProductCode" CssClass="form-control select2" OnSelectedIndexChanged="product_SelectedIndexChanged" AutoPostBack="true">                        
+                    <asp:DropDownList runat="server" ID="ProductCode" CssClass="form-control select2" OnSelectedIndexChanged="product_SelectedIndexChanged" AutoPostBack="true">
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="ProductCode" InitialValue="--Select--" ErrorMessage="Please select Product Code, it cannot be empty!" ForeColor="Red" />
                 </div>
@@ -146,10 +147,10 @@
                     <asp:TextBox runat="server" ID="ProductDescription" CssClass="form-control" ReadOnly="true" />
                 </div>
             </div>
-              <div class="col-lg-6 col-sm-6">
+            <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
                     <strong>Unit Of Measure</strong>
-                    <asp:TextBox runat="server" ID="measure" CssClass="form-control" ReadOnly="true"/>                  
+                    <asp:TextBox runat="server" ID="measure" CssClass="form-control" ReadOnly="true" />
                 </div>
             </div>
             <div class="col-lg-6 col-sm-6">
@@ -158,14 +159,14 @@
                     <asp:TextBox runat="server" ID="UnitPrice" CssClass="form-control" ReadOnly="true" />
                 </div>
             </div>
-             <div class="col-lg-6 col-sm-6">
+            <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
                     <strong>Quantity<span style="color: red">*</span></strong>
-                    <asp:TextBox runat="server" ID="quantity" CssClass="form-control" TextMode="Number" AutoPostBack="true" OnTextChanged="Quantity_TextChanged"/>
-                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="quantity" InitialValue="--Select--" ErrorMessage="Please Enter Quantity, it cannot be empty!" ForeColor="Red"/>
+                    <asp:TextBox runat="server" ID="quantity" CssClass="form-control" TextMode="Number" AutoPostBack="true" OnTextChanged="Quantity_TextChanged" />
+                    <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="quantity" InitialValue="--Select--" ErrorMessage="Please Enter Quantity, it cannot be empty!" ForeColor="Red" />
                 </div>
             </div>
-             <div class="col-lg-6 col-sm-6">
+            <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
                     <strong>Total Price</strong>
                     <asp:TextBox runat="server" ID="TotalPrice" CssClass="form-control" ReadOnly="true" />
@@ -205,22 +206,22 @@
                                     String[] arr = allinfo.Split('*');
 
                     %>
-                    <tr>                        
+                    <tr>
                         <td><% =arr[0] %></td>
                         <td><% =arr[1] %></td>
                         <td><% = arr[2] %></td>
-                         <td><% =arr[3] %></td>   
+                        <td><% =arr[3] %></td>
                         <td><% = arr[4] %></td>
-                        <td><% = arr[5] %></td> 
-                          
+                        <td><% = arr[5] %></td>
+
 
                         <td>
                             <label class="btn btn-danger" onclick="removeLine('<%=documentNo %>','<%=arr[6] %>')"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
                     <% 
+                                }
                             }
                         }
-                    }
                     %>
                 </tbody>
             </table>
@@ -232,23 +233,28 @@
             <div class="clearfix"></div>
         </div>
     </div>
-   <% 
+    <% 
         }
         else if (step == 3)
         {
     %>
     <div class="panel panel-primary">
         <div class="panel-heading">
-           Staff Credit Sales 
+            Staff Credit Sales 
               <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 3 of 3 <i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
         </div>
         <div class="panel-body">
             <div runat="server" id="documentsfeedback"></div>
-                 </div>
+        </div>
+        <hr />
+        <br />
+        <div class="form-group">
+            <iframe runat="server" class="col-sm-12 col-xs-12 col-md-12 col-lg-12" height="500px" id="p9form" style="margin-top: 10px;"></iframe>
+        </div>
         <div class="panel-footer">
             <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" OnClick="Unnamed2_Click" />
             <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Send Approval Request" OnClick="sendApproval_Click" ID="sendApproval" />
-            
+
             <div class="clearfix"></div>
         </div>
     </div>
@@ -256,36 +262,36 @@
     <%
         }
     %>
-  <script>
- 
-      function removeLine(documentNumber, lineNo) {
-          document.getElementById("LineNumber").innerText = lineNo;
-          document.getElementById("ContentPlaceHolder1_documentNumber").value = documentNumber;
+    <script>
+
+        function removeLine(documentNumber, lineNo) {
+            document.getElementById("LineNumber").innerText = lineNo;
+            document.getElementById("ContentPlaceHolder1_documentNumber").value = documentNumber;
             document.getElementById("ContentPlaceHolder1_lineNo").value = lineNo;
             $("#DeleteModal").modal();
         }
-</script>
-<div id="DeleteModal" class="modal fade" role="dialog">
-<div class="modal-dialog">
- 
+    </script>
+    <div id="DeleteModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
             <!-- Modal content-->
-<div class="modal-content">
-<div class="modal-header">
-<button type="button" class="close" data-dismiss="modal">&times;</button>
-<h4 class="modal-title">Confirm Deleting line</h4>
-</div>
-<div class="modal-body">
-<p>Are you sure you want to delete line <strong id="LineNumber"></strong>?</p>
-<asp:TextBox runat="server" ID="documentNumber" type="hidden" />
-<asp:TextBox runat="server" ID="lineNo" type="hidden" />
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-<asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLine" />
-</div>
-</div>
- 
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Confirm Deleting line</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete line <strong id="LineNumber"></strong>?</p>
+                    <asp:TextBox runat="server" ID="documentNumber" type="hidden" />
+                    <asp:TextBox runat="server" ID="lineNo" type="hidden" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLine" />
+                </div>
+            </div>
+
         </div>
-</div>
+    </div>
 </asp:Content>
 

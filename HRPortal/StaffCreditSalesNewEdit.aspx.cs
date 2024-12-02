@@ -1,6 +1,7 @@
 ﻿using HRPortal.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -126,7 +127,43 @@ namespace HRPortal
 
                 }
 
-
+                int step = 1;
+                try
+                {
+                    step = Convert.ToInt32(Request.QueryString["step"].Trim());
+                    if (step > 3 || step < 1)
+                    {
+                        step = 1;
+                    }
+                }
+                catch (Exception)
+                {
+                    step = 1;
+                }
+                if (step == 3)
+                {
+                    string status = Config.ObjNav2.StaffCreditSalesRequestReport(documentNo);
+                    if (status != "danger" && !string.IsNullOrEmpty(status))
+                    {
+                        bool downloaded = ConvertAndDownloadToLocal(status, "StaffCredit");
+                        if (downloaded)
+                        {
+                            p9form.Attributes.Add("src", ResolveUrl("~/Downloads/" + string.Format("{0}.pdf", empNo)));
+                        }
+                        else if (status == "danger")
+                        {
+                            documentsfeedback.InnerHtml = "<div class='alert alert-danger'>Document could not be found.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                        }
+                        else
+                        {
+                            documentsfeedback.InnerHtml = "<div class='alert alert-danger'>An error occured while generating your document.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                        }
+                    }
+                    else
+                    {
+                        documentsfeedback.InnerHtml = "<div class='alert alert-danger'>An error ocuured while pulling your document.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                    }
+                }
 
             }
         }
@@ -279,6 +316,43 @@ namespace HRPortal
             catch (Exception t)
             {
                 documentsfeedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+        }
+        public bool ConvertAndDownloadToLocal(string base64String, string docType)
+        {
+            Boolean uploaded = false;
+            try
+            {
+
+                string employeeNumber = (String)Session["employeeNo"];
+
+                string filesFolder = Server.MapPath("~/Downloads/");
+                string fileName = employeeNumber + ".pdf";
+                string documentDirectory = filesFolder + "/";
+                string filePath = documentDirectory + fileName;
+
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+
+                byte[] fileBytes = Convert.FromBase64String(base64String);
+
+
+                using (StreamWriter writer = new StreamWriter(filePath, false))
+                {
+                    writer.BaseStream.Write(fileBytes, 0, fileBytes.Length);
+                }
+
+                return true;
+
+
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., invalid base64 string)
+                //TempData["error"] = ex.Message;
+                return false;
             }
         }
 

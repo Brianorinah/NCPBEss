@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="LeaveApplication2.aspx.cs" Inherits="HRPortal.LeaveApplication2" %>
+
 <%@ Import Namespace="System.IO" %>
 <%@ Import Namespace="HRPortal" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -51,13 +52,13 @@
                         <asp:Label runat="server" class="form-control" readonly="true"> <%=Session["name"] %></asp:Label>
                     </div>
                 </div>
-            </div>            
+            </div>
             <div class="row">
                 <div class="col-lg-6 col-sm-6">
                     <div class="form-group">
                         <strong>Reliever <span style="color: red">*</span></strong>
-                         <asp:DropDownList runat="server" ID="reliever" CssClass="form-control select2">                        
-                    </asp:DropDownList>
+                        <asp:DropDownList runat="server" ID="reliever" CssClass="form-control select2">
+                        </asp:DropDownList>
                     </div>
                 </div>
                 <div class="col-lg-6 col-sm-6">
@@ -89,7 +90,7 @@
 
     <div class="panel panel-primary">
         <div class="panel-heading">
-           Leave Application Lines
+            Leave Application Lines
              <span class="pull-right"><i class="fa fa-chevron-left"></i>Step 2 of 3 <i class="fa fa-chevron-right"></i></span><span class="clearfix"></span>
         </div>
         <div class="panel-body">
@@ -98,7 +99,7 @@
             <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
                     <strong>Type<span style="color: red">*</span></strong>
-                    <asp:DropDownList runat="server" ID="leaveType" CssClass="form-control select2" OnSelectedIndexChanged="leaveType_SelectedIndexChanged" AutoPostBack="true">                        
+                    <asp:DropDownList runat="server" ID="leaveType" CssClass="form-control select2" OnSelectedIndexChanged="leaveType_SelectedIndexChanged" AutoPostBack="true">
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="leaveType" InitialValue="--Select--" ErrorMessage="Please select leave type, it cannot be empty!" ForeColor="Red" />
                 </div>
@@ -116,13 +117,13 @@
                     <asp:RequiredFieldValidator Display="dynamic" runat="server" ControlToValidate="startDate" ErrorMessage="Please enter start date , it cannot be empty!" ForeColor="Red" />
                 </div>
             </div>
-               <div class="col-lg-6 col-sm-6">
+            <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
                     <strong>Days Applied</strong>
                     <asp:TextBox runat="server" ID="daysapplied" CssClass="form-control" TextMode="Number" />
                 </div>
             </div>
-        <%--    <div class="col-lg-6 col-sm-6">
+            <%--    <div class="col-lg-6 col-sm-6">
                 <strong>End Date:<span style="color: red">*</span></strong>
                 <div class="form-group">
                     <asp:TextBox runat="server" ID="endDate" CssClass="form-control" TextMode="Date" />
@@ -162,21 +163,21 @@
                                     String[] arr = allinfo.Split('*');
 
                     %>
-                    <tr>                        
+                    <tr>
                         <td><% =arr[0] %></td>
                         <td><% =arr[1] %></td>
                         <td><% = arr[2] %></td>
-                         <td><% =arr[3] %></td>   
-                        <td><% = arr[4] %></td>                      
+                        <td><% =arr[3] %></td>
+                        <td><% = arr[4] %></td>
                         <%--<td><%=String.Format("{0:n}", Convert.ToDouble(arr[5])) %></td>--%>
 
                         <td>
                             <label class="btn btn-danger" onclick="removeLine('<%=requisitionNo %>','<%=arr[5] %>');"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
                     <% 
+                                }
                             }
                         }
-                    }
                     %>
                 </tbody>
             </table>
@@ -184,7 +185,7 @@
         <div class="panel-footer">
             <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" ID="previous" OnClick="previous_Click" CausesValidation="false" />
             <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Next" OnClick="Unnamed1_Click" CausesValidation="false" />
-           <%-- <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Send Approval Request" OnClick="sendApproval_Click" ID="sendApproval" />--%>
+            <%-- <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Send Approval Request" OnClick="sendApproval_Click" ID="sendApproval" />--%>
 
             <div class="clearfix"></div>
         </div>
@@ -272,6 +273,11 @@
                 </tbody>
             </table>
         </div>
+        <hr />
+        <br />
+        <div class="form-group">
+            <iframe runat="server" class="col-sm-12 col-xs-12 col-md-12 col-lg-12" height="500px" id="p9form" style="margin-top: 10px;"></iframe>
+        </div>
         <div class="panel-footer">
             <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" OnClick="Unnamed2_Click" />
             <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Send Approval Request" OnClick="sendApproval_Click" ID="sendApproval" />
@@ -311,36 +317,36 @@
 
         </div>
     </div>
-      <script>
- 
-          function removeLine(leaveNo, lineNo) {
-              document.getElementById("LineNumber").innerText = lineNo;
-              document.getElementById("ContentPlaceHolder1_lineNo").value = lineNo;
-              document.getElementById("ContentPlaceHolder1_leaveNo").value = leaveNo;
+    <script>
+
+        function removeLine(leaveNo, lineNo) {
+            document.getElementById("LineNumber").innerText = lineNo;
+            document.getElementById("ContentPlaceHolder1_lineNo").value = lineNo;
+            document.getElementById("ContentPlaceHolder1_leaveNo").value = leaveNo;
             $("#DeleteModal").modal();
         }
-</script>
-<div id="DeleteModal" class="modal fade" role="dialog">
-<div class="modal-dialog">
- 
+    </script>
+    <div id="DeleteModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
             <!-- Modal content-->
-<div class="modal-content">
-<div class="modal-header">
-<button type="button" class="close" data-dismiss="modal">&times;</button>
-<h4 class="modal-title">Confirm Deleting line</h4>
-</div>
-<div class="modal-body">
-<p>Are you sure you want to delete line <strong id="LineNumber"></strong>?</p>
-<asp:TextBox runat="server" ID="lineNo" type="hidden" />
-<asp:TextBox runat="server" ID="leaveNo" type="hidden" />
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-<asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLine" CausesValidation="false" />
-</div>
-</div>
- 
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Confirm Deleting line</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete line <strong id="LineNumber"></strong>?</p>
+                    <asp:TextBox runat="server" ID="lineNo" type="hidden" />
+                    <asp:TextBox runat="server" ID="leaveNo" type="hidden" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Line" OnClick="deleteLine" CausesValidation="false" />
+                </div>
+            </div>
+
         </div>
-</div>
+    </div>
 
 </asp:Content>

@@ -48,6 +48,20 @@ namespace HRPortal
                             foreach (var oneItem in allInfo)
                             {
                                 String[] arr = oneItem.Split('*');
+                                string x = Config.ObjNav2.RequestEmployeeOTP(arr[0]);
+                                String[] info11 = x.Split('*');
+
+                                if (info11[0] == "success")
+                                {
+                                    modalfeedback.InnerHtml =
+                                            "<div class='alert alert-success'>" + info11[1] + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+
+                                }
+                                else
+                                {
+                                    feedback.InnerHtml =
+                                            "<div class='alert alert-danger'>Credentials provided did not match. Kindly recheck and retry Login. If the issue persists kindly contact NCPB ICT.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                                }
 
                                 Session["name"] = arr[1];
                                 Session["employeeNo"] = arr[0];
@@ -55,7 +69,8 @@ namespace HRPortal
                                 Session["Department"] = arr[5];
                                 Session["username"] = info[3];
                             }
-                            Response.Redirect("Dashboard.aspx");
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                            //Response.Redirect("Dashboard.aspx");
                         }
 
                     }
@@ -116,6 +131,35 @@ namespace HRPortal
             }
 
             return isAuthenticated;
+        }
+
+        protected void Confirm_Click(object sender, EventArgs e)
+        {
+            string empNo = Session["employeeNo"].ToString();
+            string tOTPInput = OTPInput.Text.Trim();
+            try
+            {
+                int tOTPInputInt = Convert.ToInt16(tOTPInput);
+                string x = Config.ObjNav2.LoginEmployeeOTP(empNo, tOTPInputInt);
+                String[] info = x.Split('*');
+
+                if (info[0] == "success")
+                {
+                    Response.Redirect("Dashboard.aspx");
+                }
+                else
+                {
+                    feedback.InnerHtml =
+                            "<div class='alert alert-danger'>Credentials provided did not match. Kindly recheck and retry Login. If the issue persists kindly contact NCPB ICT.<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+            }
+            catch (Exception ex)
+            {
+                feedback.InnerHtml =
+                            "<div class='alert alert-danger'>"+ex.Message+"<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+
+
         }
     }
 }

@@ -29,6 +29,12 @@ namespace HRPortal.NewHrPortal {
     [System.Web.Services.WebServiceBindingAttribute(Name="NewHrPortal_Binding", Namespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal")]
     public partial class NewHrPortal : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback generateP9OperationCompleted;
+        
+        private System.Threading.SendOrPostCallback generatePayslipOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback reopenCreditSalesOperationCompleted;
+        
         private System.Threading.SendOrPostCallback sendImprestApplicationApprovalOperationCompleted;
         
         private System.Threading.SendOrPostCallback sendLeaveApplicationApprovalOperationCompleted;
@@ -85,11 +91,17 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback LeaveRequestReportOperationCompleted;
         
+        private System.Threading.SendOrPostCallback LoginEmployeeOTPOperationCompleted;
+        
         private System.Threading.SendOrPostCallback Reject1OperationCompleted;
         
         private System.Threading.SendOrPostCallback RejectOperationCompleted;
         
+        private System.Threading.SendOrPostCallback RequestEmployeeOTPOperationCompleted;
+        
         private System.Threading.SendOrPostCallback SafariRequestReportOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SendEmailNotificationOperationCompleted;
         
         private System.Threading.SendOrPostCallback StaffCreditSalesRequestReportOperationCompleted;
         
@@ -197,12 +209,6 @@ namespace HRPortal.NewHrPortal {
         
         private System.Threading.SendOrPostCallback generateAppraisalTemplateOperationCompleted;
         
-        private System.Threading.SendOrPostCallback generateP9OperationCompleted;
-        
-        private System.Threading.SendOrPostCallback generatePayslipOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback reopenCreditSalesOperationCompleted;
-        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -240,6 +246,15 @@ namespace HRPortal.NewHrPortal {
                 this.useDefaultCredentialsSetExplicitly = true;
             }
         }
+        
+        /// <remarks/>
+        public event generateP9CompletedEventHandler generateP9Completed;
+        
+        /// <remarks/>
+        public event generatePayslipCompletedEventHandler generatePayslipCompleted;
+        
+        /// <remarks/>
+        public event reopenCreditSalesCompletedEventHandler reopenCreditSalesCompleted;
         
         /// <remarks/>
         public event sendImprestApplicationApprovalCompletedEventHandler sendImprestApplicationApprovalCompleted;
@@ -326,13 +341,22 @@ namespace HRPortal.NewHrPortal {
         public event LeaveRequestReportCompletedEventHandler LeaveRequestReportCompleted;
         
         /// <remarks/>
+        public event LoginEmployeeOTPCompletedEventHandler LoginEmployeeOTPCompleted;
+        
+        /// <remarks/>
         public event Reject1CompletedEventHandler Reject1Completed;
         
         /// <remarks/>
         public event RejectCompletedEventHandler RejectCompleted;
         
         /// <remarks/>
+        public event RequestEmployeeOTPCompletedEventHandler RequestEmployeeOTPCompleted;
+        
+        /// <remarks/>
         public event SafariRequestReportCompletedEventHandler SafariRequestReportCompleted;
+        
+        /// <remarks/>
+        public event SendEmailNotificationCompletedEventHandler SendEmailNotificationCompleted;
         
         /// <remarks/>
         public event StaffCreditSalesRequestReportCompletedEventHandler StaffCreditSalesRequestReportCompleted;
@@ -494,13 +518,100 @@ namespace HRPortal.NewHrPortal {
         public event generateAppraisalTemplateCompletedEventHandler generateAppraisalTemplateCompleted;
         
         /// <remarks/>
-        public event generateP9CompletedEventHandler generateP9Completed;
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:generateP9", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="generateP9_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string generateP9(string employeeNumber, int year) {
+            object[] results = this.Invoke("generateP9", new object[] {
+                        employeeNumber,
+                        year});
+            return ((string)(results[0]));
+        }
         
         /// <remarks/>
-        public event generatePayslipCompletedEventHandler generatePayslipCompleted;
+        public void generateP9Async(string employeeNumber, int year) {
+            this.generateP9Async(employeeNumber, year, null);
+        }
         
         /// <remarks/>
-        public event reopenCreditSalesCompletedEventHandler reopenCreditSalesCompleted;
+        public void generateP9Async(string employeeNumber, int year, object userState) {
+            if ((this.generateP9OperationCompleted == null)) {
+                this.generateP9OperationCompleted = new System.Threading.SendOrPostCallback(this.OngenerateP9OperationCompleted);
+            }
+            this.InvokeAsync("generateP9", new object[] {
+                        employeeNumber,
+                        year}, this.generateP9OperationCompleted, userState);
+        }
+        
+        private void OngenerateP9OperationCompleted(object arg) {
+            if ((this.generateP9Completed != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.generateP9Completed(this, new generateP9CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:generatePayslip", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="generatePayslip_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string generatePayslip(string employeeNumber, int year, int month) {
+            object[] results = this.Invoke("generatePayslip", new object[] {
+                        employeeNumber,
+                        year,
+                        month});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void generatePayslipAsync(string employeeNumber, int year, int month) {
+            this.generatePayslipAsync(employeeNumber, year, month, null);
+        }
+        
+        /// <remarks/>
+        public void generatePayslipAsync(string employeeNumber, int year, int month, object userState) {
+            if ((this.generatePayslipOperationCompleted == null)) {
+                this.generatePayslipOperationCompleted = new System.Threading.SendOrPostCallback(this.OngeneratePayslipOperationCompleted);
+            }
+            this.InvokeAsync("generatePayslip", new object[] {
+                        employeeNumber,
+                        year,
+                        month}, this.generatePayslipOperationCompleted, userState);
+        }
+        
+        private void OngeneratePayslipOperationCompleted(object arg) {
+            if ((this.generatePayslipCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.generatePayslipCompleted(this, new generatePayslipCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:reopenCreditSales", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="reopenCreditSales_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string reopenCreditSales(string docNo) {
+            object[] results = this.Invoke("reopenCreditSales", new object[] {
+                        docNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void reopenCreditSalesAsync(string docNo) {
+            this.reopenCreditSalesAsync(docNo, null);
+        }
+        
+        /// <remarks/>
+        public void reopenCreditSalesAsync(string docNo, object userState) {
+            if ((this.reopenCreditSalesOperationCompleted == null)) {
+                this.reopenCreditSalesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnreopenCreditSalesOperationCompleted);
+            }
+            this.InvokeAsync("reopenCreditSales", new object[] {
+                        docNo}, this.reopenCreditSalesOperationCompleted, userState);
+        }
+        
+        private void OnreopenCreditSalesOperationCompleted(object arg) {
+            if ((this.reopenCreditSalesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.reopenCreditSalesCompleted(this, new reopenCreditSalesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendImprestApplicationApprova" +
@@ -1441,6 +1552,38 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:LoginEmployeeOTP", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="LoginEmployeeOTP_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string LoginEmployeeOTP(string empNo, int oTP) {
+            object[] results = this.Invoke("LoginEmployeeOTP", new object[] {
+                        empNo,
+                        oTP});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void LoginEmployeeOTPAsync(string empNo, int oTP) {
+            this.LoginEmployeeOTPAsync(empNo, oTP, null);
+        }
+        
+        /// <remarks/>
+        public void LoginEmployeeOTPAsync(string empNo, int oTP, object userState) {
+            if ((this.LoginEmployeeOTPOperationCompleted == null)) {
+                this.LoginEmployeeOTPOperationCompleted = new System.Threading.SendOrPostCallback(this.OnLoginEmployeeOTPOperationCompleted);
+            }
+            this.InvokeAsync("LoginEmployeeOTP", new object[] {
+                        empNo,
+                        oTP}, this.LoginEmployeeOTPOperationCompleted, userState);
+        }
+        
+        private void OnLoginEmployeeOTPOperationCompleted(object arg) {
+            if ((this.LoginEmployeeOTPCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.LoginEmployeeOTPCompleted(this, new LoginEmployeeOTPCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:Reject1", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="Reject1_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string Reject1(int table_ID, string documentNo, int document_Type, string portal_User, string comments) {
@@ -1517,6 +1660,36 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:RequestEmployeeOTP", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="RequestEmployeeOTP_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string RequestEmployeeOTP(string empNo) {
+            object[] results = this.Invoke("RequestEmployeeOTP", new object[] {
+                        empNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RequestEmployeeOTPAsync(string empNo) {
+            this.RequestEmployeeOTPAsync(empNo, null);
+        }
+        
+        /// <remarks/>
+        public void RequestEmployeeOTPAsync(string empNo, object userState) {
+            if ((this.RequestEmployeeOTPOperationCompleted == null)) {
+                this.RequestEmployeeOTPOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRequestEmployeeOTPOperationCompleted);
+            }
+            this.InvokeAsync("RequestEmployeeOTP", new object[] {
+                        empNo}, this.RequestEmployeeOTPOperationCompleted, userState);
+        }
+        
+        private void OnRequestEmployeeOTPOperationCompleted(object arg) {
+            if ((this.RequestEmployeeOTPCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RequestEmployeeOTPCompleted(this, new RequestEmployeeOTPCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:SafariRequestReport", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="SafariRequestReport_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
         public string SafariRequestReport(string applicationNo) {
@@ -1543,6 +1716,38 @@ namespace HRPortal.NewHrPortal {
             if ((this.SafariRequestReportCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SafariRequestReportCompleted(this, new SafariRequestReportCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:SendEmailNotification", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="SendEmailNotification_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SendEmailNotification(string recepient, string emailSubject, string emailBody) {
+            this.Invoke("SendEmailNotification", new object[] {
+                        recepient,
+                        emailSubject,
+                        emailBody});
+        }
+        
+        /// <remarks/>
+        public void SendEmailNotificationAsync(string recepient, string emailSubject, string emailBody) {
+            this.SendEmailNotificationAsync(recepient, emailSubject, emailBody, null);
+        }
+        
+        /// <remarks/>
+        public void SendEmailNotificationAsync(string recepient, string emailSubject, string emailBody, object userState) {
+            if ((this.SendEmailNotificationOperationCompleted == null)) {
+                this.SendEmailNotificationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSendEmailNotificationOperationCompleted);
+            }
+            this.InvokeAsync("SendEmailNotification", new object[] {
+                        recepient,
+                        emailSubject,
+                        emailBody}, this.SendEmailNotificationOperationCompleted, userState);
+        }
+        
+        private void OnSendEmailNotificationOperationCompleted(object arg) {
+            if ((this.SendEmailNotificationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SendEmailNotificationCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -3501,102 +3706,6 @@ namespace HRPortal.NewHrPortal {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:generateP9", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="generateP9_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string generateP9(string employeeNumber, int year) {
-            object[] results = this.Invoke("generateP9", new object[] {
-                        employeeNumber,
-                        year});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void generateP9Async(string employeeNumber, int year) {
-            this.generateP9Async(employeeNumber, year, null);
-        }
-        
-        /// <remarks/>
-        public void generateP9Async(string employeeNumber, int year, object userState) {
-            if ((this.generateP9OperationCompleted == null)) {
-                this.generateP9OperationCompleted = new System.Threading.SendOrPostCallback(this.OngenerateP9OperationCompleted);
-            }
-            this.InvokeAsync("generateP9", new object[] {
-                        employeeNumber,
-                        year}, this.generateP9OperationCompleted, userState);
-        }
-        
-        private void OngenerateP9OperationCompleted(object arg) {
-            if ((this.generateP9Completed != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.generateP9Completed(this, new generateP9CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:generatePayslip", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="generatePayslip_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string generatePayslip(string employeeNumber, int year, int month) {
-            object[] results = this.Invoke("generatePayslip", new object[] {
-                        employeeNumber,
-                        year,
-                        month});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void generatePayslipAsync(string employeeNumber, int year, int month) {
-            this.generatePayslipAsync(employeeNumber, year, month, null);
-        }
-        
-        /// <remarks/>
-        public void generatePayslipAsync(string employeeNumber, int year, int month, object userState) {
-            if ((this.generatePayslipOperationCompleted == null)) {
-                this.generatePayslipOperationCompleted = new System.Threading.SendOrPostCallback(this.OngeneratePayslipOperationCompleted);
-            }
-            this.InvokeAsync("generatePayslip", new object[] {
-                        employeeNumber,
-                        year,
-                        month}, this.generatePayslipOperationCompleted, userState);
-        }
-        
-        private void OngeneratePayslipOperationCompleted(object arg) {
-            if ((this.generatePayslipCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.generatePayslipCompleted(this, new generatePayslipCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:reopenCreditSales", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", ResponseElementName="reopenCreditSales_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string reopenCreditSales(string docNo) {
-            object[] results = this.Invoke("reopenCreditSales", new object[] {
-                        docNo});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void reopenCreditSalesAsync(string docNo) {
-            this.reopenCreditSalesAsync(docNo, null);
-        }
-        
-        /// <remarks/>
-        public void reopenCreditSalesAsync(string docNo, object userState) {
-            if ((this.reopenCreditSalesOperationCompleted == null)) {
-                this.reopenCreditSalesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnreopenCreditSalesOperationCompleted);
-            }
-            this.InvokeAsync("reopenCreditSales", new object[] {
-                        docNo}, this.reopenCreditSalesOperationCompleted, userState);
-        }
-        
-        private void OnreopenCreditSalesOperationCompleted(object arg) {
-            if ((this.reopenCreditSalesCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.reopenCreditSalesCompleted(this, new reopenCreditSalesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -3612,6 +3721,84 @@ namespace HRPortal.NewHrPortal {
                 return true;
             }
             return false;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void generateP9CompletedEventHandler(object sender, generateP9CompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class generateP9CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal generateP9CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void generatePayslipCompletedEventHandler(object sender, generatePayslipCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class generatePayslipCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal generatePayslipCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void reopenCreditSalesCompletedEventHandler(object sender, reopenCreditSalesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class reopenCreditSalesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal reopenCreditSalesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
         }
     }
     
@@ -4345,6 +4532,32 @@ namespace HRPortal.NewHrPortal {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void LoginEmployeeOTPCompletedEventHandler(object sender, LoginEmployeeOTPCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class LoginEmployeeOTPCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal LoginEmployeeOTPCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void Reject1CompletedEventHandler(object sender, Reject1CompletedEventArgs e);
     
     /// <remarks/>
@@ -4397,6 +4610,32 @@ namespace HRPortal.NewHrPortal {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void RequestEmployeeOTPCompletedEventHandler(object sender, RequestEmployeeOTPCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RequestEmployeeOTPCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RequestEmployeeOTPCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
     public delegate void SafariRequestReportCompletedEventHandler(object sender, SafariRequestReportCompletedEventArgs e);
     
     /// <remarks/>
@@ -4420,6 +4659,10 @@ namespace HRPortal.NewHrPortal {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
+    public delegate void SendEmailNotificationCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
@@ -5764,84 +6007,6 @@ namespace HRPortal.NewHrPortal {
         private object[] results;
         
         internal generateAppraisalTemplateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void generateP9CompletedEventHandler(object sender, generateP9CompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class generateP9CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal generateP9CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void generatePayslipCompletedEventHandler(object sender, generatePayslipCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class generatePayslipCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal generatePayslipCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    public delegate void reopenCreditSalesCompletedEventHandler(object sender, reopenCreditSalesCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9032.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class reopenCreditSalesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal reopenCreditSalesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

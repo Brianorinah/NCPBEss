@@ -2,6 +2,51 @@
 <definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="generateP9">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="year" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="generateP9_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="generatePayslip">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="year" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="month" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="generatePayslip_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="reopenCreditSales">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="reopenCreditSales_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="sendImprestApplicationApproval">
         <complexType>
           <sequence>
@@ -439,6 +484,21 @@
           </sequence>
         </complexType>
       </element>
+      <element name="LoginEmployeeOTP">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="oTP" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="LoginEmployeeOTP_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="Reject1">
         <complexType>
           <sequence>
@@ -475,6 +535,20 @@
           </sequence>
         </complexType>
       </element>
+      <element name="RequestEmployeeOTP">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RequestEmployeeOTP_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="SafariRequestReport">
         <complexType>
           <sequence>
@@ -487,6 +561,20 @@
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
           </sequence>
+        </complexType>
+      </element>
+      <element name="SendEmailNotification">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="recepient" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="emailSubject" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="emailBody" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendEmailNotification_Result">
+        <complexType>
+          <sequence />
         </complexType>
       </element>
       <element name="StaffCreditSalesRequestReport">
@@ -1406,53 +1494,26 @@
           </sequence>
         </complexType>
       </element>
-      <element name="generateP9">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="year" type="int" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="generateP9_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="generatePayslip">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="employeeNumber" type="string" />
-            <element minOccurs="1" maxOccurs="1" name="year" type="int" />
-            <element minOccurs="1" maxOccurs="1" name="month" type="int" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="generatePayslip_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="reopenCreditSales">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="docNo" type="string" />
-          </sequence>
-        </complexType>
-      </element>
-      <element name="reopenCreditSales_Result">
-        <complexType>
-          <sequence>
-            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
-          </sequence>
-        </complexType>
-      </element>
     </schema>
   </types>
+  <message name="generateP9">
+    <part name="parameters" element="tns:generateP9" />
+  </message>
+  <message name="generateP9_Result">
+    <part name="parameters" element="tns:generateP9_Result" />
+  </message>
+  <message name="generatePayslip">
+    <part name="parameters" element="tns:generatePayslip" />
+  </message>
+  <message name="generatePayslip_Result">
+    <part name="parameters" element="tns:generatePayslip_Result" />
+  </message>
+  <message name="reopenCreditSales">
+    <part name="parameters" element="tns:reopenCreditSales" />
+  </message>
+  <message name="reopenCreditSales_Result">
+    <part name="parameters" element="tns:reopenCreditSales_Result" />
+  </message>
   <message name="sendImprestApplicationApproval">
     <part name="parameters" element="tns:sendImprestApplicationApproval" />
   </message>
@@ -1621,6 +1682,12 @@
   <message name="LeaveRequestReport_Result">
     <part name="parameters" element="tns:LeaveRequestReport_Result" />
   </message>
+  <message name="LoginEmployeeOTP">
+    <part name="parameters" element="tns:LoginEmployeeOTP" />
+  </message>
+  <message name="LoginEmployeeOTP_Result">
+    <part name="parameters" element="tns:LoginEmployeeOTP_Result" />
+  </message>
   <message name="Reject1">
     <part name="parameters" element="tns:Reject1" />
   </message>
@@ -1633,11 +1700,23 @@
   <message name="Reject_Result">
     <part name="parameters" element="tns:Reject_Result" />
   </message>
+  <message name="RequestEmployeeOTP">
+    <part name="parameters" element="tns:RequestEmployeeOTP" />
+  </message>
+  <message name="RequestEmployeeOTP_Result">
+    <part name="parameters" element="tns:RequestEmployeeOTP_Result" />
+  </message>
   <message name="SafariRequestReport">
     <part name="parameters" element="tns:SafariRequestReport" />
   </message>
   <message name="SafariRequestReport_Result">
     <part name="parameters" element="tns:SafariRequestReport_Result" />
+  </message>
+  <message name="SendEmailNotification">
+    <part name="parameters" element="tns:SendEmailNotification" />
+  </message>
+  <message name="SendEmailNotification_Result">
+    <part name="parameters" element="tns:SendEmailNotification_Result" />
   </message>
   <message name="StaffCreditSalesRequestReport">
     <part name="parameters" element="tns:StaffCreditSalesRequestReport" />
@@ -1957,25 +2036,19 @@
   <message name="generateAppraisalTemplate_Result">
     <part name="parameters" element="tns:generateAppraisalTemplate_Result" />
   </message>
-  <message name="generateP9">
-    <part name="parameters" element="tns:generateP9" />
-  </message>
-  <message name="generateP9_Result">
-    <part name="parameters" element="tns:generateP9_Result" />
-  </message>
-  <message name="generatePayslip">
-    <part name="parameters" element="tns:generatePayslip" />
-  </message>
-  <message name="generatePayslip_Result">
-    <part name="parameters" element="tns:generatePayslip_Result" />
-  </message>
-  <message name="reopenCreditSales">
-    <part name="parameters" element="tns:reopenCreditSales" />
-  </message>
-  <message name="reopenCreditSales_Result">
-    <part name="parameters" element="tns:reopenCreditSales_Result" />
-  </message>
   <portType name="NewHrPortal_Port">
+    <operation name="generateP9">
+      <input name="generateP9" message="tns:generateP9" />
+      <output name="generateP9_Result" message="tns:generateP9_Result" />
+    </operation>
+    <operation name="generatePayslip">
+      <input name="generatePayslip" message="tns:generatePayslip" />
+      <output name="generatePayslip_Result" message="tns:generatePayslip_Result" />
+    </operation>
+    <operation name="reopenCreditSales">
+      <input name="reopenCreditSales" message="tns:reopenCreditSales" />
+      <output name="reopenCreditSales_Result" message="tns:reopenCreditSales_Result" />
+    </operation>
     <operation name="sendImprestApplicationApproval">
       <input name="sendImprestApplicationApproval" message="tns:sendImprestApplicationApproval" />
       <output name="sendImprestApplicationApproval_Result" message="tns:sendImprestApplicationApproval_Result" />
@@ -2088,6 +2161,10 @@
       <input name="LeaveRequestReport" message="tns:LeaveRequestReport" />
       <output name="LeaveRequestReport_Result" message="tns:LeaveRequestReport_Result" />
     </operation>
+    <operation name="LoginEmployeeOTP">
+      <input name="LoginEmployeeOTP" message="tns:LoginEmployeeOTP" />
+      <output name="LoginEmployeeOTP_Result" message="tns:LoginEmployeeOTP_Result" />
+    </operation>
     <operation name="Reject1">
       <input name="Reject1" message="tns:Reject1" />
       <output name="Reject1_Result" message="tns:Reject1_Result" />
@@ -2096,9 +2173,17 @@
       <input name="Reject" message="tns:Reject" />
       <output name="Reject_Result" message="tns:Reject_Result" />
     </operation>
+    <operation name="RequestEmployeeOTP">
+      <input name="RequestEmployeeOTP" message="tns:RequestEmployeeOTP" />
+      <output name="RequestEmployeeOTP_Result" message="tns:RequestEmployeeOTP_Result" />
+    </operation>
     <operation name="SafariRequestReport">
       <input name="SafariRequestReport" message="tns:SafariRequestReport" />
       <output name="SafariRequestReport_Result" message="tns:SafariRequestReport_Result" />
+    </operation>
+    <operation name="SendEmailNotification">
+      <input name="SendEmailNotification" message="tns:SendEmailNotification" />
+      <output name="SendEmailNotification_Result" message="tns:SendEmailNotification_Result" />
     </operation>
     <operation name="StaffCreditSalesRequestReport">
       <input name="StaffCreditSalesRequestReport" message="tns:StaffCreditSalesRequestReport" />
@@ -2312,21 +2397,36 @@
       <input name="generateAppraisalTemplate" message="tns:generateAppraisalTemplate" />
       <output name="generateAppraisalTemplate_Result" message="tns:generateAppraisalTemplate_Result" />
     </operation>
-    <operation name="generateP9">
-      <input name="generateP9" message="tns:generateP9" />
-      <output name="generateP9_Result" message="tns:generateP9_Result" />
-    </operation>
-    <operation name="generatePayslip">
-      <input name="generatePayslip" message="tns:generatePayslip" />
-      <output name="generatePayslip_Result" message="tns:generatePayslip_Result" />
-    </operation>
-    <operation name="reopenCreditSales">
-      <input name="reopenCreditSales" message="tns:reopenCreditSales" />
-      <output name="reopenCreditSales_Result" message="tns:reopenCreditSales_Result" />
-    </operation>
   </portType>
   <binding name="NewHrPortal_Binding" type="tns:NewHrPortal_Port">
     <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="generateP9">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:generateP9" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="generateP9">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="generateP9_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="generatePayslip">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:generatePayslip" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="generatePayslip">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="generatePayslip_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="reopenCreditSales">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:reopenCreditSales" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="reopenCreditSales">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="reopenCreditSales_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="sendImprestApplicationApproval">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:sendImprestApplicationApproval" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="sendImprestApplicationApproval">
@@ -2579,6 +2679,15 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="LoginEmployeeOTP">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:LoginEmployeeOTP" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="LoginEmployeeOTP">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="LoginEmployeeOTP_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="Reject1">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:Reject1" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="Reject1">
@@ -2597,12 +2706,30 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
+    <operation name="RequestEmployeeOTP">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:RequestEmployeeOTP" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="RequestEmployeeOTP">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="RequestEmployeeOTP_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
     <operation name="SafariRequestReport">
       <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:SafariRequestReport" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       <input name="SafariRequestReport">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="SafariRequestReport_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SendEmailNotification">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:SendEmailNotification" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SendEmailNotification">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SendEmailNotification_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
@@ -3080,33 +3207,6 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="generateAppraisalTemplate_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
-    <operation name="generateP9">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:generateP9" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="generateP9">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="generateP9_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
-    <operation name="generatePayslip">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:generatePayslip" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="generatePayslip">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="generatePayslip_Result">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </output>
-    </operation>
-    <operation name="reopenCreditSales">
-      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NewHrPortal:reopenCreditSales" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      <input name="reopenCreditSales">
-        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
-      </input>
-      <output name="reopenCreditSales_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
